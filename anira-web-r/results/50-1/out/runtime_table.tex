@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\caption{Descriptive statistics of \emph{RpS} observations for the Bypass-Engine across different models and execution environments. All values are expressed in milliseconds per sample.}
+\label{tab:runtime-overview}
+\centering
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llcc}
+\toprule
+& \textbf{Model} & \textbf{Mean} & \textbf{SE} \\
+\midrule
+  \multirow{2}{*}{\textbf{Native}} & SteerableNAFX & $3.91\cdot10^{-4}$ & $8.45\cdot10^{-5}$ \\
+   & GuitarLSTM & $5.86\cdot10^{-4}$ & $6.47\cdot10^{-5}$ \\
+\midrule
+  \multirow{2}{*}{\textbf{Chrome}} & SteerableNAFX & $3.46\cdot10^{-4}$ & $7.15\cdot10^{-5}$ \\
+   & GuitarLSTM & $1.03\cdot10^{-3}$ & $1.73\cdot10^{-5}$ \\
+\midrule
+  \multirow{2}{*}{\textbf{Firefox}} & SteerableNAFX & $3.44\cdot10^{-4}$ & $7.23\cdot10^{-5}$ \\
+   & GuitarLSTM & $7.75\cdot10^{-4}$ & $3.16\cdot10^{-5}$ \\
+\midrule
+  \multirow{2}{*}{\textbf{Safari}} & SteerableNAFX & $3.62\cdot10^{-4}$ & $7.63\cdot10^{-5}$ \\
+   & GuitarLSTM & $7.89\cdot10^{-4}$ & $6.05\cdot10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

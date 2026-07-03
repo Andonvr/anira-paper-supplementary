@@ -1,0 +1,1944 @@
+here() starts at /home
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘lmerTest’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+The following object is masked from ‘package:stats’:
+
+    step
+
+Welcome to emmeans.
+Caution: You lose important information if you filter this package's results.
+See '? untidy'
+
+Backend cost (hold PP constant, per browser × model)
+
+NOTE: Results may be misleading due to involvement in interactions
+PP = wasm, Environment = Chrome, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.001021 9.47e-06 1296 0.001002 0.001040
+ js-bypass   0.001036 9.61e-06 1296 0.001017 0.001055
+ js-onnx     0.011962 1.11e-04 1296 0.011746 0.012181
+ wasm-onnx   0.011865 1.10e-04 1296 0.011651 0.012083
+
+PP = js, Environment = Chrome, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.001048 9.72e-06 1296 0.001029 0.001067
+ js-bypass   0.001063 9.86e-06 1296 0.001044 0.001082
+ js-onnx     0.011955 1.11e-04 1296 0.011739 0.012174
+ wasm-onnx   0.011892 1.10e-04 1296 0.011677 0.012110
+
+PP = wasm, Environment = Firefox, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000755 7.01e-06 1296 0.000742 0.000769
+ js-bypass   0.000763 7.08e-06 1296 0.000750 0.000777
+ js-onnx     0.005975 5.54e-05 1296 0.005867 0.006084
+ wasm-onnx   0.006546 6.07e-05 1296 0.006428 0.006666
+
+PP = js, Environment = Firefox, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000793 7.35e-06 1296 0.000778 0.000807
+ js-bypass   0.000810 7.51e-06 1296 0.000795 0.000825
+ js-onnx     0.006030 5.59e-05 1296 0.005922 0.006141
+ wasm-onnx   0.006557 6.08e-05 1296 0.006438 0.006677
+
+PP = wasm, Environment = Safari, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000718 6.66e-06 1296 0.000705 0.000731
+ js-bypass   0.000739 6.85e-06 1296 0.000726 0.000752
+ js-onnx     0.006876 6.38e-05 1296 0.006752 0.007002
+ wasm-onnx   0.005986 5.55e-05 1296 0.005878 0.006096
+
+PP = js, Environment = Safari, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.001045 9.69e-06 1296 0.001026 0.001064
+ js-bypass   0.001061 9.84e-06 1296 0.001042 0.001080
+ js-onnx     0.006853 6.36e-05 1296 0.006730 0.006979
+ wasm-onnx   0.006376 5.92e-05 1296 0.006261 0.006493
+
+PP = wasm, Environment = Chrome, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000151 1.40e-06 1296 0.000149 0.000154
+ js-bypass   0.000159 1.47e-06 1296 0.000156 0.000161
+ js-onnx     0.042097 3.91e-04 1296 0.041337 0.042870
+ wasm-onnx   0.042058 3.90e-04 1296 0.041299 0.042830
+
+PP = js, Environment = Chrome, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000158 1.47e-06 1296 0.000156 0.000161
+ js-bypass   0.000164 1.53e-06 1296 0.000161 0.000167
+ js-onnx     0.042189 3.91e-04 1296 0.041428 0.042964
+ wasm-onnx   0.042109 3.91e-04 1296 0.041350 0.042883
+
+PP = wasm, Environment = Firefox, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000138 1.28e-06 1296 0.000136 0.000141
+ js-bypass   0.000142 1.31e-06 1296 0.000139 0.000144
+ js-onnx     0.020479 1.90e-04 1296 0.020110 0.020855
+ wasm-onnx   0.020939 1.94e-04 1296 0.020561 0.021324
+
+PP = js, Environment = Firefox, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000127 1.18e-06 1296 0.000125 0.000130
+ js-bypass   0.000137 1.27e-06 1296 0.000135 0.000140
+ js-onnx     0.020493 1.90e-04 1296 0.020124 0.020870
+ wasm-onnx   0.021001 1.95e-04 1296 0.020622 0.021387
+
+PP = wasm, Environment = Safari, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000140 1.30e-06 1296 0.000138 0.000143
+ js-bypass   0.000180 1.67e-06 1296 0.000176 0.000183
+ js-onnx     0.020601 1.91e-04 1296 0.020229 0.020979
+ wasm-onnx   0.020932 1.94e-04 1296 0.020555 0.021317
+
+PP = js, Environment = Safari, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000143 1.33e-06 1296 0.000140 0.000146
+ js-bypass   0.000195 1.81e-06 1296 0.000192 0.000199
+ js-onnx     0.020544 1.91e-04 1296 0.020173 0.020921
+ wasm-onnx   0.020853 1.93e-04 1296 0.020477 0.021236
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+PP = wasm, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.98567 1.29e-02 1296    1   -1.100  0.5428
+ (wasm-bypass) / (js-onnx)   0.08535 1.12e-03 1296    1 -187.575 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.08604 1.13e-03 1296    1 -186.957 <0.0001
+ (js-bypass) / (js-onnx)     0.08659 1.14e-03 1296    1 -186.475 <0.0001
+ (js-bypass) / (wasm-onnx)   0.08729 1.15e-03 1296    1 -185.856 <0.0001
+ (js-onnx) / (wasm-onnx)     1.00814 1.32e-02 1296    1    0.618  0.5428
+
+PP = js, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.98592 1.29e-02 1296    1   -1.081  0.5597
+ (wasm-bypass) / (js-onnx)   0.08766 1.15e-03 1296    1 -185.538 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.08812 1.16e-03 1296    1 -185.136 <0.0001
+ (js-bypass) / (js-onnx)     0.08891 1.17e-03 1296    1 -184.457 <0.0001
+ (js-bypass) / (wasm-onnx)   0.08938 1.17e-03 1296    1 -184.055 <0.0001
+ (js-onnx) / (wasm-onnx)     1.00530 1.32e-02 1296    1    0.403  0.6871
+
+PP = wasm, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.98938 1.30e-02 1296    1   -0.814  0.4160
+ (wasm-bypass) / (js-onnx)   0.12641 1.66e-03 1296    1 -157.636 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.11538 1.51e-03 1296    1 -164.592 <0.0001
+ (js-bypass) / (js-onnx)     0.12777 1.68e-03 1296    1 -156.822 <0.0001
+ (js-bypass) / (wasm-onnx)   0.11662 1.53e-03 1296    1 -163.779 <0.0001
+ (js-onnx) / (wasm-onnx)     0.91277 1.20e-02 1296    1   -6.956 <0.0001
+
+PP = js, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.97856 1.28e-02 1296    1   -1.652  0.0988
+ (wasm-bypass) / (js-onnx)   0.13143 1.72e-03 1296    1 -154.668 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.12088 1.59e-03 1296    1 -161.045 <0.0001
+ (js-bypass) / (js-onnx)     0.13431 1.76e-03 1296    1 -153.016 <0.0001
+ (js-bypass) / (wasm-onnx)   0.12353 1.62e-03 1296    1 -159.393 <0.0001
+ (js-onnx) / (wasm-onnx)     0.91974 1.21e-02 1296    1   -6.377 <0.0001
+
+PP = wasm, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.97113 1.27e-02 1296    1   -2.233  0.0257
+ (wasm-bypass) / (js-onnx)   0.10435 1.37e-03 1296    1 -172.254 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.11987 1.57e-03 1296    1 -161.685 <0.0001
+ (js-bypass) / (js-onnx)     0.10745 1.41e-03 1296    1 -170.021 <0.0001
+ (js-bypass) / (wasm-onnx)   0.12343 1.62e-03 1296    1 -159.452 <0.0001
+ (js-onnx) / (wasm-onnx)     1.14873 1.51e-02 1296    1   10.568 <0.0001
+
+PP = js, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.98469 1.29e-02 1296    1   -1.176  0.2397
+ (wasm-bypass) / (js-onnx)   0.15241 2.00e-03 1296    1 -143.380 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.16383 2.15e-03 1296    1 -137.874 <0.0001
+ (js-bypass) / (js-onnx)     0.15478 2.03e-03 1296    1 -142.204 <0.0001
+ (js-bypass) / (wasm-onnx)   0.16637 2.18e-03 1296    1 -136.697 <0.0001
+ (js-onnx) / (wasm-onnx)     1.07491 1.41e-02 1296    1    5.506 <0.0001
+
+PP = wasm, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.95487 1.25e-02 1296    1   -3.519  0.0009
+ (wasm-bypass) / (js-onnx)   0.00360 4.72e-05 1296    1 -428.944 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00360 4.72e-05 1296    1 -428.874 <0.0001
+ (js-bypass) / (js-onnx)     0.00377 4.94e-05 1296    1 -425.425 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00377 4.95e-05 1296    1 -425.355 <0.0001
+ (js-onnx) / (wasm-onnx)     1.00092 1.31e-02 1296    1    0.070  0.9441
+
+PP = js, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.96333 1.26e-02 1296    1   -2.847  0.0090
+ (wasm-bypass) / (js-onnx)   0.00375 4.93e-05 1296    1 -425.674 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00376 4.93e-05 1296    1 -425.530 <0.0001
+ (js-bypass) / (js-onnx)     0.00390 5.11e-05 1296    1 -422.827 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00390 5.12e-05 1296    1 -422.682 <0.0001
+ (js-onnx) / (wasm-onnx)     1.00190 1.31e-02 1296    1    0.145  0.8851
+
+PP = wasm, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.97601 1.28e-02 1296    1   -1.851  0.1288
+ (wasm-bypass) / (js-onnx)   0.00675 8.86e-05 1296    1 -380.923 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00660 8.67e-05 1296    1 -382.615 <0.0001
+ (js-bypass) / (js-onnx)     0.00692 9.08e-05 1296    1 -379.072 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00677 8.88e-05 1296    1 -380.764 <0.0001
+ (js-onnx) / (wasm-onnx)     0.97804 1.28e-02 1296    1   -1.692  0.1288
+
+PP = js, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.92863 1.22e-02 1296    1   -5.644 <0.0001
+ (wasm-bypass) / (js-onnx)   0.00621 8.15e-05 1296    1 -387.278 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00606 7.95e-05 1296    1 -389.144 <0.0001
+ (js-bypass) / (js-onnx)     0.00669 8.78e-05 1296    1 -381.635 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00653 8.56e-05 1296    1 -383.501 <0.0001
+ (js-onnx) / (wasm-onnx)     0.97581 1.28e-02 1296    1   -1.866  0.0623
+
+PP = wasm, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.77951 1.02e-02 1296    1  -18.985 <0.0001
+ (wasm-bypass) / (js-onnx)   0.00680 8.92e-05 1296    1 -380.419 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00669 8.78e-05 1296    1 -381.636 <0.0001
+ (js-bypass) / (js-onnx)     0.00872 1.14e-04 1296    1 -361.434 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00858 1.13e-04 1296    1 -362.651 <0.0001
+ (js-onnx) / (wasm-onnx)     0.98416 1.29e-02 1296    1   -1.217  0.2238
+
+PP = js, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.73322 9.62e-03 1296    1  -23.651 <0.0001
+ (wasm-bypass) / (js-onnx)   0.00696 9.13e-05 1296    1 -378.591 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00686 9.00e-05 1296    1 -379.728 <0.0001
+ (js-bypass) / (js-onnx)     0.00950 1.25e-04 1296    1 -354.940 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00936 1.23e-04 1296    1 -356.077 <0.0001
+ (js-onnx) / (wasm-onnx)     0.98518 1.29e-02 1296    1   -1.138  0.2555
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+emm_rq3_backend.csv written to ./results/50-1
+
+PP cost (hold backend constant, per browser × model)
+
+NOTE: Results may be misleading due to involvement in interactions
+Backend = wasm-bypass, Environment = Chrome, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.001021 9.47e-06 1296 0.001002 0.001040
+ js   0.001048 9.72e-06 1296 0.001029 0.001067
+
+Backend = js-bypass, Environment = Chrome, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.001036 9.61e-06 1296 0.001017 0.001055
+ js   0.001063 9.86e-06 1296 0.001044 0.001082
+
+Backend = js-onnx, Environment = Chrome, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.011962 1.11e-04 1296 0.011746 0.012181
+ js   0.011955 1.11e-04 1296 0.011739 0.012174
+
+Backend = wasm-onnx, Environment = Chrome, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.011865 1.10e-04 1296 0.011651 0.012083
+ js   0.011892 1.10e-04 1296 0.011677 0.012110
+
+Backend = wasm-bypass, Environment = Firefox, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000755 7.01e-06 1296 0.000742 0.000769
+ js   0.000793 7.35e-06 1296 0.000778 0.000807
+
+Backend = js-bypass, Environment = Firefox, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000763 7.08e-06 1296 0.000750 0.000777
+ js   0.000810 7.51e-06 1296 0.000795 0.000825
+
+Backend = js-onnx, Environment = Firefox, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.005975 5.54e-05 1296 0.005867 0.006084
+ js   0.006030 5.59e-05 1296 0.005922 0.006141
+
+Backend = wasm-onnx, Environment = Firefox, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.006546 6.07e-05 1296 0.006428 0.006666
+ js   0.006557 6.08e-05 1296 0.006438 0.006677
+
+Backend = wasm-bypass, Environment = Safari, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000718 6.66e-06 1296 0.000705 0.000731
+ js   0.001045 9.69e-06 1296 0.001026 0.001064
+
+Backend = js-bypass, Environment = Safari, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000739 6.85e-06 1296 0.000726 0.000752
+ js   0.001061 9.84e-06 1296 0.001042 0.001080
+
+Backend = js-onnx, Environment = Safari, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.006876 6.38e-05 1296 0.006752 0.007002
+ js   0.006853 6.36e-05 1296 0.006730 0.006979
+
+Backend = wasm-onnx, Environment = Safari, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.005986 5.55e-05 1296 0.005878 0.006096
+ js   0.006376 5.92e-05 1296 0.006261 0.006493
+
+Backend = wasm-bypass, Environment = Chrome, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000151 1.40e-06 1296 0.000149 0.000154
+ js   0.000158 1.47e-06 1296 0.000156 0.000161
+
+Backend = js-bypass, Environment = Chrome, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000159 1.47e-06 1296 0.000156 0.000161
+ js   0.000164 1.53e-06 1296 0.000161 0.000167
+
+Backend = js-onnx, Environment = Chrome, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.042097 3.91e-04 1296 0.041337 0.042870
+ js   0.042189 3.91e-04 1296 0.041428 0.042964
+
+Backend = wasm-onnx, Environment = Chrome, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.042058 3.90e-04 1296 0.041299 0.042830
+ js   0.042109 3.91e-04 1296 0.041350 0.042883
+
+Backend = wasm-bypass, Environment = Firefox, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000138 1.28e-06 1296 0.000136 0.000141
+ js   0.000127 1.18e-06 1296 0.000125 0.000130
+
+Backend = js-bypass, Environment = Firefox, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000142 1.31e-06 1296 0.000139 0.000144
+ js   0.000137 1.27e-06 1296 0.000135 0.000140
+
+Backend = js-onnx, Environment = Firefox, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.020479 1.90e-04 1296 0.020110 0.020855
+ js   0.020493 1.90e-04 1296 0.020124 0.020870
+
+Backend = wasm-onnx, Environment = Firefox, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.020939 1.94e-04 1296 0.020561 0.021324
+ js   0.021001 1.95e-04 1296 0.020622 0.021387
+
+Backend = wasm-bypass, Environment = Safari, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000140 1.30e-06 1296 0.000138 0.000143
+ js   0.000143 1.33e-06 1296 0.000140 0.000146
+
+Backend = js-bypass, Environment = Safari, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.000180 1.67e-06 1296 0.000176 0.000183
+ js   0.000195 1.81e-06 1296 0.000192 0.000199
+
+Backend = js-onnx, Environment = Safari, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.020601 1.91e-04 1296 0.020229 0.020979
+ js   0.020544 1.91e-04 1296 0.020173 0.020921
+
+Backend = wasm-onnx, Environment = Safari, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm 0.020932 1.94e-04 1296 0.020555 0.021317
+ js   0.020853 1.93e-04 1296 0.020477 0.021236
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Backend = wasm-bypass, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.974 0.01280 1296    1  -1.994  0.0464
+
+Backend = js-bypass, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.974 0.01280 1296    1  -1.975  0.0485
+
+Backend = js-onnx, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.001 0.01310 1296    1   0.042  0.9662
+
+Backend = wasm-onnx, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.998 0.01310 1296    1  -0.173  0.8628
+
+Backend = wasm-bypass, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.953 0.01250 1296    1  -3.675  0.0002
+
+Backend = js-bypass, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.943 0.01240 1296    1  -4.513 <0.0001
+
+Backend = js-onnx, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.991 0.01300 1296    1  -0.707  0.4799
+
+Backend = wasm-onnx, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.998 0.01310 1296    1  -0.127  0.8990
+
+Backend = wasm-bypass, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.687 0.00901 1296    1 -28.622 <0.0001
+
+Backend = js-bypass, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.697 0.00914 1296    1 -27.566 <0.0001
+
+Backend = js-onnx, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.003 0.01320 1296    1   0.252  0.8014
+
+Backend = wasm-onnx, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.939 0.01230 1296    1  -4.811 <0.0001
+
+Backend = wasm-bypass, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.956 0.01250 1296    1  -3.438  0.0006
+
+Backend = js-bypass, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.964 0.01270 1296    1  -2.766  0.0058
+
+Backend = js-onnx, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.998 0.01310 1296    1  -0.167  0.8672
+
+Backend = wasm-onnx, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.999 0.01310 1296    1  -0.093  0.9261
+
+Backend = wasm-bypass, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.086 0.01430 1296    1   6.303 <0.0001
+
+Backend = js-bypass, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.033 0.01360 1296    1   2.510  0.0122
+
+Backend = js-onnx, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.999 0.01310 1296    1  -0.052  0.9584
+
+Backend = wasm-onnx, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.997 0.01310 1296    1  -0.226  0.8211
+
+Backend = wasm-bypass, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.979 0.01280 1296    1  -1.617  0.1061
+
+Backend = js-bypass, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.921 0.01210 1296    1  -6.283 <0.0001
+
+Backend = js-onnx, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.003 0.01320 1296    1   0.211  0.8329
+
+Backend = wasm-onnx, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.004 0.01320 1296    1   0.290  0.7717
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Tests are performed on the log scale 
+emm_rq3_pp.csv written to ./results/50-1
+
+Full factorial Backend × PP by buffer size × browser × model
+
+Buffer.Size = 128, Environment = Chrome, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 1.15e-03 1.85e-05 1296 1.11e-03 1.19e-03
+ js-bypass   wasm 1.19e-03 1.92e-05 1296 1.16e-03 1.23e-03
+ js-onnx     wasm 1.25e-02 2.01e-04 1296 1.21e-02 1.29e-02
+ wasm-onnx   wasm 1.24e-02 1.99e-04 1296 1.20e-02 1.28e-02
+ wasm-bypass js   1.21e-03 1.95e-05 1296 1.17e-03 1.25e-03
+ js-bypass   js   1.26e-03 2.02e-05 1296 1.22e-03 1.30e-03
+ js-onnx     js   1.24e-02 2.00e-04 1296 1.21e-02 1.28e-02
+ wasm-onnx   js   1.25e-02 2.00e-04 1296 1.21e-02 1.29e-02
+
+Buffer.Size = 1024, Environment = Chrome, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 9.73e-04 1.56e-05 1296 9.42e-04 1.00e-03
+ js-bypass   wasm 9.79e-04 1.57e-05 1296 9.49e-04 1.01e-03
+ js-onnx     wasm 1.17e-02 1.89e-04 1296 1.14e-02 1.21e-02
+ wasm-onnx   wasm 1.16e-02 1.87e-04 1296 1.13e-02 1.20e-02
+ wasm-bypass js   9.82e-04 1.58e-05 1296 9.51e-04 1.01e-03
+ js-bypass   js   9.87e-04 1.59e-05 1296 9.56e-04 1.02e-03
+ js-onnx     js   1.17e-02 1.88e-04 1296 1.14e-02 1.21e-02
+ wasm-onnx   js   1.16e-02 1.87e-04 1296 1.13e-02 1.20e-02
+
+Buffer.Size = 8192, Environment = Chrome, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 9.52e-04 1.53e-05 1296 9.23e-04 9.83e-04
+ js-bypass   wasm 9.50e-04 1.53e-05 1296 9.21e-04 9.81e-04
+ js-onnx     wasm 1.17e-02 1.88e-04 1296 1.13e-02 1.21e-02
+ wasm-onnx   wasm 1.16e-02 1.86e-04 1296 1.12e-02 1.19e-02
+ wasm-bypass js   9.68e-04 1.56e-05 1296 9.38e-04 9.99e-04
+ js-bypass   js   9.68e-04 1.56e-05 1296 9.38e-04 9.99e-04
+ js-onnx     js   1.17e-02 1.88e-04 1296 1.14e-02 1.21e-02
+ wasm-onnx   js   1.16e-02 1.86e-04 1296 1.12e-02 1.20e-02
+
+Buffer.Size = 128, Environment = Firefox, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 1.00e-03 1.61e-05 1296 9.70e-04 1.03e-03
+ js-bypass   wasm 1.02e-03 1.64e-05 1296 9.91e-04 1.06e-03
+ js-onnx     wasm 6.53e-03 1.05e-04 1296 6.33e-03 6.74e-03
+ wasm-onnx   wasm 7.47e-03 1.20e-04 1296 7.24e-03 7.71e-03
+ wasm-bypass js   1.01e-03 1.62e-05 1296 9.79e-04 1.04e-03
+ js-bypass   js   1.09e-03 1.75e-05 1296 1.06e-03 1.13e-03
+ js-onnx     js   6.62e-03 1.06e-04 1296 6.42e-03 6.83e-03
+ wasm-onnx   js   7.45e-03 1.20e-04 1296 7.22e-03 7.69e-03
+
+Buffer.Size = 1024, Environment = Firefox, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 6.88e-04 1.11e-05 1296 6.67e-04 7.10e-04
+ js-bypass   wasm 6.91e-04 1.11e-05 1296 6.70e-04 7.14e-04
+ js-onnx     wasm 5.72e-03 9.20e-05 1296 5.55e-03 5.91e-03
+ wasm-onnx   wasm 6.16e-03 9.90e-05 1296 5.97e-03 6.36e-03
+ wasm-bypass js   7.32e-04 1.18e-05 1296 7.09e-04 7.55e-04
+ js-bypass   js   7.30e-04 1.17e-05 1296 7.07e-04 7.53e-04
+ js-onnx     js   5.76e-03 9.26e-05 1296 5.59e-03 5.95e-03
+ wasm-onnx   js   6.20e-03 9.96e-05 1296 6.00e-03 6.40e-03
+
+Buffer.Size = 8192, Environment = Firefox, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 6.26e-04 1.01e-05 1296 6.06e-04 6.46e-04
+ js-bypass   wasm 6.29e-04 1.01e-05 1296 6.10e-04 6.49e-04
+ js-onnx     wasm 5.71e-03 9.17e-05 1296 5.53e-03 5.89e-03
+ wasm-onnx   wasm 6.09e-03 9.79e-05 1296 5.90e-03 6.29e-03
+ wasm-bypass js   6.73e-04 1.08e-05 1296 6.52e-04 6.94e-04
+ js-bypass   js   6.67e-04 1.07e-05 1296 6.46e-04 6.88e-04
+ js-onnx     js   5.74e-03 9.23e-05 1296 5.57e-03 5.93e-03
+ wasm-onnx   js   6.10e-03 9.81e-05 1296 5.91e-03 6.30e-03
+
+Buffer.Size = 128, Environment = Safari, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 1.18e-03 1.90e-05 1296 1.14e-03 1.22e-03
+ js-bypass   wasm 1.22e-03 1.97e-05 1296 1.19e-03 1.26e-03
+ js-onnx     wasm 7.20e-03 1.16e-04 1296 6.97e-03 7.43e-03
+ wasm-onnx   wasm 7.26e-03 1.17e-04 1296 7.04e-03 7.49e-03
+ wasm-bypass js   1.20e-03 1.93e-05 1296 1.16e-03 1.24e-03
+ js-bypass   js   1.36e-03 2.18e-05 1296 1.32e-03 1.40e-03
+ js-onnx     js   7.53e-03 1.21e-04 1296 7.29e-03 7.77e-03
+ wasm-onnx   js   7.51e-03 1.21e-04 1296 7.27e-03 7.75e-03
+
+Buffer.Size = 1024, Environment = Safari, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 5.94e-04 9.55e-06 1296 5.76e-04 6.13e-04
+ js-bypass   wasm 6.08e-04 9.77e-06 1296 5.89e-04 6.28e-04
+ js-onnx     wasm 6.15e-03 9.88e-05 1296 5.96e-03 6.35e-03
+ wasm-onnx   wasm 5.55e-03 8.92e-05 1296 5.38e-03 5.73e-03
+ wasm-bypass js   9.08e-04 1.46e-05 1296 8.79e-04 9.37e-04
+ js-bypass   js   7.65e-04 1.23e-05 1296 7.41e-04 7.89e-04
+ js-onnx     js   6.56e-03 1.05e-04 1296 6.36e-03 6.77e-03
+ wasm-onnx   js   5.88e-03 9.45e-05 1296 5.70e-03 6.07e-03
+
+Buffer.Size = 8192, Environment = Safari, Model.Unique = guitar-lstm:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 5.26e-04 8.46e-06 1296 5.10e-04 5.43e-04
+ js-bypass   wasm 5.42e-04 8.71e-06 1296 5.25e-04 5.60e-04
+ js-onnx     wasm 7.35e-03 1.18e-04 1296 7.12e-03 7.58e-03
+ wasm-onnx   wasm 5.32e-03 8.55e-05 1296 5.16e-03 5.49e-03
+ wasm-bypass js   1.05e-03 1.68e-05 1296 1.01e-03 1.08e-03
+ js-bypass   js   1.15e-03 1.85e-05 1296 1.11e-03 1.19e-03
+ js-onnx     js   6.52e-03 1.05e-04 1296 6.32e-03 6.73e-03
+ wasm-onnx   js   5.87e-03 9.43e-05 1296 5.69e-03 6.06e-03
+
+Buffer.Size = 128, Environment = Chrome, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 8.46e-04 1.36e-05 1296 8.20e-04 8.73e-04
+ js-bypass   wasm 8.66e-04 1.39e-05 1296 8.39e-04 8.94e-04
+ js-onnx     wasm 2.77e-01 4.46e-03 1296 2.69e-01 2.86e-01
+ wasm-onnx   wasm 2.77e-01 4.45e-03 1296 2.68e-01 2.86e-01
+ wasm-bypass js   8.76e-04 1.41e-05 1296 8.49e-04 9.04e-04
+ js-bypass   js   8.98e-04 1.44e-05 1296 8.70e-04 9.26e-04
+ js-onnx     js   2.77e-01 4.46e-03 1296 2.69e-01 2.86e-01
+ wasm-onnx   js   2.77e-01 4.46e-03 1296 2.69e-01 2.86e-01
+
+Buffer.Size = 1024, Environment = Chrome, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 1.11e-04 1.79e-06 1296 1.08e-04 1.15e-04
+ js-bypass   wasm 1.18e-04 1.89e-06 1296 1.14e-04 1.22e-04
+ js-onnx     wasm 3.72e-02 5.98e-04 1296 3.60e-02 3.84e-02
+ wasm-onnx   wasm 3.71e-02 5.97e-04 1296 3.60e-02 3.83e-02
+ wasm-bypass js   1.19e-04 1.91e-06 1296 1.15e-04 1.22e-04
+ js-bypass   js   1.23e-04 1.98e-06 1296 1.19e-04 1.27e-04
+ js-onnx     js   3.73e-02 5.99e-04 1296 3.61e-02 3.85e-02
+ wasm-onnx   js   3.71e-02 5.97e-04 1296 3.60e-02 3.83e-02
+
+Buffer.Size = 8192, Environment = Chrome, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 3.68e-05 5.92e-07 1296 3.57e-05 3.80e-05
+ js-bypass   wasm 3.91e-05 6.28e-07 1296 3.79e-05 4.03e-05
+ js-onnx     wasm 7.23e-03 1.16e-04 1296 7.01e-03 7.46e-03
+ wasm-onnx   wasm 7.23e-03 1.16e-04 1296 7.01e-03 7.47e-03
+ wasm-bypass js   3.82e-05 6.14e-07 1296 3.70e-05 3.94e-05
+ js-bypass   js   4.02e-05 6.45e-07 1296 3.89e-05 4.14e-05
+ js-onnx     js   7.26e-03 1.17e-04 1296 7.03e-03 7.49e-03
+ wasm-onnx   js   7.25e-03 1.16e-04 1296 7.02e-03 7.48e-03
+
+Buffer.Size = 128, Environment = Firefox, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 8.80e-04 1.41e-05 1296 8.53e-04 9.08e-04
+ js-bypass   wasm 8.83e-04 1.42e-05 1296 8.56e-04 9.12e-04
+ js-onnx     wasm 1.35e-01 2.17e-03 1296 1.31e-01 1.39e-01
+ wasm-onnx   wasm 1.37e-01 2.20e-03 1296 1.32e-01 1.41e-01
+ wasm-bypass js   8.78e-04 1.41e-05 1296 8.51e-04 9.06e-04
+ js-bypass   js   8.85e-04 1.42e-05 1296 8.58e-04 9.13e-04
+ js-onnx     js   1.35e-01 2.17e-03 1296 1.31e-01 1.40e-01
+ wasm-onnx   js   1.37e-01 2.20e-03 1296 1.33e-01 1.42e-01
+
+Buffer.Size = 1024, Environment = Firefox, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 1.09e-04 1.76e-06 1296 1.06e-04 1.13e-04
+ js-bypass   wasm 1.14e-04 1.84e-06 1296 1.11e-04 1.18e-04
+ js-onnx     wasm 1.81e-02 2.91e-04 1296 1.75e-02 1.87e-02
+ wasm-onnx   wasm 1.84e-02 2.96e-04 1296 1.79e-02 1.90e-02
+ wasm-bypass js   9.10e-05 1.46e-06 1296 8.82e-05 9.39e-05
+ js-bypass   js   1.12e-04 1.80e-06 1296 1.08e-04 1.15e-04
+ js-onnx     js   1.81e-02 2.91e-04 1296 1.76e-02 1.87e-02
+ wasm-onnx   js   1.85e-02 2.97e-04 1296 1.79e-02 1.91e-02
+
+Buffer.Size = 8192, Environment = Firefox, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 2.75e-05 4.42e-07 1296 2.66e-05 2.84e-05
+ js-bypass   wasm 2.82e-05 4.53e-07 1296 2.73e-05 2.91e-05
+ js-onnx     wasm 3.51e-03 5.64e-05 1296 3.40e-03 3.62e-03
+ wasm-onnx   wasm 3.65e-03 5.86e-05 1296 3.53e-03 3.76e-03
+ wasm-bypass js   2.58e-05 4.15e-07 1296 2.50e-05 2.66e-05
+ js-bypass   js   2.60e-05 4.18e-07 1296 2.52e-05 2.69e-05
+ js-onnx     js   3.51e-03 5.64e-05 1296 3.40e-03 3.62e-03
+ wasm-onnx   js   3.65e-03 5.87e-05 1296 3.54e-03 3.77e-03
+
+Buffer.Size = 128, Environment = Safari, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 8.84e-04 1.42e-05 1296 8.57e-04 9.13e-04
+ js-bypass   wasm 9.24e-04 1.49e-05 1296 8.96e-04 9.54e-04
+ js-onnx     wasm 1.35e-01 2.18e-03 1296 1.31e-01 1.40e-01
+ wasm-onnx   wasm 1.36e-01 2.19e-03 1296 1.32e-01 1.41e-01
+ wasm-bypass js   9.13e-04 1.47e-05 1296 8.84e-04 9.42e-04
+ js-bypass   js   9.55e-04 1.53e-05 1296 9.25e-04 9.85e-04
+ js-onnx     js   1.35e-01 2.18e-03 1296 1.31e-01 1.40e-01
+ wasm-onnx   js   1.36e-01 2.19e-03 1296 1.32e-01 1.41e-01
+
+Buffer.Size = 1024, Environment = Safari, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 1.17e-04 1.87e-06 1296 1.13e-04 1.20e-04
+ js-bypass   wasm 1.39e-04 2.23e-06 1296 1.34e-04 1.43e-04
+ js-onnx     wasm 1.82e-02 2.92e-04 1296 1.76e-02 1.87e-02
+ wasm-onnx   wasm 1.84e-02 2.95e-04 1296 1.78e-02 1.90e-02
+ wasm-bypass js   1.21e-04 1.95e-06 1296 1.18e-04 1.25e-04
+ js-bypass   js   1.48e-04 2.38e-06 1296 1.43e-04 1.53e-04
+ js-onnx     js   1.82e-02 2.92e-04 1296 1.76e-02 1.87e-02
+ wasm-onnx   js   1.84e-02 2.96e-04 1296 1.78e-02 1.90e-02
+
+Buffer.Size = 8192, Environment = Safari, Model.Unique = steerable-nafx:
+ Backend     PP   response       SE   df lower.CL upper.CL
+ wasm-bypass wasm 2.66e-05 4.28e-07 1296 2.58e-05 2.75e-05
+ js-bypass   wasm 4.53e-05 7.27e-07 1296 4.39e-05 4.67e-05
+ js-onnx     wasm 3.56e-03 5.71e-05 1296 3.45e-03 3.67e-03
+ wasm-onnx   wasm 3.66e-03 5.88e-05 1296 3.55e-03 3.78e-03
+ wasm-bypass js   2.64e-05 4.24e-07 1296 2.56e-05 2.73e-05
+ js-bypass   js   5.25e-05 8.44e-07 1296 5.09e-05 5.42e-05
+ js-onnx     js   3.53e-03 5.67e-05 1296 3.42e-03 3.64e-03
+ wasm-onnx   js   3.62e-03 5.81e-05 1296 3.51e-03 3.73e-03
+
+Results are averaged over the levels of: Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Buffer.Size = 128, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9622 0.021900 1296    1   -1.696
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0921 0.002090 1296    1 -104.967
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0927 0.002110 1296    1 -104.663
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9489 0.021600 1296    1   -2.307
+ (wasm-bypass wasm) / (js-bypass js)     0.9142 0.020800 1296    1   -3.945
+ (wasm-bypass wasm) / (js-onnx js)       0.0923 0.002100 1296    1 -104.843
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0923 0.002100 1296    1 -104.872
+ (js-bypass wasm) / (js-onnx wasm)       0.0957 0.002170 1296    1 -103.271
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0963 0.002190 1296    1 -102.966
+ (js-bypass wasm) / (wasm-bypass js)     0.9862 0.022400 1296    1   -0.611
+ (js-bypass wasm) / (js-bypass js)       0.9502 0.021600 1296    1   -2.249
+ (js-bypass wasm) / (js-onnx js)         0.0959 0.002180 1296    1 -103.146
+ (js-bypass wasm) / (wasm-onnx js)       0.0959 0.002180 1296    1 -103.175
+ (js-onnx wasm) / (wasm-onnx wasm)       1.0069 0.022900 1296    1    0.305
+ (js-onnx wasm) / (wasm-bypass js)      10.3083 0.234000 1296    1  102.660
+ (js-onnx wasm) / (js-bypass js)         9.9316 0.226000 1296    1  101.022
+ (js-onnx wasm) / (js-onnx js)           1.0028 0.022800 1296    1    0.125
+ (js-onnx wasm) / (wasm-onnx js)         1.0022 0.022800 1296    1    0.096
+ (wasm-onnx wasm) / (wasm-bypass js)    10.2372 0.233000 1296    1  102.355
+ (wasm-onnx wasm) / (js-bypass js)       9.8631 0.224000 1296    1  100.717
+ (wasm-onnx wasm) / (js-onnx js)         0.9959 0.022600 1296    1   -0.180
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9953 0.022600 1296    1   -0.209
+ (wasm-bypass js) / (js-bypass js)       0.9635 0.021900 1296    1   -1.638
+ (wasm-bypass js) / (js-onnx js)         0.0973 0.002210 1296    1 -102.535
+ (wasm-bypass js) / (wasm-onnx js)       0.0972 0.002210 1296    1 -102.564
+ (js-bypass js) / (js-onnx js)           0.1010 0.002300 1296    1 -100.897
+ (js-bypass js) / (wasm-onnx js)         0.1009 0.002290 1296    1 -100.926
+ (js-onnx js) / (wasm-onnx js)           0.9993 0.022700 1296    1   -0.029
+ p.value
+  0.8106
+ <0.0001
+ <0.0001
+  0.2332
+  0.0010
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  0.2467
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  0.8130
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 1024, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9935 0.022600 1296    1   -0.286
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0829 0.001880 1296    1 -109.594
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0836 0.001900 1296    1 -109.222
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9908 0.022500 1296    1   -0.406
+ (wasm-bypass wasm) / (js-bypass js)     0.9856 0.022400 1296    1   -0.637
+ (wasm-bypass wasm) / (js-onnx js)       0.0830 0.001890 1296    1 -109.524
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0835 0.001900 1296    1 -109.247
+ (js-bypass wasm) / (js-onnx wasm)       0.0834 0.001900 1296    1 -109.308
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0841 0.001910 1296    1 -108.936
+ (js-bypass wasm) / (wasm-bypass js)     0.9973 0.022700 1296    1   -0.120
+ (js-bypass wasm) / (js-bypass js)       0.9921 0.022500 1296    1   -0.351
+ (js-bypass wasm) / (js-onnx js)         0.0835 0.001900 1296    1 -109.239
+ (js-bypass wasm) / (wasm-onnx js)       0.0841 0.001910 1296    1 -108.962
+ (js-onnx wasm) / (wasm-onnx wasm)       1.0085 0.022900 1296    1    0.372
+ (js-onnx wasm) / (wasm-bypass js)      11.9567 0.272000 1296    1  109.188
+ (js-onnx wasm) / (js-bypass js)        11.8942 0.270000 1296    1  108.957
+ (js-onnx wasm) / (js-onnx js)           1.0016 0.022800 1296    1    0.070
+ (js-onnx wasm) / (wasm-onnx js)         1.0079 0.022900 1296    1    0.346
+ (wasm-onnx wasm) / (wasm-bypass js)    11.8561 0.269000 1296    1  108.816
+ (wasm-onnx wasm) / (js-bypass js)      11.7941 0.268000 1296    1  108.585
+ (wasm-onnx wasm) / (js-onnx js)         0.9931 0.022600 1296    1   -0.303
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9994 0.022700 1296    1   -0.026
+ (wasm-bypass js) / (js-bypass js)       0.9948 0.022600 1296    1   -0.231
+ (wasm-bypass js) / (js-onnx js)         0.0838 0.001900 1296    1 -109.118
+ (wasm-bypass js) / (wasm-onnx js)       0.0843 0.001920 1296    1 -108.841
+ (js-bypass js) / (js-onnx js)           0.0842 0.001910 1296    1 -108.887
+ (js-bypass js) / (wasm-onnx js)         0.0847 0.001930 1296    1 -108.611
+ (js-onnx js) / (wasm-onnx js)           1.0063 0.022900 1296    1    0.277
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 8192, Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   1.0017 0.022800 1296    1    0.076
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0815 0.001850 1296    1 -110.328
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0822 0.001870 1296    1 -109.934
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9833 0.022300 1296    1   -0.740
+ (wasm-bypass wasm) / (js-bypass js)     0.9832 0.022300 1296    1   -0.744
+ (wasm-bypass wasm) / (js-onnx js)       0.0813 0.001850 1296    1 -110.449
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0821 0.001870 1296    1 -109.999
+ (js-bypass wasm) / (js-onnx wasm)       0.0814 0.001850 1296    1 -110.404
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0821 0.001860 1296    1 -110.010
+ (js-bypass wasm) / (wasm-bypass js)     0.9816 0.022300 1296    1   -0.816
+ (js-bypass wasm) / (js-bypass js)       0.9815 0.022300 1296    1   -0.820
+ (js-bypass wasm) / (js-onnx js)         0.0811 0.001840 1296    1 -110.525
+ (js-bypass wasm) / (wasm-onnx js)       0.0820 0.001860 1296    1 -110.075
+ (js-onnx wasm) / (wasm-onnx wasm)       1.0090 0.022900 1296    1    0.394
+ (js-onnx wasm) / (wasm-bypass js)      12.0660 0.274000 1296    1  109.588
+ (js-onnx wasm) / (js-bypass js)        12.0650 0.274000 1296    1  109.584
+ (js-onnx wasm) / (js-onnx js)           0.9973 0.022700 1296    1   -0.121
+ (js-onnx wasm) / (wasm-onnx js)         1.0075 0.022900 1296    1    0.329
+ (wasm-onnx wasm) / (wasm-bypass js)    11.9585 0.272000 1296    1  109.194
+ (wasm-onnx wasm) / (js-bypass js)      11.9575 0.272000 1296    1  109.190
+ (wasm-onnx wasm) / (js-onnx js)         0.9884 0.022500 1296    1   -0.515
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9985 0.022700 1296    1   -0.065
+ (wasm-bypass js) / (js-bypass js)       0.9999 0.022700 1296    1   -0.004
+ (wasm-bypass js) / (js-onnx js)         0.0827 0.001880 1296    1 -109.709
+ (wasm-bypass js) / (wasm-onnx js)       0.0835 0.001900 1296    1 -109.259
+ (js-bypass js) / (js-onnx js)           0.0827 0.001880 1296    1 -109.705
+ (js-bypass js) / (wasm-onnx js)         0.0835 0.001900 1296    1 -109.255
+ (js-onnx js) / (wasm-onnx js)           1.0103 0.023000 1296    1    0.450
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 128, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9788 0.022200 1296    1   -0.944
+ (wasm-bypass wasm) / (js-onnx wasm)     0.1533 0.003480 1296    1  -82.531
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.1340 0.003040 1296    1  -88.453
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9900 0.022500 1296    1   -0.444
+ (wasm-bypass wasm) / (js-bypass js)     0.9168 0.020800 1296    1   -3.823
+ (wasm-bypass wasm) / (js-onnx js)       0.1511 0.003430 1296    1  -83.156
+ (wasm-bypass wasm) / (wasm-onnx js)     0.1343 0.003050 1296    1  -88.359
+ (js-bypass wasm) / (js-onnx wasm)       0.1566 0.003560 1296    1  -81.586
+ (js-bypass wasm) / (wasm-onnx wasm)     0.1369 0.003110 1296    1  -87.508
+ (js-bypass wasm) / (wasm-bypass js)     1.0114 0.023000 1296    1    0.500
+ (js-bypass wasm) / (js-bypass js)       0.9367 0.021300 1296    1   -2.879
+ (js-bypass wasm) / (js-onnx js)         0.1544 0.003510 1296    1  -82.212
+ (js-bypass wasm) / (wasm-onnx js)       0.1372 0.003120 1296    1  -87.414
+ (js-onnx wasm) / (wasm-onnx wasm)       0.8741 0.019900 1296    1   -5.922
+ (js-onnx wasm) / (wasm-bypass js)       6.4587 0.147000 1296    1   82.087
+ (js-onnx wasm) / (js-bypass js)         5.9812 0.136000 1296    1   78.707
+ (js-onnx wasm) / (js-onnx js)           0.9859 0.022400 1296    1   -0.626
+ (js-onnx wasm) / (wasm-onnx js)         0.8760 0.019900 1296    1   -5.828
+ (wasm-onnx wasm) / (wasm-bypass js)     7.3891 0.168000 1296    1   88.009
+ (wasm-onnx wasm) / (js-bypass js)       6.8428 0.156000 1296    1   84.629
+ (wasm-onnx wasm) / (js-onnx js)         1.1279 0.025600 1296    1    5.296
+ (wasm-onnx wasm) / (wasm-onnx js)       1.0021 0.022800 1296    1    0.094
+ (wasm-bypass js) / (js-bypass js)       0.9261 0.021000 1296    1   -3.380
+ (wasm-bypass js) / (js-onnx js)         0.1526 0.003470 1296    1  -82.713
+ (wasm-bypass js) / (wasm-onnx js)       0.1356 0.003080 1296    1  -87.915
+ (js-bypass js) / (js-onnx js)           0.1648 0.003750 1296    1  -79.333
+ (js-bypass js) / (wasm-onnx js)         0.1465 0.003330 1296    1  -84.535
+ (js-onnx js) / (wasm-onnx js)           0.8885 0.020200 1296    1   -5.202
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  0.0011
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  0.0243
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  0.0052
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+
+Buffer.Size = 1024, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9952 0.022600 1296    1   -0.213
+ (wasm-bypass wasm) / (js-onnx wasm)     0.1202 0.002730 1296    1  -93.233
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.1116 0.002540 1296    1  -96.480
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9399 0.021400 1296    1   -2.726
+ (wasm-bypass wasm) / (js-bypass js)     0.9428 0.021400 1296    1   -2.591
+ (wasm-bypass wasm) / (js-onnx js)       0.1193 0.002710 1296    1  -93.542
+ (wasm-bypass wasm) / (wasm-onnx js)     0.1110 0.002520 1296    1  -96.720
+ (js-bypass wasm) / (js-onnx wasm)       0.1208 0.002740 1296    1  -93.019
+ (js-bypass wasm) / (wasm-onnx wasm)     0.1122 0.002550 1296    1  -96.267
+ (js-bypass wasm) / (wasm-bypass js)     0.9445 0.021500 1296    1   -2.513
+ (js-bypass wasm) / (js-bypass js)       0.9474 0.021500 1296    1   -2.378
+ (js-bypass wasm) / (js-onnx js)         0.1199 0.002720 1296    1  -93.328
+ (js-bypass wasm) / (wasm-onnx js)       0.1116 0.002540 1296    1  -96.506
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9289 0.021100 1296    1   -3.247
+ (js-onnx wasm) / (wasm-bypass js)       7.8205 0.178000 1296    1   90.506
+ (js-onnx wasm) / (js-bypass js)         7.8446 0.178000 1296    1   90.641
+ (js-onnx wasm) / (js-onnx js)           0.9930 0.022600 1296    1   -0.309
+ (js-onnx wasm) / (wasm-onnx js)         0.9238 0.021000 1296    1   -3.487
+ (wasm-onnx wasm) / (wasm-bypass js)     8.4195 0.191000 1296    1   93.753
+ (wasm-onnx wasm) / (js-bypass js)       8.4454 0.192000 1296    1   93.889
+ (wasm-onnx wasm) / (js-onnx js)         1.0691 0.024300 1296    1    2.938
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9946 0.022600 1296    1   -0.240
+ (wasm-bypass js) / (js-bypass js)       1.0031 0.022800 1296    1    0.135
+ (wasm-bypass js) / (js-onnx js)         0.1270 0.002880 1296    1  -90.815
+ (wasm-bypass js) / (wasm-onnx js)       0.1181 0.002680 1296    1  -93.993
+ (js-bypass js) / (js-onnx js)           0.1266 0.002880 1296    1  -90.950
+ (js-bypass js) / (wasm-onnx js)         0.1178 0.002680 1296    1  -94.129
+ (js-onnx js) / (wasm-onnx js)           0.9303 0.021100 1296    1   -3.178
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  0.0519
+  0.0677
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0725
+  0.0878
+ <0.0001
+ <0.0001
+  0.0131
+ <0.0001
+ <0.0001
+  1.0000
+  0.0061
+ <0.0001
+ <0.0001
+  0.0302
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0152
+
+Buffer.Size = 8192, Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9943 0.022600 1296    1   -0.252
+ (wasm-bypass wasm) / (js-onnx wasm)     0.1096 0.002490 1296    1  -97.270
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.1027 0.002330 1296    1 -100.150
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9300 0.021100 1296    1   -3.194
+ (wasm-bypass wasm) / (js-bypass js)     0.9381 0.021300 1296    1   -2.811
+ (wasm-bypass wasm) / (js-onnx js)       0.1089 0.002480 1296    1  -97.560
+ (wasm-bypass wasm) / (wasm-onnx js)     0.1025 0.002330 1296    1 -100.224
+ (js-bypass wasm) / (js-onnx wasm)       0.1103 0.002510 1296    1  -97.018
+ (js-bypass wasm) / (wasm-onnx wasm)     0.1033 0.002350 1296    1  -99.898
+ (js-bypass wasm) / (wasm-bypass js)     0.9353 0.021300 1296    1   -2.942
+ (js-bypass wasm) / (js-bypass js)       0.9435 0.021400 1296    1   -2.559
+ (js-bypass wasm) / (js-onnx js)         0.1096 0.002490 1296    1  -97.308
+ (js-bypass wasm) / (wasm-onnx js)       0.1031 0.002340 1296    1  -99.972
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9367 0.021300 1296    1   -2.880
+ (js-onnx wasm) / (wasm-bypass js)       8.4814 0.193000 1296    1   94.076
+ (js-onnx wasm) / (js-bypass js)         8.5556 0.194000 1296    1   94.459
+ (js-onnx wasm) / (js-onnx js)           0.9934 0.022600 1296    1   -0.289
+ (js-onnx wasm) / (wasm-onnx js)         0.9351 0.021300 1296    1   -2.954
+ (wasm-onnx wasm) / (wasm-bypass js)     9.0550 0.206000 1296    1   96.956
+ (wasm-onnx wasm) / (js-bypass js)       9.1342 0.208000 1296    1   97.339
+ (wasm-onnx wasm) / (js-onnx js)         1.0606 0.024100 1296    1    2.590
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9983 0.022700 1296    1   -0.074
+ (wasm-bypass js) / (js-bypass js)       1.0087 0.022900 1296    1    0.383
+ (wasm-bypass js) / (js-onnx js)         0.1171 0.002660 1296    1  -94.365
+ (wasm-bypass js) / (wasm-onnx js)       0.1103 0.002500 1296    1  -97.030
+ (js-bypass js) / (js-onnx js)           0.1161 0.002640 1296    1  -94.749
+ (js-bypass js) / (wasm-onnx js)         0.1093 0.002480 1296    1  -97.413
+ (js-onnx js) / (wasm-onnx js)           0.9412 0.021400 1296    1   -2.664
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  0.0172
+  0.0401
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0351
+  0.0582
+ <0.0001
+ <0.0001
+  0.0364
+ <0.0001
+ <0.0001
+  1.0000
+  0.0351
+ <0.0001
+ <0.0001
+  0.0582
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0547
+
+Buffer.Size = 128, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9654 0.021900 1296    1   -1.552
+ (wasm-bypass wasm) / (js-onnx wasm)     0.1641 0.003730 1296    1  -79.526
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.1626 0.003700 1296    1  -79.926
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9846 0.022400 1296    1   -0.683
+ (wasm-bypass wasm) / (js-bypass js)     0.8689 0.019700 1296    1   -6.184
+ (wasm-bypass wasm) / (js-onnx js)       0.1569 0.003570 1296    1  -81.502
+ (wasm-bypass wasm) / (wasm-onnx js)     0.1573 0.003580 1296    1  -81.390
+ (js-bypass wasm) / (js-onnx wasm)       0.1700 0.003860 1296    1  -77.975
+ (js-bypass wasm) / (wasm-onnx wasm)     0.1685 0.003830 1296    1  -78.374
+ (js-bypass wasm) / (wasm-bypass js)     1.0199 0.023200 1296    1    0.868
+ (js-bypass wasm) / (js-bypass js)       0.9001 0.020500 1296    1   -4.633
+ (js-bypass wasm) / (js-onnx js)         0.1625 0.003690 1296    1  -79.951
+ (js-bypass wasm) / (wasm-onnx js)       0.1629 0.003700 1296    1  -79.838
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9910 0.022500 1296    1   -0.400
+ (js-onnx wasm) / (wasm-bypass js)       5.9997 0.136000 1296    1   78.843
+ (js-onnx wasm) / (js-bypass js)         5.2946 0.120000 1296    1   73.342
+ (js-onnx wasm) / (js-onnx js)           0.9561 0.021700 1296    1   -1.976
+ (js-onnx wasm) / (wasm-onnx js)         0.9585 0.021800 1296    1   -1.864
+ (wasm-onnx wasm) / (wasm-bypass js)     6.0544 0.138000 1296    1   79.243
+ (wasm-onnx wasm) / (js-bypass js)       5.3429 0.121000 1296    1   73.741
+ (wasm-onnx wasm) / (js-onnx js)         0.9648 0.021900 1296    1   -1.576
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9673 0.022000 1296    1   -1.464
+ (wasm-bypass js) / (js-bypass js)       0.8825 0.020100 1296    1   -5.501
+ (wasm-bypass js) / (js-onnx js)         0.1594 0.003620 1296    1  -80.819
+ (wasm-bypass js) / (wasm-onnx js)       0.1598 0.003630 1296    1  -80.707
+ (js-bypass js) / (js-onnx js)           0.1806 0.004100 1296    1  -75.318
+ (js-bypass js) / (wasm-onnx js)         0.1810 0.004110 1296    1  -75.206
+ (js-onnx js) / (wasm-onnx js)           1.0026 0.022800 1296    1    0.112
+ p.value
+  0.8062
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  0.4353
+  0.5006
+ <0.0001
+ <0.0001
+  0.8062
+  0.8062
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 1024, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9771 0.022200 1296    1   -1.018
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0966 0.002200 1296    1 -102.828
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.1071 0.002430 1296    1  -98.311
+ (wasm-bypass wasm) / (wasm-bypass js)   0.6547 0.014900 1296    1  -18.642
+ (wasm-bypass wasm) / (js-bypass js)     0.7770 0.017700 1296    1  -11.102
+ (wasm-bypass wasm) / (js-onnx js)       0.0906 0.002060 1296    1 -105.692
+ (wasm-bypass wasm) / (wasm-onnx js)     0.1010 0.002300 1296    1 -100.892
+ (js-bypass wasm) / (js-onnx wasm)       0.0989 0.002250 1296    1 -101.810
+ (js-bypass wasm) / (wasm-onnx wasm)     0.1096 0.002490 1296    1  -97.293
+ (js-bypass wasm) / (wasm-bypass js)     0.6700 0.015200 1296    1  -17.624
+ (js-bypass wasm) / (js-bypass js)       0.7952 0.018100 1296    1  -10.084
+ (js-bypass wasm) / (js-onnx js)         0.0927 0.002110 1296    1 -104.674
+ (js-bypass wasm) / (wasm-onnx js)       0.1033 0.002350 1296    1  -99.874
+ (js-onnx wasm) / (wasm-onnx wasm)       1.1081 0.025200 1296    1    4.517
+ (js-onnx wasm) / (wasm-bypass js)       6.7743 0.154000 1296    1   84.187
+ (js-onnx wasm) / (js-bypass js)         8.0404 0.183000 1296    1   91.726
+ (js-onnx wasm) / (js-onnx js)           0.9370 0.021300 1296    1   -2.864
+ (js-onnx wasm) / (wasm-onnx js)         1.0450 0.023700 1296    1    1.936
+ (wasm-onnx wasm) / (wasm-bypass js)     6.1134 0.139000 1296    1   79.669
+ (wasm-onnx wasm) / (js-bypass js)       7.2560 0.165000 1296    1   87.209
+ (wasm-onnx wasm) / (js-onnx js)         0.8456 0.019200 1296    1   -7.381
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9430 0.021400 1296    1   -2.581
+ (wasm-bypass js) / (js-bypass js)       1.1869 0.027000 1296    1    7.540
+ (wasm-bypass js) / (js-onnx js)         0.1383 0.003140 1296    1  -87.050
+ (wasm-bypass js) / (wasm-onnx js)       0.1543 0.003500 1296    1  -82.250
+ (js-bypass js) / (js-onnx js)           0.1165 0.002650 1296    1  -94.590
+ (js-bypass js) / (wasm-onnx js)         0.1300 0.002950 1296    1  -89.790
+ (js-onnx js) / (wasm-onnx js)           1.1152 0.025300 1296    1    4.800
+ p.value
+  0.3089
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0170
+  0.1061
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0299
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+
+Buffer.Size = 8192, Environment = Safari, Model.Unique = guitar-lstm:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9709 0.022100 1296    1   -1.298
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0716 0.001630 1296    1 -115.998
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0989 0.002250 1296    1 -101.810
+ (wasm-bypass wasm) / (wasm-bypass js)   0.5029 0.011400 1296    1  -30.250
+ (wasm-bypass wasm) / (js-bypass js)     0.4584 0.010400 1296    1  -34.326
+ (wasm-bypass wasm) / (js-onnx js)       0.0808 0.001840 1296    1 -110.722
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0897 0.002040 1296    1 -106.097
+ (js-bypass wasm) / (js-onnx wasm)       0.0738 0.001680 1296    1 -114.700
+ (js-bypass wasm) / (wasm-onnx wasm)     0.1019 0.002310 1296    1 -100.512
+ (js-bypass wasm) / (wasm-bypass js)     0.5179 0.011800 1296    1  -28.952
+ (js-bypass wasm) / (js-bypass js)       0.4721 0.010700 1296    1  -33.028
+ (js-bypass wasm) / (js-onnx js)         0.0832 0.001890 1296    1 -109.424
+ (js-bypass wasm) / (wasm-onnx js)       0.0924 0.002100 1296    1 -104.799
+ (js-onnx wasm) / (wasm-onnx wasm)       1.3805 0.031400 1296    1   14.188
+ (js-onnx wasm) / (wasm-bypass js)       7.0189 0.160000 1296    1   85.747
+ (js-onnx wasm) / (js-bypass js)         6.3980 0.145000 1296    1   81.672
+ (js-onnx wasm) / (js-onnx js)           1.1274 0.025600 1296    1    5.276
+ (js-onnx wasm) / (wasm-onnx js)         1.2523 0.028500 1296    1    9.900
+ (wasm-onnx wasm) / (wasm-bypass js)     5.0845 0.116000 1296    1   71.560
+ (wasm-onnx wasm) / (js-bypass js)       4.6347 0.105000 1296    1   67.484
+ (wasm-onnx wasm) / (js-onnx js)         0.8167 0.018600 1296    1   -8.912
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9072 0.020600 1296    1   -4.287
+ (wasm-bypass js) / (js-bypass js)       0.9115 0.020700 1296    1   -4.076
+ (wasm-bypass js) / (js-onnx js)         0.1606 0.003650 1296    1  -80.472
+ (wasm-bypass js) / (wasm-onnx js)       0.1784 0.004050 1296    1  -75.847
+ (js-bypass js) / (js-onnx js)           0.1762 0.004000 1296    1  -76.396
+ (js-bypass js) / (wasm-onnx js)         0.1957 0.004450 1296    1  -71.771
+ (js-onnx js) / (wasm-onnx js)           1.1108 0.025200 1296    1    4.625
+ p.value
+  0.1946
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+
+Buffer.Size = 128, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9770 0.022200 1296    1   -1.023
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0031 0.000069 1296    1 -254.871
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0031 0.000069 1296    1 -254.816
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9657 0.021900 1296    1   -1.536
+ (wasm-bypass wasm) / (js-bypass js)     0.9429 0.021400 1296    1   -2.588
+ (wasm-bypass wasm) / (js-onnx js)       0.0031 0.000069 1296    1 -254.890
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0031 0.000069 1296    1 -254.889
+ (js-bypass wasm) / (js-onnx wasm)       0.0031 0.000071 1296    1 -253.848
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0031 0.000071 1296    1 -253.793
+ (js-bypass wasm) / (wasm-bypass js)     0.9884 0.022500 1296    1   -0.513
+ (js-bypass wasm) / (js-bypass js)       0.9651 0.021900 1296    1   -1.564
+ (js-bypass wasm) / (js-onnx js)         0.0031 0.000071 1296    1 -253.867
+ (js-bypass wasm) / (wasm-onnx js)       0.0031 0.000071 1296    1 -253.866
+ (js-onnx wasm) / (wasm-onnx wasm)       1.0013 0.022800 1296    1    0.055
+ (js-onnx wasm) / (wasm-bypass js)     316.4159 7.190000 1296    1  253.335
+ (js-onnx wasm) / (js-bypass js)       308.9434 7.020000 1296    1  252.284
+ (js-onnx wasm) / (js-onnx js)           0.9996 0.022700 1296    1   -0.019
+ (js-onnx wasm) / (wasm-onnx js)         0.9996 0.022700 1296    1   -0.017
+ (wasm-onnx wasm) / (wasm-bypass js)   316.0172 7.180000 1296    1  253.280
+ (wasm-onnx wasm) / (js-bypass js)     308.5541 7.010000 1296    1  252.228
+ (wasm-onnx wasm) / (js-onnx js)         0.9983 0.022700 1296    1   -0.074
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9983 0.022700 1296    1   -0.073
+ (wasm-bypass js) / (js-bypass js)       0.9764 0.022200 1296    1   -1.052
+ (wasm-bypass js) / (js-onnx js)         0.0032 0.000072 1296    1 -253.354
+ (wasm-bypass js) / (wasm-onnx js)       0.0032 0.000072 1296    1 -253.353
+ (js-bypass js) / (js-onnx js)           0.0032 0.000074 1296    1 -252.302
+ (js-bypass js) / (wasm-onnx js)         0.0032 0.000074 1296    1 -252.301
+ (js-onnx js) / (wasm-onnx js)           1.0000 0.022700 1296    1    0.001
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  0.1173
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 1024, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9451 0.021500 1296    1   -2.484
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0030 0.000068 1296    1 -255.749
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0030 0.000068 1296    1 -255.674
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9378 0.021300 1296    1   -2.824
+ (wasm-bypass wasm) / (js-bypass js)     0.9026 0.020500 1296    1   -4.511
+ (wasm-bypass wasm) / (js-onnx js)       0.0030 0.000068 1296    1 -255.856
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0030 0.000068 1296    1 -255.664
+ (js-bypass wasm) / (js-onnx wasm)       0.0032 0.000072 1296    1 -253.266
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0032 0.000072 1296    1 -253.191
+ (js-bypass wasm) / (wasm-bypass js)     0.9923 0.022600 1296    1   -0.340
+ (js-bypass wasm) / (js-bypass js)       0.9550 0.021700 1296    1   -2.028
+ (js-bypass wasm) / (js-onnx js)         0.0032 0.000072 1296    1 -253.372
+ (js-bypass wasm) / (wasm-onnx js)       0.0032 0.000072 1296    1 -253.181
+ (js-onnx wasm) / (wasm-onnx wasm)       1.0017 0.022800 1296    1    0.075
+ (js-onnx wasm) / (wasm-bypass js)     313.4811 7.120000 1296    1  252.925
+ (js-onnx wasm) / (js-bypass js)       301.6870 6.860000 1296    1  251.238
+ (js-onnx wasm) / (js-onnx js)           0.9976 0.022700 1296    1   -0.107
+ (js-onnx wasm) / (wasm-onnx js)         1.0019 0.022800 1296    1    0.085
+ (wasm-onnx wasm) / (wasm-bypass js)   312.9475 7.110000 1296    1  252.850
+ (wasm-onnx wasm) / (js-bypass js)     301.1736 6.840000 1296    1  251.163
+ (wasm-onnx wasm) / (js-onnx js)         0.9959 0.022600 1296    1   -0.182
+ (wasm-onnx wasm) / (wasm-onnx js)       1.0002 0.022700 1296    1    0.010
+ (wasm-bypass js) / (js-bypass js)       0.9624 0.021900 1296    1   -1.688
+ (wasm-bypass js) / (js-onnx js)         0.0032 0.000072 1296    1 -253.032
+ (wasm-bypass js) / (wasm-onnx js)       0.0032 0.000073 1296    1 -252.840
+ (js-bypass js) / (js-onnx js)           0.0033 0.000075 1296    1 -251.344
+ (js-bypass js) / (wasm-onnx js)         0.0033 0.000075 1296    1 -251.153
+ (js-onnx js) / (wasm-onnx js)           1.0044 0.022800 1296    1    0.192
+ p.value
+  0.1313
+ <0.0001
+ <0.0001
+  0.0530
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  0.3850
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  0.7340
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 8192, Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9429 0.021400 1296    1   -2.589
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0051 0.000116 1296    1 -232.333
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0051 0.000116 1296    1 -232.342
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9644 0.021900 1296    1   -1.594
+ (wasm-bypass wasm) / (js-bypass js)     0.9175 0.020900 1296    1   -3.787
+ (wasm-bypass wasm) / (js-onnx js)       0.0051 0.000115 1296    1 -232.497
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0051 0.000115 1296    1 -232.440
+ (js-bypass wasm) / (js-onnx wasm)       0.0054 0.000123 1296    1 -229.744
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0054 0.000123 1296    1 -229.753
+ (js-bypass wasm) / (wasm-bypass js)     1.0229 0.023200 1296    1    0.995
+ (js-bypass wasm) / (js-bypass js)       0.9731 0.022100 1296    1   -1.198
+ (js-bypass wasm) / (js-onnx js)         0.0054 0.000122 1296    1 -229.908
+ (js-bypass wasm) / (wasm-onnx js)       0.0054 0.000122 1296    1 -229.851
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9998 0.022700 1296    1   -0.009
+ (js-onnx wasm) / (wasm-bypass js)     189.3401 4.300000 1296    1  230.739
+ (js-onnx wasm) / (js-bypass js)       180.1373 4.090000 1296    1  228.546
+ (js-onnx wasm) / (js-onnx js)           0.9963 0.022600 1296    1   -0.164
+ (js-onnx wasm) / (wasm-onnx js)         0.9976 0.022700 1296    1   -0.107
+ (wasm-onnx wasm) / (wasm-bypass js)   189.3786 4.300000 1296    1  230.748
+ (wasm-onnx wasm) / (js-bypass js)     180.1740 4.090000 1296    1  228.555
+ (wasm-onnx wasm) / (js-onnx js)         0.9965 0.022600 1296    1   -0.155
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9978 0.022700 1296    1   -0.098
+ (wasm-bypass js) / (js-bypass js)       0.9514 0.021600 1296    1   -2.193
+ (wasm-bypass js) / (js-onnx js)         0.0053 0.000120 1296    1 -230.903
+ (wasm-bypass js) / (wasm-onnx js)       0.0053 0.000120 1296    1 -230.846
+ (js-bypass js) / (js-onnx js)           0.0055 0.000126 1296    1 -228.711
+ (js-bypass js) / (wasm-onnx js)         0.0055 0.000126 1296    1 -228.653
+ (js-onnx js) / (wasm-onnx js)           1.0013 0.022800 1296    1    0.058
+ p.value
+  0.1070
+ <0.0001
+ <0.0001
+  1.0000
+  0.0019
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  0.2852
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 128, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9963 0.022600 1296    1   -0.164
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0065 0.000148 1296    1 -221.515
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0064 0.000146 1296    1 -222.004
+ (wasm-bypass wasm) / (wasm-bypass js)   1.0019 0.022800 1296    1    0.085
+ (wasm-bypass wasm) / (js-bypass js)     0.9944 0.022600 1296    1   -0.248
+ (wasm-bypass wasm) / (js-onnx js)       0.0065 0.000148 1296    1 -221.565
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0064 0.000146 1296    1 -222.159
+ (js-bypass wasm) / (js-onnx wasm)       0.0065 0.000149 1296    1 -221.352
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0065 0.000147 1296    1 -221.840
+ (js-bypass wasm) / (wasm-bypass js)     1.0057 0.022900 1296    1    0.249
+ (js-bypass wasm) / (js-bypass js)       0.9981 0.022700 1296    1   -0.084
+ (js-bypass wasm) / (js-onnx js)         0.0065 0.000148 1296    1 -221.401
+ (js-bypass wasm) / (wasm-onnx js)       0.0064 0.000146 1296    1 -221.995
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9890 0.022500 1296    1   -0.488
+ (js-onnx wasm) / (wasm-bypass js)     153.8361 3.500000 1296    1  221.601
+ (js-onnx wasm) / (js-bypass js)       152.6757 3.470000 1296    1  221.268
+ (js-onnx wasm) / (js-onnx js)           0.9989 0.022700 1296    1   -0.049
+ (js-onnx wasm) / (wasm-onnx js)         0.9855 0.022400 1296    1   -0.643
+ (wasm-onnx wasm) / (wasm-bypass js)   155.5520 3.530000 1296    1  222.089
+ (wasm-onnx wasm) / (js-bypass js)     154.3786 3.510000 1296    1  221.756
+ (wasm-onnx wasm) / (js-onnx js)         1.0100 0.023000 1296    1    0.439
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9965 0.022600 1296    1   -0.155
+ (wasm-bypass js) / (js-bypass js)       0.9925 0.022600 1296    1   -0.333
+ (wasm-bypass js) / (js-onnx js)         0.0065 0.000148 1296    1 -221.650
+ (wasm-bypass js) / (wasm-onnx js)       0.0064 0.000146 1296    1 -222.244
+ (js-bypass js) / (js-onnx js)           0.0065 0.000149 1296    1 -221.317
+ (js-bypass js) / (wasm-onnx js)         0.0065 0.000147 1296    1 -221.911
+ (js-onnx js) / (wasm-onnx js)           0.9866 0.022400 1296    1   -0.594
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 1024, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9559 0.021700 1296    1   -1.983
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0060 0.000137 1296    1 -224.870
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0059 0.000135 1296    1 -225.629
+ (wasm-bypass wasm) / (wasm-bypass js)   1.2008 0.027300 1296    1    8.052
+ (wasm-bypass wasm) / (js-bypass js)     0.9768 0.022200 1296    1   -1.031
+ (wasm-bypass wasm) / (js-onnx js)       0.0060 0.000137 1296    1 -224.900
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0059 0.000134 1296    1 -225.820
+ (js-bypass wasm) / (js-onnx wasm)       0.0063 0.000143 1296    1 -222.887
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0062 0.000141 1296    1 -223.646
+ (js-bypass wasm) / (wasm-bypass js)     1.2561 0.028500 1296    1   10.035
+ (js-bypass wasm) / (js-bypass js)       1.0219 0.023200 1296    1    0.952
+ (js-bypass wasm) / (js-onnx js)         0.0063 0.000143 1296    1 -222.917
+ (js-bypass wasm) / (wasm-onnx js)       0.0062 0.000140 1296    1 -223.837
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9829 0.022300 1296    1   -0.759
+ (js-onnx wasm) / (wasm-bypass js)     198.9727 4.520000 1296    1  232.922
+ (js-onnx wasm) / (js-bypass js)       161.8640 3.680000 1296    1  223.839
+ (js-onnx wasm) / (js-onnx js)           0.9993 0.022700 1296    1   -0.030
+ (js-onnx wasm) / (wasm-onnx js)         0.9786 0.022200 1296    1   -0.950
+ (wasm-onnx wasm) / (wasm-bypass js)   202.4343 4.600000 1296    1  233.681
+ (wasm-onnx wasm) / (js-bypass js)     164.6800 3.740000 1296    1  224.598
+ (wasm-onnx wasm) / (js-onnx js)         1.0167 0.023100 1296    1    0.729
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9957 0.022600 1296    1   -0.191
+ (wasm-bypass js) / (js-bypass js)       0.8135 0.018500 1296    1   -9.083
+ (wasm-bypass js) / (js-onnx js)         0.0050 0.000114 1296    1 -232.952
+ (wasm-bypass js) / (wasm-onnx js)       0.0049 0.000112 1296    1 -233.872
+ (js-bypass js) / (js-onnx js)           0.0062 0.000140 1296    1 -223.869
+ (js-bypass js) / (wasm-onnx js)         0.0060 0.000137 1296    1 -224.789
+ (js-onnx js) / (wasm-onnx js)           0.9793 0.022300 1296    1   -0.920
+ p.value
+  0.4283
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 8192, Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9762 0.022200 1296    1   -1.059
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0078 0.000178 1296    1 -213.392
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0075 0.000171 1296    1 -215.076
+ (wasm-bypass wasm) / (wasm-bypass js)   1.0652 0.024200 1296    1    2.780
+ (wasm-bypass wasm) / (js-bypass js)     1.0566 0.024000 1296    1    2.421
+ (wasm-bypass wasm) / (js-onnx js)       0.0078 0.000178 1296    1 -213.404
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0075 0.000171 1296    1 -215.122
+ (js-bypass wasm) / (js-onnx wasm)       0.0080 0.000182 1296    1 -212.333
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0077 0.000176 1296    1 -214.017
+ (js-bypass wasm) / (wasm-bypass js)     1.0912 0.024800 1296    1    3.839
+ (js-bypass wasm) / (js-bypass js)       1.0823 0.024600 1296    1    3.480
+ (js-bypass wasm) / (js-onnx js)         0.0080 0.000182 1296    1 -212.344
+ (js-bypass wasm) / (wasm-onnx js)       0.0077 0.000175 1296    1 -214.062
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9625 0.021900 1296    1   -1.684
+ (js-onnx wasm) / (wasm-bypass js)     135.9816 3.090000 1296    1  216.172
+ (js-onnx wasm) / (js-bypass js)       134.8775 3.070000 1296    1  215.813
+ (js-onnx wasm) / (js-onnx js)           0.9997 0.022700 1296    1   -0.011
+ (js-onnx wasm) / (wasm-onnx js)         0.9615 0.021800 1296    1   -1.729
+ (wasm-onnx wasm) / (wasm-bypass js)   141.2856 3.210000 1296    1  217.856
+ (wasm-onnx wasm) / (js-bypass js)     140.1384 3.180000 1296    1  217.497
+ (wasm-onnx wasm) / (js-onnx js)         1.0387 0.023600 1296    1    1.672
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9990 0.022700 1296    1   -0.046
+ (wasm-bypass js) / (js-bypass js)       0.9919 0.022500 1296    1   -0.359
+ (wasm-bypass js) / (js-onnx js)         0.0074 0.000167 1296    1 -216.183
+ (wasm-bypass js) / (wasm-onnx js)       0.0071 0.000161 1296    1 -217.902
+ (js-bypass js) / (js-onnx js)           0.0074 0.000168 1296    1 -215.825
+ (js-bypass js) / (wasm-onnx js)         0.0071 0.000162 1296    1 -217.543
+ (js-onnx js) / (wasm-onnx js)           0.9617 0.021900 1296    1   -1.718
+ p.value
+  1.0000
+ <0.0001
+ <0.0001
+  0.0552
+  0.1405
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0016
+  0.0057
+ <0.0001
+ <0.0001
+  0.6718
+ <0.0001
+ <0.0001
+  1.0000
+  0.6718
+ <0.0001
+ <0.0001
+  0.6718
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.6718
+
+Buffer.Size = 128, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.9570 0.021700 1296    1   -1.936
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0065 0.000148 1296    1 -221.375
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0065 0.000147 1296    1 -221.690
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9691 0.022000 1296    1   -1.381
+ (wasm-bypass wasm) / (js-bypass js)     0.9263 0.021000 1296    1   -3.370
+ (wasm-bypass wasm) / (js-onnx js)       0.0065 0.000148 1296    1 -221.375
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0065 0.000148 1296    1 -221.633
+ (js-bypass wasm) / (js-onnx wasm)       0.0068 0.000155 1296    1 -219.439
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0068 0.000154 1296    1 -219.755
+ (js-bypass wasm) / (wasm-bypass js)     1.0127 0.023000 1296    1    0.555
+ (js-bypass wasm) / (js-bypass js)       0.9679 0.022000 1296    1   -1.435
+ (js-bypass wasm) / (js-onnx js)         0.0068 0.000155 1296    1 -219.439
+ (js-bypass wasm) / (wasm-onnx js)       0.0068 0.000154 1296    1 -219.697
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9929 0.022600 1296    1   -0.315
+ (js-onnx wasm) / (wasm-bypass js)     148.3195 3.370000 1296    1  219.994
+ (js-onnx wasm) / (js-bypass js)       141.7636 3.220000 1296    1  218.005
+ (js-onnx wasm) / (js-onnx js)           1.0000 0.022700 1296    1    0.000
+ (js-onnx wasm) / (wasm-onnx js)         0.9942 0.022600 1296    1   -0.258
+ (wasm-onnx wasm) / (wasm-bypass js)   149.3867 3.390000 1296    1  220.309
+ (wasm-onnx wasm) / (js-bypass js)     142.7835 3.240000 1296    1  218.320
+ (wasm-onnx wasm) / (js-onnx js)         1.0072 0.022900 1296    1    0.315
+ (wasm-onnx wasm) / (wasm-onnx js)       1.0013 0.022800 1296    1    0.058
+ (wasm-bypass js) / (js-bypass js)       0.9558 0.021700 1296    1   -1.989
+ (wasm-bypass js) / (js-onnx js)         0.0067 0.000153 1296    1 -219.994
+ (wasm-bypass js) / (wasm-onnx js)       0.0067 0.000152 1296    1 -220.252
+ (js-bypass js) / (js-onnx js)           0.0071 0.000160 1296    1 -218.005
+ (js-bypass js) / (wasm-onnx js)         0.0070 0.000159 1296    1 -218.262
+ (js-onnx js) / (wasm-onnx js)           0.9942 0.022600 1296    1   -0.258
+ p.value
+  0.5314
+ <0.0001
+ <0.0001
+  1.0000
+  0.0093
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+  0.5156
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 1024, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.8414 0.019100 1296    1   -7.601
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0064 0.000146 1296    1 -222.144
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0063 0.000144 1296    1 -222.657
+ (wasm-bypass wasm) / (wasm-bypass js)   0.9605 0.021800 1296    1   -1.774
+ (wasm-bypass wasm) / (js-bypass js)     0.7877 0.017900 1296    1  -10.502
+ (wasm-bypass wasm) / (js-onnx js)       0.0064 0.000146 1296    1 -222.124
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0063 0.000144 1296    1 -222.732
+ (js-bypass wasm) / (js-onnx wasm)       0.0076 0.000173 1296    1 -214.543
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0075 0.000171 1296    1 -215.056
+ (js-bypass wasm) / (wasm-bypass js)     1.1416 0.025900 1296    1    5.827
+ (js-bypass wasm) / (js-bypass js)       0.9362 0.021300 1296    1   -2.901
+ (js-bypass wasm) / (js-onnx js)         0.0076 0.000173 1296    1 -214.523
+ (js-bypass wasm) / (wasm-onnx js)       0.0075 0.000171 1296    1 -215.132
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9884 0.022500 1296    1   -0.513
+ (js-onnx wasm) / (wasm-bypass js)     149.5929 3.400000 1296    1  220.370
+ (js-onnx wasm) / (js-bypass js)       122.6793 2.790000 1296    1  211.642
+ (js-onnx wasm) / (js-onnx js)           1.0005 0.022700 1296    1    0.020
+ (js-onnx wasm) / (wasm-onnx js)         0.9867 0.022400 1296    1   -0.589
+ (wasm-onnx wasm) / (wasm-bypass js)   151.3469 3.440000 1296    1  220.883
+ (wasm-onnx wasm) / (js-bypass js)     124.1178 2.820000 1296    1  212.155
+ (wasm-onnx wasm) / (js-onnx js)         1.0122 0.023000 1296    1    0.533
+ (wasm-onnx wasm) / (wasm-onnx js)       0.9983 0.022700 1296    1   -0.076
+ (wasm-bypass js) / (js-bypass js)       0.8201 0.018600 1296    1   -8.728
+ (wasm-bypass js) / (js-onnx js)         0.0067 0.000152 1296    1 -220.350
+ (wasm-bypass js) / (wasm-onnx js)       0.0066 0.000150 1296    1 -220.959
+ (js-bypass js) / (js-onnx js)           0.0082 0.000185 1296    1 -211.622
+ (js-bypass js) / (wasm-onnx js)         0.0080 0.000183 1296    1 -212.231
+ (js-onnx js) / (wasm-onnx js)           0.9863 0.022400 1296    1   -0.608
+ p.value
+ <0.0001
+ <0.0001
+ <0.0001
+  0.5344
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  0.0303
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Buffer.Size = 8192, Environment = Safari, Model.Unique = steerable-nafx:
+ contrast                                 ratio       SE   df null  t.ratio
+ (wasm-bypass wasm) / (js-bypass wasm)   0.5883 0.013400 1296    1  -23.346
+ (wasm-bypass wasm) / (js-onnx wasm)     0.0075 0.000170 1296    1 -215.386
+ (wasm-bypass wasm) / (wasm-onnx wasm)   0.0073 0.000165 1296    1 -216.665
+ (wasm-bypass wasm) / (wasm-bypass js)   1.0081 0.022900 1296    1    0.354
+ (wasm-bypass wasm) / (js-bypass js)     0.5070 0.011500 1296    1  -29.894
+ (wasm-bypass wasm) / (js-onnx js)       0.0075 0.000171 1296    1 -215.040
+ (wasm-bypass wasm) / (wasm-onnx js)     0.0074 0.000167 1296    1 -216.145
+ (js-bypass wasm) / (js-onnx wasm)       0.0127 0.000289 1296    1 -192.040
+ (js-bypass wasm) / (wasm-onnx wasm)     0.0124 0.000281 1296    1 -193.319
+ (js-bypass wasm) / (wasm-bypass js)     1.7136 0.038900 1296    1   23.700
+ (js-bypass wasm) / (js-bypass js)       0.8618 0.019600 1296    1   -6.547
+ (js-bypass wasm) / (js-onnx js)         0.0128 0.000291 1296    1 -191.694
+ (js-bypass wasm) / (wasm-onnx js)       0.0125 0.000284 1296    1 -192.798
+ (js-onnx wasm) / (wasm-onnx wasm)       0.9713 0.022100 1296    1   -1.279
+ (js-onnx wasm) / (wasm-bypass js)     134.6529 3.060000 1296    1  215.740
+ (js-onnx wasm) / (js-bypass js)        67.7159 1.540000 1296    1  185.492
+ (js-onnx wasm) / (js-onnx js)           1.0079 0.022900 1296    1    0.346
+ (js-onnx wasm) / (wasm-onnx js)         0.9829 0.022300 1296    1   -0.759
+ (wasm-onnx wasm) / (wasm-bypass js)   138.6252 3.150000 1296    1  217.019
+ (wasm-onnx wasm) / (js-bypass js)      69.7136 1.580000 1296    1  186.772
+ (wasm-onnx wasm) / (js-onnx js)         1.0376 0.023600 1296    1    1.625
+ (wasm-onnx wasm) / (wasm-onnx js)       1.0119 0.023000 1296    1    0.521
+ (wasm-bypass js) / (js-bypass js)       0.5029 0.011400 1296    1  -30.248
+ (wasm-bypass js) / (js-onnx js)         0.0075 0.000170 1296    1 -215.394
+ (wasm-bypass js) / (wasm-onnx js)       0.0073 0.000166 1296    1 -216.499
+ (js-bypass js) / (js-onnx js)           0.0149 0.000338 1296    1 -185.147
+ (js-bypass js) / (wasm-onnx js)         0.0145 0.000330 1296    1 -186.251
+ (js-onnx js) / (wasm-onnx js)           0.9752 0.022200 1296    1   -1.104
+ p.value
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+ <0.0001
+ <0.0001
+  1.0000
+  1.0000
+ <0.0001
+ <0.0001
+  0.7309
+  1.0000
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+ <0.0001
+  1.0000
+
+Results are averaged over the levels of: Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 28 tests 
+Tests are performed on the log scale 
+emm_rq3_factorial.csv written to ./results/50-1
+Backend:PP interaction: p = 4.98e-40 — SIGNIFICANT: averaging over the other factor may be misleading
+
+PP overhead (averaged over backends, per browser × model)
+
+NOTE: Results may be misleading due to involvement in interactions
+Environment = Chrome, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm  0.00350 1.62e-05 1296  0.00347  0.00353
+ js    0.00355 1.65e-05 1296  0.00352  0.00358
+
+Environment = Firefox, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm  0.00218 1.01e-05 1296  0.00216  0.00220
+ js    0.00224 1.04e-05 1296  0.00222  0.00227
+
+Environment = Safari, Model.Unique = guitar-lstm:
+ PP   response       SE   df lower.CL upper.CL
+ wasm  0.00216 1.00e-05 1296  0.00214  0.00218
+ js    0.00264 1.22e-05 1296  0.00261  0.00266
+
+Environment = Chrome, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm  0.00255 1.18e-05 1296  0.00253  0.00258
+ js    0.00261 1.21e-05 1296  0.00258  0.00263
+
+Environment = Firefox, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm  0.00170 7.90e-06 1296  0.00169  0.00172
+ js    0.00166 7.68e-06 1296  0.00164  0.00167
+
+Environment = Safari, Model.Unique = steerable-nafx:
+ PP   response       SE   df lower.CL upper.CL
+ wasm  0.00181 8.42e-06 1296  0.00180  0.00183
+ js    0.00186 8.63e-06 1296  0.00184  0.00188
+
+Results are averaged over the levels of: Backend, Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.987 0.00647 1296    1  -2.049  0.0406
+
+Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.971 0.00637 1296    1  -4.510 <0.0001
+
+Environment = Safari, Model.Unique = guitar-lstm:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.819 0.00538 1296    1 -30.373 <0.0001
+
+Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.979 0.00642 1296    1  -3.232  0.0013
+
+Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 1.028 0.00675 1296    1   4.268 <0.0001
+
+Environment = Safari, Model.Unique = steerable-nafx:
+ contrast  ratio      SE   df null t.ratio p.value
+ wasm / js 0.976 0.00640 1296    1  -3.700  0.0002
+
+Results are averaged over the levels of: Backend, Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Tests are performed on the log scale 
+contrasts_rq3_pp_simple.csv written to ./results/50-1
+
+Backend overhead (averaged over PP, per browser × model)
+
+NOTE: Results may be misleading due to involvement in interactions
+Environment = Chrome, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.001034 6.79e-06 1296 0.001021 0.001048
+ js-bypass   0.001049 6.88e-06 1296 0.001036 0.001063
+ js-onnx     0.011958 7.84e-05 1296 0.011805 0.012113
+ wasm-onnx   0.011878 7.79e-05 1296 0.011726 0.012032
+
+Environment = Firefox, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000774 5.08e-06 1296 0.000764 0.000784
+ js-bypass   0.000786 5.16e-06 1296 0.000776 0.000796
+ js-onnx     0.006002 3.94e-05 1296 0.005926 0.006080
+ wasm-onnx   0.006551 4.30e-05 1296 0.006467 0.006636
+
+Environment = Safari, Model.Unique = guitar-lstm:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000866 5.68e-06 1296 0.000855 0.000877
+ js-bypass   0.000885 5.81e-06 1296 0.000874 0.000897
+ js-onnx     0.006865 4.50e-05 1296 0.006777 0.006954
+ wasm-onnx   0.006178 4.05e-05 1296 0.006099 0.006258
+
+Environment = Chrome, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000155 1.02e-06 1296 0.000153 0.000157
+ js-bypass   0.000161 1.06e-06 1296 0.000159 0.000164
+ js-onnx     0.042143 2.76e-04 1296 0.041604 0.042689
+ wasm-onnx   0.042084 2.76e-04 1296 0.041545 0.042629
+
+Environment = Firefox, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000133 8.70e-07 1296 0.000131 0.000134
+ js-bypass   0.000139 9.14e-07 1296 0.000138 0.000141
+ js-onnx     0.020486 1.34e-04 1296 0.020224 0.020752
+ wasm-onnx   0.020970 1.38e-04 1296 0.020702 0.021242
+
+Environment = Safari, Model.Unique = steerable-nafx:
+ Backend     response       SE   df lower.CL upper.CL
+ wasm-bypass 0.000142 9.28e-07 1296 0.000140 0.000143
+ js-bypass   0.000187 1.23e-06 1296 0.000185 0.000190
+ js-onnx     0.020572 1.35e-04 1296 0.020309 0.020839
+ wasm-onnx   0.020892 1.37e-04 1296 0.020625 0.021163
+
+Results are averaged over the levels of: PP, Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Environment = Chrome, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.98579 9.15e-03 1296    1   -1.542  0.2464
+ (wasm-bypass) / (js-onnx)   0.08649 8.02e-04 1296    1 -263.831 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.08708 8.08e-04 1296    1 -263.109 <0.0001
+ (js-bypass) / (js-onnx)     0.08774 8.14e-04 1296    1 -262.288 <0.0001
+ (js-bypass) / (wasm-onnx)   0.08833 8.19e-04 1296    1 -261.567 <0.0001
+ (js-onnx) / (wasm-onnx)     1.00672 9.34e-03 1296    1    0.722  0.4705
+
+Environment = Firefox, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.98396 9.13e-03 1296    1   -1.743  0.0815
+ (wasm-bypass) / (js-onnx)   0.12889 1.20e-03 1296    1 -220.832 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.11810 1.10e-03 1296    1 -230.260 <0.0001
+ (js-bypass) / (js-onnx)     0.13100 1.22e-03 1296    1 -219.089 <0.0001
+ (js-bypass) / (wasm-onnx)   0.12002 1.11e-03 1296    1 -228.517 <0.0001
+ (js-onnx) / (wasm-onnx)     0.91625 8.50e-03 1296    1   -9.428 <0.0001
+
+Environment = Safari, Model.Unique = guitar-lstm:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.97788 9.07e-03 1296    1   -2.411  0.0161
+ (wasm-bypass) / (js-onnx)   0.12611 1.17e-03 1296    1 -223.186 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.14013 1.30e-03 1296    1 -211.820 <0.0001
+ (js-bypass) / (js-onnx)     0.12896 1.20e-03 1296    1 -220.776 <0.0001
+ (js-bypass) / (wasm-onnx)   0.14330 1.33e-03 1296    1 -209.410 <0.0001
+ (js-onnx) / (wasm-onnx)     1.11121 1.03e-02 1296    1   11.366 <0.0001
+
+Environment = Chrome, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.95909 8.90e-03 1296    1   -4.502 <0.0001
+ (wasm-bypass) / (js-onnx)   0.00367 3.41e-05 1296    1 -604.307 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00368 3.41e-05 1296    1 -604.155 <0.0001
+ (js-bypass) / (js-onnx)     0.00383 3.55e-05 1296    1 -599.805 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00384 3.56e-05 1296    1 -599.653 <0.0001
+ (js-onnx) / (wasm-onnx)     1.00141 9.29e-03 1296    1    0.152  0.8793
+
+Environment = Firefox, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.95202 8.83e-03 1296    1   -5.299 <0.0001
+ (wasm-bypass) / (js-onnx)   0.00648 6.01e-05 1296    1 -543.200 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00633 5.87e-05 1296    1 -545.716 <0.0001
+ (js-bypass) / (js-onnx)     0.00680 6.31e-05 1296    1 -537.901 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00665 6.17e-05 1296    1 -540.417 <0.0001
+ (js-onnx) / (wasm-onnx)     0.97693 9.06e-03 1296    1   -2.516  0.0120
+
+Environment = Safari, Model.Unique = steerable-nafx:
+ contrast                      ratio       SE   df null  t.ratio p.value
+ (wasm-bypass) / (js-bypass) 0.75601 7.01e-03 1296    1  -30.148 <0.0001
+ (wasm-bypass) / (js-onnx)   0.00688 6.38e-05 1296    1 -536.701 <0.0001
+ (wasm-bypass) / (wasm-onnx) 0.00677 6.28e-05 1296    1 -538.366 <0.0001
+ (js-bypass) / (js-onnx)     0.00910 8.44e-05 1296    1 -506.553 <0.0001
+ (js-bypass) / (wasm-onnx)   0.00896 8.31e-05 1296    1 -508.218 <0.0001
+ (js-onnx) / (wasm-onnx)     0.98467 9.14e-03 1296    1   -1.665  0.0962
+
+Results are averaged over the levels of: PP, Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+contrasts_rq3_backend_simple.csv written to ./results/50-1
+
+#####################################################################
+# Clean up the environment
+#####################################################################
+
+Remaining attached packages:
+Remaining objects in the environment:
+Removing all objects from the environment...
+Remaining objects in the environment:
+Warning messages:
+1: In q("no", save = "no") : NAs introduced by coercion
+2: In q("no", save = "no") : invalid 'status', 0 assumed
