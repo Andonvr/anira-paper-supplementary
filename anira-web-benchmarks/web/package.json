@@ -1,0 +1,21 @@
+{
+  "name": "anira-web-benchmarks",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier . --write"
+  },
+  "dependencies": {
+    "@anira-project/anira": "file:../../anira/web/anira-project-anira-0.0.1-alpha.3.tgz",
+    "coi-serviceworker": "^0.1.7"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.3",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.8"
+  }
+}

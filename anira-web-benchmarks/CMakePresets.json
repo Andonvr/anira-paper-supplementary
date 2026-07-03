@@ -1,0 +1,61 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 15,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "web-benchmarks",
+      "description": "Build WASM benchmarks (debug)",
+      "hidden": false,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "toolchainFile": "$penv{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+      "cacheVariables": {
+        "BUILD_BENCHMARKS": "ON",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "web-benchmarks-prod",
+      "description": "Build WASM benchmarks (release)",
+      "hidden": false,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "toolchainFile": "$penv{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+      "cacheVariables": {
+        "BUILD_BENCHMARKS": "ON",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "native-benchmarks",
+      "description": "Build native benchmarks only (no WASM)",
+      "hidden": false,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "web-benchmarks",
+      "configurePreset": "web-benchmarks",
+      "description": "Build WASM benchmarks (debug)"
+    },
+    {
+      "name": "web-benchmarks-prod",
+      "configurePreset": "web-benchmarks-prod",
+      "description": "Build WASM benchmarks (release)"
+    },
+    {
+      "name": "native-benchmarks",
+      "configurePreset": "native-benchmarks",
+      "description": "Build native benchmarks"
+    }
+  ]
+}

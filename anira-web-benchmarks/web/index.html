@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anira Web - Benchmark Suite</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="coi-serviceworker.min.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-header">
+        <div class="page-header__title">Anira Web</div>
+      </header>
+
+      <div class="demo-header">
+        <h1 class="demo-header__title">Benchmark Suite</h1>
+        <p class="demo-header__desc">
+          Run performance benchmarks in the background. Progress is logged to the console.
+          Download results when complete.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div id="loading-indicator" class="loading-overlay">
+          <div class="loading-overlay__spinner"></div>
+          <span class="loading-overlay__text">Loading&hellip;</span>
+        </div>
+
+        <div class="panel__section">
+          <div class="btn-group">
+            <button id="start-benchmark-btn" class="btn btn--primary" disabled>
+              Start Benchmark
+            </button>
+            <button id="download-results-btn" class="btn" disabled>
+              Download Results
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="/src/benchmarks/index.ts"></script>
+</html>
