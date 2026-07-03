@@ -1,0 +1,3 @@
+[submodule "anira"]
+	path = anira
+	url = git@github.com:Andonvr/anira.git
