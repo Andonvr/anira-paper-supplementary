@@ -64,3 +64,18 @@ Run in this order (or use `all`):
 - **`plots`** -- generates the figures (`rq1_environment.png`,
   `rq2_iteration_effects.png`, `rq3_overhead.png`).
 - **`all`** -- runs every step above in sequence.
+
+### Significance threshold
+
+The final significance threshold used in the paper is **alpha = 0.001**. Some
+earlier pipeline steps hardcode outdated thresholds in their _logging_:
+`model-rq12` and `model-rq3` count significant ANOVA terms at `p < 0.0001`, and
+`posthoc-rq3` reports the Backend:PP interaction gate at `p < 0.05`. These
+thresholds only affect the text printed to the respective `logs/*.log` files --
+none of the computed artifacts (fitted models, ANOVA tables, estimated marginal
+means, contrasts) depend on a threshold, so they remain valid as-is and the
+scripts do not need to be rerun. The **`significance-logging`** step is the
+authoritative significance report: it re-reads the stored ANOVA results and
+re-emits all threshold-dependent statements at alpha = 0.001, including the
+Backend:PP interaction check.
+This approach was taken as to not have to rerun a whole computationally heavy pipeline.

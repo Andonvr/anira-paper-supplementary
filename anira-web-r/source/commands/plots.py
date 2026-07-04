@@ -10,7 +10,7 @@ from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
-SIGNIFICANCE_THRESHOLD = 0.05
+SIGNIFICANCE_THRESHOLD = 0.001
 
 ENV_ORDER = ["Native", "Chrome", "Firefox", "Safari"]
 ENV_COLORS = {

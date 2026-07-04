@@ -1,0 +1,390 @@
+here() starts at /home
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘lmerTest’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+The following object is masked from ‘package:stats’:
+
+    step
+
+
+--- For RQ12 ---
+
+Significant (p < 0.001): 30
+Non-significant (p >= 0.001): 1
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                                         Sum Sq Mean Sq NumDF
+Run                                                      6593.2  6593.2     1
+Buffer.Size                                              1546.8   773.4     2
+Iteration.Count                                            32.9     8.2     4
+Environment                                               220.1    73.4     3
+Model.Unique                                               19.5    19.5     1
+Run:Buffer.Size                                             8.6     4.3     2
+Run:Iteration.Count                                        19.0     4.8     4
+Run:Environment                                            36.6    12.2     3
+Run:Model.Unique                                         1034.5  1034.5     1
+Buffer.Size:Iteration.Count                                 5.9     0.7     8
+Buffer.Size:Environment                                    13.9     2.3     6
+Buffer.Size:Model.Unique                                  866.7   433.3     2
+Iteration.Count:Environment                                11.3     0.9    12
+Iteration.Count:Model.Unique                                2.8     0.7     4
+Environment:Model.Unique                                    2.5     0.8     3
+Run:Buffer.Size:Iteration.Count                             2.5     0.3     8
+Run:Buffer.Size:Environment                                10.3     1.7     6
+Run:Buffer.Size:Model.Unique                                6.6     3.3     2
+Run:Iteration.Count:Environment                             5.5     0.5    12
+Run:Iteration.Count:Model.Unique                            5.5     1.4     4
+Run:Environment:Model.Unique                                4.4     1.5     3
+Buffer.Size:Iteration.Count:Environment                     2.5     0.1    24
+Buffer.Size:Iteration.Count:Model.Unique                    1.2     0.2     8
+Buffer.Size:Environment:Model.Unique                        4.5     0.7     6
+Iteration.Count:Environment:Model.Unique                    0.6     0.0    12
+Run:Buffer.Size:Iteration.Count:Environment                 1.4     0.1    24
+Run:Buffer.Size:Environment:Model.Unique                    2.0     0.3     6
+Run:Iteration.Count:Environment:Model.Unique                1.3     0.1    12
+Buffer.Size:Iteration.Count:Environment:Model.Unique        1.8     0.1    24
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique    0.9     0.0    24
+                                                         DenDF    F value
+Run                                                        432 5.5214e+05
+Buffer.Size                                                432 6.4767e+04
+Iteration.Count                                           1728 6.8922e+02
+Environment                                                432 6.1428e+03
+Model.Unique                                               432 1.6355e+03
+Run:Buffer.Size                                            432 3.5882e+02
+Run:Iteration.Count                                       1728 3.9781e+02
+Run:Environment                                            432 1.0218e+03
+Run:Model.Unique                                           432 8.6635e+04
+Buffer.Size:Iteration.Count                               1728 6.1569e+01
+Buffer.Size:Environment                                    432 1.9346e+02
+Buffer.Size:Model.Unique                                   432 3.6289e+04
+Iteration.Count:Environment                               1728 7.9206e+01
+Iteration.Count:Model.Unique                              1728 5.9552e+01
+Environment:Model.Unique                                   432 7.0911e+01
+Run:Buffer.Size:Iteration.Count                           1728 2.5746e+01
+Run:Buffer.Size:Environment                                432 1.4372e+02
+Run:Buffer.Size:Model.Unique                               432 2.7833e+02
+Run:Iteration.Count:Environment                           1728 3.8564e+01
+Run:Iteration.Count:Model.Unique                          1728 1.1600e+02
+Run:Environment:Model.Unique                               432 1.2337e+02
+Buffer.Size:Iteration.Count:Environment                   1728 8.6678e+00
+Buffer.Size:Iteration.Count:Model.Unique                  1728 1.2861e+01
+Buffer.Size:Environment:Model.Unique                       432 6.2794e+01
+Iteration.Count:Environment:Model.Unique                  1728 4.1351e+00
+Run:Buffer.Size:Iteration.Count:Environment               1728 4.8818e+00
+Run:Buffer.Size:Environment:Model.Unique                   432 2.8543e+01
+Run:Iteration.Count:Environment:Model.Unique              1728 8.8974e+00
+Buffer.Size:Iteration.Count:Environment:Model.Unique      1728 6.2963e+00
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique  1728 3.0830e+00
+                                                            Pr(>F)    
+Run                                                      < 2.2e-16 ***
+Buffer.Size                                              < 2.2e-16 ***
+Iteration.Count                                          < 2.2e-16 ***
+Environment                                              < 2.2e-16 ***
+Model.Unique                                             < 2.2e-16 ***
+Run:Buffer.Size                                          < 2.2e-16 ***
+Run:Iteration.Count                                      < 2.2e-16 ***
+Run:Environment                                          < 2.2e-16 ***
+Run:Model.Unique                                         < 2.2e-16 ***
+Buffer.Size:Iteration.Count                              < 2.2e-16 ***
+Buffer.Size:Environment                                  < 2.2e-16 ***
+Buffer.Size:Model.Unique                                 < 2.2e-16 ***
+Iteration.Count:Environment                              < 2.2e-16 ***
+Iteration.Count:Model.Unique                             < 2.2e-16 ***
+Environment:Model.Unique                                 < 2.2e-16 ***
+Run:Buffer.Size:Iteration.Count                          < 2.2e-16 ***
+Run:Buffer.Size:Environment                              < 2.2e-16 ***
+Run:Buffer.Size:Model.Unique                             < 2.2e-16 ***
+Run:Iteration.Count:Environment                          < 2.2e-16 ***
+Run:Iteration.Count:Model.Unique                         < 2.2e-16 ***
+Run:Environment:Model.Unique                             < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Environment                  < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Model.Unique                 < 2.2e-16 ***
+Buffer.Size:Environment:Model.Unique                     < 2.2e-16 ***
+Iteration.Count:Environment:Model.Unique                 2.039e-06 ***
+Run:Buffer.Size:Iteration.Count:Environment              1.086e-13 ***
+Run:Buffer.Size:Environment:Model.Unique                 < 2.2e-16 ***
+Run:Iteration.Count:Environment:Model.Unique             < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Environment:Model.Unique     < 2.2e-16 ***
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique 7.853e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                             Sum Sq Mean Sq NumDF DenDF F value
+Run:Buffer.Size:Iteration.Count:Model.Unique  0.274 0.03425     8  1728  2.8682
+                                               Pr(>F)   
+Run:Buffer.Size:Iteration.Count:Model.Unique 0.003584 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+--- For RQ3 ---
+
+Significant (p < 0.001): 44
+Non-significant (p >= 0.001): 18
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                                              Sum Sq Mean Sq
+Backend                                                      13768.7  4589.6
+PP                                                               2.1     2.1
+Buffer.Size                                                   2743.7  1371.9
+Iteration.Count                                                151.5    37.9
+Environment                                                    152.3    76.2
+Model.Unique                                                    65.8    65.8
+Backend:PP                                                       1.5     0.5
+Backend:Buffer.Size                                              5.4     0.9
+Backend:Iteration.Count                                         82.5     6.9
+Backend:Environment                                             76.9    12.8
+Backend:Model.Unique                                          2220.7   740.2
+PP:Buffer.Size                                                   0.4     0.2
+PP:Environment                                                   2.3     1.2
+PP:Model.Unique                                                  1.5     1.5
+Buffer.Size:Iteration.Count                                     33.3     4.2
+Buffer.Size:Environment                                          4.4     1.1
+Buffer.Size:Model.Unique                                      1798.6   899.3
+Iteration.Count:Environment                                      8.0     1.0
+Iteration.Count:Model.Unique                                    12.3     3.1
+Environment:Model.Unique                                         0.3     0.1
+Backend:PP:Buffer.Size                                           0.8     0.1
+Backend:PP:Environment                                           1.9     0.3
+Backend:PP:Model.Unique                                          1.0     0.3
+Backend:Buffer.Size:Iteration.Count                             10.5     0.4
+Backend:Buffer.Size:Environment                                  4.0     0.3
+Backend:Buffer.Size:Model.Unique                                17.1     2.8
+Backend:Iteration.Count:Environment                              3.4     0.1
+Backend:Iteration.Count:Model.Unique                            27.2     2.3
+Backend:Environment:Model.Unique                                 7.0     1.2
+PP:Buffer.Size:Environment                                       0.9     0.2
+PP:Buffer.Size:Model.Unique                                      0.4     0.2
+PP:Environment:Model.Unique                                      1.5     0.8
+Buffer.Size:Iteration.Count:Environment                          1.4     0.1
+Buffer.Size:Iteration.Count:Model.Unique                         8.8     1.1
+Buffer.Size:Environment:Model.Unique                             3.6     0.9
+Backend:PP:Buffer.Size:Environment                               1.9     0.2
+Backend:PP:Buffer.Size:Model.Unique                              0.9     0.1
+Backend:PP:Environment:Model.Unique                              1.1     0.2
+Backend:Buffer.Size:Iteration.Count:Model.Unique                 2.6     0.1
+Backend:Buffer.Size:Environment:Model.Unique                     2.5     0.2
+PP:Buffer.Size:Environment:Model.Unique                          0.9     0.2
+Buffer.Size:Iteration.Count:Environment:Model.Unique             2.6     0.2
+Backend:PP:Buffer.Size:Environment:Model.Unique                  1.6     0.1
+Backend:Buffer.Size:Iteration.Count:Environment:Model.Unique     1.6     0.0
+                                                             NumDF DenDF
+Backend                                                          3  1296
+PP                                                               1  1296
+Buffer.Size                                                      2  1296
+Iteration.Count                                                  4  5232
+Environment                                                      2  1296
+Model.Unique                                                     1  1296
+Backend:PP                                                       3  1296
+Backend:Buffer.Size                                              6  1296
+Backend:Iteration.Count                                         12  5232
+Backend:Environment                                              6  1296
+Backend:Model.Unique                                             3  1296
+PP:Buffer.Size                                                   2  1296
+PP:Environment                                                   2  1296
+PP:Model.Unique                                                  1  1296
+Buffer.Size:Iteration.Count                                      8  5232
+Buffer.Size:Environment                                          4  1296
+Buffer.Size:Model.Unique                                         2  1296
+Iteration.Count:Environment                                      8  5232
+Iteration.Count:Model.Unique                                     4  5232
+Environment:Model.Unique                                         2  1296
+Backend:PP:Buffer.Size                                           6  1296
+Backend:PP:Environment                                           6  1296
+Backend:PP:Model.Unique                                          3  1296
+Backend:Buffer.Size:Iteration.Count                             24  5232
+Backend:Buffer.Size:Environment                                 12  1296
+Backend:Buffer.Size:Model.Unique                                 6  1296
+Backend:Iteration.Count:Environment                             24  5232
+Backend:Iteration.Count:Model.Unique                            12  5232
+Backend:Environment:Model.Unique                                 6  1296
+PP:Buffer.Size:Environment                                       4  1296
+PP:Buffer.Size:Model.Unique                                      2  1296
+PP:Environment:Model.Unique                                      2  1296
+Buffer.Size:Iteration.Count:Environment                         16  5232
+Buffer.Size:Iteration.Count:Model.Unique                         8  5232
+Buffer.Size:Environment:Model.Unique                             4  1296
+Backend:PP:Buffer.Size:Environment                              12  1296
+Backend:PP:Buffer.Size:Model.Unique                              6  1296
+Backend:PP:Environment:Model.Unique                              6  1296
+Backend:Buffer.Size:Iteration.Count:Model.Unique                24  5232
+Backend:Buffer.Size:Environment:Model.Unique                    12  1296
+PP:Buffer.Size:Environment:Model.Unique                          4  1296
+Buffer.Size:Iteration.Count:Environment:Model.Unique            16  5232
+Backend:PP:Buffer.Size:Environment:Model.Unique                 12  1296
+Backend:Buffer.Size:Iteration.Count:Environment:Model.Unique    48  5232
+                                                                F value
+Backend                                                      3.2077e+05
+PP                                                           1.4381e+02
+Buffer.Size                                                  9.5881e+04
+Iteration.Count                                              2.6472e+03
+Environment                                                  5.3226e+03
+Model.Unique                                                 4.5983e+03
+Backend:PP                                                   3.4029e+01
+Backend:Buffer.Size                                          6.3038e+01
+Backend:Iteration.Count                                      4.8070e+02
+Backend:Environment                                          8.9607e+02
+Backend:Model.Unique                                         5.1735e+04
+PP:Buffer.Size                                               1.3197e+01
+PP:Environment                                               8.2022e+01
+PP:Model.Unique                                              1.0321e+02
+Buffer.Size:Iteration.Count                                  2.9096e+02
+Buffer.Size:Environment                                      7.7742e+01
+Buffer.Size:Model.Unique                                     6.2852e+04
+Iteration.Count:Environment                                  6.9912e+01
+Iteration.Count:Model.Unique                                 2.1544e+02
+Environment:Model.Unique                                     1.0337e+01
+Backend:PP:Buffer.Size                                       9.3045e+00
+Backend:PP:Environment                                       2.2635e+01
+Backend:PP:Model.Unique                                      2.3108e+01
+Backend:Buffer.Size:Iteration.Count                          3.0479e+01
+Backend:Buffer.Size:Environment                              2.3132e+01
+Backend:Buffer.Size:Model.Unique                             1.9902e+02
+Backend:Iteration.Count:Environment                          9.8077e+00
+Backend:Iteration.Count:Model.Unique                         1.5826e+02
+Backend:Environment:Model.Unique                             8.1531e+01
+PP:Buffer.Size:Environment                                   1.6526e+01
+PP:Buffer.Size:Model.Unique                                  1.5287e+01
+PP:Environment:Model.Unique                                  5.3709e+01
+Buffer.Size:Iteration.Count:Environment                      6.2494e+00
+Buffer.Size:Iteration.Count:Model.Unique                     7.6977e+01
+Buffer.Size:Environment:Model.Unique                         6.3098e+01
+Backend:PP:Buffer.Size:Environment                           1.0885e+01
+Backend:PP:Buffer.Size:Model.Unique                          1.0292e+01
+Backend:PP:Environment:Model.Unique                          1.2614e+01
+Backend:Buffer.Size:Iteration.Count:Model.Unique             7.5025e+00
+Backend:Buffer.Size:Environment:Model.Unique                 1.4389e+01
+PP:Buffer.Size:Environment:Model.Unique                      1.5670e+01
+Buffer.Size:Iteration.Count:Environment:Model.Unique         1.1275e+01
+Backend:PP:Buffer.Size:Environment:Model.Unique              9.3315e+00
+Backend:Buffer.Size:Iteration.Count:Environment:Model.Unique 2.3058e+00
+                                                                Pr(>F)    
+Backend                                                      < 2.2e-16 ***
+PP                                                           < 2.2e-16 ***
+Buffer.Size                                                  < 2.2e-16 ***
+Iteration.Count                                              < 2.2e-16 ***
+Environment                                                  < 2.2e-16 ***
+Model.Unique                                                 < 2.2e-16 ***
+Backend:PP                                                   < 2.2e-16 ***
+Backend:Buffer.Size                                          < 2.2e-16 ***
+Backend:Iteration.Count                                      < 2.2e-16 ***
+Backend:Environment                                          < 2.2e-16 ***
+Backend:Model.Unique                                         < 2.2e-16 ***
+PP:Buffer.Size                                               2.120e-06 ***
+PP:Environment                                               < 2.2e-16 ***
+PP:Model.Unique                                              < 2.2e-16 ***
+Buffer.Size:Iteration.Count                                  < 2.2e-16 ***
+Buffer.Size:Environment                                      < 2.2e-16 ***
+Buffer.Size:Model.Unique                                     < 2.2e-16 ***
+Iteration.Count:Environment                                  < 2.2e-16 ***
+Iteration.Count:Model.Unique                                 < 2.2e-16 ***
+Environment:Model.Unique                                     3.516e-05 ***
+Backend:PP:Buffer.Size                                       5.226e-10 ***
+Backend:PP:Environment                                       < 2.2e-16 ***
+Backend:PP:Model.Unique                                      1.421e-14 ***
+Backend:Buffer.Size:Iteration.Count                          < 2.2e-16 ***
+Backend:Buffer.Size:Environment                              < 2.2e-16 ***
+Backend:Buffer.Size:Model.Unique                             < 2.2e-16 ***
+Backend:Iteration.Count:Environment                          < 2.2e-16 ***
+Backend:Iteration.Count:Model.Unique                         < 2.2e-16 ***
+Backend:Environment:Model.Unique                             < 2.2e-16 ***
+PP:Buffer.Size:Environment                                   3.240e-13 ***
+PP:Buffer.Size:Model.Unique                                  2.741e-07 ***
+PP:Environment:Model.Unique                                  < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Environment                      4.937e-14 ***
+Buffer.Size:Iteration.Count:Model.Unique                     < 2.2e-16 ***
+Buffer.Size:Environment:Model.Unique                         < 2.2e-16 ***
+Backend:PP:Buffer.Size:Environment                           < 2.2e-16 ***
+Backend:PP:Buffer.Size:Model.Unique                          3.698e-11 ***
+Backend:PP:Environment:Model.Unique                          7.209e-14 ***
+Backend:Buffer.Size:Iteration.Count:Model.Unique             < 2.2e-16 ***
+Backend:Buffer.Size:Environment:Model.Unique                 < 2.2e-16 ***
+PP:Buffer.Size:Environment:Model.Unique                      1.578e-12 ***
+Buffer.Size:Iteration.Count:Environment:Model.Unique         < 2.2e-16 ***
+Backend:PP:Buffer.Size:Environment:Model.Unique              < 2.2e-16 ***
+Backend:Buffer.Size:Iteration.Count:Environment:Model.Unique 9.031e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                                         Sum Sq   Mean Sq NumDF
+PP:Iteration.Count                                      0.04072 0.0101804     4
+Backend:PP:Iteration.Count                              0.17514 0.0145947    12
+PP:Buffer.Size:Iteration.Count                          0.14033 0.0175411     8
+PP:Iteration.Count:Environment                          0.21208 0.0265105     8
+PP:Iteration.Count:Model.Unique                         0.01061 0.0026537     4
+Iteration.Count:Environment:Model.Unique                0.06489 0.0081109     8
+Backend:PP:Buffer.Size:Iteration.Count                  0.28399 0.0118328    24
+Backend:PP:Iteration.Count:Environment                  0.48389 0.0201621    24
+Backend:PP:Iteration.Count:Model.Unique                 0.14869 0.0123906    12
+Backend:Buffer.Size:Iteration.Count:Environment         0.55772 0.0116192    48
+Backend:Iteration.Count:Environment:Model.Unique        0.59785 0.0249106    24
+PP:Buffer.Size:Iteration.Count:Environment              0.08215 0.0051346    16
+PP:Buffer.Size:Iteration.Count:Model.Unique             0.08683 0.0108533     8
+PP:Iteration.Count:Environment:Model.Unique             0.02604 0.0032550     8
+Backend:PP:Buffer.Size:Iteration.Count:Environment      0.27306 0.0056887    48
+Backend:PP:Buffer.Size:Iteration.Count:Model.Unique     0.27859 0.0116079    24
+Backend:PP:Iteration.Count:Environment:Model.Unique     0.21803 0.0090848    24
+PP:Buffer.Size:Iteration.Count:Environment:Model.Unique 0.10243 0.0064019    16
+                                                        DenDF F value  Pr(>F)  
+PP:Iteration.Count                                       5232  0.7115 0.58395  
+Backend:PP:Iteration.Count                               5232  1.0200 0.42677  
+PP:Buffer.Size:Iteration.Count                           5232  1.2260 0.27904  
+PP:Iteration.Count:Environment                           5232  1.8528 0.06294 .
+PP:Iteration.Count:Model.Unique                          5232  0.1855 0.94605  
+Iteration.Count:Environment:Model.Unique                 5232  0.5669 0.80586  
+Backend:PP:Buffer.Size:Iteration.Count                   5232  0.8270 0.70515  
+Backend:PP:Iteration.Count:Environment                   5232  1.4091 0.08863 .
+Backend:PP:Iteration.Count:Model.Unique                  5232  0.8660 0.58166  
+Backend:Buffer.Size:Iteration.Count:Environment          5232  0.8121 0.81946  
+Backend:Iteration.Count:Environment:Model.Unique         5232  1.7410 0.01392 *
+PP:Buffer.Size:Iteration.Count:Environment               5232  0.3589 0.99061  
+PP:Buffer.Size:Iteration.Count:Model.Unique              5232  0.7585 0.63958  
+PP:Iteration.Count:Environment:Model.Unique              5232  0.2275 0.98602  
+Backend:PP:Buffer.Size:Iteration.Count:Environment       5232  0.3976 0.99994  
+Backend:PP:Buffer.Size:Iteration.Count:Model.Unique      5232  0.8113 0.72617  
+Backend:PP:Iteration.Count:Environment:Model.Unique      5232  0.6349 0.91328  
+PP:Buffer.Size:Iteration.Count:Environment:Model.Unique  5232  0.4474 0.96998  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+--- Threshold audit ---
+
+This log is the authoritative significance report (alpha = 0.001).
+Threshold-dependent text in earlier logs is superseded by this log:
+  - model-rq12.log / model-rq3.log: term counts split at p < 0.0001
+  - posthoc-rq3.log: Backend:PP interaction gate evaluated at p < 0.05
+Those thresholds affect log text only; all computed artifacts
+(models, EMMs, contrasts) are threshold-free and remain valid.
+
+Backend:PP interaction at alpha = 0.001: p = 3.599e-21 — SIGNIFICANT: averaging over the other factor may be misleading; use the per-level (simple-effects) contrasts
+
+#####################################################################
+# Clean up the environment
+#####################################################################
+
+Remaining attached packages:
+Remaining objects in the environment:
+Removing all objects from the environment...
+Remaining objects in the environment:
+Warning messages:
+1: In q("no", save = "no") : NAs introduced by coercion
+2: In q("no", save = "no") : invalid 'status', 0 assumed
