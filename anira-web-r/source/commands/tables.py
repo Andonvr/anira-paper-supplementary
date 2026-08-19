@@ -10,7 +10,7 @@ ENV_ORDER = ["Native", "Chrome", "Firefox", "Safari"]
 MODEL_ORDER = ["steerable-nafx", "guitar-lstm"]
 MODEL_DISPLAY = {
     "steerable-nafx": "SteerableNAFX",
-    "guitar-lstm":    "GuitarLSTM",
+    "guitar-lstm": "GuitarLSTM",
 }
 
 
@@ -22,13 +22,14 @@ def write_str_to_file(content: str, filepath: str):
 
 # ── number formatting ──────────────────────────────────────────────────────────
 
-def fmt_sci(val: float) -> str:
-    """$X.XX\\cdot10^{Y}$ for use in the runtime table."""
+
+def fmt_fixed(val: float) -> str:
+    """Fixed-point with 3 significant digits for use in the runtime table."""
     if val == 0:
         return "$0$"
     exp = math.floor(math.log10(abs(val)))
-    mantissa = val / (10 ** exp)
-    return f"${mantissa:.2f}\\cdot10^{{{exp}}}$"
+    decimals = max(0, 2 - exp)
+    return f"${val:.{decimals}f}$"
 
 
 def fmt_ns(ns: int, fixed_decimal: bool = False) -> str:
@@ -49,6 +50,7 @@ def fmt_ns(ns: int, fixed_decimal: bool = False) -> str:
 
 
 # ── runtime (describe.csv) table ───────────────────────────────────────────────
+
 
 def format_runtime_table(results_dir: str) -> str:
     csv_path = os.path.join(results_dir, "describe.csv")
@@ -73,10 +75,12 @@ def format_runtime_table(results_dir: str) -> str:
         n = len(models_present)
         for j, model in enumerate(models_present):
             mean, se, ci_lo, ci_hi = data[env][model]
+            # describe.csv holds ms/sample; the paper reports µs/sample.
+            mean_us, se_us = mean * 1e3, se * 1e3
             env_cell = f"\\multirow{{{n}}}{{*}}{{\\textbf{{{env}}}}}" if j == 0 else ""
             rows.append(
                 f"  {env_cell} & {MODEL_DISPLAY[model]}"
-                f" & {fmt_sci(mean)} & {fmt_sci(se)} \\\\"
+                f" & {fmt_fixed(mean_us)} & {fmt_fixed(se_us)} \\\\"
             )
 
     body = "\n".join(rows)
@@ -84,7 +88,7 @@ def format_runtime_table(results_dir: str) -> str:
         "\\begin{table}[htbp]\n"
         "\\caption{Descriptive statistics of \\emph{RpS} observations for the Bypass-Engine"
         " across different models and execution environments."
-        " All values are expressed in milliseconds per sample.}\n"
+        " All values are expressed in $\\mu$s/sample.}\n"
         "\\label{tab:runtime-overview}\n"
         "\\centering\n"
         "\\setlength{\\tabcolsep}{3pt}\n"
@@ -127,7 +131,7 @@ def format_timer_resolution_table(log_dir: str) -> str:
     body = "\n".join(rows)
     return (
         "\\begin{table}[t]\n"
-        "\\caption{Measured \\texttt{steady\\_clock} timer resolution per platform,\n"
+        "\\caption{\\texttt{steady\\_clock} timer resolution per platform,\n"
         "         measured on the benchmark machine.}\n"
         "\\label{tab:timer-resolution}\n"
         "\\centering\n"
@@ -154,9 +158,9 @@ if __name__ == "__main__":
     os.makedirs(out_dir, exist_ok=True)
 
     # Derive sibling directories from the results_dir path.
-    web_r_root    = os.path.dirname(os.path.dirname(os.path.abspath(results_dir)))
+    web_r_root = os.path.dirname(os.path.dirname(os.path.abspath(results_dir)))
     monorepo_root = os.path.dirname(web_r_root)
-    log_dir       = os.path.join(web_r_root, "benchmark_logs")
+    log_dir = os.path.join(web_r_root, "benchmark_logs")
     paper_figures = os.path.join(monorepo_root, "anira-paper-latex", "figures")
 
     # Runtime table → results out + paper figures
