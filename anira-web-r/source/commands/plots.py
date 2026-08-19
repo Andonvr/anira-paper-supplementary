@@ -40,6 +40,26 @@ PP_HATCHES = {"wasm": "", "js": "///"}
 
 Y_LABEL = "Est. Means (µs / sample)"
 
+# Real-time threshold: available processing time per sample at 44.1 kHz.
+# RpS is per-sample, so one horizontal line is valid for every buffer size.
+# Only drawn in ONNX panels — bypass estimates lie >1 order of magnitude below.
+RTT_US_PER_SAMPLE = 1e6 / 44100  # ≈ 22.68 µs/sample
+RTT_COLOR = "#d62728"
+RTT_LABEL = "real-time threshold (RTT)"
+
+
+def _draw_rtt(ax):
+    ax.axhline(RTT_US_PER_SAMPLE, ls="-.", color=RTT_COLOR, lw=1.2, zorder=4)
+    # Invisible sentinel that participates in autoscale, so the line keeps
+    # some headroom instead of grazing the top edge (and the panel letter)
+    # when all data lies below the threshold. No effect on panels whose
+    # data already exceeds it.
+    ax.plot([0], [RTT_US_PER_SAMPLE * 1.25], ls="none", marker="")
+
+
+def _rtt_handle():
+    return Line2D([0], [0], color=RTT_COLOR, lw=1.2, ls="-.", label=RTT_LABEL)
+
 
 def _apply_style():
     plt.rcParams.update(
@@ -126,6 +146,9 @@ def plot_rq1_environment(results_dir, out_dir):
                 edgecolor="black",
                 linewidth=0.5,
             )
+            if run == "onnx":
+                _draw_rtt(ax)
+
             ax.set_xticks(x)
             ax.set_xticklabels(envs, rotation=45, ha="right")
             letter = chr(97 + row_idx * n_cols + col_idx)
@@ -139,6 +162,12 @@ def plot_rq1_environment(results_dir, out_dir):
                     MODEL_TITLES.get(model, model), fontweight="bold", fontsize=13
                 )
 
+    fig.legend(
+        handles=[_rtt_handle()],
+        loc="lower center",
+        bbox_to_anchor=(0.5, -0.06),
+        frameon=True,
+    )
     fig.supylabel(Y_LABEL)
     _save(fig, out_dir, "rq1_environment.png")
 
@@ -196,6 +225,7 @@ def plot_rq2_iterations(results_dir, out_dir):
                     zorder=5,
                 )
 
+        _draw_rtt(ax)
         ax.set_title(env, loc="left", fontweight="bold")
 
     axes[-1].set_xlabel("Iteration")
@@ -212,12 +242,12 @@ def plot_rq2_iterations(results_dir, out_dir):
     star_handle = Line2D(
         [0], [0], marker="*", color="black", lw=0, label=f'p < {SIGNIFICANCE_THRESHOLD} vs. grand mean'
     )
-    legend_handles = solid_handles + [star_handle] + avg_handles
+    legend_handles = solid_handles + [star_handle] + avg_handles + [_rtt_handle()]
     fig.legend(
         handles=legend_handles,
         loc="lower center",
         ncol=len(models) + 1,
-        bbox_to_anchor=(0.5, -0.05),
+        bbox_to_anchor=(0.5, -0.08),
         frameon=True,
     )
     fig.supylabel(Y_LABEL, x=0.02)
@@ -298,6 +328,12 @@ def plot_rq3_overhead(results_dir, out_dir):
                         linewidth=0.5,
                     )
 
+                # Only where the data approaches the threshold (violations
+                # occur solely in ONNX SteerableNAFX); elsewhere the line
+                # would double the y-range and flatten the bar differences.
+                if group_key == "onnx" and model == "steerable-nafx":
+                    _draw_rtt(ax)
+
                 letter = chr(97 + row_idx * n_plot_cols + global_col)
                 ax.text(
                     0.03,
@@ -351,9 +387,9 @@ def plot_rq3_overhead(results_dir, out_dir):
         for pp in pp_order
     ]
     fig.legend(
-        handles=backend_handles + pp_handles,
+        handles=backend_handles + pp_handles + [_rtt_handle()],
         loc="lower center",
-        ncol=len(backend_handles) + len(pp_handles),
+        ncol=len(backend_handles) + len(pp_handles) + 1,
         bbox_to_anchor=(0.5, -0.01),
         frameon=True,
         fontsize=11,
@@ -377,3 +413,21 @@ if __name__ == "__main__":
     plot_rq1_environment(results_dir, out_dir)
     plot_rq2_iterations(results_dir, out_dir)
     plot_rq3_overhead(results_dir, out_dir)
+
+    # Mirror the PNGs into the paper's figures directory, same convention as
+    # tables.py — but only if it exists (it doesn't in the supplementary bundle).
+    web_r_root = os.path.dirname(os.path.dirname(os.path.abspath(results_dir)))
+    monorepo_root = os.path.dirname(web_r_root)
+    paper_figures = os.path.join(monorepo_root, "anira-paper-latex", "figures")
+    if os.path.isdir(paper_figures):
+        import shutil
+
+        for png in (
+            "rq1_environment.png",
+            "rq2_iteration_effects.png",
+            "rq3_overhead.png",
+        ):
+            src = os.path.join(out_dir, png)
+            if os.path.exists(src):
+                shutil.copy2(src, os.path.join(paper_figures, png))
+                print(f"→ copied {png} to paper figures")
