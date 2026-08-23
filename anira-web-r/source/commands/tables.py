@@ -103,6 +103,78 @@ def format_runtime_table(results_dir: str) -> str:
     )
 
 
+# ── tail statistics (tails.csv) table ─────────────────────────────────────────
+
+
+def fmt_pct(frac: float) -> str:
+    pct = frac * 100
+    if pct == 0:
+        return "$0$"
+    if pct == int(pct):
+        return f"${int(pct)}$"
+    return f"${pct:.1f}$"
+
+
+def format_tail_table(results_dir: str, run: str = "onnx") -> str:
+    """Tail statistics of RpS for one run (default: the bundled ONNX Runtime
+    backend with the C++ pre/post-processor), by environment, model, and
+    buffer size. Steady-state columns exclude iteration 0 of every repetition."""
+    csv_path = os.path.join(results_dir, "tails.csv")
+
+    data: dict[str, dict[str, dict[int, dict]]] = defaultdict(lambda: defaultdict(dict))
+    with open(csv_path, newline="") as f:
+        for row in csv.DictReader(f):
+            if row["Run"] != run:
+                continue
+            data[row["Environment"]][row["Model"]][int(row["Buffer.Size"])] = row
+
+    rows: list[str] = []
+    for i, env in enumerate(ENV_ORDER):
+        if env not in data:
+            continue
+        if i > 0:
+            rows.append("\\midrule")
+        models_present = [m for m in MODEL_ORDER if m in data[env]]
+        n_env = sum(len(data[env][m]) for m in models_present)
+        first_env_row = True
+        for model in models_present:
+            sizes = sorted(data[env][model])
+            for j, bs in enumerate(sizes):
+                r = data[env][model][bs]
+                us = lambda key: fmt_fixed(float(r[key]) * 1e3)  # ms/sample -> µs/sample
+                env_cell = f"\\multirow{{{n_env}}}{{*}}{{\\textbf{{{env}}}}}" if first_env_row else ""
+                model_cell = f"\\multirow{{{len(sizes)}}}{{*}}{{{MODEL_DISPLAY[model]}}}" if j == 0 else ""
+                first_env_row = False
+                rows.append(
+                    f"  {env_cell} & {model_cell} & {bs}"
+                    f" & {us('SD')} & {us('P99')} & {us('Max')} & {us('Max_Steady')}"
+                    f" & {fmt_pct(float(r['Miss']))} & {fmt_pct(float(r['Miss_Steady']))} \\\\"
+                )
+
+    body = "\n".join(rows)
+    return (
+        "\\begin{table}[htbp]\n"
+        "\\caption{Tail statistics of \\emph{RpS} for the ONNX Runtime \\emph{backend}"
+        " by \\emph{environment}, \\emph{model}, and \\emph{buffer size} (BS),"
+        " over all 500 measurements of a run. SD, p99, and Max in $\\mu$s/sample"
+        " (\\emph{RTT}~$\\approx$~22.68); Miss is the share of blocks exceeding the \\emph{RTT}."
+        " Starred columns exclude \\emph{iteration}~0 of every \\emph{repetition}.}\n"
+        "\\label{tab:tails}\n"
+        "\\centering\n"
+        "\\setlength{\\tabcolsep}{2pt}\n"
+        "\\begin{tabular}{llrrrrrrr}\n"
+        "\\toprule\n"
+        "& \\textbf{Model} & \\textbf{BS} & \\textbf{SD} & \\textbf{p99} & \\textbf{Max}"
+        " & \\textbf{Max*} & \\textbf{Miss} & \\textbf{Miss*} \\\\\n"
+        "& & & & & & & \\textbf{(\\%)} & \\textbf{(\\%)} \\\\\n"
+        "\\midrule\n"
+        f"{body}\n"
+        "\\bottomrule\n"
+        "\\end{tabular}\n"
+        "\\end{table}\n"
+    )
+
+
 # ── timer resolution table ─────────────────────────────────────────────────────
 
 _RE_RESOLUTION = re.compile(r"Timer resolution:\s+(\d+)\s+ns")
@@ -146,6 +218,18 @@ def format_timer_resolution_table(log_dir: str) -> str:
     )
 
 
+def find_paper_figures(web_r_root: str) -> str | None:
+    """Locate anira-paper-latex/figures next to anira-web-r, or one level up
+    (anira-web-r lives inside anira-paper-supplementary/ in the monorepo).
+    Returns None if absent, e.g. in a standalone supplementary checkout."""
+    parent = os.path.dirname(web_r_root)
+    for root in (parent, os.path.dirname(parent)):
+        candidate = os.path.join(root, "anira-paper-latex", "figures")
+        if os.path.isdir(candidate):
+            return candidate
+    return None
+
+
 # ── main ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -161,16 +245,15 @@ if __name__ == "__main__":
     web_r_root = os.path.dirname(os.path.dirname(os.path.abspath(results_dir)))
     monorepo_root = os.path.dirname(web_r_root)
     log_dir = os.path.join(web_r_root, "benchmark_logs")
-    paper_figures = os.path.join(monorepo_root, "anira-paper-latex", "figures")
+    paper_figures = find_paper_figures(web_r_root)
 
-    # Runtime table → results out + paper figures
-    runtime_tex = format_runtime_table(results_dir)
-    write_str_to_file(runtime_tex, os.path.join(out_dir, "runtime_table.tex"))
-    write_str_to_file(runtime_tex, os.path.join(paper_figures, "runtime_table.tex"))
-    print(f"runtime_table.tex written")
-
-    # Timer resolution table → results out + paper figures
-    timer_tex = format_timer_resolution_table(log_dir)
-    write_str_to_file(timer_tex, os.path.join(out_dir, "timer_resolution.tex"))
-    write_str_to_file(timer_tex, os.path.join(paper_figures, "timer_resolution.tex"))
-    print(f"timer_resolution.tex written")
+    tables = {
+        "runtime_table.tex": format_runtime_table(results_dir),
+        "tail_table.tex": format_tail_table(results_dir),
+        "timer_resolution.tex": format_timer_resolution_table(log_dir),
+    }
+    for name, tex in tables.items():
+        write_str_to_file(tex, os.path.join(out_dir, name))
+        if paper_figures:
+            write_str_to_file(tex, os.path.join(paper_figures, name))
+        print(f"{name} written" + (" (mirrored to paper figures)" if paper_figures else ""))

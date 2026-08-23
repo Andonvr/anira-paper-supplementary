@@ -50,6 +50,9 @@ Run in this order (or use `all`):
 - **`prepare`** -- filters the data, sets factor levels, applies the iteration
   window, and writes the per-RQ datasets (`data_rq12.rds`, `data_rq3.rds`).
 - **`describe`** -- computes descriptive statistics (`describe.csv`).
+- **`tails`** -- computes tail statistics per configuration from the raw
+  measurements: SD, 99th percentile, maximum, and deadline-miss rate, over all
+  iterations and over the steady state excluding iteration 0 (`tails.csv`).
 - **`model-rq12`** -- fits the mixed-effects model for RQ1 (platform overhead)
   and RQ2 (cold-start) and runs the ANOVA.
 - **`model-rq3`** -- fits the factorial (backend × pre/post-processing)
@@ -60,7 +63,7 @@ Run in this order (or use `all`):
 - **`significance-logging`** -- re-emits the significance results using the final
   significance threshold (without refitting the models).
 - **`tables`** -- generates the LaTeX tables (`runtime_table.tex`,
-  `timer_resolution.tex`).
+  `tail_table.tex`, `timer_resolution.tex`).
 - **`plots`** -- generates the figures (`rq1_environment.png`,
   `rq2_iteration_effects.png`, `rq3_overhead.png`).
 - **`all`** -- runs every step above in sequence.

@@ -415,11 +415,12 @@ if __name__ == "__main__":
     plot_rq3_overhead(results_dir, out_dir)
 
     # Mirror the PNGs into the paper's figures directory, same convention as
-    # tables.py — but only if it exists (it doesn't in the supplementary bundle).
+    # tables.py — but only if it exists (it doesn't in a standalone checkout).
+    from tables import find_paper_figures
+
     web_r_root = os.path.dirname(os.path.dirname(os.path.abspath(results_dir)))
-    monorepo_root = os.path.dirname(web_r_root)
-    paper_figures = os.path.join(monorepo_root, "anira-paper-latex", "figures")
-    if os.path.isdir(paper_figures):
+    paper_figures = find_paper_figures(web_r_root)
+    if paper_figures:
         import shutil
 
         for png in (

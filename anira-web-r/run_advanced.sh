@@ -3,7 +3,7 @@ set -euo pipefail
 trap "echo 'Aborted'; exit 130" INT
 
 if [ "$#" -ne 3 ]; then
-    echo "Usage: $0 <num_iterations> <nth_iterations> <ingest|prepare|describe|model-rq12|model-rq3|posthoc-rq12|posthoc-rq3|significance-logging|tables|plots|all>"
+    echo "Usage: $0 <num_iterations> <nth_iterations> <ingest|prepare|describe|tails|model-rq12|model-rq3|posthoc-rq12|posthoc-rq3|significance-logging|tables|plots|all>"
     exit 1
 fi
 
@@ -15,7 +15,7 @@ COMMAND=$3
 OUTPUT_FOLDER="./results/$NUM_ITER-$NTH_ITERS"
 
 if [ "$COMMAND" == "all" ]; then
-    for subcmd in ingest prepare describe model-rq12 model-rq3 posthoc-rq12 posthoc-rq3 significance-logging tables plots; do
+    for subcmd in ingest prepare describe tails model-rq12 model-rq3 posthoc-rq12 posthoc-rq3 significance-logging tables plots; do
         echo "=== Running $subcmd ==="
         "$0" "$NUM_ITER" "$NTH_ITERS" "$subcmd"
     done
@@ -41,6 +41,12 @@ case "$COMMAND" in
         Rscript source/commands/describe.r \
             "$OUTPUT_FOLDER" \
             2>&1 | log describe
+        ;;
+    tails)
+        python3 source/commands/tails.py \
+            benchmark_logs/raw.csv \
+            "$NUM_ITER" "$NTH_ITERS" "$OUTPUT_FOLDER" \
+            2>&1 | log tails
         ;;
     model-rq12)
         Rscript source/commands/model-rq12.r \
