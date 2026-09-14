@@ -51,8 +51,9 @@ Run in this order (or use `all`):
   window, and writes the per-RQ datasets (`data_rq12.rds`, `data_rq3.rds`).
 - **`describe`** -- computes descriptive statistics (`describe.csv`).
 - **`tails`** -- computes tail statistics per configuration from the raw
-  measurements: SD, 99th percentile, maximum, and deadline-miss rate, over all
-  iterations and over the steady state excluding iteration 0 (`tails.csv`).
+  measurements: SD, coefficient of variation (SD/Mean), 99th percentile,
+  maximum, and deadline-miss rate, over all iterations and over the steady
+  state excluding iteration 0 (`tails.csv`).
   Also splits the first-iteration runtime of the ONNX runs by repetition
   (first vs. later repetitions, `coldstart.csv`).
 - **`model-rq12`** -- fits the mixed-effects model for RQ1 (platform overhead)

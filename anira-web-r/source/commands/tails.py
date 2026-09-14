@@ -1,10 +1,13 @@
 """Tail statistics of the per-block runtimes.
 
 Descriptive, not model-based: for every benchmark configuration this computes
-the spread (SD), the 99th percentile, the maximum, and the deadline-miss rate
-of the raw per-iteration measurements, once over all iterations and once over
-the steady state (iteration >= 1, i.e. excluding the cold-start iteration of
-every repetition that RQ2 examines separately).
+the spread (SD and its relative form, the coefficient of variation CV = SD /
+Mean), the 99th percentile, the maximum, and the deadline-miss rate of the raw
+per-iteration measurements, once over all iterations and once over the steady
+state (iteration >= 1, i.e. excluding the cold-start iteration of every
+repetition that RQ2 examines separately). The steady-state SD is the jitter
+figure the paper quotes; multiplied by the buffer size it gives the per-block
+spread in ms.
 
 A deadline miss is a block whose runtime exceeds the duration of the audio it
 carries, i.e. Runtime > Buffer Size / sample rate, equivalently RpS > RTT.
@@ -17,7 +20,8 @@ environment-level effects (JIT, tier-up) from recurring per-repetition ones.
 
 Reads benchmark_logs/raw.csv with the same iteration filter as prepare.r and
 writes <results_dir>/tails.csv. Runtimes in the CSVs are ms/sample, matching
-describe.csv; tables.py converts to µs/sample for the paper.
+describe.csv; tables.py converts to µs/sample for the paper. CV is a plain
+ratio (not %) and Miss a fraction, both unit-free.
 """
 
 import csv
@@ -63,10 +67,13 @@ def summarise(rows: list[tuple[int, float]], buffer_size: int) -> dict:
 
     def stats(runtimes: list[float], suffix: str) -> dict:
         per_sample = [r / buffer_size for r in runtimes]
+        mean = statistics.fmean(per_sample)
+        sd = statistics.stdev(per_sample)
         return {
             f"N{suffix}": len(runtimes),
-            f"Mean{suffix}": statistics.fmean(per_sample),
-            f"SD{suffix}": statistics.stdev(per_sample),
+            f"Mean{suffix}": mean,
+            f"SD{suffix}": sd,
+            f"CV{suffix}": sd / mean,
             f"P99{suffix}": percentile(per_sample, 0.99),
             f"Max{suffix}": max(per_sample),
             f"Miss{suffix}": sum(r > budget_ms for r in runtimes) / len(runtimes),

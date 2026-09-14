@@ -118,7 +118,11 @@ def fmt_pct(frac: float) -> str:
 def format_tail_table(results_dir: str, run: str = "onnx") -> str:
     """Tail statistics of RpS for one run (default: the bundled ONNX Runtime
     backend with the C++ pre/post-processor), by environment, model, and
-    buffer size. Steady-state columns exclude iteration 0 of every repetition."""
+    buffer size. Starred columns are steady state, i.e. exclude iteration 0 of
+    every repetition; the jitter column (SD*) is reported in steady state only,
+    so that the cold-start spike RQ2 examines separately does not inflate it.
+    CV (SD/Mean) is in tails.csv but not in the table: a tenth column does not
+    fit the IEEE column width at this tabcolsep; the paper quotes it in prose."""
     csv_path = os.path.join(results_dir, "tails.csv")
 
     data: dict[str, dict[str, dict[int, dict]]] = defaultdict(lambda: defaultdict(dict))
@@ -147,7 +151,7 @@ def format_tail_table(results_dir: str, run: str = "onnx") -> str:
                 first_env_row = False
                 rows.append(
                     f"  {env_cell} & {model_cell} & {bs}"
-                    f" & {us('SD')} & {us('P99')} & {us('Max')} & {us('Max_Steady')}"
+                    f" & {us('SD_Steady')} & {us('P99')} & {us('Max')} & {us('Max_Steady')}"
                     f" & {fmt_pct(float(r['Miss']))} & {fmt_pct(float(r['Miss_Steady']))} \\\\"
                 )
 
@@ -164,7 +168,7 @@ def format_tail_table(results_dir: str, run: str = "onnx") -> str:
         "\\setlength{\\tabcolsep}{2pt}\n"
         "\\begin{tabular}{llrrrrrrr}\n"
         "\\toprule\n"
-        "& \\textbf{Model} & \\textbf{BS} & \\textbf{SD} & \\textbf{p99} & \\textbf{Max}"
+        "& \\textbf{Model} & \\textbf{BS} & \\textbf{SD*} & \\textbf{p99} & \\textbf{Max}"
         " & \\textbf{Max*} & \\textbf{Miss} & \\textbf{Miss*} \\\\\n"
         "& & & & & & & \\textbf{(\\%)} & \\textbf{(\\%)} \\\\\n"
         "\\midrule\n"
