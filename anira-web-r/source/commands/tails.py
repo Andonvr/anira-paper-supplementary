@@ -9,8 +9,14 @@ every repetition that RQ2 examines separately).
 A deadline miss is a block whose runtime exceeds the duration of the audio it
 carries, i.e. Runtime > Buffer Size / sample rate, equivalently RpS > RTT.
 
+Also writes coldstart.csv: for the bundled ONNX runs, the first-iteration
+runtime split by repetition — the first repetition of a configuration (right
+after module instantiation and worker start-up) versus the mean over the later
+repetitions — against the steady-state mean, to separate one-time
+environment-level effects (JIT, tier-up) from recurring per-repetition ones.
+
 Reads benchmark_logs/raw.csv with the same iteration filter as prepare.r and
-writes <results_dir>/tails.csv. Runtimes in the CSV are ms/sample, matching
+writes <results_dir>/tails.csv. Runtimes in the CSVs are ms/sample, matching
 describe.csv; tables.py converts to µs/sample for the paper.
 """
 
@@ -99,6 +105,35 @@ def main() -> None:
             "Buffer.Size": buffer_size,
             **summarise(rows, buffer_size),
         })
+
+    coldstart_rows = []
+    for (env, model, run, buffer_size), rows in sorted(groups.items()):
+        if run != "onnx":
+            continue
+        # groups lost the repetition index; recover it from insertion order:
+        # rows arrive repetition-by-repetition, each starting at iteration 0.
+        reps: list[list[float]] = []
+        for iteration, runtime in rows:
+            if iteration == 0:
+                reps.append([])
+            reps[-1].append(runtime)
+        it0_first = reps[0][0] / buffer_size
+        it0_later = statistics.fmean(rep[0] for rep in reps[1:]) / buffer_size
+        steady = statistics.fmean(
+            r for rep in reps for r in rep[1:]) / buffer_size
+        coldstart_rows.append({
+            "Environment": env, "Model": model, "Buffer.Size": buffer_size,
+            "It0_First_Rep": it0_first, "It0_Later_Reps": it0_later,
+            "Steady": steady,
+            "Ratio_First": it0_first / steady,
+            "Ratio_Later": it0_later / steady,
+        })
+    cold_path = os.path.join(results_dir, "coldstart.csv")
+    with open(cold_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=list(coldstart_rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(coldstart_rows)
+    print(f"coldstart.csv written to {results_dir} ({len(coldstart_rows)} configurations)")
 
     out_path = os.path.join(results_dir, "tails.csv")
     with open(out_path, "w", newline="") as f:
