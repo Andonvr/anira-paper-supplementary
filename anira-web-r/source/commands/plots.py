@@ -41,24 +41,61 @@ PP_HATCHES = {"wasm": "", "js": "///"}
 Y_LABEL = "Est. Means (µs / sample)"
 
 # Real-time threshold: available processing time per sample at 44.1 kHz.
-# RpS is per-sample, so one horizontal line is valid for every buffer size.
-# Only drawn in ONNX panels — bypass estimates lie >1 order of magnitude below.
+# RpS is per-sample, so one level is valid for every buffer size. It is marked
+# as a labelled tick on the y-axis rather than a line through the panel: a
+# tick does not take part in autoscaling, so the panels keep the y-range their
+# data needs, and a tick outside the axis range is simply not drawn. The mark
+# can therefore be requested on every panel and appears wherever the data
+# comes close enough to the threshold for it to matter.
 RTT_US_PER_SAMPLE = 1e6 / 44100  # ≈ 22.68 µs/sample
 RTT_COLOR = "#d62728"
-RTT_LABEL = "real-time threshold (RTT)"
+RTT_LABEL = "RTT"
+RTT_TICK_LENGTH = 7
+RTT_LABEL_GAP_PT = 4
 
 
 def _draw_rtt(ax):
-    ax.axhline(RTT_US_PER_SAMPLE, ls="-.", color=RTT_COLOR, lw=1.2, zorder=4)
-    # Invisible sentinel that participates in autoscale, so the line keeps
-    # some headroom instead of grazing the top edge (and the panel letter)
-    # when all data lies below the threshold. No effect on panels whose
-    # data already exceeds it.
-    ax.plot([0], [RTT_US_PER_SAMPLE * 1.25], ls="none", marker="")
+    """Mark the RTT as a labelled minor tick on the y-axis.
+
+    Must be called after any set_yscale()/locator setup, as those reset the
+    minor locator and formatter. Call _place_rtt_labels() on the finished
+    figure so the label clears the major tick labels."""
+    # Not set_yticks(minor=True): that expands the view limits to include the
+    # tick, which is exactly the autoscale effect this is meant to avoid.
+    ax.yaxis.set_minor_locator(ticker.FixedLocator([RTT_US_PER_SAMPLE]))
+    ax.yaxis.set_minor_formatter(ticker.FixedFormatter([RTT_LABEL]))
+    ax.tick_params(
+        axis="y",
+        which="minor",
+        colors=RTT_COLOR,
+        length=RTT_TICK_LENGTH,
+        width=1.4,
+    )
 
 
-def _rtt_handle():
-    return Line2D([0], [0], color=RTT_COLOR, lw=1.2, ls="-.", label=RTT_LABEL)
+def _place_rtt_labels(fig):
+    """Push each panel's RTT tick label left of its major tick labels.
+
+    The threshold sits between the major ticks at 20 and 30 (on the log axes
+    only a few points away from them), so a label at the default pad would
+    overprint a major label. The pad is derived from the rendered width of the
+    major labels that are actually visible, so it adapts to each axis format.
+    Panels whose y-range does not reach the RTT are left alone; their tick is
+    not drawn anyway."""
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    px_to_pt = 72.0 / fig.dpi
+    for ax in fig.axes:
+        lo, hi = ax.get_ylim()
+        if not lo <= RTT_US_PER_SAMPLE <= hi:
+            continue
+        widths = [
+            t.label1.get_window_extent(renderer).width
+            for t in ax.yaxis.get_major_ticks()
+            if lo <= t.get_loc() <= hi and t.label1.get_visible() and t.label1.get_text()
+        ]
+        pad = max(widths, default=0.0) * px_to_pt + RTT_LABEL_GAP_PT
+        ax.tick_params(axis="y", which="minor", pad=pad)
 
 
 def _apply_style():
@@ -146,8 +183,7 @@ def plot_rq1_environment(results_dir, out_dir):
                 edgecolor="black",
                 linewidth=0.5,
             )
-            if run == "onnx":
-                _draw_rtt(ax)
+            _draw_rtt(ax)
 
             ax.set_xticks(x)
             ax.set_xticklabels(envs, rotation=45, ha="right")
@@ -162,13 +198,8 @@ def plot_rq1_environment(results_dir, out_dir):
                     MODEL_TITLES.get(model, model), fontweight="bold", fontsize=13
                 )
 
-    fig.legend(
-        handles=[_rtt_handle()],
-        loc="lower center",
-        bbox_to_anchor=(0.5, -0.06),
-        frameon=True,
-    )
     fig.supylabel(Y_LABEL)
+    _place_rtt_labels(fig)
     _save(fig, out_dir, "rq1_environment.png")
 
 
@@ -242,7 +273,7 @@ def plot_rq2_iterations(results_dir, out_dir):
     star_handle = Line2D(
         [0], [0], marker="*", color="black", lw=0, label=f'p < {SIGNIFICANCE_THRESHOLD} vs. grand mean'
     )
-    legend_handles = solid_handles + [star_handle] + avg_handles + [_rtt_handle()]
+    legend_handles = solid_handles + [star_handle] + avg_handles
     fig.legend(
         handles=legend_handles,
         loc="lower center",
@@ -251,7 +282,10 @@ def plot_rq2_iterations(results_dir, out_dir):
         frameon=True,
     )
     fig.supylabel(Y_LABEL, x=0.02)
-    fig.subplots_adjust(top=0.97, bottom=0.1, hspace=0.25)
+    # Wider left margin than the default: room for the RTT tick labels
+    # between the shared y-axis label and the panels.
+    fig.subplots_adjust(top=0.97, bottom=0.1, left=0.16, hspace=0.25)
+    _place_rtt_labels(fig)
     _save(fig, out_dir, "rq2_iteration_effects.png")
 
 
@@ -328,12 +362,6 @@ def plot_rq3_overhead(results_dir, out_dir):
                         linewidth=0.5,
                     )
 
-                # Only where the data approaches the threshold (violations
-                # occur solely in ONNX SteerableNAFX); elsewhere the line
-                # would double the y-range and flatten the bar differences.
-                if group_key == "onnx" and model == "steerable-nafx":
-                    _draw_rtt(ax)
-
                 letter = chr(97 + row_idx * n_plot_cols + global_col)
                 ax.text(
                     0.03,
@@ -362,7 +390,9 @@ def plot_rq3_overhead(results_dir, out_dir):
                 ax.yaxis.set_major_formatter(
                     ticker.LogFormatterSciNotation(labelOnlyBase=False)
                 )
-                ax.yaxis.set_minor_formatter(ticker.NullFormatter())
+                # Replaces the log locator's unlabelled minor ticks; the tick
+                # only renders in panels whose range reaches the threshold.
+                _draw_rtt(ax)
 
             global_col += 1
 
@@ -387,14 +417,15 @@ def plot_rq3_overhead(results_dir, out_dir):
         for pp in pp_order
     ]
     fig.legend(
-        handles=backend_handles + pp_handles + [_rtt_handle()],
+        handles=backend_handles + pp_handles,
         loc="lower center",
-        ncol=len(backend_handles) + len(pp_handles) + 1,
+        ncol=len(backend_handles) + len(pp_handles),
         bbox_to_anchor=(0.5, -0.01),
         frameon=True,
         fontsize=11,
     )
     plt.subplots_adjust(bottom=0.06)
+    _place_rtt_labels(fig)
 
     _save(fig, out_dir, "rq3_overhead.png")
 
