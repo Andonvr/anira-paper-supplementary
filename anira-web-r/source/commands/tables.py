@@ -86,7 +86,7 @@ def format_runtime_table(results_dir: str) -> str:
     body = "\n".join(rows)
     return (
         "\\begin{table}[htbp]\n"
-        "\\caption{Descriptive statistics of \\emph{RpS} observations for the Bypass-Engine"
+        "\\caption{Descriptive statistics of \\emph{RpS} observations for the bypass \\emph{backend}"
         " across different models and execution environments."
         " All values are expressed in $\\mu$s/sample.}\n"
         "\\label{tab:runtime-overview}\n"
