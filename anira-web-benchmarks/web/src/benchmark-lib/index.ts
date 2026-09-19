@@ -41,10 +41,10 @@ export const setupBenchmarks = (inferenceWorkerFactory: InferenceWorkerFactory) 
     }
 
     // Single shared WASM memory reused across all AniraBenchmarkWeb instances
-    // to avoid accumulating 512 MB SharedArrayBuffer allocations (one per config).
+    // to avoid accumulating 1 GB SharedArrayBuffer allocations (one per config).
     const sharedWasmMemory = new WebAssembly.Memory({
-      initial: 8192,
-      maximum: 8192,
+      initial: 16384,
+      maximum: 16384,
       shared: true,
     })
 

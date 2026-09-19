@@ -45,7 +45,6 @@ static inline void cpu_relax() {
 struct BenchmarkSpec {
     anira::HostConfig host_config;
     float max_inference_time;
-    size_t warm_up;
     size_t num_parallel_processors;
     std::vector<anira::TensorShape> tensor_shapes;
     anira::ProcessingSpec processing_spec;
@@ -90,7 +89,6 @@ static std::vector<BenchmarkSpec> build_benchmark_specs() {
         BenchmarkSpec s;
         s.host_config             = { static_cast<float>(bs), STEERABLENAFX_SAMPLE_RATE };
         s.max_inference_time      = static_cast<float>(bs) / STEERABLENAFX_SAMPLE_RATE * 1000.0f;
-        s.warm_up                 = 5;
         s.num_parallel_processors = 1;
         s.tensor_shapes           = { { {{1, 1, input_size}}, {{1, 1, bs}} } };
         s.processing_spec         = { {1}, {1}, {static_cast<size_t>(bs)}, {static_cast<size_t>(bs)} };
@@ -107,7 +105,6 @@ static std::vector<BenchmarkSpec> build_benchmark_specs() {
         BenchmarkSpec s;
         s.host_config             = { static_cast<float>(bs), HYBRIDNN_SAMPLE_RATE };
         s.max_inference_time      = 5.33f;
-        s.warm_up                 = 3;
         s.num_parallel_processors = 1;
         s.tensor_shapes           = { { {{bs, 1, HYBRIDNN_CONTEXT_SAMPLES}}, {{bs, 1}} } };
         s.processing_spec         = { {1}, {1}, {static_cast<size_t>(bs)}, {static_cast<size_t>(bs)} };
@@ -296,7 +293,7 @@ uintptr_t benchmark_create_inference_config(int idx) {
         spec.tensor_shapes,
         spec.processing_spec,
         spec.max_inference_time,
-        spec.warm_up,
+        0,      // warm-up inferences: none, the first timed iteration is the session's first inference
         false,
         0.0f,
         static_cast<unsigned int>(spec.num_parallel_processors)
@@ -363,7 +360,7 @@ uintptr_t benchmark_create_inference_config_binary(int idx) {
         spec.tensor_shapes,
         spec.processing_spec,
         spec.max_inference_time,
-        spec.warm_up,
+        0,      // warm-up inferences: none, the first timed iteration is the session's first inference
         false,
         0.0f,
         static_cast<unsigned int>(spec.num_parallel_processors)
@@ -393,9 +390,8 @@ int main() {
                 spec.model_data,
                 spec.tensor_shapes,
                 spec.processing_spec,
-                spec.max_inference_time,
-                spec.warm_up
-            );
+                spec.max_inference_time
+            );  // no warm-up inferences (library default)
             auto pp = spec.make_pp(config);
 
             anira::InferenceHandler handler(*pp, config, anira::ContextConfig(1));

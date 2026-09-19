@@ -4,6 +4,9 @@ web/dist/
 web/wasm/
 web/app/dist/
 
+# Model repos cloned at configure time
+src/benchmarks/models/
+
 # Dependencies
 node_modules/
 

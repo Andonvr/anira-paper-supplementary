@@ -21,13 +21,21 @@ set(EXPORTED_FUNCTIONS "\"_free\",\"_malloc\",\"_benchmark_get_config_count\",\"
 
 set(BENCHMARK_SOURCES src/benchmarks/benchmarks.cpp)
 
+# Only the two model files that benchmarks.cpp actually loads are embedded.
+# Embedded files live in the WASM data segment and count against the fixed heap,
+# so embedding whole model folders wastes memory the benchmarks need.
+set(STEERABLENAFX_MODEL_FILE "${STEERABLENAFX_MODELS_PATH_PYTORCH}/model_0/steerable-nafx-libtorch-dynamic.onnx")
+set(GUITARLSTM_MODEL_FILE "${GUITARLSTM_MODELS_PATH_PYTORCH}/model_0/GuitarLSTM-libtorch-dynamic.onnx")
+
+foreach(model_file IN ITEMS "${STEERABLENAFX_MODEL_FILE}" "${GUITARLSTM_MODEL_FILE}")
+  if(NOT EXISTS "${model_file}")
+    message(FATAL_ERROR "Benchmark model not found: ${model_file}")
+  endif()
+endforeach()
+
 set(EMBED_FLAGS "\
-  --embed-file ${STEERABLENAFX_MODELS_PATH_PYTORCH}@/${STEERABLENAFX_MODELS_PATH_PYTORCH} \
-  --embed-file ${GUITARLSTM_MODELS_PATH_TENSORFLOW}@/${GUITARLSTM_MODELS_PATH_TENSORFLOW} \
-  --embed-file ${GUITARLSTM_MODELS_PATH_PYTORCH}@/${GUITARLSTM_MODELS_PATH_PYTORCH} \
-  --embed-file ${STATEFULLSTM_MODELS_PATH_TENSORFLOW}@/${STATEFULLSTM_MODELS_PATH_TENSORFLOW} \
-  --embed-file ${STATEFULLSTM_MODELS_PATH_PYTORCH}@/${STATEFULLSTM_MODELS_PATH_PYTORCH} \
-  --embed-file ${SIMPLEGAIN_MODEL_PATH}@/${SIMPLEGAIN_MODEL_PATH} \
+  --embed-file ${STEERABLENAFX_MODEL_FILE}@/${STEERABLENAFX_MODEL_FILE} \
+  --embed-file ${GUITARLSTM_MODEL_FILE}@/${GUITARLSTM_MODEL_FILE} \
   ")
 
 # Set flags if Debug
@@ -43,7 +51,7 @@ set(LINK_FLAGS "\
   --emit-tsd=${OUTPUT_FOLDER}/${TARGET_NAME}.d.ts \
   -s STACK_OVERFLOW_CHECK=0 \
   -s IMPORTED_MEMORY=1 \
-  -s INITIAL_MEMORY=536870912 \
+  -s INITIAL_MEMORY=1073741824 \
   -s SHARED_MEMORY=1 \
   -s ALLOW_MEMORY_GROWTH=0 \
   -s MALLOC=emmalloc \

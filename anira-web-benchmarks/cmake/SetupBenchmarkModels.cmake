@@ -3,6 +3,7 @@ set(BENCHMARK_MODELS_ROOT "${CMAKE_SOURCE_DIR}/src/benchmarks/models")
 if(NOT DEFINED MODEL_REPOSITORIES)
   set(MODEL_REPOSITORIES
     "https://github.com/faressc/GuitarLSTM.git hybrid-nn/GuitarLSTM"
+    "https://github.com/faressc/steerable-nafx.git cnn/steerable-nafx"
     "https://github.com/vackva/stateful-lstm.git stateful-rnn/stateful-lstm"
     "https://github.com/anira-project/example-models.git model-pool/example-models"
   )
@@ -36,7 +37,7 @@ endforeach()
 set(GUITARLSTM_MODELS_PATH_TENSORFLOW "${BENCHMARK_MODELS_ROOT}/hybrid-nn/GuitarLSTM/tensorflow-version/models/" CACHE PATH "Path to the GuitarLSTM TensorFlow models")
 set(GUITARLSTM_MODELS_PATH_PYTORCH "${BENCHMARK_MODELS_ROOT}/hybrid-nn/GuitarLSTM/pytorch-version/models/" CACHE PATH "Path to the GuitarLSTM PyTorch models")
 
-set(STEERABLENAFX_MODELS_PATH_PYTORCH "${CMAKE_SOURCE_DIR}/../anira/extras/models/cnn/steerable-nafx/models/" CACHE PATH "Path to the SteerableNAFX PyTorch models")
+set(STEERABLENAFX_MODELS_PATH_PYTORCH "${BENCHMARK_MODELS_ROOT}/cnn/steerable-nafx/models/" CACHE PATH "Path to the SteerableNAFX PyTorch models")
 
 set(STATEFULLSTM_MODELS_PATH_TENSORFLOW "${BENCHMARK_MODELS_ROOT}/stateful-rnn/stateful-lstm/models/" CACHE PATH "Path to the StatefulLSTM TensorFlow models")
 set(STATEFULLSTM_MODELS_PATH_PYTORCH "${BENCHMARK_MODELS_ROOT}/stateful-rnn/stateful-lstm/models/" CACHE PATH "Path to the StatefulLSTM PyTorch models")

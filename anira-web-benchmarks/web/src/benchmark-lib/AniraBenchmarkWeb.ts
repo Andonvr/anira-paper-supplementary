@@ -41,8 +41,8 @@ export class AniraBenchmarkWeb extends AniraWeb {
     const wasmMemory =
       memory ??
       new WebAssembly.Memory({
-        initial: 8192,
-        maximum: 8192,
+        initial: 16384,
+        maximum: 16384,
         shared: true,
       })
     const prePostRegistry = new Map<number, JSPrePostProcessor>()
