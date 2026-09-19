@@ -1,0 +1,595 @@
+here() starts at /home
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘lmerTest’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+The following object is masked from ‘package:stats’:
+
+    step
+
+Welcome to emmeans.
+Caution: You lose important information if you filter this package's results.
+See '? untidy'
+
+1.a Overall
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+ Environment response       SE  df lower.CL upper.CL
+ Native       0.00128 6.97e-06 432  0.00126  0.00129
+ Chrome       0.00311 1.70e-05 432  0.00307  0.00314
+ Firefox      0.00202 1.10e-05 432  0.00200  0.00204
+ Safari       0.00207 1.13e-05 432  0.00205  0.00209
+
+Results are averaged over the levels of: Run, Buffer.Size, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.411 0.00317 432    1 -115.172 <0.0001
+ Native / Firefox 0.633 0.00489 432    1  -59.280 <0.0001
+ Native / Safari  0.616 0.00476 432    1  -62.670 <0.0001
+ Chrome / Firefox 1.540 0.01190 432    1   55.892 <0.0001
+ Chrome / Safari  1.500 0.01160 432    1   52.502 <0.0001
+ Firefox / Safari 0.974 0.00752 432    1   -3.390  0.0008
+
+Results are averaged over the levels of: Run, Buffer.Size, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+
+
+1.b By buffer size
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+Buffer.Size = 128:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.004344 4.11e-05 432 0.004264 0.004425
+ Chrome      0.008248 7.80e-05 432 0.008096 0.008403
+ Firefox     0.005892 5.57e-05 432 0.005783 0.006002
+ Safari      0.006501 6.15e-05 432 0.006381 0.006623
+
+Buffer.Size = 1024:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.001137 1.08e-05 432 0.001116 0.001158
+ Chrome      0.002719 2.57e-05 432 0.002669 0.002770
+ Firefox     0.001780 1.68e-05 432 0.001747 0.001814
+ Safari      0.001818 1.72e-05 432 0.001784 0.001852
+
+Buffer.Size = 8192:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.000421 3.98e-06 432 0.000413 0.000428
+ Chrome      0.001336 1.26e-05 432 0.001311 0.001361
+ Firefox     0.000782 7.40e-06 432 0.000768 0.000797
+ Safari      0.000751 7.10e-06 432 0.000737 0.000765
+
+Results are averaged over the levels of: Run, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+Buffer.Size = 128:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.527 0.00705 432    1 -47.934 <0.0001
+ Native / Firefox 0.737 0.00986 432    1 -22.788 <0.0001
+ Native / Safari  0.668 0.00894 432    1 -30.144 <0.0001
+ Chrome / Firefox 1.400 0.01870 432    1  25.145 <0.0001
+ Chrome / Safari  1.269 0.01700 432    1  17.789 <0.0001
+ Firefox / Safari 0.906 0.01210 432    1  -7.356 <0.0001
+
+Buffer.Size = 1024:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.418 0.00560 432    1 -65.154 <0.0001
+ Native / Firefox 0.639 0.00855 432    1 -33.503 <0.0001
+ Native / Safari  0.625 0.00837 432    1 -35.073 <0.0001
+ Chrome / Firefox 1.527 0.02040 432    1  31.651 <0.0001
+ Chrome / Safari  1.496 0.02000 432    1  30.081 <0.0001
+ Firefox / Safari 0.979 0.01310 432    1  -1.570  0.1171
+
+Buffer.Size = 8192:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.315 0.00421 432    1 -86.395 <0.0001
+ Native / Firefox 0.538 0.00719 432    1 -46.385 <0.0001
+ Native / Safari  0.560 0.00749 432    1 -43.330 <0.0001
+ Chrome / Firefox 1.708 0.02290 432    1  40.010 <0.0001
+ Chrome / Safari  1.779 0.02380 432    1  43.065 <0.0001
+ Firefox / Safari 1.042 0.01390 432    1   3.055  0.0024
+
+Results are averaged over the levels of: Run, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+
+
+1.c By run × model
+
+NOTE: Results may be misleading due to involvement in interactions
+Run = bypass, Model.Unique = guitar-lstm:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.000519 5.67e-06 432 0.000508 0.000530
+ Chrome      0.001067 1.17e-05 432 0.001044 0.001090
+ Firefox     0.000783 8.56e-06 432 0.000767 0.000800
+ Safari      0.000799 8.73e-06 432 0.000782 0.000817
+
+Run = onnx, Model.Unique = guitar-lstm:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.003537 3.86e-05 432 0.003462 0.003614
+ Chrome      0.012075 1.32e-04 432 0.011819 0.012337
+ Firefox     0.006648 7.26e-05 432 0.006507 0.006793
+ Safari      0.006236 6.81e-05 432 0.006103 0.006371
+
+Run = bypass, Model.Unique = steerable-nafx:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.000127 1.38e-06 432 0.000124 0.000129
+ Chrome      0.000170 1.86e-06 432 0.000167 0.000174
+ Firefox     0.000151 1.65e-06 432 0.000148 0.000154
+ Safari      0.000175 1.91e-06 432 0.000171 0.000179
+
+Run = onnx, Model.Unique = steerable-nafx:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.011402 1.25e-04 432 0.011160 0.011650
+ Chrome      0.042434 4.64e-04 432 0.041533 0.043355
+ Firefox     0.021012 2.30e-04 432 0.020565 0.021468
+ Safari      0.021084 2.30e-04 432 0.020636 0.021541
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Run = bypass, Model.Unique = guitar-lstm:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.487 0.00752 432    1 -46.635 <0.0001
+ Native / Firefox 0.662 0.01020 432    1 -26.662 <0.0001
+ Native / Safari  0.649 0.01000 432    1 -27.974 <0.0001
+ Chrome / Firefox 1.361 0.02100 432    1  19.973 <0.0001
+ Chrome / Safari  1.334 0.02060 432    1  18.661 <0.0001
+ Firefox / Safari 0.980 0.01510 432    1  -1.312  0.1902
+
+Run = onnx, Model.Unique = guitar-lstm:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.293 0.00453 432    1 -79.474 <0.0001
+ Native / Firefox 0.532 0.00822 432    1 -40.844 <0.0001
+ Native / Safari  0.567 0.00876 432    1 -36.697 <0.0001
+ Chrome / Firefox 1.816 0.02810 432    1  38.630 <0.0001
+ Chrome / Safari  1.936 0.02990 432    1  42.777 <0.0001
+ Firefox / Safari 1.066 0.01650 432    1   4.147 <0.0001
+
+Run = bypass, Model.Unique = steerable-nafx:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.744 0.01150 432    1 -19.170 <0.0001
+ Native / Firefox 0.837 0.01290 432    1 -11.488 <0.0001
+ Native / Safari  0.724 0.01120 432    1 -20.880 <0.0001
+ Chrome / Firefox 1.126 0.01740 432    1   7.683 <0.0001
+ Chrome / Safari  0.974 0.01500 432    1  -1.709  0.0881
+ Firefox / Safari 0.865 0.01340 432    1  -9.392 <0.0001
+
+Run = onnx, Model.Unique = steerable-nafx:
+ contrast         ratio      SE  df null t.ratio p.value
+ Native / Chrome  0.269 0.00415 432    1 -85.063 <0.0001
+ Native / Firefox 0.543 0.00838 432    1 -39.566 <0.0001
+ Native / Safari  0.541 0.00835 432    1 -39.789 <0.0001
+ Chrome / Firefox 2.020 0.03120 432    1  45.497 <0.0001
+ Chrome / Safari  2.013 0.03110 432    1  45.275 <0.0001
+ Firefox / Safari 0.997 0.01540 432    1  -0.222  0.8243
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+emm_rq1_environment.csv written to ./results/50-10
+
+2.a Overall
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0                0.00255 1.42e-05 2139  0.00252  0.00257
+ 10               0.00191 1.06e-05 2139  0.00189  0.00193
+ 20               0.00189 1.06e-05 2139  0.00187  0.00192
+ 30               0.00191 1.06e-05 2139  0.00189  0.00193
+ 40               0.00190 1.06e-05 2139  0.00188  0.00192
+
+Results are averaged over the levels of: Run, Buffer.Size, Environment, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+ contrast                 ratio      SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.262 0.00614 1728    1  47.882 <0.0001
+ Iteration.Count10 effect 0.946 0.00460 1728    1 -11.414 <0.0001
+ Iteration.Count20 effect 0.940 0.00457 1728    1 -12.829 <0.0001
+ Iteration.Count30 effect 0.947 0.00460 1728    1 -11.310 <0.0001
+ Iteration.Count40 effect 0.942 0.00458 1728    1 -12.329 <0.0001
+
+Results are averaged over the levels of: Run, Buffer.Size, Environment, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 5 tests 
+Tests are performed on the log scale 
+
+
+2.b By environment
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+Environment = Native:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0                0.00134 1.49e-05 2139  0.00131  0.00137
+ 10               0.00126 1.41e-05 2139  0.00123  0.00129
+ 20               0.00126 1.40e-05 2139  0.00123  0.00129
+ 30               0.00126 1.41e-05 2139  0.00124  0.00129
+ 40               0.00126 1.40e-05 2139  0.00123  0.00128
+
+Environment = Chrome:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0                0.00385 4.29e-05 2139  0.00377  0.00394
+ 10               0.00295 3.29e-05 2139  0.00289  0.00301
+ 20               0.00294 3.28e-05 2139  0.00288  0.00300
+ 30               0.00293 3.27e-05 2139  0.00287  0.00300
+ 40               0.00295 3.29e-05 2139  0.00289  0.00302
+
+Environment = Firefox:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0                0.00249 2.78e-05 2139  0.00244  0.00255
+ 10               0.00190 2.12e-05 2139  0.00186  0.00194
+ 20               0.00192 2.14e-05 2139  0.00188  0.00196
+ 30               0.00192 2.14e-05 2139  0.00188  0.00196
+ 40               0.00192 2.14e-05 2139  0.00187  0.00196
+
+Environment = Safari:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0                0.00326 3.64e-05 2139  0.00319  0.00334
+ 10               0.00188 2.09e-05 2139  0.00184  0.00192
+ 20               0.00182 2.03e-05 2139  0.00178  0.00186
+ 30               0.00186 2.08e-05 2139  0.00182  0.00191
+ 40               0.00183 2.04e-05 2139  0.00179  0.00187
+
+Results are averaged over the levels of: Run, Buffer.Size, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+Environment = Native:
+ contrast                 ratio      SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.050 0.01020 1728    1   5.028 <0.0001
+ Iteration.Count10 effect 0.989 0.00962 1728    1  -1.135  0.5210
+ Iteration.Count20 effect 0.987 0.00959 1728    1  -1.361  0.5210
+ Iteration.Count30 effect 0.991 0.00964 1728    1  -0.929  0.5210
+ Iteration.Count40 effect 0.985 0.00957 1728    1  -1.603  0.4363
+
+Environment = Chrome:
+ contrast                 ratio      SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.240 0.01210 1728    1  22.124 <0.0001
+ Iteration.Count10 effect 0.949 0.00923 1728    1  -5.334 <0.0001
+ Iteration.Count20 effect 0.946 0.00920 1728    1  -5.676 <0.0001
+ Iteration.Count30 effect 0.945 0.00918 1728    1  -5.852 <0.0001
+ Iteration.Count40 effect 0.950 0.00924 1728    1  -5.262 <0.0001
+
+Environment = Firefox:
+ contrast                 ratio      SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.236 0.01200 1728    1  21.803 <0.0001
+ Iteration.Count10 effect 0.942 0.00915 1728    1  -6.195 <0.0001
+ Iteration.Count20 effect 0.950 0.00924 1728    1  -5.241 <0.0001
+ Iteration.Count30 effect 0.952 0.00926 1728    1  -5.065 <0.0001
+ Iteration.Count40 effect 0.950 0.00923 1728    1  -5.302 <0.0001
+
+Environment = Safari:
+ contrast                 ratio      SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.576 0.01530 1728    1  46.809 <0.0001
+ Iteration.Count10 effect 0.906 0.00881 1728    1 -10.164 <0.0001
+ Iteration.Count20 effect 0.878 0.00854 1728    1 -13.380 <0.0001
+ Iteration.Count30 effect 0.901 0.00876 1728    1 -10.774 <0.0001
+ Iteration.Count40 effect 0.886 0.00861 1728    1 -12.491 <0.0001
+
+Results are averaged over the levels of: Run, Buffer.Size, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 5 tests 
+Tests are performed on the log scale 
+
+
+2.c By environment × run × model
+
+NOTE: Results may be misleading due to involvement in interactions
+Environment = Native, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.000537 1.20e-05 2139 0.000514 0.000561
+ 10              0.000515 1.15e-05 2139 0.000493 0.000538
+ 20              0.000516 1.15e-05 2139 0.000494 0.000539
+ 30              0.000514 1.15e-05 2139 0.000492 0.000537
+ 40              0.000513 1.14e-05 2139 0.000491 0.000536
+
+Environment = Chrome, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.001275 2.84e-05 2139 0.001220 0.001332
+ 10              0.001022 2.28e-05 2139 0.000978 0.001068
+ 20              0.001022 2.28e-05 2139 0.000978 0.001068
+ 30              0.001017 2.27e-05 2139 0.000973 0.001062
+ 40              0.001020 2.27e-05 2139 0.000976 0.001065
+
+Environment = Firefox, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.000983 2.19e-05 2139 0.000940 0.001026
+ 10              0.000734 1.64e-05 2139 0.000702 0.000766
+ 20              0.000746 1.66e-05 2139 0.000714 0.000779
+ 30              0.000739 1.65e-05 2139 0.000707 0.000772
+ 40              0.000743 1.66e-05 2139 0.000711 0.000776
+
+Environment = Safari, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.001391 3.10e-05 2139 0.001332 0.001453
+ 10              0.000696 1.55e-05 2139 0.000666 0.000727
+ 20              0.000696 1.55e-05 2139 0.000666 0.000727
+ 30              0.000709 1.58e-05 2139 0.000678 0.000740
+ 40              0.000684 1.53e-05 2139 0.000655 0.000715
+
+Environment = Native, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.003709 8.27e-05 2139 0.003550 0.003874
+ 10              0.003495 7.80e-05 2139 0.003346 0.003652
+ 20              0.003499 7.80e-05 2139 0.003349 0.003655
+ 30              0.003493 7.79e-05 2139 0.003343 0.003649
+ 40              0.003496 7.80e-05 2139 0.003346 0.003652
+
+Environment = Chrome, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.013050 2.91e-04 2139 0.012492 0.013634
+ 10              0.011777 2.63e-04 2139 0.011273 0.012303
+ 20              0.011736 2.62e-04 2139 0.011234 0.012261
+ 30              0.011827 2.64e-04 2139 0.011321 0.012356
+ 40              0.012035 2.68e-04 2139 0.011520 0.012573
+
+Environment = Firefox, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.007265 1.62e-04 2139 0.006954 0.007590
+ 10              0.006502 1.45e-04 2139 0.006224 0.006793
+ 20              0.006510 1.45e-04 2139 0.006231 0.006801
+ 30              0.006501 1.45e-04 2139 0.006222 0.006791
+ 40              0.006497 1.45e-04 2139 0.006219 0.006788
+
+Environment = Safari, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.007697 1.72e-04 2139 0.007367 0.008041
+ 10              0.006061 1.35e-04 2139 0.005802 0.006332
+ 20              0.005873 1.31e-04 2139 0.005621 0.006135
+ 30              0.005857 1.31e-04 2139 0.005606 0.006119
+ 40              0.005876 1.31e-04 2139 0.005625 0.006139
+
+Environment = Native, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.000139 3.11e-06 2139 0.000134 0.000146
+ 10              0.000124 2.76e-06 2139 0.000119 0.000130
+ 20              0.000123 2.74e-06 2139 0.000117 0.000128
+ 30              0.000125 2.80e-06 2139 0.000120 0.000131
+ 40              0.000122 2.73e-06 2139 0.000117 0.000128
+
+Environment = Chrome, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.000302 6.73e-06 2139 0.000289 0.000315
+ 10              0.000149 3.33e-06 2139 0.000143 0.000156
+ 20              0.000147 3.28e-06 2139 0.000141 0.000154
+ 30              0.000147 3.27e-06 2139 0.000140 0.000153
+ 40              0.000147 3.29e-06 2139 0.000141 0.000154
+
+Environment = Firefox, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.000252 5.62e-06 2139 0.000241 0.000263
+ 10              0.000130 2.90e-06 2139 0.000124 0.000136
+ 20              0.000133 2.97e-06 2139 0.000127 0.000139
+ 30              0.000136 3.03e-06 2139 0.000130 0.000142
+ 40              0.000134 2.98e-06 2139 0.000128 0.000140
+
+Environment = Safari, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.000467 1.04e-05 2139 0.000447 0.000488
+ 10              0.000142 3.16e-06 2139 0.000136 0.000148
+ 20              0.000129 2.88e-06 2139 0.000124 0.000135
+ 30              0.000141 3.14e-06 2139 0.000135 0.000147
+ 40              0.000136 3.03e-06 2139 0.000130 0.000142
+
+Environment = Native, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.011609 2.59e-04 2139 0.011112 0.012128
+ 10              0.011360 2.53e-04 2139 0.010874 0.011868
+ 20              0.011350 2.53e-04 2139 0.010864 0.011857
+ 30              0.011350 2.53e-04 2139 0.010864 0.011857
+ 40              0.011345 2.53e-04 2139 0.010859 0.011852
+
+Environment = Chrome, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.043844 9.78e-04 2139 0.041968 0.045804
+ 10              0.042139 9.40e-04 2139 0.040335 0.044023
+ 20              0.042283 9.43e-04 2139 0.040473 0.044174
+ 30              0.042002 9.37e-04 2139 0.040204 0.043880
+ 40              0.041934 9.35e-04 2139 0.040139 0.043809
+
+Environment = Firefox, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.021465 4.79e-04 2139 0.020546 0.022425
+ 10              0.020963 4.68e-04 2139 0.020066 0.021901
+ 20              0.020880 4.66e-04 2139 0.019986 0.021813
+ 30              0.020855 4.65e-04 2139 0.019962 0.021787
+ 40              0.020901 4.66e-04 2139 0.020007 0.021836
+
+Environment = Safari, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE   df lower.CL upper.CL
+ 0               0.022708 5.06e-04 2139 0.021737 0.023724
+ 10              0.020723 4.62e-04 2139 0.019836 0.021649
+ 20              0.020682 4.61e-04 2139 0.019797 0.021606
+ 30              0.020698 4.62e-04 2139 0.019812 0.021623
+ 40              0.020682 4.61e-04 2139 0.019797 0.021607
+
+Results are averaged over the levels of: Buffer.Size 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Environment = Native, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.034 0.0201 1728    1   1.725  0.4239
+ Iteration.Count10 effect 0.993 0.0193 1728    1  -0.374  1.0000
+ Iteration.Count20 effect 0.994 0.0193 1728    1  -0.314  1.0000
+ Iteration.Count30 effect 0.991 0.0193 1728    1  -0.465  1.0000
+ Iteration.Count40 effect 0.989 0.0192 1728    1  -0.571  1.0000
+
+Environment = Chrome, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.195 0.0232 1728    1   9.162 <0.0001
+ Iteration.Count10 effect 0.958 0.0186 1728    1  -2.188  0.0623
+ Iteration.Count20 effect 0.958 0.0186 1728    1  -2.196  0.0623
+ Iteration.Count30 effect 0.953 0.0185 1728    1  -2.463  0.0555
+ Iteration.Count40 effect 0.956 0.0186 1728    1  -2.314  0.0623
+
+Environment = Firefox, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.254 0.0244 1728    1  11.646 <0.0001
+ Iteration.Count10 effect 0.936 0.0182 1728    1  -3.376  0.0030
+ Iteration.Count20 effect 0.952 0.0185 1728    1  -2.515  0.0120
+ Iteration.Count30 effect 0.943 0.0183 1728    1  -2.999  0.0083
+ Iteration.Count40 effect 0.948 0.0184 1728    1  -2.757  0.0118
+
+Environment = Safari, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.740 0.0338 1728    1  28.490 <0.0001
+ Iteration.Count10 effect 0.871 0.0169 1728    1  -7.128 <0.0001
+ Iteration.Count20 effect 0.870 0.0169 1728    1  -7.162 <0.0001
+ Iteration.Count30 effect 0.886 0.0172 1728    1  -6.199 <0.0001
+ Iteration.Count40 effect 0.856 0.0166 1728    1  -8.001 <0.0001
+
+Environment = Native, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.048 0.0204 1728    1   2.434  0.0753
+ Iteration.Count10 effect 0.988 0.0192 1728    1  -0.612  1.0000
+ Iteration.Count20 effect 0.989 0.0192 1728    1  -0.565  1.0000
+ Iteration.Count30 effect 0.987 0.0192 1728    1  -0.649  1.0000
+ Iteration.Count40 effect 0.988 0.0192 1728    1  -0.608  1.0000
+
+Environment = Chrome, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.081 0.0210 1728    1   3.993  0.0003
+ Iteration.Count10 effect 0.975 0.0190 1728    1  -1.287  0.5949
+ Iteration.Count20 effect 0.972 0.0189 1728    1  -1.464  0.5732
+ Iteration.Count30 effect 0.979 0.0190 1728    1  -1.068  0.5949
+ Iteration.Count40 effect 0.997 0.0194 1728    1  -0.173  0.8628
+
+Environment = Firefox, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.093 0.0213 1728    1   4.565 <0.0001
+ Iteration.Count10 effect 0.978 0.0190 1728    1  -1.145  0.9508
+ Iteration.Count20 effect 0.979 0.0190 1728    1  -1.084  0.9508
+ Iteration.Count30 effect 0.978 0.0190 1728    1  -1.155  0.9508
+ Iteration.Count40 effect 0.977 0.0190 1728    1  -1.181  0.9508
+
+Environment = Safari, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.234 0.0240 1728    1  10.824 <0.0001
+ Iteration.Count10 effect 0.972 0.0189 1728    1  -1.460  0.1444
+ Iteration.Count20 effect 0.942 0.0183 1728    1  -3.085  0.0062
+ Iteration.Count30 effect 0.939 0.0183 1728    1  -3.224  0.0052
+ Iteration.Count40 effect 0.942 0.0183 1728    1  -3.055  0.0062
+
+Environment = Native, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.102 0.0214 1728    1   4.974 <0.0001
+ Iteration.Count10 effect 0.979 0.0190 1728    1  -1.092  0.5502
+ Iteration.Count20 effect 0.969 0.0188 1728    1  -1.607  0.3245
+ Iteration.Count30 effect 0.990 0.0193 1728    1  -0.508  0.6116
+ Iteration.Count40 effect 0.966 0.0188 1728    1  -1.767  0.3097
+
+Environment = Chrome, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.772 0.0345 1728    1  29.414 <0.0001
+ Iteration.Count10 effect 0.876 0.0170 1728    1  -6.833 <0.0001
+ Iteration.Count20 effect 0.864 0.0168 1728    1  -7.509 <0.0001
+ Iteration.Count30 effect 0.862 0.0168 1728    1  -7.646 <0.0001
+ Iteration.Count40 effect 0.866 0.0168 1728    1  -7.426 <0.0001
+
+Environment = Firefox, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.668 0.0324 1728    1  26.297 <0.0001
+ Iteration.Count10 effect 0.860 0.0167 1728    1  -7.752 <0.0001
+ Iteration.Count20 effect 0.880 0.0171 1728    1  -6.559 <0.0001
+ Iteration.Count30 effect 0.897 0.0174 1728    1  -5.590 <0.0001
+ Iteration.Count40 effect 0.883 0.0172 1728    1  -6.396 <0.0001
+
+Environment = Safari, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  2.669 0.0519 1728    1  50.487 <0.0001
+ Iteration.Count10 effect 0.810 0.0157 1728    1 -10.851 <0.0001
+ Iteration.Count20 effect 0.739 0.0144 1728    1 -15.524 <0.0001
+ Iteration.Count30 effect 0.805 0.0156 1728    1 -11.175 <0.0001
+ Iteration.Count40 effect 0.778 0.0151 1728    1 -12.937 <0.0001
+
+Environment = Native, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.018 0.0198 1728    1   0.924  1.0000
+ Iteration.Count10 effect 0.996 0.0194 1728    1  -0.192  1.0000
+ Iteration.Count20 effect 0.995 0.0194 1728    1  -0.236  1.0000
+ Iteration.Count30 effect 0.995 0.0194 1728    1  -0.236  1.0000
+ Iteration.Count40 effect 0.995 0.0193 1728    1  -0.260  1.0000
+
+Environment = Chrome, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.033 0.0201 1728    1   1.681  0.4652
+ Iteration.Count10 effect 0.993 0.0193 1728    1  -0.360  1.0000
+ Iteration.Count20 effect 0.996 0.0194 1728    1  -0.184  1.0000
+ Iteration.Count30 effect 0.990 0.0192 1728    1  -0.527  1.0000
+ Iteration.Count40 effect 0.988 0.0192 1728    1  -0.610  1.0000
+
+Environment = Firefox, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.022 0.0199 1728    1   1.098  1.0000
+ Iteration.Count10 effect 0.998 0.0194 1728    1  -0.118  1.0000
+ Iteration.Count20 effect 0.994 0.0193 1728    1  -0.324  1.0000
+ Iteration.Count30 effect 0.993 0.0193 1728    1  -0.385  1.0000
+ Iteration.Count40 effect 0.995 0.0193 1728    1  -0.271  1.0000
+
+Environment = Safari, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE   df null t.ratio p.value
+ Iteration.Count0 effect  1.077 0.0209 1728    1   3.817  0.0007
+ Iteration.Count10 effect 0.983 0.0191 1728    1  -0.889  1.0000
+ Iteration.Count20 effect 0.981 0.0191 1728    1  -0.990  1.0000
+ Iteration.Count30 effect 0.982 0.0191 1728    1  -0.950  1.0000
+ Iteration.Count40 effect 0.981 0.0191 1728    1  -0.988  1.0000
+
+Results are averaged over the levels of: Buffer.Size 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 5 tests 
+Tests are performed on the log scale 
+emm_rq2_iterations.csv written to ./results/50-10
+
+#####################################################################
+# Clean up the environment
+#####################################################################
+
+Remaining attached packages:
+Remaining objects in the environment:
+Removing all objects from the environment...
+Remaining objects in the environment:
+Warning messages:
+1: In q("no", save = "no") : NAs introduced by coercion
+2: In q("no", save = "no") : invalid 'status', 0 assumed

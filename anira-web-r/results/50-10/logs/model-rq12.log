@@ -1,0 +1,2212 @@
+here() starts at /home
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘lmerTest’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+The following object is masked from ‘package:stats’:
+
+    step
+
+RQ1 & RQ2 model (LMM-I) fitted.
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: log(Runtime.Per.Sample) ~ (Run + Buffer.Size + Iteration.Count +  
+    Environment + Model.Unique)^5 + (1 | Repetition.Index)
+   Data: data
+
+REML criterion at convergence: -2255.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.3650 -0.1039 -0.0072  0.0479 14.2875 
+
+Random effects:
+ Groups           Name        Variance  Std.Dev.
+ Repetition.Index (Intercept) 0.0007442 0.02728 
+ Residual                     0.0141798 0.11908 
+Number of obs: 2400, groups:  Repetition.Index, 480
+
+Fixed effects:
+                                                                                         Estimate
+(Intercept)                                                                            -6.822e+00
+Runonnx                                                                                 1.346e+00
+Buffer.Size1024                                                                        -1.029e+00
+Buffer.Size8192                                                                        -1.198e+00
+Iteration.Count1                                                                        6.115e-02
+Iteration.Count2                                                                       -9.970e-03
+Iteration.Count3                                                                       -1.895e-02
+Iteration.Count4                                                                       -1.725e-02
+EnvironmentChrome                                                                       1.641e-01
+EnvironmentFirefox                                                                      2.175e-02
+EnvironmentSafari                                                                       2.732e-01
+Model.Uniquesteerable-nafx                                                             -4.807e-02
+Runonnx:Buffer.Size1024                                                                 7.869e-01
+Runonnx:Buffer.Size8192                                                                 9.333e-01
+Runonnx:Iteration.Count1                                                                5.353e-02
+Runonnx:Iteration.Count2                                                               -2.053e-02
+Runonnx:Iteration.Count3                                                               -7.690e-03
+Runonnx:Iteration.Count4                                                               -1.258e-02
+Runonnx:EnvironmentChrome                                                               9.739e-01
+Runonnx:EnvironmentFirefox                                                              5.985e-01
+Runonnx:EnvironmentSafari                                                               3.599e-01
+Runonnx:Model.Uniquesteerable-nafx                                                      2.935e+00
+Buffer.Size1024:Iteration.Count1                                                       -2.895e-02
+Buffer.Size8192:Iteration.Count1                                                       -5.390e-02
+Buffer.Size1024:Iteration.Count2                                                        2.304e-04
+Buffer.Size8192:Iteration.Count2                                                        7.870e-03
+Buffer.Size1024:Iteration.Count3                                                        1.418e-02
+Buffer.Size8192:Iteration.Count3                                                        2.436e-02
+Buffer.Size1024:Iteration.Count4                                                        1.263e-02
+Buffer.Size8192:Iteration.Count4                                                        1.197e-02
+Buffer.Size1024:EnvironmentChrome                                                       7.724e-01
+Buffer.Size8192:EnvironmentChrome                                                       8.967e-01
+Buffer.Size1024:EnvironmentFirefox                                                      5.568e-01
+Buffer.Size8192:EnvironmentFirefox                                                      6.136e-01
+Buffer.Size1024:EnvironmentSafari                                                       2.795e-01
+Buffer.Size8192:EnvironmentSafari                                                       1.974e-01
+Buffer.Size1024:Model.Uniquesteerable-nafx                                             -1.051e+00
+Buffer.Size8192:Model.Uniquesteerable-nafx                                             -3.036e+00
+Iteration.Count1:EnvironmentChrome                                                      4.071e-01
+Iteration.Count2:EnvironmentChrome                                                     -9.099e-02
+Iteration.Count3:EnvironmentChrome                                                     -1.103e-01
+Iteration.Count4:EnvironmentChrome                                                     -1.051e-01
+Iteration.Count1:EnvironmentFirefox                                                     4.280e-01
+Iteration.Count2:EnvironmentFirefox                                                    -1.316e-01
+Iteration.Count3:EnvironmentFirefox                                                    -9.179e-02
+Iteration.Count4:EnvironmentFirefox                                                    -1.089e-01
+Iteration.Count1:EnvironmentSafari                                                      1.095e+00
+Iteration.Count2:EnvironmentSafari                                                     -2.926e-01
+Iteration.Count3:EnvironmentSafari                                                     -2.549e-01
+Iteration.Count4:EnvironmentSafari                                                     -2.566e-01
+Iteration.Count1:Model.Uniquesteerable-nafx                                            -1.294e-02
+Iteration.Count2:Model.Uniquesteerable-nafx                                            -2.495e-03
+Iteration.Count3:Model.Uniquesteerable-nafx                                             8.109e-03
+Iteration.Count4:Model.Uniquesteerable-nafx                                             2.138e-03
+EnvironmentChrome:Model.Uniquesteerable-nafx                                           -2.161e-01
+EnvironmentFirefox:Model.Uniquesteerable-nafx                                          -4.571e-02
+EnvironmentSafari:Model.Uniquesteerable-nafx                                           -1.730e-01
+Runonnx:Buffer.Size1024:Iteration.Count1                                               -6.859e-02
+Runonnx:Buffer.Size8192:Iteration.Count1                                               -5.065e-02
+Runonnx:Buffer.Size1024:Iteration.Count2                                                2.683e-02
+Runonnx:Buffer.Size8192:Iteration.Count2                                                2.090e-02
+Runonnx:Buffer.Size1024:Iteration.Count3                                                9.356e-03
+Runonnx:Buffer.Size8192:Iteration.Count3                                               -9.318e-04
+Runonnx:Buffer.Size1024:Iteration.Count4                                                1.167e-02
+Runonnx:Buffer.Size8192:Iteration.Count4                                                1.537e-02
+Runonnx:Buffer.Size1024:EnvironmentChrome                                              -6.468e-01
+Runonnx:Buffer.Size8192:EnvironmentChrome                                              -7.530e-01
+Runonnx:Buffer.Size1024:EnvironmentFirefox                                             -5.442e-01
+Runonnx:Buffer.Size8192:EnvironmentFirefox                                             -5.942e-01
+Runonnx:Buffer.Size1024:EnvironmentSafari                                              -3.613e-01
+Runonnx:Buffer.Size8192:EnvironmentSafari                                              -3.140e-01
+Runonnx:Buffer.Size1024:Model.Uniquesteerable-nafx                                     -7.177e-01
+Runonnx:Buffer.Size8192:Model.Uniquesteerable-nafx                                     -3.431e-01
+Runonnx:Iteration.Count1:EnvironmentChrome                                             -3.523e-01
+Runonnx:Iteration.Count2:EnvironmentChrome                                              6.214e-02
+Runonnx:Iteration.Count3:EnvironmentChrome                                              6.690e-02
+Runonnx:Iteration.Count4:EnvironmentChrome                                              8.910e-02
+Runonnx:Iteration.Count1:EnvironmentFirefox                                            -3.589e-01
+Runonnx:Iteration.Count2:EnvironmentFirefox                                             1.169e-01
+Runonnx:Iteration.Count3:EnvironmentFirefox                                             8.777e-02
+Runonnx:Iteration.Count4:EnvironmentFirefox                                             8.599e-02
+Runonnx:Iteration.Count1:EnvironmentSafari                                             -8.009e-01
+Runonnx:Iteration.Count2:EnvironmentSafari                                              2.842e-01
+Runonnx:Iteration.Count3:EnvironmentSafari                                              1.653e-01
+Runonnx:Iteration.Count4:EnvironmentSafari                                              1.506e-01
+Runonnx:Iteration.Count1:Model.Uniquesteerable-nafx                                    -7.646e-02
+Runonnx:Iteration.Count2:Model.Uniquesteerable-nafx                                     2.849e-02
+Runonnx:Iteration.Count3:Model.Uniquesteerable-nafx                                     1.285e-02
+Runonnx:Iteration.Count4:Model.Uniquesteerable-nafx                                     2.077e-02
+Runonnx:EnvironmentChrome:Model.Uniquesteerable-nafx                                    3.932e-01
+Runonnx:EnvironmentFirefox:Model.Uniquesteerable-nafx                                   2.690e-02
+Runonnx:EnvironmentSafari:Model.Uniquesteerable-nafx                                    1.467e-01
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                     -3.818e-01
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                     -4.057e-01
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                      8.066e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                      8.647e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                      1.197e-01
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                      1.014e-01
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                      9.020e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                      1.086e-01
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                                    -2.856e-01
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                                    -4.197e-01
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                                     9.741e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                                     1.222e-01
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                                     7.439e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                                     7.259e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                                     4.923e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                                     1.297e-01
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                     -7.166e-01
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                     -1.008e+00
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari                                      1.921e-01
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari                                      2.918e-01
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                      1.493e-01
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                      2.159e-01
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                      2.027e-01
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                      2.326e-01
+Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                             3.988e-02
+Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                             1.885e-01
+Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                            -4.375e-03
+Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                            -3.002e-02
+Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                            -1.934e-02
+Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                            -8.046e-02
+Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                            -7.428e-03
+Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                            -1.461e-03
+Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                           -7.470e-01
+Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                            1.225e-01
+Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                          -5.592e-01
+Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                          -6.971e-03
+Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                           -2.227e-01
+Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                            4.130e-01
+Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                           2.933e-01
+Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                          -4.299e-02
+Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                          -8.755e-02
+Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                          -8.875e-02
+Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                          5.698e-02
+Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                         -4.394e-02
+Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                         -3.068e-02
+Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                          2.717e-02
+Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                          -7.555e-02
+Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                           8.642e-02
+Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                          -1.417e-01
+Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                           5.072e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome                              3.529e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome                              3.610e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome                             -5.717e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome                             -6.279e-02
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome                             -8.476e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome                             -5.860e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome                             -8.065e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome                             -9.456e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                             2.586e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                             3.635e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                            -9.097e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                            -1.156e-01
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                            -8.760e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                            -7.758e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                            -3.445e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                            -1.052e-01
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari                              5.554e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari                              7.753e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari                             -2.098e-01
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari                             -2.984e-01
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari                             -9.825e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari                             -1.450e-01
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari                             -1.279e-01
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari                             -1.395e-01
+Runonnx:Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                     4.712e-02
+Runonnx:Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                    -9.534e-02
+Runonnx:Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                    -2.231e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                     3.226e-03
+Runonnx:Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                    -2.668e-03
+Runonnx:Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                     5.875e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                    -1.313e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                    -2.261e-02
+Runonnx:Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                    6.195e-01
+Runonnx:Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                   -2.673e-01
+Runonnx:Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                   5.529e-01
+Runonnx:Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                   1.052e-02
+Runonnx:Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                    3.139e-01
+Runonnx:Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                   -2.818e-01
+Runonnx:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                  -3.310e-01
+Runonnx:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                   6.210e-02
+Runonnx:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                   1.367e-01
+Runonnx:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                   9.860e-02
+Runonnx:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                 -1.272e-01
+Runonnx:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                  6.075e-02
+Runonnx:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                  3.025e-02
+Runonnx:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                 -5.864e-03
+Runonnx:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                  -1.711e-01
+Runonnx:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                  -9.158e-02
+Runonnx:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                   2.171e-01
+Runonnx:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                   4.476e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx           2.566e-01
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx          -1.448e-01
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx          -8.857e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx          -1.156e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx          -5.990e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx           8.811e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx          -4.493e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx           1.134e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx          3.582e-01
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.360e-01
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx         -5.418e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx         -2.739e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx         -1.031e-01
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx          3.464e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx         -7.285e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx         -1.574e-01
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx           7.879e-01
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx           5.325e-01
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx          -2.391e-01
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx          -1.955e-01
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx          -3.532e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx           4.792e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx          -2.364e-01
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx          -2.035e-01
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx  -2.331e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx   1.875e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx   7.102e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx   1.363e-03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx   2.164e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx  -1.417e-01
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx   3.644e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx  -2.488e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx -3.233e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx -7.441e-02
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx  5.197e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.458e-02
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.132e-01
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx -1.839e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx  5.494e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.322e-01
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx  -6.069e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx  -2.943e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx   2.555e-01
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx   2.034e-01
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx  -1.900e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx  -1.168e-01
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx   1.558e-01
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx   1.062e-01
+                                                                                       Std. Error
+(Intercept)                                                                             1.892e-02
+Runonnx                                                                                 2.676e-02
+Buffer.Size1024                                                                         2.676e-02
+Buffer.Size8192                                                                         2.676e-02
+Iteration.Count1                                                                        3.368e-02
+Iteration.Count2                                                                        3.368e-02
+Iteration.Count3                                                                        3.368e-02
+Iteration.Count4                                                                        3.368e-02
+EnvironmentChrome                                                                       2.676e-02
+EnvironmentFirefox                                                                      2.676e-02
+EnvironmentSafari                                                                       2.676e-02
+Model.Uniquesteerable-nafx                                                              2.676e-02
+Runonnx:Buffer.Size1024                                                                 3.784e-02
+Runonnx:Buffer.Size8192                                                                 3.784e-02
+Runonnx:Iteration.Count1                                                                4.763e-02
+Runonnx:Iteration.Count2                                                                4.763e-02
+Runonnx:Iteration.Count3                                                                4.763e-02
+Runonnx:Iteration.Count4                                                                4.763e-02
+Runonnx:EnvironmentChrome                                                               3.784e-02
+Runonnx:EnvironmentFirefox                                                              3.784e-02
+Runonnx:EnvironmentSafari                                                               3.784e-02
+Runonnx:Model.Uniquesteerable-nafx                                                      3.784e-02
+Buffer.Size1024:Iteration.Count1                                                        4.763e-02
+Buffer.Size8192:Iteration.Count1                                                        4.763e-02
+Buffer.Size1024:Iteration.Count2                                                        4.763e-02
+Buffer.Size8192:Iteration.Count2                                                        4.763e-02
+Buffer.Size1024:Iteration.Count3                                                        4.763e-02
+Buffer.Size8192:Iteration.Count3                                                        4.763e-02
+Buffer.Size1024:Iteration.Count4                                                        4.763e-02
+Buffer.Size8192:Iteration.Count4                                                        4.763e-02
+Buffer.Size1024:EnvironmentChrome                                                       3.784e-02
+Buffer.Size8192:EnvironmentChrome                                                       3.784e-02
+Buffer.Size1024:EnvironmentFirefox                                                      3.784e-02
+Buffer.Size8192:EnvironmentFirefox                                                      3.784e-02
+Buffer.Size1024:EnvironmentSafari                                                       3.784e-02
+Buffer.Size8192:EnvironmentSafari                                                       3.784e-02
+Buffer.Size1024:Model.Uniquesteerable-nafx                                              3.784e-02
+Buffer.Size8192:Model.Uniquesteerable-nafx                                              3.784e-02
+Iteration.Count1:EnvironmentChrome                                                      4.763e-02
+Iteration.Count2:EnvironmentChrome                                                      4.763e-02
+Iteration.Count3:EnvironmentChrome                                                      4.763e-02
+Iteration.Count4:EnvironmentChrome                                                      4.763e-02
+Iteration.Count1:EnvironmentFirefox                                                     4.763e-02
+Iteration.Count2:EnvironmentFirefox                                                     4.763e-02
+Iteration.Count3:EnvironmentFirefox                                                     4.763e-02
+Iteration.Count4:EnvironmentFirefox                                                     4.763e-02
+Iteration.Count1:EnvironmentSafari                                                      4.763e-02
+Iteration.Count2:EnvironmentSafari                                                      4.763e-02
+Iteration.Count3:EnvironmentSafari                                                      4.763e-02
+Iteration.Count4:EnvironmentSafari                                                      4.763e-02
+Iteration.Count1:Model.Uniquesteerable-nafx                                             4.763e-02
+Iteration.Count2:Model.Uniquesteerable-nafx                                             4.763e-02
+Iteration.Count3:Model.Uniquesteerable-nafx                                             4.763e-02
+Iteration.Count4:Model.Uniquesteerable-nafx                                             4.763e-02
+EnvironmentChrome:Model.Uniquesteerable-nafx                                            3.784e-02
+EnvironmentFirefox:Model.Uniquesteerable-nafx                                           3.784e-02
+EnvironmentSafari:Model.Uniquesteerable-nafx                                            3.784e-02
+Runonnx:Buffer.Size1024:Iteration.Count1                                                6.736e-02
+Runonnx:Buffer.Size8192:Iteration.Count1                                                6.736e-02
+Runonnx:Buffer.Size1024:Iteration.Count2                                                6.736e-02
+Runonnx:Buffer.Size8192:Iteration.Count2                                                6.736e-02
+Runonnx:Buffer.Size1024:Iteration.Count3                                                6.736e-02
+Runonnx:Buffer.Size8192:Iteration.Count3                                                6.736e-02
+Runonnx:Buffer.Size1024:Iteration.Count4                                                6.736e-02
+Runonnx:Buffer.Size8192:Iteration.Count4                                                6.736e-02
+Runonnx:Buffer.Size1024:EnvironmentChrome                                               5.352e-02
+Runonnx:Buffer.Size8192:EnvironmentChrome                                               5.352e-02
+Runonnx:Buffer.Size1024:EnvironmentFirefox                                              5.352e-02
+Runonnx:Buffer.Size8192:EnvironmentFirefox                                              5.352e-02
+Runonnx:Buffer.Size1024:EnvironmentSafari                                               5.352e-02
+Runonnx:Buffer.Size8192:EnvironmentSafari                                               5.352e-02
+Runonnx:Buffer.Size1024:Model.Uniquesteerable-nafx                                      5.352e-02
+Runonnx:Buffer.Size8192:Model.Uniquesteerable-nafx                                      5.352e-02
+Runonnx:Iteration.Count1:EnvironmentChrome                                              6.736e-02
+Runonnx:Iteration.Count2:EnvironmentChrome                                              6.736e-02
+Runonnx:Iteration.Count3:EnvironmentChrome                                              6.736e-02
+Runonnx:Iteration.Count4:EnvironmentChrome                                              6.736e-02
+Runonnx:Iteration.Count1:EnvironmentFirefox                                             6.736e-02
+Runonnx:Iteration.Count2:EnvironmentFirefox                                             6.736e-02
+Runonnx:Iteration.Count3:EnvironmentFirefox                                             6.736e-02
+Runonnx:Iteration.Count4:EnvironmentFirefox                                             6.736e-02
+Runonnx:Iteration.Count1:EnvironmentSafari                                              6.736e-02
+Runonnx:Iteration.Count2:EnvironmentSafari                                              6.736e-02
+Runonnx:Iteration.Count3:EnvironmentSafari                                              6.736e-02
+Runonnx:Iteration.Count4:EnvironmentSafari                                              6.736e-02
+Runonnx:Iteration.Count1:Model.Uniquesteerable-nafx                                     6.736e-02
+Runonnx:Iteration.Count2:Model.Uniquesteerable-nafx                                     6.736e-02
+Runonnx:Iteration.Count3:Model.Uniquesteerable-nafx                                     6.736e-02
+Runonnx:Iteration.Count4:Model.Uniquesteerable-nafx                                     6.736e-02
+Runonnx:EnvironmentChrome:Model.Uniquesteerable-nafx                                    5.352e-02
+Runonnx:EnvironmentFirefox:Model.Uniquesteerable-nafx                                   5.352e-02
+Runonnx:EnvironmentSafari:Model.Uniquesteerable-nafx                                    5.352e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                      6.736e-02
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                      6.736e-02
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                      6.736e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                      6.736e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                      6.736e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                      6.736e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                      6.736e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                      6.736e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                                     6.736e-02
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                                     6.736e-02
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                                     6.736e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                                     6.736e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                                     6.736e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                                     6.736e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                                     6.736e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                                     6.736e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                      6.736e-02
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                      6.736e-02
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari                                      6.736e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari                                      6.736e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                      6.736e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                      6.736e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                      6.736e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                      6.736e-02
+Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                             6.736e-02
+Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                            5.352e-02
+Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                            5.352e-02
+Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                           5.352e-02
+Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                           5.352e-02
+Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                            5.352e-02
+Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                            5.352e-02
+Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                          6.736e-02
+Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                          6.736e-02
+Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                          6.736e-02
+Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                          6.736e-02
+Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                           6.736e-02
+Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                           6.736e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                             9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari                              9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                     9.526e-02
+Runonnx:Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                    7.568e-02
+Runonnx:Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                    7.568e-02
+Runonnx:Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                   7.568e-02
+Runonnx:Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                   7.568e-02
+Runonnx:Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                    7.568e-02
+Runonnx:Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                    7.568e-02
+Runonnx:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                  9.526e-02
+Runonnx:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                  9.526e-02
+Runonnx:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                  9.526e-02
+Runonnx:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                  9.526e-02
+Runonnx:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                   9.526e-02
+Runonnx:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                   9.526e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx          9.526e-02
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx           9.526e-02
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx   1.347e-01
+                                                                                               df
+(Intercept)                                                                             4.320e+02
+Runonnx                                                                                 4.320e+02
+Buffer.Size1024                                                                         4.320e+02
+Buffer.Size8192                                                                         4.320e+02
+Iteration.Count1                                                                        1.728e+03
+Iteration.Count2                                                                        1.728e+03
+Iteration.Count3                                                                        1.728e+03
+Iteration.Count4                                                                        1.728e+03
+EnvironmentChrome                                                                       4.320e+02
+EnvironmentFirefox                                                                      4.320e+02
+EnvironmentSafari                                                                       4.320e+02
+Model.Uniquesteerable-nafx                                                              4.320e+02
+Runonnx:Buffer.Size1024                                                                 4.320e+02
+Runonnx:Buffer.Size8192                                                                 4.320e+02
+Runonnx:Iteration.Count1                                                                1.728e+03
+Runonnx:Iteration.Count2                                                                1.728e+03
+Runonnx:Iteration.Count3                                                                1.728e+03
+Runonnx:Iteration.Count4                                                                1.728e+03
+Runonnx:EnvironmentChrome                                                               4.320e+02
+Runonnx:EnvironmentFirefox                                                              4.320e+02
+Runonnx:EnvironmentSafari                                                               4.320e+02
+Runonnx:Model.Uniquesteerable-nafx                                                      4.320e+02
+Buffer.Size1024:Iteration.Count1                                                        1.728e+03
+Buffer.Size8192:Iteration.Count1                                                        1.728e+03
+Buffer.Size1024:Iteration.Count2                                                        1.728e+03
+Buffer.Size8192:Iteration.Count2                                                        1.728e+03
+Buffer.Size1024:Iteration.Count3                                                        1.728e+03
+Buffer.Size8192:Iteration.Count3                                                        1.728e+03
+Buffer.Size1024:Iteration.Count4                                                        1.728e+03
+Buffer.Size8192:Iteration.Count4                                                        1.728e+03
+Buffer.Size1024:EnvironmentChrome                                                       4.320e+02
+Buffer.Size8192:EnvironmentChrome                                                       4.320e+02
+Buffer.Size1024:EnvironmentFirefox                                                      4.320e+02
+Buffer.Size8192:EnvironmentFirefox                                                      4.320e+02
+Buffer.Size1024:EnvironmentSafari                                                       4.320e+02
+Buffer.Size8192:EnvironmentSafari                                                       4.320e+02
+Buffer.Size1024:Model.Uniquesteerable-nafx                                              4.320e+02
+Buffer.Size8192:Model.Uniquesteerable-nafx                                              4.320e+02
+Iteration.Count1:EnvironmentChrome                                                      1.728e+03
+Iteration.Count2:EnvironmentChrome                                                      1.728e+03
+Iteration.Count3:EnvironmentChrome                                                      1.728e+03
+Iteration.Count4:EnvironmentChrome                                                      1.728e+03
+Iteration.Count1:EnvironmentFirefox                                                     1.728e+03
+Iteration.Count2:EnvironmentFirefox                                                     1.728e+03
+Iteration.Count3:EnvironmentFirefox                                                     1.728e+03
+Iteration.Count4:EnvironmentFirefox                                                     1.728e+03
+Iteration.Count1:EnvironmentSafari                                                      1.728e+03
+Iteration.Count2:EnvironmentSafari                                                      1.728e+03
+Iteration.Count3:EnvironmentSafari                                                      1.728e+03
+Iteration.Count4:EnvironmentSafari                                                      1.728e+03
+Iteration.Count1:Model.Uniquesteerable-nafx                                             1.728e+03
+Iteration.Count2:Model.Uniquesteerable-nafx                                             1.728e+03
+Iteration.Count3:Model.Uniquesteerable-nafx                                             1.728e+03
+Iteration.Count4:Model.Uniquesteerable-nafx                                             1.728e+03
+EnvironmentChrome:Model.Uniquesteerable-nafx                                            4.320e+02
+EnvironmentFirefox:Model.Uniquesteerable-nafx                                           4.320e+02
+EnvironmentSafari:Model.Uniquesteerable-nafx                                            4.320e+02
+Runonnx:Buffer.Size1024:Iteration.Count1                                                1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1                                                1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2                                                1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2                                                1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3                                                1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3                                                1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4                                                1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4                                                1.728e+03
+Runonnx:Buffer.Size1024:EnvironmentChrome                                               4.320e+02
+Runonnx:Buffer.Size8192:EnvironmentChrome                                               4.320e+02
+Runonnx:Buffer.Size1024:EnvironmentFirefox                                              4.320e+02
+Runonnx:Buffer.Size8192:EnvironmentFirefox                                              4.320e+02
+Runonnx:Buffer.Size1024:EnvironmentSafari                                               4.320e+02
+Runonnx:Buffer.Size8192:EnvironmentSafari                                               4.320e+02
+Runonnx:Buffer.Size1024:Model.Uniquesteerable-nafx                                      4.320e+02
+Runonnx:Buffer.Size8192:Model.Uniquesteerable-nafx                                      4.320e+02
+Runonnx:Iteration.Count1:EnvironmentChrome                                              1.728e+03
+Runonnx:Iteration.Count2:EnvironmentChrome                                              1.728e+03
+Runonnx:Iteration.Count3:EnvironmentChrome                                              1.728e+03
+Runonnx:Iteration.Count4:EnvironmentChrome                                              1.728e+03
+Runonnx:Iteration.Count1:EnvironmentFirefox                                             1.728e+03
+Runonnx:Iteration.Count2:EnvironmentFirefox                                             1.728e+03
+Runonnx:Iteration.Count3:EnvironmentFirefox                                             1.728e+03
+Runonnx:Iteration.Count4:EnvironmentFirefox                                             1.728e+03
+Runonnx:Iteration.Count1:EnvironmentSafari                                              1.728e+03
+Runonnx:Iteration.Count2:EnvironmentSafari                                              1.728e+03
+Runonnx:Iteration.Count3:EnvironmentSafari                                              1.728e+03
+Runonnx:Iteration.Count4:EnvironmentSafari                                              1.728e+03
+Runonnx:Iteration.Count1:Model.Uniquesteerable-nafx                                     1.728e+03
+Runonnx:Iteration.Count2:Model.Uniquesteerable-nafx                                     1.728e+03
+Runonnx:Iteration.Count3:Model.Uniquesteerable-nafx                                     1.728e+03
+Runonnx:Iteration.Count4:Model.Uniquesteerable-nafx                                     1.728e+03
+Runonnx:EnvironmentChrome:Model.Uniquesteerable-nafx                                    4.320e+02
+Runonnx:EnvironmentFirefox:Model.Uniquesteerable-nafx                                   4.320e+02
+Runonnx:EnvironmentSafari:Model.Uniquesteerable-nafx                                    4.320e+02
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                      1.728e+03
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                      1.728e+03
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                      1.728e+03
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                      1.728e+03
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                      1.728e+03
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                      1.728e+03
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                      1.728e+03
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                      1.728e+03
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                                     1.728e+03
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                                     1.728e+03
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                                     1.728e+03
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                                     1.728e+03
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                                     1.728e+03
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                                     1.728e+03
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                                     1.728e+03
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                                     1.728e+03
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                      1.728e+03
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                      1.728e+03
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari                                      1.728e+03
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari                                      1.728e+03
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                      1.728e+03
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                      1.728e+03
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                      1.728e+03
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                      1.728e+03
+Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                             1.728e+03
+Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                            4.320e+02
+Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                            4.320e+02
+Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                           4.320e+02
+Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                           4.320e+02
+Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                            4.320e+02
+Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                            4.320e+02
+Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                          1.728e+03
+Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                          1.728e+03
+Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                          1.728e+03
+Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                          1.728e+03
+Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                           1.728e+03
+Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                           1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                             1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari                              1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                     1.728e+03
+Runonnx:Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                    4.320e+02
+Runonnx:Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                    4.320e+02
+Runonnx:Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                   4.320e+02
+Runonnx:Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                   4.320e+02
+Runonnx:Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                    4.320e+02
+Runonnx:Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                    4.320e+02
+Runonnx:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                  1.728e+03
+Runonnx:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                  1.728e+03
+Runonnx:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                  1.728e+03
+Runonnx:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                  1.728e+03
+Runonnx:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                   1.728e+03
+Runonnx:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                   1.728e+03
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx          1.728e+03
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx           1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx  1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx   1.728e+03
+                                                                                        t value
+(Intercept)                                                                            -360.529
+Runonnx                                                                                  50.300
+Buffer.Size1024                                                                         -38.449
+Buffer.Size8192                                                                         -44.752
+Iteration.Count1                                                                          1.816
+Iteration.Count2                                                                         -0.296
+Iteration.Count3                                                                         -0.563
+Iteration.Count4                                                                         -0.512
+EnvironmentChrome                                                                         6.133
+EnvironmentFirefox                                                                        0.813
+EnvironmentSafari                                                                        10.210
+Model.Uniquesteerable-nafx                                                               -1.796
+Runonnx:Buffer.Size1024                                                                  20.795
+Runonnx:Buffer.Size8192                                                                  24.663
+Runonnx:Iteration.Count1                                                                  1.124
+Runonnx:Iteration.Count2                                                                 -0.431
+Runonnx:Iteration.Count3                                                                 -0.161
+Runonnx:Iteration.Count4                                                                 -0.264
+Runonnx:EnvironmentChrome                                                                25.737
+Runonnx:EnvironmentFirefox                                                               15.817
+Runonnx:EnvironmentSafari                                                                 9.510
+Runonnx:Model.Uniquesteerable-nafx                                                       77.547
+Buffer.Size1024:Iteration.Count1                                                         -0.608
+Buffer.Size8192:Iteration.Count1                                                         -1.132
+Buffer.Size1024:Iteration.Count2                                                          0.005
+Buffer.Size8192:Iteration.Count2                                                          0.165
+Buffer.Size1024:Iteration.Count3                                                          0.298
+Buffer.Size8192:Iteration.Count3                                                          0.511
+Buffer.Size1024:Iteration.Count4                                                          0.265
+Buffer.Size8192:Iteration.Count4                                                          0.251
+Buffer.Size1024:EnvironmentChrome                                                        20.412
+Buffer.Size8192:EnvironmentChrome                                                        23.695
+Buffer.Size1024:EnvironmentFirefox                                                       14.714
+Buffer.Size8192:EnvironmentFirefox                                                       16.216
+Buffer.Size1024:EnvironmentSafari                                                         7.385
+Buffer.Size8192:EnvironmentSafari                                                         5.217
+Buffer.Size1024:Model.Uniquesteerable-nafx                                              -27.769
+Buffer.Size8192:Model.Uniquesteerable-nafx                                              -80.239
+Iteration.Count1:EnvironmentChrome                                                        8.547
+Iteration.Count2:EnvironmentChrome                                                       -1.910
+Iteration.Count3:EnvironmentChrome                                                       -2.316
+Iteration.Count4:EnvironmentChrome                                                       -2.207
+Iteration.Count1:EnvironmentFirefox                                                       8.987
+Iteration.Count2:EnvironmentFirefox                                                      -2.763
+Iteration.Count3:EnvironmentFirefox                                                      -1.927
+Iteration.Count4:EnvironmentFirefox                                                      -2.286
+Iteration.Count1:EnvironmentSafari                                                       22.997
+Iteration.Count2:EnvironmentSafari                                                       -6.144
+Iteration.Count3:EnvironmentSafari                                                       -5.351
+Iteration.Count4:EnvironmentSafari                                                       -5.387
+Iteration.Count1:Model.Uniquesteerable-nafx                                              -0.272
+Iteration.Count2:Model.Uniquesteerable-nafx                                              -0.052
+Iteration.Count3:Model.Uniquesteerable-nafx                                               0.170
+Iteration.Count4:Model.Uniquesteerable-nafx                                               0.045
+EnvironmentChrome:Model.Uniquesteerable-nafx                                             -5.711
+EnvironmentFirefox:Model.Uniquesteerable-nafx                                            -1.208
+EnvironmentSafari:Model.Uniquesteerable-nafx                                             -4.573
+Runonnx:Buffer.Size1024:Iteration.Count1                                                 -1.018
+Runonnx:Buffer.Size8192:Iteration.Count1                                                 -0.752
+Runonnx:Buffer.Size1024:Iteration.Count2                                                  0.398
+Runonnx:Buffer.Size8192:Iteration.Count2                                                  0.310
+Runonnx:Buffer.Size1024:Iteration.Count3                                                  0.139
+Runonnx:Buffer.Size8192:Iteration.Count3                                                 -0.014
+Runonnx:Buffer.Size1024:Iteration.Count4                                                  0.173
+Runonnx:Buffer.Size8192:Iteration.Count4                                                  0.228
+Runonnx:Buffer.Size1024:EnvironmentChrome                                               -12.087
+Runonnx:Buffer.Size8192:EnvironmentChrome                                               -14.070
+Runonnx:Buffer.Size1024:EnvironmentFirefox                                              -10.168
+Runonnx:Buffer.Size8192:EnvironmentFirefox                                              -11.102
+Runonnx:Buffer.Size1024:EnvironmentSafari                                                -6.751
+Runonnx:Buffer.Size8192:EnvironmentSafari                                                -5.868
+Runonnx:Buffer.Size1024:Model.Uniquesteerable-nafx                                      -13.410
+Runonnx:Buffer.Size8192:Model.Uniquesteerable-nafx                                       -6.411
+Runonnx:Iteration.Count1:EnvironmentChrome                                               -5.230
+Runonnx:Iteration.Count2:EnvironmentChrome                                                0.923
+Runonnx:Iteration.Count3:EnvironmentChrome                                                0.993
+Runonnx:Iteration.Count4:EnvironmentChrome                                                1.323
+Runonnx:Iteration.Count1:EnvironmentFirefox                                              -5.328
+Runonnx:Iteration.Count2:EnvironmentFirefox                                               1.735
+Runonnx:Iteration.Count3:EnvironmentFirefox                                               1.303
+Runonnx:Iteration.Count4:EnvironmentFirefox                                               1.276
+Runonnx:Iteration.Count1:EnvironmentSafari                                              -11.890
+Runonnx:Iteration.Count2:EnvironmentSafari                                                4.219
+Runonnx:Iteration.Count3:EnvironmentSafari                                                2.453
+Runonnx:Iteration.Count4:EnvironmentSafari                                                2.235
+Runonnx:Iteration.Count1:Model.Uniquesteerable-nafx                                      -1.135
+Runonnx:Iteration.Count2:Model.Uniquesteerable-nafx                                       0.423
+Runonnx:Iteration.Count3:Model.Uniquesteerable-nafx                                       0.191
+Runonnx:Iteration.Count4:Model.Uniquesteerable-nafx                                       0.308
+Runonnx:EnvironmentChrome:Model.Uniquesteerable-nafx                                      7.348
+Runonnx:EnvironmentFirefox:Model.Uniquesteerable-nafx                                     0.503
+Runonnx:EnvironmentSafari:Model.Uniquesteerable-nafx                                      2.741
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                       -5.667
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                       -6.022
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                        1.197
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                        1.284
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                        1.777
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                        1.505
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                        1.339
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                        1.612
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                                      -4.240
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                                      -6.231
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                                       1.446
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                                       1.815
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                                       1.104
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                                       1.078
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                                       0.731
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                                       1.926
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                      -10.639
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                      -14.965
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari                                        2.851
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari                                        4.332
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                        2.216
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                        3.205
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                        3.009
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                        3.453
+Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                               0.592
+Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                               2.799
+Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                              -0.065
+Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                              -0.446
+Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                              -0.287
+Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                              -1.194
+Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                              -0.110
+Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                              -0.022
+Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                            -13.958
+Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                              2.288
+Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                           -10.449
+Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                            -0.130
+Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                             -4.160
+Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                              7.717
+Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                             4.355
+Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                            -0.638
+Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                            -1.300
+Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                            -1.318
+Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                            0.846
+Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                           -0.652
+Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                           -0.455
+Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                            0.403
+Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                            -1.122
+Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                             1.283
+Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                            -2.103
+Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                             0.753
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                3.705
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                3.789
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome                               -0.600
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome                               -0.659
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome                               -0.890
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome                               -0.615
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome                               -0.847
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome                               -0.993
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                               2.715
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                               3.816
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                              -0.955
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                              -1.213
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                              -0.920
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                              -0.814
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                              -0.362
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                              -1.105
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                5.831
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                8.139
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari                               -2.202
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari                               -3.132
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari                               -1.031
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari                               -1.522
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari                               -1.342
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari                               -1.465
+Runonnx:Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                       0.495
+Runonnx:Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                      -1.001
+Runonnx:Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                      -0.234
+Runonnx:Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                       0.034
+Runonnx:Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                      -0.028
+Runonnx:Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                       0.617
+Runonnx:Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                      -0.138
+Runonnx:Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                      -0.237
+Runonnx:Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                      8.186
+Runonnx:Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                     -3.532
+Runonnx:Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                     7.305
+Runonnx:Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                     0.139
+Runonnx:Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                      4.147
+Runonnx:Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                     -3.724
+Runonnx:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                    -3.475
+Runonnx:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                     0.652
+Runonnx:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                     1.435
+Runonnx:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                     1.035
+Runonnx:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                   -1.335
+Runonnx:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                    0.638
+Runonnx:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                    0.318
+Runonnx:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                   -0.062
+Runonnx:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                    -1.796
+Runonnx:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                    -0.961
+Runonnx:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                     2.279
+Runonnx:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                     0.470
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx             2.694
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx            -1.520
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx            -0.930
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx            -0.121
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx            -0.629
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx             0.925
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx            -0.472
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx             0.119
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx            3.760
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx            1.428
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx           -0.569
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx           -0.288
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx           -1.082
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx            0.364
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx           -0.765
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx           -1.652
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx             8.270
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx             5.590
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx            -2.510
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx            -2.052
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx            -0.371
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx             0.503
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx            -2.482
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx            -2.137
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx    -1.730
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx     1.392
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx     0.527
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx     0.010
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx     0.161
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx    -1.052
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx     0.271
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx    -0.185
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx   -2.400
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx   -0.552
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx    0.386
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx    0.108
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx    0.841
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx   -0.137
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx    0.408
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx    0.981
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx    -4.505
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx    -2.184
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx     1.896
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx     1.510
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx    -0.141
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx    -0.867
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx     1.157
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx     0.789
+                                                                                       Pr(>|t|)
+(Intercept)                                                                             < 2e-16
+Runonnx                                                                                 < 2e-16
+Buffer.Size1024                                                                         < 2e-16
+Buffer.Size8192                                                                         < 2e-16
+Iteration.Count1                                                                       0.069596
+Iteration.Count2                                                                       0.767246
+Iteration.Count3                                                                       0.573786
+Iteration.Count4                                                                       0.608600
+EnvironmentChrome                                                                      1.95e-09
+EnvironmentFirefox                                                                     0.416684
+EnvironmentSafari                                                                       < 2e-16
+Model.Uniquesteerable-nafx                                                             0.073114
+Runonnx:Buffer.Size1024                                                                 < 2e-16
+Runonnx:Buffer.Size8192                                                                 < 2e-16
+Runonnx:Iteration.Count1                                                               0.261224
+Runonnx:Iteration.Count2                                                               0.666437
+Runonnx:Iteration.Count3                                                               0.871767
+Runonnx:Iteration.Count4                                                               0.791665
+Runonnx:EnvironmentChrome                                                               < 2e-16
+Runonnx:EnvironmentFirefox                                                              < 2e-16
+Runonnx:EnvironmentSafari                                                               < 2e-16
+Runonnx:Model.Uniquesteerable-nafx                                                      < 2e-16
+Buffer.Size1024:Iteration.Count1                                                       0.543342
+Buffer.Size8192:Iteration.Count1                                                       0.257977
+Buffer.Size1024:Iteration.Count2                                                       0.996140
+Buffer.Size8192:Iteration.Count2                                                       0.868789
+Buffer.Size1024:Iteration.Count3                                                       0.766020
+Buffer.Size8192:Iteration.Count3                                                       0.609068
+Buffer.Size1024:Iteration.Count4                                                       0.790943
+Buffer.Size8192:Iteration.Count4                                                       0.801640
+Buffer.Size1024:EnvironmentChrome                                                       < 2e-16
+Buffer.Size8192:EnvironmentChrome                                                       < 2e-16
+Buffer.Size1024:EnvironmentFirefox                                                      < 2e-16
+Buffer.Size8192:EnvironmentFirefox                                                      < 2e-16
+Buffer.Size1024:EnvironmentSafari                                                      7.93e-13
+Buffer.Size8192:EnvironmentSafari                                                      2.83e-07
+Buffer.Size1024:Model.Uniquesteerable-nafx                                              < 2e-16
+Buffer.Size8192:Model.Uniquesteerable-nafx                                              < 2e-16
+Iteration.Count1:EnvironmentChrome                                                      < 2e-16
+Iteration.Count2:EnvironmentChrome                                                     0.056256
+Iteration.Count3:EnvironmentChrome                                                     0.020685
+Iteration.Count4:EnvironmentChrome                                                     0.027472
+Iteration.Count1:EnvironmentFirefox                                                     < 2e-16
+Iteration.Count2:EnvironmentFirefox                                                    0.005791
+Iteration.Count3:EnvironmentFirefox                                                    0.054135
+Iteration.Count4:EnvironmentFirefox                                                    0.022354
+Iteration.Count1:EnvironmentSafari                                                      < 2e-16
+Iteration.Count2:EnvironmentSafari                                                     9.98e-10
+Iteration.Count3:EnvironmentSafari                                                     9.90e-08
+Iteration.Count4:EnvironmentSafari                                                     8.15e-08
+Iteration.Count1:Model.Uniquesteerable-nafx                                            0.785836
+Iteration.Count2:Model.Uniquesteerable-nafx                                            0.958222
+Iteration.Count3:Model.Uniquesteerable-nafx                                            0.864837
+Iteration.Count4:Model.Uniquesteerable-nafx                                            0.964206
+EnvironmentChrome:Model.Uniquesteerable-nafx                                           2.09e-08
+EnvironmentFirefox:Model.Uniquesteerable-nafx                                          0.227699
+EnvironmentSafari:Model.Uniquesteerable-nafx                                           6.30e-06
+Runonnx:Buffer.Size1024:Iteration.Count1                                               0.308722
+Runonnx:Buffer.Size8192:Iteration.Count1                                               0.452228
+Runonnx:Buffer.Size1024:Iteration.Count2                                               0.690460
+Runonnx:Buffer.Size8192:Iteration.Count2                                               0.756441
+Runonnx:Buffer.Size1024:Iteration.Count3                                               0.889554
+Runonnx:Buffer.Size8192:Iteration.Count3                                               0.988965
+Runonnx:Buffer.Size1024:Iteration.Count4                                               0.862454
+Runonnx:Buffer.Size8192:Iteration.Count4                                               0.819595
+Runonnx:Buffer.Size1024:EnvironmentChrome                                               < 2e-16
+Runonnx:Buffer.Size8192:EnvironmentChrome                                               < 2e-16
+Runonnx:Buffer.Size1024:EnvironmentFirefox                                              < 2e-16
+Runonnx:Buffer.Size8192:EnvironmentFirefox                                              < 2e-16
+Runonnx:Buffer.Size1024:EnvironmentSafari                                              4.74e-11
+Runonnx:Buffer.Size8192:EnvironmentSafari                                              8.79e-09
+Runonnx:Buffer.Size1024:Model.Uniquesteerable-nafx                                      < 2e-16
+Runonnx:Buffer.Size8192:Model.Uniquesteerable-nafx                                     3.78e-10
+Runonnx:Iteration.Count1:EnvironmentChrome                                             1.90e-07
+Runonnx:Iteration.Count2:EnvironmentChrome                                             0.356377
+Runonnx:Iteration.Count3:EnvironmentChrome                                             0.320780
+Runonnx:Iteration.Count4:EnvironmentChrome                                             0.186119
+Runonnx:Iteration.Count1:EnvironmentFirefox                                            1.13e-07
+Runonnx:Iteration.Count2:EnvironmentFirefox                                            0.082958
+Runonnx:Iteration.Count3:EnvironmentFirefox                                            0.192776
+Runonnx:Iteration.Count4:EnvironmentFirefox                                            0.201956
+Runonnx:Iteration.Count1:EnvironmentSafari                                              < 2e-16
+Runonnx:Iteration.Count2:EnvironmentSafari                                             2.58e-05
+Runonnx:Iteration.Count3:EnvironmentSafari                                             0.014256
+Runonnx:Iteration.Count4:EnvironmentSafari                                             0.025524
+Runonnx:Iteration.Count1:Model.Uniquesteerable-nafx                                    0.256511
+Runonnx:Iteration.Count2:Model.Uniquesteerable-nafx                                    0.672380
+Runonnx:Iteration.Count3:Model.Uniquesteerable-nafx                                    0.848733
+Runonnx:Iteration.Count4:Model.Uniquesteerable-nafx                                    0.757905
+Runonnx:EnvironmentChrome:Model.Uniquesteerable-nafx                                   1.01e-12
+Runonnx:EnvironmentFirefox:Model.Uniquesteerable-nafx                                  0.615434
+Runonnx:EnvironmentSafari:Model.Uniquesteerable-nafx                                   0.006380
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                     1.70e-08
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                     2.10e-09
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                     0.231326
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                     0.199426
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                     0.075734
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                     0.132410
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                     0.180748
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                     0.107185
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                                    2.36e-05
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                                    5.80e-10
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                                    0.148338
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                                    0.069734
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                                    0.269620
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                                    0.281352
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                                    0.465018
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                                    0.054329
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                      < 2e-16
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                      < 2e-16
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari                                     0.004403
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari                                     1.56e-05
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                     0.026818
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                     0.001375
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                     0.002663
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                     0.000568
+Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                            0.553957
+Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                            0.005190
+Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                            0.948220
+Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                            0.655943
+Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                            0.774116
+Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                            0.232485
+Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                            0.912202
+Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                            0.982702
+Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                            < 2e-16
+Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                           0.022592
+Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                           < 2e-16
+Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                          0.896427
+Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                           3.83e-05
+Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                           8.36e-14
+Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                          1.41e-05
+Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                          0.523468
+Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                          0.193865
+Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                          0.187820
+Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                         0.397730
+Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                         0.514282
+Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                         0.648847
+Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                         0.686729
+Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                          0.262178
+Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                          0.199670
+Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                          0.035616
+Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                          0.451592
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome                             0.000218
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome                             0.000156
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome                             0.548484
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome                             0.509879
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome                             0.373738
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome                             0.538510
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome                             0.397360
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome                             0.321034
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                            0.006696
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                            0.000141
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                            0.339745
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                            0.225247
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                            0.357952
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                            0.415552
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                            0.717642
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                            0.269489
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari                             6.58e-09
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari                             7.56e-16
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari                             0.027786
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari                             0.001764
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari                             0.302535
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari                             0.128070
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari                             0.179734
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari                             0.143137
+Runonnx:Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                    0.620901
+Runonnx:Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                    0.317046
+Runonnx:Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                    0.814867
+Runonnx:Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                    0.972992
+Runonnx:Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                    0.977662
+Runonnx:Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                    0.537481
+Runonnx:Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                    0.890400
+Runonnx:Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                    0.812387
+Runonnx:Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                   3.07e-15
+Runonnx:Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                   0.000457
+Runonnx:Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                  1.35e-12
+Runonnx:Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                  0.889530
+Runonnx:Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                   4.06e-05
+Runonnx:Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                   0.000222
+Runonnx:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                  0.000524
+Runonnx:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                  0.514571
+Runonnx:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                  0.151536
+Runonnx:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                  0.300811
+Runonnx:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                 0.181972
+Runonnx:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                 0.523735
+Runonnx:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                 0.750865
+Runonnx:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                 0.950920
+Runonnx:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                  0.072731
+Runonnx:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                  0.336534
+Runonnx:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                  0.022807
+Runonnx:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                  0.638555
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx          0.007134
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx          0.128805
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx          0.352650
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx          0.903395
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx          0.529545
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx          0.355117
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx          0.637275
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx          0.905297
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.000176
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.153554
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.569622
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.773713
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.279427
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.716145
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.444525
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx         0.098705
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx          2.63e-16
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx          2.64e-08
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx          0.012177
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx          0.040275
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx          0.710874
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx          0.614986
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx          0.013176
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx          0.032764
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx  0.083734
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx  0.164127
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx  0.598154
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx  0.991932
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx  0.872379
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx  0.293027
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx  0.786798
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx  0.853494
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.016510
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.580795
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.699709
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.913816
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.400710
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.891431
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.683456
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx 0.326657
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx  7.08e-06
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx  0.029072
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx  0.058070
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx  0.131276
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx  0.887885
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx  0.385908
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx  0.247600
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx  0.430453
+                                                                                          
+(Intercept)                                                                            ***
+Runonnx                                                                                ***
+Buffer.Size1024                                                                        ***
+Buffer.Size8192                                                                        ***
+Iteration.Count1                                                                       .  
+Iteration.Count2                                                                          
+Iteration.Count3                                                                          
+Iteration.Count4                                                                          
+EnvironmentChrome                                                                      ***
+EnvironmentFirefox                                                                        
+EnvironmentSafari                                                                      ***
+Model.Uniquesteerable-nafx                                                             .  
+Runonnx:Buffer.Size1024                                                                ***
+Runonnx:Buffer.Size8192                                                                ***
+Runonnx:Iteration.Count1                                                                  
+Runonnx:Iteration.Count2                                                                  
+Runonnx:Iteration.Count3                                                                  
+Runonnx:Iteration.Count4                                                                  
+Runonnx:EnvironmentChrome                                                              ***
+Runonnx:EnvironmentFirefox                                                             ***
+Runonnx:EnvironmentSafari                                                              ***
+Runonnx:Model.Uniquesteerable-nafx                                                     ***
+Buffer.Size1024:Iteration.Count1                                                          
+Buffer.Size8192:Iteration.Count1                                                          
+Buffer.Size1024:Iteration.Count2                                                          
+Buffer.Size8192:Iteration.Count2                                                          
+Buffer.Size1024:Iteration.Count3                                                          
+Buffer.Size8192:Iteration.Count3                                                          
+Buffer.Size1024:Iteration.Count4                                                          
+Buffer.Size8192:Iteration.Count4                                                          
+Buffer.Size1024:EnvironmentChrome                                                      ***
+Buffer.Size8192:EnvironmentChrome                                                      ***
+Buffer.Size1024:EnvironmentFirefox                                                     ***
+Buffer.Size8192:EnvironmentFirefox                                                     ***
+Buffer.Size1024:EnvironmentSafari                                                      ***
+Buffer.Size8192:EnvironmentSafari                                                      ***
+Buffer.Size1024:Model.Uniquesteerable-nafx                                             ***
+Buffer.Size8192:Model.Uniquesteerable-nafx                                             ***
+Iteration.Count1:EnvironmentChrome                                                     ***
+Iteration.Count2:EnvironmentChrome                                                     .  
+Iteration.Count3:EnvironmentChrome                                                     *  
+Iteration.Count4:EnvironmentChrome                                                     *  
+Iteration.Count1:EnvironmentFirefox                                                    ***
+Iteration.Count2:EnvironmentFirefox                                                    ** 
+Iteration.Count3:EnvironmentFirefox                                                    .  
+Iteration.Count4:EnvironmentFirefox                                                    *  
+Iteration.Count1:EnvironmentSafari                                                     ***
+Iteration.Count2:EnvironmentSafari                                                     ***
+Iteration.Count3:EnvironmentSafari                                                     ***
+Iteration.Count4:EnvironmentSafari                                                     ***
+Iteration.Count1:Model.Uniquesteerable-nafx                                               
+Iteration.Count2:Model.Uniquesteerable-nafx                                               
+Iteration.Count3:Model.Uniquesteerable-nafx                                               
+Iteration.Count4:Model.Uniquesteerable-nafx                                               
+EnvironmentChrome:Model.Uniquesteerable-nafx                                           ***
+EnvironmentFirefox:Model.Uniquesteerable-nafx                                             
+EnvironmentSafari:Model.Uniquesteerable-nafx                                           ***
+Runonnx:Buffer.Size1024:Iteration.Count1                                                  
+Runonnx:Buffer.Size8192:Iteration.Count1                                                  
+Runonnx:Buffer.Size1024:Iteration.Count2                                                  
+Runonnx:Buffer.Size8192:Iteration.Count2                                                  
+Runonnx:Buffer.Size1024:Iteration.Count3                                                  
+Runonnx:Buffer.Size8192:Iteration.Count3                                                  
+Runonnx:Buffer.Size1024:Iteration.Count4                                                  
+Runonnx:Buffer.Size8192:Iteration.Count4                                                  
+Runonnx:Buffer.Size1024:EnvironmentChrome                                              ***
+Runonnx:Buffer.Size8192:EnvironmentChrome                                              ***
+Runonnx:Buffer.Size1024:EnvironmentFirefox                                             ***
+Runonnx:Buffer.Size8192:EnvironmentFirefox                                             ***
+Runonnx:Buffer.Size1024:EnvironmentSafari                                              ***
+Runonnx:Buffer.Size8192:EnvironmentSafari                                              ***
+Runonnx:Buffer.Size1024:Model.Uniquesteerable-nafx                                     ***
+Runonnx:Buffer.Size8192:Model.Uniquesteerable-nafx                                     ***
+Runonnx:Iteration.Count1:EnvironmentChrome                                             ***
+Runonnx:Iteration.Count2:EnvironmentChrome                                                
+Runonnx:Iteration.Count3:EnvironmentChrome                                                
+Runonnx:Iteration.Count4:EnvironmentChrome                                                
+Runonnx:Iteration.Count1:EnvironmentFirefox                                            ***
+Runonnx:Iteration.Count2:EnvironmentFirefox                                            .  
+Runonnx:Iteration.Count3:EnvironmentFirefox                                               
+Runonnx:Iteration.Count4:EnvironmentFirefox                                               
+Runonnx:Iteration.Count1:EnvironmentSafari                                             ***
+Runonnx:Iteration.Count2:EnvironmentSafari                                             ***
+Runonnx:Iteration.Count3:EnvironmentSafari                                             *  
+Runonnx:Iteration.Count4:EnvironmentSafari                                             *  
+Runonnx:Iteration.Count1:Model.Uniquesteerable-nafx                                       
+Runonnx:Iteration.Count2:Model.Uniquesteerable-nafx                                       
+Runonnx:Iteration.Count3:Model.Uniquesteerable-nafx                                       
+Runonnx:Iteration.Count4:Model.Uniquesteerable-nafx                                       
+Runonnx:EnvironmentChrome:Model.Uniquesteerable-nafx                                   ***
+Runonnx:EnvironmentFirefox:Model.Uniquesteerable-nafx                                     
+Runonnx:EnvironmentSafari:Model.Uniquesteerable-nafx                                   ** 
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome                                     ***
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome                                     ***
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                        
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                        
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                     .  
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                        
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                        
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                        
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                                    ***
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                                    ***
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                                       
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                                    .  
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                                       
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                                       
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                                       
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                                    .  
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari                                     ***
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari                                     ***
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari                                     ** 
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari                                     ***
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                     *  
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                     ** 
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                     ** 
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                     ***
+Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                               
+Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                            ** 
+Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                               
+Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                               
+Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                               
+Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                               
+Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                               
+Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                               
+Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                           ***
+Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                           *  
+Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                          ***
+Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                             
+Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                           ***
+Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                           ***
+Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                          ***
+Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                             
+Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                             
+Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                             
+Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                            
+Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                            
+Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                            
+Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                            
+Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                             
+Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                             
+Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                          *  
+Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                             
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome                             ***
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome                             ***
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome                                
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome                                
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome                                
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome                                
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome                                
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome                                
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox                            ** 
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox                            ***
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox                               
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox                               
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox                               
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox                               
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox                               
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox                               
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari                             ***
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari                             ***
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari                             *  
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari                             ** 
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari                                
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari                                
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari                                
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari                                
+Runonnx:Buffer.Size1024:Iteration.Count1:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size8192:Iteration.Count1:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size1024:Iteration.Count2:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size8192:Iteration.Count2:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size1024:Iteration.Count3:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size8192:Iteration.Count3:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size1024:Iteration.Count4:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size8192:Iteration.Count4:Model.Uniquesteerable-nafx                       
+Runonnx:Buffer.Size1024:EnvironmentChrome:Model.Uniquesteerable-nafx                   ***
+Runonnx:Buffer.Size8192:EnvironmentChrome:Model.Uniquesteerable-nafx                   ***
+Runonnx:Buffer.Size1024:EnvironmentFirefox:Model.Uniquesteerable-nafx                  ***
+Runonnx:Buffer.Size8192:EnvironmentFirefox:Model.Uniquesteerable-nafx                     
+Runonnx:Buffer.Size1024:EnvironmentSafari:Model.Uniquesteerable-nafx                   ***
+Runonnx:Buffer.Size8192:EnvironmentSafari:Model.Uniquesteerable-nafx                   ***
+Runonnx:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx                  ***
+Runonnx:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx                     
+Runonnx:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx                     
+Runonnx:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx                     
+Runonnx:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx                    
+Runonnx:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx                    
+Runonnx:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx                    
+Runonnx:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx                    
+Runonnx:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx                  .  
+Runonnx:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx                     
+Runonnx:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx                  *  
+Runonnx:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx                     
+Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx          ** 
+Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx             
+Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx         ***
+Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx            
+Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx            
+Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx            
+Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx            
+Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx            
+Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx            
+Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx         .  
+Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx          ***
+Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx          ***
+Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx          *  
+Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx          *  
+Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx             
+Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx             
+Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx          *  
+Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx          *  
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx  .  
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentChrome:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx *  
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentFirefox:Model.Uniquesteerable-nafx    
+Runonnx:Buffer.Size1024:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx  ***
+Runonnx:Buffer.Size8192:Iteration.Count1:EnvironmentSafari:Model.Uniquesteerable-nafx  *  
+Runonnx:Buffer.Size1024:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx  .  
+Runonnx:Buffer.Size8192:Iteration.Count2:EnvironmentSafari:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size1024:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size8192:Iteration.Count3:EnvironmentSafari:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size1024:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx     
+Runonnx:Buffer.Size8192:Iteration.Count4:EnvironmentSafari:Model.Uniquesteerable-nafx     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation matrix not shown by default, as p = 240 > 12.
+Use print(summary(model), correlation=TRUE)  or
+    vcov(summary(model))        if you need it
+
+# Fixed Effects
+
+Parameter                                                                                                   
+------------------------------------------------------------------------------------------------------------
+(Intercept)                                                                                                 
+Run [onnx]                                                                                                  
+Buffer Size [1024]                                                                                          
+Buffer Size [8192]                                                                                          
+Iteration Count1                                                                                            
+Iteration Count2                                                                                            
+Iteration Count3                                                                                            
+Iteration Count4                                                                                            
+Environment [Chrome]                                                                                        
+Environment [Firefox]                                                                                       
+Environment [Safari]                                                                                        
+Model Unique [steerable-nafx]                                                                               
+Run [onnx] × Buffer Size [1024]                                                                             
+Run [onnx] × Buffer Size [8192]                                                                             
+Run [onnx] × Iteration Count1                                                                               
+Run [onnx] × Iteration Count2                                                                               
+Run [onnx] × Iteration Count3                                                                               
+Run [onnx] × Iteration Count4                                                                               
+Run [onnx] × Environment [Chrome]                                                                           
+Run [onnx] × Environment [Firefox]                                                                          
+Run [onnx] × Environment [Safari]                                                                           
+Run [onnx] × Model Unique [steerable-nafx]                                                                  
+Buffer Size [1024] × Iteration Count1                                                                       
+Buffer Size [8192] × Iteration Count1                                                                       
+Buffer Size [1024] × Iteration Count2                                                                       
+Buffer Size [8192] × Iteration Count2                                                                       
+Buffer Size [1024] × Iteration Count3                                                                       
+Buffer Size [8192] × Iteration Count3                                                                       
+Buffer Size [1024] × Iteration Count4                                                                       
+Buffer Size [8192] × Iteration Count4                                                                       
+Buffer Size [1024] × Environment [Chrome]                                                                   
+Buffer Size [8192] × Environment [Chrome]                                                                   
+Buffer Size [1024] × Environment [Firefox]                                                                  
+Buffer Size [8192] × Environment [Firefox]                                                                  
+Buffer Size [1024] × Environment [Safari]                                                                   
+Buffer Size [8192] × Environment [Safari]                                                                   
+Buffer Size [1024] × Model Unique [steerable-nafx]                                                          
+Buffer Size [8192] × Model Unique [steerable-nafx]                                                          
+Iteration Count1 × Environment [Chrome]                                                                     
+Iteration Count2 × Environment [Chrome]                                                                     
+Iteration Count3 × Environment [Chrome]                                                                     
+Iteration Count4 × Environment [Chrome]                                                                     
+Iteration Count1 × Environment [Firefox]                                                                    
+Iteration Count2 × Environment [Firefox]                                                                    
+Iteration Count3 × Environment [Firefox]                                                                    
+Iteration Count4 × Environment [Firefox]                                                                    
+Iteration Count1 × Environment [Safari]                                                                     
+Iteration Count2 × Environment [Safari]                                                                     
+Iteration Count3 × Environment [Safari]                                                                     
+Iteration Count4 × Environment [Safari]                                                                     
+Iteration Count1 × Model Unique [steerable-nafx]                                                            
+Iteration Count2 × Model Unique [steerable-nafx]                                                            
+Iteration Count3 × Model Unique [steerable-nafx]                                                            
+Iteration Count4 × Model Unique [steerable-nafx]                                                            
+Environment [Chrome] × Model Unique [steerable-nafx]                                                        
+Environment [Firefox] × Model Unique [steerable-nafx]                                                       
+Environment [Safari] × Model Unique [steerable-nafx]                                                        
+Run [onnx] × Buffer Size [1024] × Iteration Count1                                                          
+Run [onnx] × Buffer Size [8192] × Iteration Count1                                                          
+Run [onnx] × Buffer Size [1024] × Iteration Count2                                                          
+Run [onnx] × Buffer Size [8192] × Iteration Count2                                                          
+Run [onnx] × Buffer Size [1024] × Iteration Count3                                                          
+Run [onnx] × Buffer Size [8192] × Iteration Count3                                                          
+Run [onnx] × Buffer Size [1024] × Iteration Count4                                                          
+Run [onnx] × Buffer Size [8192] × Iteration Count4                                                          
+(Run [onnx] × Buffer Size [1024]) × Environment [Chrome]                                                    
+(Run [onnx] × Buffer Size [8192]) × Environment [Chrome]                                                    
+(Run [onnx] × Buffer Size [1024]) × Environment [Firefox]                                                   
+(Run [onnx] × Buffer Size [8192]) × Environment [Firefox]                                                   
+(Run [onnx] × Buffer Size [1024]) × Environment [Safari]                                                    
+(Run [onnx] × Buffer Size [8192]) × Environment [Safari]                                                    
+(Run [onnx] × Buffer Size [1024]) × Model Unique [steerable-nafx]                                           
+(Run [onnx] × Buffer Size [8192]) × Model Unique [steerable-nafx]                                           
+(Run [onnx] × Iteration Count1) × Environment [Chrome]                                                      
+(Run [onnx] × Iteration Count2) × Environment [Chrome]                                                      
+(Run [onnx] × Iteration Count3) × Environment [Chrome]                                                      
+(Run [onnx] × Iteration Count4) × Environment [Chrome]                                                      
+(Run [onnx] × Iteration Count1) × Environment [Firefox]                                                     
+(Run [onnx] × Iteration Count2) × Environment [Firefox]                                                     
+(Run [onnx] × Iteration Count3) × Environment [Firefox]                                                     
+(Run [onnx] × Iteration Count4) × Environment [Firefox]                                                     
+(Run [onnx] × Iteration Count1) × Environment [Safari]                                                      
+(Run [onnx] × Iteration Count2) × Environment [Safari]                                                      
+(Run [onnx] × Iteration Count3) × Environment [Safari]                                                      
+(Run [onnx] × Iteration Count4) × Environment [Safari]                                                      
+(Run [onnx] × Iteration Count1) × Model Unique [steerable-nafx]                                             
+(Run [onnx] × Iteration Count2) × Model Unique [steerable-nafx]                                             
+(Run [onnx] × Iteration Count3) × Model Unique [steerable-nafx]                                             
+(Run [onnx] × Iteration Count4) × Model Unique [steerable-nafx]                                             
+(Run [onnx] × Environment [Chrome]) × Model Unique [steerable-nafx]                                         
+(Run [onnx] × Environment [Firefox]) × Model Unique [steerable-nafx]                                        
+(Run [onnx] × Environment [Safari]) × Model Unique [steerable-nafx]                                         
+(Buffer Size [1024] × Iteration Count1) × Environment [Chrome]                                              
+(Buffer Size [8192] × Iteration Count1) × Environment [Chrome]                                              
+(Buffer Size [1024] × Iteration Count2) × Environment [Chrome]                                              
+(Buffer Size [8192] × Iteration Count2) × Environment [Chrome]                                              
+(Buffer Size [1024] × Iteration Count3) × Environment [Chrome]                                              
+(Buffer Size [8192] × Iteration Count3) × Environment [Chrome]                                              
+(Buffer Size [1024] × Iteration Count4) × Environment [Chrome]                                              
+(Buffer Size [8192] × Iteration Count4) × Environment [Chrome]                                              
+(Buffer Size [1024] × Iteration Count1) × Environment [Firefox]                                             
+(Buffer Size [8192] × Iteration Count1) × Environment [Firefox]                                             
+(Buffer Size [1024] × Iteration Count2) × Environment [Firefox]                                             
+(Buffer Size [8192] × Iteration Count2) × Environment [Firefox]                                             
+(Buffer Size [1024] × Iteration Count3) × Environment [Firefox]                                             
+(Buffer Size [8192] × Iteration Count3) × Environment [Firefox]                                             
+(Buffer Size [1024] × Iteration Count4) × Environment [Firefox]                                             
+(Buffer Size [8192] × Iteration Count4) × Environment [Firefox]                                             
+(Buffer Size [1024] × Iteration Count1) × Environment [Safari]                                              
+(Buffer Size [8192] × Iteration Count1) × Environment [Safari]                                              
+(Buffer Size [1024] × Iteration Count2) × Environment [Safari]                                              
+(Buffer Size [8192] × Iteration Count2) × Environment [Safari]                                              
+(Buffer Size [1024] × Iteration Count3) × Environment [Safari]                                              
+(Buffer Size [8192] × Iteration Count3) × Environment [Safari]                                              
+(Buffer Size [1024] × Iteration Count4) × Environment [Safari]                                              
+(Buffer Size [8192] × Iteration Count4) × Environment [Safari]                                              
+(Buffer Size [1024] × Iteration Count1) × Model Unique [steerable-nafx]                                     
+(Buffer Size [8192] × Iteration Count1) × Model Unique [steerable-nafx]                                     
+(Buffer Size [1024] × Iteration Count2) × Model Unique [steerable-nafx]                                     
+(Buffer Size [8192] × Iteration Count2) × Model Unique [steerable-nafx]                                     
+(Buffer Size [1024] × Iteration Count3) × Model Unique [steerable-nafx]                                     
+(Buffer Size [8192] × Iteration Count3) × Model Unique [steerable-nafx]                                     
+(Buffer Size [1024] × Iteration Count4) × Model Unique [steerable-nafx]                                     
+(Buffer Size [8192] × Iteration Count4) × Model Unique [steerable-nafx]                                     
+(Buffer Size [1024] × Environment [Chrome]) × Model Unique [steerable-nafx]                                 
+(Buffer Size [8192] × Environment [Chrome]) × Model Unique [steerable-nafx]                                 
+(Buffer Size [1024] × Environment [Firefox]) × Model Unique [steerable-nafx]                                
+(Buffer Size [8192] × Environment [Firefox]) × Model Unique [steerable-nafx]                                
+(Buffer Size [1024] × Environment [Safari]) × Model Unique [steerable-nafx]                                 
+(Buffer Size [8192] × Environment [Safari]) × Model Unique [steerable-nafx]                                 
+(Iteration Count1 × Environment [Chrome]) × Model Unique [steerable-nafx]                                   
+(Iteration Count2 × Environment [Chrome]) × Model Unique [steerable-nafx]                                   
+(Iteration Count3 × Environment [Chrome]) × Model Unique [steerable-nafx]                                   
+(Iteration Count4 × Environment [Chrome]) × Model Unique [steerable-nafx]                                   
+(Iteration Count1 × Environment [Firefox]) × Model Unique [steerable-nafx]                                  
+(Iteration Count2 × Environment [Firefox]) × Model Unique [steerable-nafx]                                  
+(Iteration Count3 × Environment [Firefox]) × Model Unique [steerable-nafx]                                  
+(Iteration Count4 × Environment [Firefox]) × Model Unique [steerable-nafx]                                  
+(Iteration Count1 × Environment [Safari]) × Model Unique [steerable-nafx]                                   
+(Iteration Count2 × Environment [Safari]) × Model Unique [steerable-nafx]                                   
+(Iteration Count3 × Environment [Safari]) × Model Unique [steerable-nafx]                                   
+(Iteration Count4 × Environment [Safari]) × Model Unique [steerable-nafx]                                   
+(Run [onnx] × Buffer Size [1024] × Iteration Count1) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count1) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count2) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count2) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count3) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count3) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count4) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count4) × Environment [Chrome]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count1) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [8192] × Iteration Count1) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [1024] × Iteration Count2) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [8192] × Iteration Count2) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [1024] × Iteration Count3) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [8192] × Iteration Count3) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [1024] × Iteration Count4) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [8192] × Iteration Count4) × Environment [Firefox]                                
+(Run [onnx] × Buffer Size [1024] × Iteration Count1) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count1) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count2) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count2) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count3) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count3) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count4) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [8192] × Iteration Count4) × Environment [Safari]                                 
+(Run [onnx] × Buffer Size [1024] × Iteration Count1) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [8192] × Iteration Count1) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [1024] × Iteration Count2) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [8192] × Iteration Count2) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [1024] × Iteration Count3) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [8192] × Iteration Count3) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [1024] × Iteration Count4) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [8192] × Iteration Count4) × Model Unique [steerable-nafx]                        
+(Run [onnx] × Buffer Size [1024] × Environment [Chrome]) × Model Unique [steerable-nafx]                    
+(Run [onnx] × Buffer Size [8192] × Environment [Chrome]) × Model Unique [steerable-nafx]                    
+(Run [onnx] × Buffer Size [1024] × Environment [Firefox]) × Model Unique [steerable-nafx]                   
+(Run [onnx] × Buffer Size [8192] × Environment [Firefox]) × Model Unique [steerable-nafx]                   
+(Run [onnx] × Buffer Size [1024] × Environment [Safari]) × Model Unique [steerable-nafx]                    
+(Run [onnx] × Buffer Size [8192] × Environment [Safari]) × Model Unique [steerable-nafx]                    
+(Run [onnx] × Iteration Count1 × Environment [Chrome]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count2 × Environment [Chrome]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count3 × Environment [Chrome]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count4 × Environment [Chrome]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count1 × Environment [Firefox]) × Model Unique [steerable-nafx]                     
+(Run [onnx] × Iteration Count2 × Environment [Firefox]) × Model Unique [steerable-nafx]                     
+(Run [onnx] × Iteration Count3 × Environment [Firefox]) × Model Unique [steerable-nafx]                     
+(Run [onnx] × Iteration Count4 × Environment [Firefox]) × Model Unique [steerable-nafx]                     
+(Run [onnx] × Iteration Count1 × Environment [Safari]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count2 × Environment [Safari]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count3 × Environment [Safari]) × Model Unique [steerable-nafx]                      
+(Run [onnx] × Iteration Count4 × Environment [Safari]) × Model Unique [steerable-nafx]                      
+(Buffer Size [1024] × Iteration Count1 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count1 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count2 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count2 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count3 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count3 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count4 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count4 × Environment [Chrome]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count1 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [8192] × Iteration Count1 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [1024] × Iteration Count2 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [8192] × Iteration Count2 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [1024] × Iteration Count3 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [8192] × Iteration Count3 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [1024] × Iteration Count4 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [8192] × Iteration Count4 × Environment [Firefox]) × Model Unique [steerable-nafx]             
+(Buffer Size [1024] × Iteration Count1 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count1 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count2 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count2 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count3 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count3 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [1024] × Iteration Count4 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Buffer Size [8192] × Iteration Count4 × Environment [Safari]) × Model Unique [steerable-nafx]              
+(Run [onnx] × Buffer Size [1024] × Iteration Count1 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count1 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count2 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count2 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count3 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count3 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count4 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count4 × Environment [Chrome]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count1 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [8192] × Iteration Count1 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [1024] × Iteration Count2 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [8192] × Iteration Count2 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [1024] × Iteration Count3 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [8192] × Iteration Count3 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [1024] × Iteration Count4 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [8192] × Iteration Count4 × Environment [Firefox]) × Model Unique [steerable-nafx]
+(Run [onnx] × Buffer Size [1024] × Iteration Count1 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count1 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count2 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count2 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count3 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count3 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [1024] × Iteration Count4 × Environment [Safari]) × Model Unique [steerable-nafx] 
+(Run [onnx] × Buffer Size [8192] × Iteration Count4 × Environment [Safari]) × Model Unique [steerable-nafx] 
+
+Coefficient |   SE |         95% CI |  t(2158) |      p
+-------------------------------------------------------
+      -6.82 | 0.02 | [-6.86, -6.78] |  -360.53 | < .001
+       1.35 | 0.03 | [ 1.29,  1.40] |    50.30 | < .001
+      -1.03 | 0.03 | [-1.08, -0.98] |   -38.45 | < .001
+      -1.20 | 0.03 | [-1.25, -1.15] |   -44.75 | < .001
+       0.06 | 0.03 | [ 0.00,  0.13] |     1.82 | 0.070 
+  -9.97e-03 | 0.03 | [-0.08,  0.06] |    -0.30 | 0.767 
+      -0.02 | 0.03 | [-0.08,  0.05] |    -0.56 | 0.574 
+      -0.02 | 0.03 | [-0.08,  0.05] |    -0.51 | 0.609 
+       0.16 | 0.03 | [ 0.11,  0.22] |     6.13 | < .001
+       0.02 | 0.03 | [-0.03,  0.07] |     0.81 | 0.416 
+       0.27 | 0.03 | [ 0.22,  0.33] |    10.21 | < .001
+      -0.05 | 0.03 | [-0.10,  0.00] |    -1.80 | 0.073 
+       0.79 | 0.04 | [ 0.71,  0.86] |    20.79 | < .001
+       0.93 | 0.04 | [ 0.86,  1.01] |    24.66 | < .001
+       0.05 | 0.05 | [-0.04,  0.15] |     1.12 | 0.261 
+      -0.02 | 0.05 | [-0.11,  0.07] |    -0.43 | 0.666 
+  -7.69e-03 | 0.05 | [-0.10,  0.09] |    -0.16 | 0.872 
+      -0.01 | 0.05 | [-0.11,  0.08] |    -0.26 | 0.792 
+       0.97 | 0.04 | [ 0.90,  1.05] |    25.74 | < .001
+       0.60 | 0.04 | [ 0.52,  0.67] |    15.82 | < .001
+       0.36 | 0.04 | [ 0.29,  0.43] |     9.51 | < .001
+       2.93 | 0.04 | [ 2.86,  3.01] |    77.55 | < .001
+      -0.03 | 0.05 | [-0.12,  0.06] |    -0.61 | 0.543 
+      -0.05 | 0.05 | [-0.15,  0.04] |    -1.13 | 0.258 
+   2.30e-04 | 0.05 | [-0.09,  0.09] | 4.84e-03 | 0.996 
+   7.87e-03 | 0.05 | [-0.09,  0.10] |     0.17 | 0.869 
+       0.01 | 0.05 | [-0.08,  0.11] |     0.30 | 0.766 
+       0.02 | 0.05 | [-0.07,  0.12] |     0.51 | 0.609 
+       0.01 | 0.05 | [-0.08,  0.11] |     0.27 | 0.791 
+       0.01 | 0.05 | [-0.08,  0.11] |     0.25 | 0.802 
+       0.77 | 0.04 | [ 0.70,  0.85] |    20.41 | < .001
+       0.90 | 0.04 | [ 0.82,  0.97] |    23.69 | < .001
+       0.56 | 0.04 | [ 0.48,  0.63] |    14.71 | < .001
+       0.61 | 0.04 | [ 0.54,  0.69] |    16.22 | < .001
+       0.28 | 0.04 | [ 0.21,  0.35] |     7.38 | < .001
+       0.20 | 0.04 | [ 0.12,  0.27] |     5.22 | < .001
+      -1.05 | 0.04 | [-1.13, -0.98] |   -27.77 | < .001
+      -3.04 | 0.04 | [-3.11, -2.96] |   -80.24 | < .001
+       0.41 | 0.05 | [ 0.31,  0.50] |     8.55 | < .001
+      -0.09 | 0.05 | [-0.18,  0.00] |    -1.91 | 0.056 
+      -0.11 | 0.05 | [-0.20, -0.02] |    -2.32 | 0.021 
+      -0.11 | 0.05 | [-0.20, -0.01] |    -2.21 | 0.027 
+       0.43 | 0.05 | [ 0.33,  0.52] |     8.99 | < .001
+      -0.13 | 0.05 | [-0.23, -0.04] |    -2.76 | 0.006 
+      -0.09 | 0.05 | [-0.19,  0.00] |    -1.93 | 0.054 
+      -0.11 | 0.05 | [-0.20, -0.02] |    -2.29 | 0.022 
+       1.10 | 0.05 | [ 1.00,  1.19] |    23.00 | < .001
+      -0.29 | 0.05 | [-0.39, -0.20] |    -6.14 | < .001
+      -0.25 | 0.05 | [-0.35, -0.16] |    -5.35 | < .001
+      -0.26 | 0.05 | [-0.35, -0.16] |    -5.39 | < .001
+      -0.01 | 0.05 | [-0.11,  0.08] |    -0.27 | 0.786 
+  -2.50e-03 | 0.05 | [-0.10,  0.09] |    -0.05 | 0.958 
+   8.11e-03 | 0.05 | [-0.09,  0.10] |     0.17 | 0.865 
+   2.14e-03 | 0.05 | [-0.09,  0.10] |     0.04 | 0.964 
+      -0.22 | 0.04 | [-0.29, -0.14] |    -5.71 | < .001
+      -0.05 | 0.04 | [-0.12,  0.03] |    -1.21 | 0.227 
+      -0.17 | 0.04 | [-0.25, -0.10] |    -4.57 | < .001
+      -0.07 | 0.07 | [-0.20,  0.06] |    -1.02 | 0.309 
+      -0.05 | 0.07 | [-0.18,  0.08] |    -0.75 | 0.452 
+       0.03 | 0.07 | [-0.11,  0.16] |     0.40 | 0.690 
+       0.02 | 0.07 | [-0.11,  0.15] |     0.31 | 0.756 
+   9.36e-03 | 0.07 | [-0.12,  0.14] |     0.14 | 0.890 
+  -9.32e-04 | 0.07 | [-0.13,  0.13] |    -0.01 | 0.989 
+       0.01 | 0.07 | [-0.12,  0.14] |     0.17 | 0.862 
+       0.02 | 0.07 | [-0.12,  0.15] |     0.23 | 0.820 
+      -0.65 | 0.05 | [-0.75, -0.54] |   -12.09 | < .001
+      -0.75 | 0.05 | [-0.86, -0.65] |   -14.07 | < .001
+      -0.54 | 0.05 | [-0.65, -0.44] |   -10.17 | < .001
+      -0.59 | 0.05 | [-0.70, -0.49] |   -11.10 | < .001
+      -0.36 | 0.05 | [-0.47, -0.26] |    -6.75 | < .001
+      -0.31 | 0.05 | [-0.42, -0.21] |    -5.87 | < .001
+      -0.72 | 0.05 | [-0.82, -0.61] |   -13.41 | < .001
+      -0.34 | 0.05 | [-0.45, -0.24] |    -6.41 | < .001
+      -0.35 | 0.07 | [-0.48, -0.22] |    -5.23 | < .001
+       0.06 | 0.07 | [-0.07,  0.19] |     0.92 | 0.356 
+       0.07 | 0.07 | [-0.07,  0.20] |     0.99 | 0.321 
+       0.09 | 0.07 | [-0.04,  0.22] |     1.32 | 0.186 
+      -0.36 | 0.07 | [-0.49, -0.23] |    -5.33 | < .001
+       0.12 | 0.07 | [-0.02,  0.25] |     1.73 | 0.083 
+       0.09 | 0.07 | [-0.04,  0.22] |     1.30 | 0.193 
+       0.09 | 0.07 | [-0.05,  0.22] |     1.28 | 0.202 
+      -0.80 | 0.07 | [-0.93, -0.67] |   -11.89 | < .001
+       0.28 | 0.07 | [ 0.15,  0.42] |     4.22 | < .001
+       0.17 | 0.07 | [ 0.03,  0.30] |     2.45 | 0.014 
+       0.15 | 0.07 | [ 0.02,  0.28] |     2.24 | 0.025 
+      -0.08 | 0.07 | [-0.21,  0.06] |    -1.14 | 0.256 
+       0.03 | 0.07 | [-0.10,  0.16] |     0.42 | 0.672 
+       0.01 | 0.07 | [-0.12,  0.14] |     0.19 | 0.849 
+       0.02 | 0.07 | [-0.11,  0.15] |     0.31 | 0.758 
+       0.39 | 0.05 | [ 0.29,  0.50] |     7.35 | < .001
+       0.03 | 0.05 | [-0.08,  0.13] |     0.50 | 0.615 
+       0.15 | 0.05 | [ 0.04,  0.25] |     2.74 | 0.006 
+      -0.38 | 0.07 | [-0.51, -0.25] |    -5.67 | < .001
+      -0.41 | 0.07 | [-0.54, -0.27] |    -6.02 | < .001
+       0.08 | 0.07 | [-0.05,  0.21] |     1.20 | 0.231 
+       0.09 | 0.07 | [-0.05,  0.22] |     1.28 | 0.199 
+       0.12 | 0.07 | [-0.01,  0.25] |     1.78 | 0.076 
+       0.10 | 0.07 | [-0.03,  0.23] |     1.51 | 0.132 
+       0.09 | 0.07 | [-0.04,  0.22] |     1.34 | 0.181 
+       0.11 | 0.07 | [-0.02,  0.24] |     1.61 | 0.107 
+      -0.29 | 0.07 | [-0.42, -0.15] |    -4.24 | < .001
+      -0.42 | 0.07 | [-0.55, -0.29] |    -6.23 | < .001
+       0.10 | 0.07 | [-0.03,  0.23] |     1.45 | 0.148 
+       0.12 | 0.07 | [-0.01,  0.25] |     1.81 | 0.070 
+       0.07 | 0.07 | [-0.06,  0.21] |     1.10 | 0.270 
+       0.07 | 0.07 | [-0.06,  0.20] |     1.08 | 0.281 
+       0.05 | 0.07 | [-0.08,  0.18] |     0.73 | 0.465 
+       0.13 | 0.07 | [ 0.00,  0.26] |     1.93 | 0.054 
+      -0.72 | 0.07 | [-0.85, -0.58] |   -10.64 | < .001
+      -1.01 | 0.07 | [-1.14, -0.88] |   -14.96 | < .001
+       0.19 | 0.07 | [ 0.06,  0.32] |     2.85 | 0.004 
+       0.29 | 0.07 | [ 0.16,  0.42] |     4.33 | < .001
+       0.15 | 0.07 | [ 0.02,  0.28] |     2.22 | 0.027 
+       0.22 | 0.07 | [ 0.08,  0.35] |     3.21 | 0.001 
+       0.20 | 0.07 | [ 0.07,  0.33] |     3.01 | 0.003 
+       0.23 | 0.07 | [ 0.10,  0.36] |     3.45 | < .001
+       0.04 | 0.07 | [-0.09,  0.17] |     0.59 | 0.554 
+       0.19 | 0.07 | [ 0.06,  0.32] |     2.80 | 0.005 
+  -4.38e-03 | 0.07 | [-0.14,  0.13] |    -0.06 | 0.948 
+      -0.03 | 0.07 | [-0.16,  0.10] |    -0.45 | 0.656 
+      -0.02 | 0.07 | [-0.15,  0.11] |    -0.29 | 0.774 
+      -0.08 | 0.07 | [-0.21,  0.05] |    -1.19 | 0.232 
+  -7.43e-03 | 0.07 | [-0.14,  0.12] |    -0.11 | 0.912 
+  -1.46e-03 | 0.07 | [-0.13,  0.13] |    -0.02 | 0.983 
+      -0.75 | 0.05 | [-0.85, -0.64] |   -13.96 | < .001
+       0.12 | 0.05 | [ 0.02,  0.23] |     2.29 | 0.022 
+      -0.56 | 0.05 | [-0.66, -0.45] |   -10.45 | < .001
+  -6.97e-03 | 0.05 | [-0.11,  0.10] |    -0.13 | 0.896 
+      -0.22 | 0.05 | [-0.33, -0.12] |    -4.16 | < .001
+       0.41 | 0.05 | [ 0.31,  0.52] |     7.72 | < .001
+       0.29 | 0.07 | [ 0.16,  0.43] |     4.35 | < .001
+      -0.04 | 0.07 | [-0.18,  0.09] |    -0.64 | 0.523 
+      -0.09 | 0.07 | [-0.22,  0.04] |    -1.30 | 0.194 
+      -0.09 | 0.07 | [-0.22,  0.04] |    -1.32 | 0.188 
+       0.06 | 0.07 | [-0.08,  0.19] |     0.85 | 0.398 
+      -0.04 | 0.07 | [-0.18,  0.09] |    -0.65 | 0.514 
+      -0.03 | 0.07 | [-0.16,  0.10] |    -0.46 | 0.649 
+       0.03 | 0.07 | [-0.10,  0.16] |     0.40 | 0.687 
+      -0.08 | 0.07 | [-0.21,  0.06] |    -1.12 | 0.262 
+       0.09 | 0.07 | [-0.05,  0.22] |     1.28 | 0.200 
+      -0.14 | 0.07 | [-0.27, -0.01] |    -2.10 | 0.036 
+       0.05 | 0.07 | [-0.08,  0.18] |     0.75 | 0.452 
+       0.35 | 0.10 | [ 0.17,  0.54] |     3.70 | < .001
+       0.36 | 0.10 | [ 0.17,  0.55] |     3.79 | < .001
+      -0.06 | 0.10 | [-0.24,  0.13] |    -0.60 | 0.548 
+      -0.06 | 0.10 | [-0.25,  0.12] |    -0.66 | 0.510 
+      -0.08 | 0.10 | [-0.27,  0.10] |    -0.89 | 0.374 
+      -0.06 | 0.10 | [-0.25,  0.13] |    -0.62 | 0.538 
+      -0.08 | 0.10 | [-0.27,  0.11] |    -0.85 | 0.397 
+      -0.09 | 0.10 | [-0.28,  0.09] |    -0.99 | 0.321 
+       0.26 | 0.10 | [ 0.07,  0.45] |     2.71 | 0.007 
+       0.36 | 0.10 | [ 0.18,  0.55] |     3.82 | < .001
+      -0.09 | 0.10 | [-0.28,  0.10] |    -0.95 | 0.340 
+      -0.12 | 0.10 | [-0.30,  0.07] |    -1.21 | 0.225 
+      -0.09 | 0.10 | [-0.27,  0.10] |    -0.92 | 0.358 
+      -0.08 | 0.10 | [-0.26,  0.11] |    -0.81 | 0.416 
+      -0.03 | 0.10 | [-0.22,  0.15] |    -0.36 | 0.718 
+      -0.11 | 0.10 | [-0.29,  0.08] |    -1.10 | 0.269 
+       0.56 | 0.10 | [ 0.37,  0.74] |     5.83 | < .001
+       0.78 | 0.10 | [ 0.59,  0.96] |     8.14 | < .001
+      -0.21 | 0.10 | [-0.40, -0.02] |    -2.20 | 0.028 
+      -0.30 | 0.10 | [-0.49, -0.11] |    -3.13 | 0.002 
+      -0.10 | 0.10 | [-0.29,  0.09] |    -1.03 | 0.303 
+      -0.15 | 0.10 | [-0.33,  0.04] |    -1.52 | 0.128 
+      -0.13 | 0.10 | [-0.31,  0.06] |    -1.34 | 0.180 
+      -0.14 | 0.10 | [-0.33,  0.05] |    -1.46 | 0.143 
+       0.05 | 0.10 | [-0.14,  0.23] |     0.49 | 0.621 
+      -0.10 | 0.10 | [-0.28,  0.09] |    -1.00 | 0.317 
+      -0.02 | 0.10 | [-0.21,  0.16] |    -0.23 | 0.815 
+   3.23e-03 | 0.10 | [-0.18,  0.19] |     0.03 | 0.973 
+  -2.67e-03 | 0.10 | [-0.19,  0.18] |    -0.03 | 0.978 
+       0.06 | 0.10 | [-0.13,  0.25] |     0.62 | 0.537 
+      -0.01 | 0.10 | [-0.20,  0.17] |    -0.14 | 0.890 
+      -0.02 | 0.10 | [-0.21,  0.16] |    -0.24 | 0.812 
+       0.62 | 0.08 | [ 0.47,  0.77] |     8.19 | < .001
+      -0.27 | 0.08 | [-0.42, -0.12] |    -3.53 | < .001
+       0.55 | 0.08 | [ 0.40,  0.70] |     7.30 | < .001
+       0.01 | 0.08 | [-0.14,  0.16] |     0.14 | 0.889 
+       0.31 | 0.08 | [ 0.17,  0.46] |     4.15 | < .001
+      -0.28 | 0.08 | [-0.43, -0.13] |    -3.72 | < .001
+      -0.33 | 0.10 | [-0.52, -0.14] |    -3.47 | < .001
+       0.06 | 0.10 | [-0.12,  0.25] |     0.65 | 0.515 
+       0.14 | 0.10 | [-0.05,  0.32] |     1.43 | 0.152 
+       0.10 | 0.10 | [-0.09,  0.29] |     1.04 | 0.301 
+      -0.13 | 0.10 | [-0.31,  0.06] |    -1.34 | 0.182 
+       0.06 | 0.10 | [-0.13,  0.25] |     0.64 | 0.524 
+       0.03 | 0.10 | [-0.16,  0.22] |     0.32 | 0.751 
+  -5.86e-03 | 0.10 | [-0.19,  0.18] |    -0.06 | 0.951 
+      -0.17 | 0.10 | [-0.36,  0.02] |    -1.80 | 0.073 
+      -0.09 | 0.10 | [-0.28,  0.10] |    -0.96 | 0.337 
+       0.22 | 0.10 | [ 0.03,  0.40] |     2.28 | 0.023 
+       0.04 | 0.10 | [-0.14,  0.23] |     0.47 | 0.639 
+       0.26 | 0.10 | [ 0.07,  0.44] |     2.69 | 0.007 
+      -0.14 | 0.10 | [-0.33,  0.04] |    -1.52 | 0.129 
+      -0.09 | 0.10 | [-0.28,  0.10] |    -0.93 | 0.353 
+      -0.01 | 0.10 | [-0.20,  0.18] |    -0.12 | 0.903 
+      -0.06 | 0.10 | [-0.25,  0.13] |    -0.63 | 0.530 
+       0.09 | 0.10 | [-0.10,  0.27] |     0.92 | 0.355 
+      -0.04 | 0.10 | [-0.23,  0.14] |    -0.47 | 0.637 
+       0.01 | 0.10 | [-0.18,  0.20] |     0.12 | 0.905 
+       0.36 | 0.10 | [ 0.17,  0.54] |     3.76 | < .001
+       0.14 | 0.10 | [-0.05,  0.32] |     1.43 | 0.154 
+      -0.05 | 0.10 | [-0.24,  0.13] |    -0.57 | 0.570 
+      -0.03 | 0.10 | [-0.21,  0.16] |    -0.29 | 0.774 
+      -0.10 | 0.10 | [-0.29,  0.08] |    -1.08 | 0.279 
+       0.03 | 0.10 | [-0.15,  0.22] |     0.36 | 0.716 
+      -0.07 | 0.10 | [-0.26,  0.11] |    -0.76 | 0.445 
+      -0.16 | 0.10 | [-0.34,  0.03] |    -1.65 | 0.099 
+       0.79 | 0.10 | [ 0.60,  0.97] |     8.27 | < .001
+       0.53 | 0.10 | [ 0.35,  0.72] |     5.59 | < .001
+      -0.24 | 0.10 | [-0.43, -0.05] |    -2.51 | 0.012 
+      -0.20 | 0.10 | [-0.38, -0.01] |    -2.05 | 0.040 
+      -0.04 | 0.10 | [-0.22,  0.15] |    -0.37 | 0.711 
+       0.05 | 0.10 | [-0.14,  0.23] |     0.50 | 0.615 
+      -0.24 | 0.10 | [-0.42, -0.05] |    -2.48 | 0.013 
+      -0.20 | 0.10 | [-0.39, -0.02] |    -2.14 | 0.033 
+      -0.23 | 0.13 | [-0.50,  0.03] |    -1.73 | 0.084 
+       0.19 | 0.13 | [-0.08,  0.45] |     1.39 | 0.164 
+       0.07 | 0.13 | [-0.19,  0.34] |     0.53 | 0.598 
+   1.36e-03 | 0.13 | [-0.26,  0.27] |     0.01 | 0.992 
+       0.02 | 0.13 | [-0.24,  0.29] |     0.16 | 0.872 
+      -0.14 | 0.13 | [-0.41,  0.12] |    -1.05 | 0.293 
+       0.04 | 0.13 | [-0.23,  0.30] |     0.27 | 0.787 
+      -0.02 | 0.13 | [-0.29,  0.24] |    -0.18 | 0.853 
+      -0.32 | 0.13 | [-0.59, -0.06] |    -2.40 | 0.016 
+      -0.07 | 0.13 | [-0.34,  0.19] |    -0.55 | 0.581 
+       0.05 | 0.13 | [-0.21,  0.32] |     0.39 | 0.700 
+       0.01 | 0.13 | [-0.25,  0.28] |     0.11 | 0.914 
+       0.11 | 0.13 | [-0.15,  0.38] |     0.84 | 0.401 
+      -0.02 | 0.13 | [-0.28,  0.25] |    -0.14 | 0.891 
+       0.05 | 0.13 | [-0.21,  0.32] |     0.41 | 0.683 
+       0.13 | 0.13 | [-0.13,  0.40] |     0.98 | 0.327 
+      -0.61 | 0.13 | [-0.87, -0.34] |    -4.51 | < .001
+      -0.29 | 0.13 | [-0.56, -0.03] |    -2.18 | 0.029 
+       0.26 | 0.13 | [-0.01,  0.52] |     1.90 | 0.058 
+       0.20 | 0.13 | [-0.06,  0.47] |     1.51 | 0.131 
+      -0.02 | 0.13 | [-0.28,  0.25] |    -0.14 | 0.888 
+      -0.12 | 0.13 | [-0.38,  0.15] |    -0.87 | 0.386 
+       0.16 | 0.13 | [-0.11,  0.42] |     1.16 | 0.248 
+       0.11 | 0.13 | [-0.16,  0.37] |     0.79 | 0.430 
+
+# Random Effects
+
+Parameter                        | Coefficient
+----------------------------------------------
+SD (Intercept: Repetition.Index) |        0.03
+SD (Residual)                    |        0.12
+
+Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed
+  using a Wald t-distribution approximation.
+
+The model has a log-transformed response variable. Consider using
+  `exponentiate = TRUE` to interpret coefficients as ratios.
+Warning message:
+The table contains very wide columns that don't fit into the available
+  display-width of the console. Splitting tables into multiple parts did
+  not have the desired effect. 
+Warning messages:
+1: Log-likelihood is corrected for models with transformed response.
+  However, this ignores `REML=TRUE`. Log-likelihood value is probably
+  inaccurate. 
+2: Log-likelihood is corrected for models with transformed response.
+  However, this ignores `REML=TRUE`. Log-likelihood value is probably
+  inaccurate. 
+# Indices of model performance
+
+AIC      |     AICc |      BIC | R2 (cond.) | R2 (marg.) |   ICC |  RMSE | Sigma
+--------------------------------------------------------------------------------
+-31560.9 | -31506.4 | -30161.4 |      0.997 |      0.997 | 0.050 | 0.111 | 0.119
+# R2 for Mixed Models
+
+  Conditional R2: 0.997
+     Marginal R2: 0.997
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                                         Sum Sq Mean Sq NumDF
+Run                                                      5940.9  5940.9     1
+Buffer.Size                                              1390.1   695.0     2
+Iteration.Count                                            32.5     8.1     4
+Environment                                               188.6    62.9     3
+Model.Unique                                               19.3    19.3     1
+Run:Buffer.Size                                             7.0     3.5     2
+Run:Iteration.Count                                        15.7     3.9     4
+Run:Environment                                            36.8    12.3     3
+Run:Model.Unique                                          932.6   932.6     1
+Buffer.Size:Iteration.Count                                 5.2     0.6     8
+Buffer.Size:Environment                                    11.3     1.9     6
+Buffer.Size:Model.Unique                                  782.7   391.4     2
+Iteration.Count:Environment                                12.7     1.1    12
+Iteration.Count:Model.Unique                                1.9     0.5     4
+Environment:Model.Unique                                    2.2     0.7     3
+Run:Buffer.Size:Iteration.Count                             1.7     0.2     8
+Run:Buffer.Size:Environment                                 8.3     1.4     6
+Run:Buffer.Size:Model.Unique                                4.8     2.4     2
+Run:Iteration.Count:Environment                             6.6     0.6    12
+Run:Iteration.Count:Model.Unique                            4.9     1.2     4
+Run:Environment:Model.Unique                                4.1     1.4     3
+Buffer.Size:Iteration.Count:Environment                     2.4     0.1    24
+Buffer.Size:Iteration.Count:Model.Unique                    2.3     0.3     8
+Buffer.Size:Environment:Model.Unique                        3.7     0.6     6
+Iteration.Count:Environment:Model.Unique                    0.6     0.0    12
+Run:Buffer.Size:Iteration.Count:Environment                 1.4     0.1    24
+Run:Buffer.Size:Iteration.Count:Model.Unique                0.4     0.0     8
+Run:Buffer.Size:Environment:Model.Unique                    2.4     0.4     6
+Run:Iteration.Count:Environment:Model.Unique                1.2     0.1    12
+Buffer.Size:Iteration.Count:Environment:Model.Unique        1.2     0.0    24
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique    0.5     0.0    24
+                                                         DenDF    F value
+Run                                                        432 4.1897e+05
+Buffer.Size                                                432 4.9016e+04
+Iteration.Count                                           1728 5.7350e+02
+Environment                                                432 4.4330e+03
+Model.Unique                                               432 1.3646e+03
+Run:Buffer.Size                                            432 2.4531e+02
+Run:Iteration.Count                                       1728 2.7615e+02
+Run:Environment                                            432 8.6483e+02
+Run:Model.Unique                                           432 6.5772e+04
+Buffer.Size:Iteration.Count                               1728 4.5404e+01
+Buffer.Size:Environment                                    432 1.3294e+02
+Buffer.Size:Model.Unique                                   432 2.7601e+04
+Iteration.Count:Environment                               1728 7.4465e+01
+Iteration.Count:Model.Unique                              1728 3.3076e+01
+Environment:Model.Unique                                   432 5.2879e+01
+Run:Buffer.Size:Iteration.Count                           1728 1.4581e+01
+Run:Buffer.Size:Environment                                432 9.7018e+01
+Run:Buffer.Size:Model.Unique                               432 1.7011e+02
+Run:Iteration.Count:Environment                           1728 3.9053e+01
+Run:Iteration.Count:Model.Unique                          1728 8.6997e+01
+Run:Environment:Model.Unique                               432 9.5547e+01
+Buffer.Size:Iteration.Count:Environment                   1728 7.1624e+00
+Buffer.Size:Iteration.Count:Model.Unique                  1728 1.9898e+01
+Buffer.Size:Environment:Model.Unique                       432 4.3467e+01
+Iteration.Count:Environment:Model.Unique                  1728 3.2490e+00
+Run:Buffer.Size:Iteration.Count:Environment               1728 4.2201e+00
+Run:Buffer.Size:Iteration.Count:Model.Unique              1728 3.4891e+00
+Run:Buffer.Size:Environment:Model.Unique                   432 2.8113e+01
+Run:Iteration.Count:Environment:Model.Unique              1728 6.8426e+00
+Buffer.Size:Iteration.Count:Environment:Model.Unique      1728 3.3959e+00
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique  1728 1.4863e+00
+                                                            Pr(>F)    
+Run                                                      < 2.2e-16 ***
+Buffer.Size                                              < 2.2e-16 ***
+Iteration.Count                                          < 2.2e-16 ***
+Environment                                              < 2.2e-16 ***
+Model.Unique                                             < 2.2e-16 ***
+Run:Buffer.Size                                          < 2.2e-16 ***
+Run:Iteration.Count                                      < 2.2e-16 ***
+Run:Environment                                          < 2.2e-16 ***
+Run:Model.Unique                                         < 2.2e-16 ***
+Buffer.Size:Iteration.Count                              < 2.2e-16 ***
+Buffer.Size:Environment                                  < 2.2e-16 ***
+Buffer.Size:Model.Unique                                 < 2.2e-16 ***
+Iteration.Count:Environment                              < 2.2e-16 ***
+Iteration.Count:Model.Unique                             < 2.2e-16 ***
+Environment:Model.Unique                                 < 2.2e-16 ***
+Run:Buffer.Size:Iteration.Count                          < 2.2e-16 ***
+Run:Buffer.Size:Environment                              < 2.2e-16 ***
+Run:Buffer.Size:Model.Unique                             < 2.2e-16 ***
+Run:Iteration.Count:Environment                          < 2.2e-16 ***
+Run:Iteration.Count:Model.Unique                         < 2.2e-16 ***
+Run:Environment:Model.Unique                             < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Environment                  < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Model.Unique                 < 2.2e-16 ***
+Buffer.Size:Environment:Model.Unique                     < 2.2e-16 ***
+Iteration.Count:Environment:Model.Unique                 0.0001194 ***
+Run:Buffer.Size:Iteration.Count:Environment              4.362e-11 ***
+Run:Buffer.Size:Iteration.Count:Model.Unique             0.0005268 ***
+Run:Buffer.Size:Environment:Model.Unique                 < 2.2e-16 ***
+Run:Iteration.Count:Environment:Model.Unique             3.385e-12 ***
+Buffer.Size:Iteration.Count:Environment:Model.Unique     5.772e-08 ***
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique 0.0608781 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Significant (p < 0.0001): 28
+Non-significant (p >= 0.0001): 3
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                                     Sum Sq Mean Sq NumDF DenDF
+Run                                                  5940.9  5940.9     1   432
+Buffer.Size                                          1390.1   695.0     2   432
+Iteration.Count                                        32.5     8.1     4  1728
+Environment                                           188.6    62.9     3   432
+Model.Unique                                           19.3    19.3     1   432
+Run:Buffer.Size                                         7.0     3.5     2   432
+Run:Iteration.Count                                    15.7     3.9     4  1728
+Run:Environment                                        36.8    12.3     3   432
+Run:Model.Unique                                      932.6   932.6     1   432
+Buffer.Size:Iteration.Count                             5.2     0.6     8  1728
+Buffer.Size:Environment                                11.3     1.9     6   432
+Buffer.Size:Model.Unique                              782.7   391.4     2   432
+Iteration.Count:Environment                            12.7     1.1    12  1728
+Iteration.Count:Model.Unique                            1.9     0.5     4  1728
+Environment:Model.Unique                                2.2     0.7     3   432
+Run:Buffer.Size:Iteration.Count                         1.7     0.2     8  1728
+Run:Buffer.Size:Environment                             8.3     1.4     6   432
+Run:Buffer.Size:Model.Unique                            4.8     2.4     2   432
+Run:Iteration.Count:Environment                         6.6     0.6    12  1728
+Run:Iteration.Count:Model.Unique                        4.9     1.2     4  1728
+Run:Environment:Model.Unique                            4.1     1.4     3   432
+Buffer.Size:Iteration.Count:Environment                 2.4     0.1    24  1728
+Buffer.Size:Iteration.Count:Model.Unique                2.3     0.3     8  1728
+Buffer.Size:Environment:Model.Unique                    3.7     0.6     6   432
+Run:Buffer.Size:Iteration.Count:Environment             1.4     0.1    24  1728
+Run:Buffer.Size:Environment:Model.Unique                2.4     0.4     6   432
+Run:Iteration.Count:Environment:Model.Unique            1.2     0.1    12  1728
+Buffer.Size:Iteration.Count:Environment:Model.Unique    1.2     0.0    24  1728
+                                                        F value    Pr(>F)    
+Run                                                  4.1897e+05 < 2.2e-16 ***
+Buffer.Size                                          4.9016e+04 < 2.2e-16 ***
+Iteration.Count                                      5.7350e+02 < 2.2e-16 ***
+Environment                                          4.4330e+03 < 2.2e-16 ***
+Model.Unique                                         1.3646e+03 < 2.2e-16 ***
+Run:Buffer.Size                                      2.4531e+02 < 2.2e-16 ***
+Run:Iteration.Count                                  2.7615e+02 < 2.2e-16 ***
+Run:Environment                                      8.6483e+02 < 2.2e-16 ***
+Run:Model.Unique                                     6.5772e+04 < 2.2e-16 ***
+Buffer.Size:Iteration.Count                          4.5404e+01 < 2.2e-16 ***
+Buffer.Size:Environment                              1.3294e+02 < 2.2e-16 ***
+Buffer.Size:Model.Unique                             2.7601e+04 < 2.2e-16 ***
+Iteration.Count:Environment                          7.4465e+01 < 2.2e-16 ***
+Iteration.Count:Model.Unique                         3.3076e+01 < 2.2e-16 ***
+Environment:Model.Unique                             5.2879e+01 < 2.2e-16 ***
+Run:Buffer.Size:Iteration.Count                      1.4581e+01 < 2.2e-16 ***
+Run:Buffer.Size:Environment                          9.7018e+01 < 2.2e-16 ***
+Run:Buffer.Size:Model.Unique                         1.7011e+02 < 2.2e-16 ***
+Run:Iteration.Count:Environment                      3.9053e+01 < 2.2e-16 ***
+Run:Iteration.Count:Model.Unique                     8.6997e+01 < 2.2e-16 ***
+Run:Environment:Model.Unique                         9.5547e+01 < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Environment              7.1624e+00 < 2.2e-16 ***
+Buffer.Size:Iteration.Count:Model.Unique             1.9898e+01 < 2.2e-16 ***
+Buffer.Size:Environment:Model.Unique                 4.3467e+01 < 2.2e-16 ***
+Run:Buffer.Size:Iteration.Count:Environment          4.2201e+00 4.362e-11 ***
+Run:Buffer.Size:Environment:Model.Unique             2.8113e+01 < 2.2e-16 ***
+Run:Iteration.Count:Environment:Model.Unique         6.8426e+00 3.385e-12 ***
+Buffer.Size:Iteration.Count:Environment:Model.Unique 3.3959e+00 5.772e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Kenward-Roger's method
+                                                          Sum Sq  Mean Sq NumDF
+Iteration.Count:Environment:Model.Unique                 0.55284 0.046070    12
+Run:Buffer.Size:Iteration.Count:Model.Unique             0.39580 0.049475     8
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique 0.50583 0.021076    24
+                                                         DenDF F value
+Iteration.Count:Environment:Model.Unique                  1728  3.2490
+Run:Buffer.Size:Iteration.Count:Model.Unique              1728  3.4891
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique  1728  1.4863
+                                                            Pr(>F)    
+Iteration.Count:Environment:Model.Unique                 0.0001194 ***
+Run:Buffer.Size:Iteration.Count:Model.Unique             0.0005268 ***
+Run:Buffer.Size:Iteration.Count:Environment:Model.Unique 0.0608781 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+#####################################################################
+# Clean up the environment
+#####################################################################
+
+Remaining attached packages:
+Remaining objects in the environment:
+Removing all objects from the environment...
+Remaining objects in the environment:
+Warning messages:
+1: In q("no", save = "no") : NAs introduced by coercion
+2: In q("no", save = "no") : invalid 'status', 0 assumed

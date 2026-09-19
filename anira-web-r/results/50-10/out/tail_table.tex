@@ -1,0 +1,40 @@
+\begin{table}[htbp]
+\caption{Tail statistics of \emph{RpS} for the ONNX Runtime \emph{backend} over the 500 measurements of a run, by \emph{buffer size} (BS). SD, p99, and Max in $\mu$s/sample (\emph{RTT}~$\approx$~22.68); Miss is the share of blocks exceeding the \emph{RTT}; starred columns exclude \emph{iteration}~0.}
+\label{tab:tails}
+\centering
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{llrrrrrrr}
+\toprule
+& \textbf{Model} & \textbf{BS} & \textbf{SD*} & \textbf{p99} & \textbf{Max} & \textbf{Max*} & \textbf{Miss} & \textbf{Miss*} \\
+& & & & & & & \textbf{(\%)} & \textbf{(\%)} \\
+\midrule
+  \multirow{6}{*}{\textbf{Native}} & \multirow{3}{*}{SteerableNAFX} & 128 & $0.287$ & $81.9$ & $87.3$ & $75.6$ & $100$ & $100$ \\
+   &  & 1024 & $0.0236$ & $10.3$ & $10.3$ & $10.1$ & $0$ & $0$ \\
+   &  & 8192 & $0.00457$ & $2.00$ & $2.00$ & $1.97$ & $0$ & $0$ \\
+   & \multirow{3}{*}{GuitarLSTM} & 128 & $0.0235$ & $7.56$ & $10.5$ & $4.12$ & $0$ & $0$ \\
+   &  & 1024 & $0.0122$ & $3.37$ & $3.38$ & $3.32$ & $0$ & $0$ \\
+   &  & 8192 & $0.00802$ & $3.30$ & $3.35$ & $3.22$ & $0$ & $0$ \\
+\midrule
+  \multirow{6}{*}{\textbf{Chrome}} & \multirow{3}{*}{SteerableNAFX} & 128 & $2.40$ & $325$ & $339$ & $286$ & $100$ & $100$ \\
+   &  & 1024 & $0.156$ & $38.6$ & $38.7$ & $37.5$ & $100$ & $100$ \\
+   &  & 8192 & $0.0490$ & $8.08$ & $8.68$ & $7.37$ & $0$ & $0$ \\
+   & \multirow{3}{*}{GuitarLSTM} & 128 & $0.722$ & $28.4$ & $36.0$ & $16.2$ & $2$ & $0$ \\
+   &  & 1024 & $0.0388$ & $12.4$ & $12.6$ & $11.6$ & $0$ & $0$ \\
+   &  & 8192 & $0.0409$ & $11.9$ & $11.9$ & $11.6$ & $0$ & $0$ \\
+\midrule
+  \multirow{6}{*}{\textbf{Firefox}} & \multirow{3}{*}{SteerableNAFX} & 128 & $0.750$ & $158$ & $176$ & $139$ & $100$ & $100$ \\
+   &  & 1024 & $0.143$ & $21.1$ & $23.3$ & $18.8$ & $2$ & $0$ \\
+   &  & 8192 & $0.0218$ & $4.08$ & $4.43$ & $3.72$ & $0$ & $0$ \\
+   & \multirow{3}{*}{GuitarLSTM} & 128 & $0.379$ & $20.3$ & $29.2$ & $8.59$ & $2$ & $0$ \\
+   &  & 1024 & $0.0696$ & $8.82$ & $11.2$ & $6.35$ & $0$ & $0$ \\
+   &  & 8192 & $0.0454$ & $6.98$ & $7.40$ & $6.17$ & $0$ & $0$ \\
+\midrule
+  \multirow{6}{*}{\textbf{Safari}} & \multirow{3}{*}{SteerableNAFX} & 128 & $0.597$ & $172$ & $195$ & $138$ & $100$ & $100$ \\
+   &  & 1024 & $0.0813$ & $23.5$ & $26.3$ & $18.6$ & $2$ & $0$ \\
+   &  & 8192 & $0.0203$ & $4.28$ & $4.66$ & $3.71$ & $0$ & $0$ \\
+   & \multirow{3}{*}{GuitarLSTM} & 128 & $0.766$ & $32.0$ & $49.5$ & $11.1$ & $2$ & $0$ \\
+   &  & 1024 & $0.126$ & $10.5$ & $14.4$ & $6.15$ & $0$ & $0$ \\
+   &  & 8192 & $0.0581$ & $6.86$ & $7.87$ & $5.52$ & $0$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
