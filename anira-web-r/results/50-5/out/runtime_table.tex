@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\caption{Descriptive statistics of \emph{RpS} observations for the bypass \emph{backend} across different models and execution environments. All values are expressed in $\mu$s/sample.}
+\label{tab:runtime-overview}
+\centering
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llcc}
+\toprule
+& \textbf{Model} & \textbf{Mean} & \textbf{SE} \\
+\midrule
+  \multirow{2}{*}{\textbf{Native}} & SteerableNAFX & $0.392$ & $0.0846$ \\
+   & GuitarLSTM & $0.599$ & $0.0634$ \\
+\midrule
+  \multirow{2}{*}{\textbf{Chrome}} & SteerableNAFX & $0.389$ & $0.0854$ \\
+   & GuitarLSTM & $1.06$ & $0.0247$ \\
+\midrule
+  \multirow{2}{*}{\textbf{Firefox}} & SteerableNAFX & $0.371$ & $0.0786$ \\
+   & GuitarLSTM & $0.796$ & $0.0399$ \\
+\midrule
+  \multirow{2}{*}{\textbf{Safari}} & SteerableNAFX & $0.454$ & $0.0989$ \\
+   & GuitarLSTM & $0.894$ & $0.0844$ \\
+\bottomrule
+\end{tabular}
+\end{table}
