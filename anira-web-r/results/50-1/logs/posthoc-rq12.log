@@ -1,0 +1,2485 @@
+here() starts at /home
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘lmerTest’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+The following object is masked from ‘package:stats’:
+
+    step
+
+Welcome to emmeans.
+Caution: You lose important information if you filter this package's results.
+See '? untidy'
+
+1.a Overall
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.001260 2.57e-06 432 0.001255 0.001265
+ Chrome      0.002970 6.05e-06 432 0.002958 0.002982
+ Firefox     0.001920 3.91e-06 432 0.001912 0.001928
+ Safari      0.001873 3.81e-06 432 0.001866 0.001881
+
+Results are averaged over the levels of: Run, Buffer.Size, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.424 0.00122 432    1 -297.742 <0.0001
+ Native / Firefox 0.656 0.00189 432    1 -146.265 <0.0001
+ Native / Safari  0.673 0.00194 432    1 -137.721 <0.0001
+ Chrome / Firefox 1.547 0.00445 432    1  151.477 <0.0001
+ Chrome / Safari  1.585 0.00456 432    1  160.020 <0.0001
+ Firefox / Safari 1.025 0.00295 432    1    8.544 <0.0001
+
+Results are averaged over the levels of: Run, Buffer.Size, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+
+
+1.b By buffer size
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+Buffer.Size = 128:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.004284 1.51e-05 432 0.004254 0.004314
+ Chrome      0.007614 2.68e-05 432 0.007562 0.007667
+ Firefox     0.005490 1.94e-05 432 0.005452 0.005528
+ Safari      0.005650 1.99e-05 432 0.005611 0.005690
+
+Buffer.Size = 1024:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.001129 3.98e-06 432 0.001121 0.001137
+ Chrome      0.002621 9.24e-06 432 0.002603 0.002639
+ Firefox     0.001691 5.96e-06 432 0.001679 0.001703
+ Safari      0.001636 5.77e-06 432 0.001625 0.001647
+
+Buffer.Size = 8192:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.000414 1.46e-06 432 0.000411 0.000417
+ Chrome      0.001313 4.63e-06 432 0.001303 0.001322
+ Firefox     0.000763 2.69e-06 432 0.000757 0.000768
+ Safari      0.000711 2.51e-06 432 0.000706 0.000716
+
+Results are averaged over the levels of: Run, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+Buffer.Size = 128:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.563 0.00281 432    1 -115.342 <0.0001
+ Native / Firefox 0.780 0.00389 432    1  -49.731 <0.0001
+ Native / Safari  0.758 0.00378 432    1  -55.521 <0.0001
+ Chrome / Firefox 1.387 0.00692 432    1   65.610 <0.0001
+ Chrome / Safari  1.348 0.00672 432    1   59.821 <0.0001
+ Firefox / Safari 0.972 0.00484 432    1   -5.789 <0.0001
+
+Buffer.Size = 1024:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.431 0.00215 432    1 -168.853 <0.0001
+ Native / Firefox 0.668 0.00333 432    1  -80.968 <0.0001
+ Native / Safari  0.690 0.00344 432    1  -74.351 <0.0001
+ Chrome / Firefox 1.550 0.00773 432    1   87.885 <0.0001
+ Chrome / Safari  1.602 0.00799 432    1   94.502 <0.0001
+ Firefox / Safari 1.034 0.00515 432    1    6.617 <0.0001
+
+Buffer.Size = 8192:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.315 0.00157 432    1 -231.509 <0.0001
+ Native / Firefox 0.543 0.00271 432    1 -122.638 <0.0001
+ Native / Safari  0.582 0.00290 432    1 -108.668 <0.0001
+ Chrome / Firefox 1.721 0.00858 432    1  108.871 <0.0001
+ Chrome / Safari  1.845 0.00920 432    1  122.841 <0.0001
+ Firefox / Safari 1.072 0.00535 432    1   13.970 <0.0001
+
+Results are averaged over the levels of: Run, Iteration.Count, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+
+
+1.c By run × model
+
+NOTE: Results may be misleading due to involvement in interactions
+Run = bypass, Model.Unique = guitar-lstm:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.000515 2.10e-06 432 0.000511 0.000519
+ Chrome      0.001025 4.17e-06 432 0.001017 0.001033
+ Firefox     0.000745 3.03e-06 432 0.000739 0.000751
+ Safari      0.000713 2.90e-06 432 0.000707 0.000718
+
+Run = onnx, Model.Unique = guitar-lstm:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.003501 1.43e-05 432 0.003473 0.003530
+ Chrome      0.011888 4.84e-05 432 0.011793 0.011984
+ Firefox     0.006526 2.66e-05 432 0.006474 0.006578
+ Safari      0.005956 2.42e-05 432 0.005908 0.006004
+
+Run = bypass, Model.Unique = steerable-nafx:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.000123 5.02e-07 432 0.000122 0.000124
+ Chrome      0.000152 6.17e-07 432 0.000150 0.000153
+ Firefox     0.000134 5.44e-07 432 0.000132 0.000135
+ Safari      0.000140 5.70e-07 432 0.000139 0.000141
+
+Run = onnx, Model.Unique = steerable-nafx:
+ Environment response       SE  df lower.CL upper.CL
+ Native      0.011363 4.63e-05 432 0.011273 0.011455
+ Chrome      0.042098 1.71e-04 432 0.041763 0.042437
+ Firefox     0.020936 8.52e-05 432 0.020769 0.021104
+ Safari      0.020743 8.44e-05 432 0.020577 0.020909
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Run = bypass, Model.Unique = guitar-lstm:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.502 0.00289 432    1 -119.696 <0.0001
+ Native / Firefox 0.691 0.00398 432    1  -64.261 <0.0001
+ Native / Safari  0.722 0.00416 432    1  -56.525 <0.0001
+ Chrome / Firefox 1.376 0.00792 432    1   55.435 <0.0001
+ Chrome / Safari  1.439 0.00828 432    1   63.171 <0.0001
+ Firefox / Safari 1.046 0.00602 432    1    7.736 <0.0001
+
+Run = onnx, Model.Unique = guitar-lstm:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.295 0.00170 432    1 -212.309 <0.0001
+ Native / Firefox 0.537 0.00309 432    1 -108.129 <0.0001
+ Native / Safari  0.588 0.00338 432    1  -92.262 <0.0001
+ Chrome / Firefox 1.822 0.01050 432    1  104.180 <0.0001
+ Chrome / Safari  1.996 0.01150 432    1  120.047 <0.0001
+ Firefox / Safari 1.096 0.00631 432    1   15.867 <0.0001
+
+Run = bypass, Model.Unique = steerable-nafx:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.813 0.00468 432    1  -36.020 <0.0001
+ Native / Firefox 0.923 0.00531 432    1  -14.005 <0.0001
+ Native / Safari  0.880 0.00507 432    1  -22.132 <0.0001
+ Chrome / Firefox 1.135 0.00654 432    1   22.015 <0.0001
+ Chrome / Safari  1.083 0.00624 432    1   13.888 <0.0001
+ Firefox / Safari 0.954 0.00549 432    1   -8.127 <0.0001
+
+Run = onnx, Model.Unique = steerable-nafx:
+ contrast         ratio      SE  df null  t.ratio p.value
+ Native / Chrome  0.270 0.00155 432    1 -227.459 <0.0001
+ Native / Firefox 0.543 0.00313 432    1 -106.135 <0.0001
+ Native / Safari  0.548 0.00315 432    1 -104.524 <0.0001
+ Chrome / Firefox 2.011 0.01160 432    1  121.324 <0.0001
+ Chrome / Safari  2.030 0.01170 432    1  122.935 <0.0001
+ Firefox / Safari 1.009 0.00581 432    1    1.611  0.1079
+
+Results are averaged over the levels of: Buffer.Size, Iteration.Count 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 6 tests 
+Tests are performed on the log scale 
+emm_rq1_environment.csv written to ./results/50-1
+
+2.a Overall
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0                0.00255 8.52e-06 17028  0.00253  0.00256
+ 1                0.00197 6.60e-06 17028  0.00196  0.00199
+ 2                0.00194 6.49e-06 17028  0.00193  0.00195
+ 3                0.00193 6.47e-06 17028  0.00192  0.00195
+ 4                0.00192 6.43e-06 17028  0.00191  0.00193
+ 5                0.00192 6.44e-06 17028  0.00191  0.00194
+ 6                0.00191 6.39e-06 17028  0.00190  0.00192
+ 7                0.00191 6.39e-06 17028  0.00190  0.00192
+ 8                0.00192 6.41e-06 17028  0.00190  0.00193
+ 9                0.00191 6.40e-06 17028  0.00190  0.00193
+ 10               0.00191 6.38e-06 17028  0.00190  0.00192
+ 11               0.00190 6.36e-06 17028  0.00189  0.00191
+ 12               0.00191 6.39e-06 17028  0.00190  0.00192
+ 13               0.00191 6.38e-06 17028  0.00189  0.00192
+ 14               0.00191 6.37e-06 17028  0.00189  0.00192
+ 15               0.00190 6.35e-06 17028  0.00189  0.00191
+ 16               0.00189 6.34e-06 17028  0.00188  0.00191
+ 17               0.00190 6.35e-06 17028  0.00188  0.00191
+ 18               0.00190 6.36e-06 17028  0.00189  0.00191
+ 19               0.00190 6.37e-06 17028  0.00189  0.00192
+ 20               0.00189 6.34e-06 17028  0.00188  0.00191
+ 21               0.00190 6.37e-06 17028  0.00189  0.00191
+ 22               0.00190 6.35e-06 17028  0.00189  0.00191
+ 23               0.00191 6.39e-06 17028  0.00190  0.00192
+ 24               0.00190 6.34e-06 17028  0.00188  0.00191
+ 25               0.00190 6.34e-06 17028  0.00188  0.00191
+ 26               0.00190 6.34e-06 17028  0.00188  0.00191
+ 27               0.00189 6.34e-06 17028  0.00188  0.00191
+ 28               0.00189 6.33e-06 17028  0.00188  0.00190
+ 29               0.00190 6.35e-06 17028  0.00188  0.00191
+ 30               0.00191 6.39e-06 17028  0.00190  0.00192
+ 31               0.00190 6.36e-06 17028  0.00189  0.00191
+ 32               0.00190 6.35e-06 17028  0.00189  0.00191
+ 33               0.00189 6.33e-06 17028  0.00188  0.00190
+ 34               0.00189 6.33e-06 17028  0.00188  0.00190
+ 35               0.00190 6.36e-06 17028  0.00189  0.00191
+ 36               0.00190 6.35e-06 17028  0.00189  0.00191
+ 37               0.00190 6.36e-06 17028  0.00189  0.00191
+ 38               0.00189 6.33e-06 17028  0.00188  0.00190
+ 39               0.00191 6.38e-06 17028  0.00189  0.00192
+ 40               0.00190 6.36e-06 17028  0.00189  0.00191
+ 41               0.00190 6.35e-06 17028  0.00189  0.00191
+ 42               0.00190 6.35e-06 17028  0.00189  0.00191
+ 43               0.00189 6.34e-06 17028  0.00188  0.00191
+ 44               0.00190 6.34e-06 17028  0.00188  0.00191
+ 45               0.00190 6.37e-06 17028  0.00189  0.00192
+ 46               0.00190 6.35e-06 17028  0.00188  0.00191
+ 47               0.00190 6.35e-06 17028  0.00189  0.00191
+ 48               0.00190 6.35e-06 17028  0.00188  0.00191
+ 49               0.00191 6.38e-06 17028  0.00189  0.00192
+
+Results are averaged over the levels of: Run, Buffer.Size, Environment, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+ contrast                 ratio      SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.329 0.00424 21168    1  89.221 <0.0001
+ Iteration.Count1 effect  1.030 0.00328 21168    1   9.407 <0.0001
+ Iteration.Count2 effect  1.013 0.00323 21168    1   4.140  0.0017
+ Iteration.Count3 effect  1.009 0.00322 21168    1   2.886  0.1142
+ Iteration.Count4 effect  1.003 0.00320 21168    1   1.037  1.0000
+ Iteration.Count5 effect  1.004 0.00320 21168    1   1.293  1.0000
+ Iteration.Count6 effect  0.998 0.00318 21168    1  -0.692  1.0000
+ Iteration.Count7 effect  0.996 0.00318 21168    1  -1.142  1.0000
+ Iteration.Count8 effect  1.001 0.00319 21168    1   0.223  1.0000
+ Iteration.Count9 effect  0.999 0.00318 21168    1  -0.336  1.0000
+ Iteration.Count10 effect 0.996 0.00317 21168    1  -1.226  1.0000
+ Iteration.Count11 effect 0.993 0.00316 21168    1  -2.272  0.4384
+ Iteration.Count12 effect 0.997 0.00318 21168    1  -1.066  1.0000
+ Iteration.Count13 effect 0.995 0.00317 21168    1  -1.643  1.0000
+ Iteration.Count14 effect 0.995 0.00317 21168    1  -1.689  1.0000
+ Iteration.Count15 effect 0.991 0.00316 21168    1  -2.811  0.1333
+ Iteration.Count16 effect 0.989 0.00315 21168    1  -3.594  0.0137
+ Iteration.Count17 effect 0.990 0.00316 21168    1  -3.132  0.0609
+ Iteration.Count18 effect 0.992 0.00316 21168    1  -2.413  0.3323
+ Iteration.Count19 effect 0.993 0.00317 21168    1  -2.079  0.6018
+ Iteration.Count20 effect 0.989 0.00315 21168    1  -3.385  0.0286
+ Iteration.Count21 effect 0.993 0.00317 21168    1  -2.146  0.5415
+ Iteration.Count22 effect 0.992 0.00316 21168    1  -2.666  0.1841
+ Iteration.Count23 effect 0.996 0.00318 21168    1  -1.151  1.0000
+ Iteration.Count24 effect 0.989 0.00315 21168    1  -3.355  0.0310
+ Iteration.Count25 effect 0.990 0.00315 21168    1  -3.209  0.0494
+ Iteration.Count26 effect 0.990 0.00315 21168    1  -3.302  0.0366
+ Iteration.Count27 effect 0.989 0.00315 21168    1  -3.432  0.0246
+ Iteration.Count28 effect 0.988 0.00315 21168    1  -3.850  0.0053
+ Iteration.Count29 effect 0.990 0.00316 21168    1  -3.081  0.0702
+ Iteration.Count30 effect 0.997 0.00318 21168    1  -1.068  1.0000
+ Iteration.Count31 effect 0.993 0.00316 21168    1  -2.187  0.5171
+ Iteration.Count32 effect 0.991 0.00316 21168    1  -2.843  0.1254
+ Iteration.Count33 effect 0.987 0.00315 21168    1  -4.117  0.0018
+ Iteration.Count34 effect 0.988 0.00315 21168    1  -3.812  0.0061
+ Iteration.Count35 effect 0.992 0.00316 21168    1  -2.457  0.3080
+ Iteration.Count36 effect 0.991 0.00316 21168    1  -2.894  0.1142
+ Iteration.Count37 effect 0.993 0.00316 21168    1  -2.293  0.4366
+ Iteration.Count38 effect 0.987 0.00315 21168    1  -4.067  0.0022
+ Iteration.Count39 effect 0.995 0.00317 21168    1  -1.572  1.0000
+ Iteration.Count40 effect 0.992 0.00316 21168    1  -2.622  0.2014
+ Iteration.Count41 effect 0.991 0.00316 21168    1  -2.791  0.1369
+ Iteration.Count42 effect 0.991 0.00316 21168    1  -2.720  0.1632
+ Iteration.Count43 effect 0.989 0.00315 21168    1  -3.600  0.0137
+ Iteration.Count44 effect 0.990 0.00316 21168    1  -3.161  0.0566
+ Iteration.Count45 effect 0.994 0.00317 21168    1  -1.958  0.7535
+ Iteration.Count46 effect 0.990 0.00316 21168    1  -3.007  0.0846
+ Iteration.Count47 effect 0.991 0.00316 21168    1  -2.950  0.0987
+ Iteration.Count48 effect 0.990 0.00316 21168    1  -3.048  0.0762
+ Iteration.Count49 effect 0.996 0.00317 21168    1  -1.366  1.0000
+
+Results are averaged over the levels of: Run, Buffer.Size, Environment, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 50 tests 
+Tests are performed on the log scale 
+
+
+2.b By environment
+
+NOTE: Results may be misleading due to involvement in interactions
+$emm
+Environment = Native:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0                0.00134 8.97e-06 17028  0.00132  0.00136
+ 1                0.00127 8.47e-06 17028  0.00125  0.00128
+ 2                0.00127 8.48e-06 17028  0.00125  0.00128
+ 3                0.00127 8.49e-06 17028  0.00125  0.00129
+ 4                0.00126 8.42e-06 17028  0.00124  0.00128
+ 5                0.00126 8.43e-06 17028  0.00124  0.00128
+ 6                0.00126 8.46e-06 17028  0.00125  0.00128
+ 7                0.00126 8.46e-06 17028  0.00125  0.00128
+ 8                0.00126 8.41e-06 17028  0.00124  0.00127
+ 9                0.00126 8.42e-06 17028  0.00124  0.00127
+ 10               0.00126 8.44e-06 17028  0.00125  0.00128
+ 11               0.00127 8.47e-06 17028  0.00125  0.00128
+ 12               0.00126 8.43e-06 17028  0.00124  0.00128
+ 13               0.00126 8.41e-06 17028  0.00124  0.00127
+ 14               0.00126 8.42e-06 17028  0.00124  0.00127
+ 15               0.00126 8.41e-06 17028  0.00124  0.00127
+ 16               0.00126 8.42e-06 17028  0.00124  0.00127
+ 17               0.00126 8.41e-06 17028  0.00124  0.00127
+ 18               0.00126 8.42e-06 17028  0.00124  0.00128
+ 19               0.00126 8.41e-06 17028  0.00124  0.00127
+ 20               0.00126 8.43e-06 17028  0.00124  0.00128
+ 21               0.00126 8.41e-06 17028  0.00124  0.00127
+ 22               0.00126 8.42e-06 17028  0.00124  0.00127
+ 23               0.00126 8.41e-06 17028  0.00124  0.00127
+ 24               0.00126 8.41e-06 17028  0.00124  0.00127
+ 25               0.00126 8.42e-06 17028  0.00124  0.00128
+ 26               0.00126 8.40e-06 17028  0.00124  0.00127
+ 27               0.00126 8.42e-06 17028  0.00124  0.00127
+ 28               0.00126 8.42e-06 17028  0.00124  0.00127
+ 29               0.00126 8.41e-06 17028  0.00124  0.00127
+ 30               0.00126 8.46e-06 17028  0.00125  0.00128
+ 31               0.00126 8.42e-06 17028  0.00124  0.00127
+ 32               0.00126 8.41e-06 17028  0.00124  0.00127
+ 33               0.00126 8.42e-06 17028  0.00124  0.00127
+ 34               0.00126 8.40e-06 17028  0.00124  0.00127
+ 35               0.00126 8.41e-06 17028  0.00124  0.00127
+ 36               0.00126 8.41e-06 17028  0.00124  0.00127
+ 37               0.00126 8.42e-06 17028  0.00124  0.00127
+ 38               0.00126 8.41e-06 17028  0.00124  0.00127
+ 39               0.00126 8.42e-06 17028  0.00124  0.00127
+ 40               0.00126 8.41e-06 17028  0.00124  0.00127
+ 41               0.00126 8.41e-06 17028  0.00124  0.00127
+ 42               0.00126 8.42e-06 17028  0.00124  0.00127
+ 43               0.00126 8.41e-06 17028  0.00124  0.00127
+ 44               0.00126 8.41e-06 17028  0.00124  0.00127
+ 45               0.00126 8.41e-06 17028  0.00124  0.00127
+ 46               0.00126 8.41e-06 17028  0.00124  0.00127
+ 47               0.00126 8.41e-06 17028  0.00124  0.00127
+ 48               0.00126 8.41e-06 17028  0.00124  0.00127
+ 49               0.00126 8.42e-06 17028  0.00124  0.00128
+
+Environment = Chrome:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0                0.00385 2.58e-05 17028  0.00380  0.00390
+ 1                0.00301 2.01e-05 17028  0.00297  0.00304
+ 2                0.00298 1.99e-05 17028  0.00294  0.00302
+ 3                0.00297 1.99e-05 17028  0.00294  0.00301
+ 4                0.00297 1.99e-05 17028  0.00293  0.00301
+ 5                0.00298 1.99e-05 17028  0.00294  0.00302
+ 6                0.00298 1.99e-05 17028  0.00294  0.00302
+ 7                0.00297 1.99e-05 17028  0.00293  0.00301
+ 8                0.00299 2.00e-05 17028  0.00295  0.00303
+ 9                0.00296 1.98e-05 17028  0.00292  0.00300
+ 10               0.00295 1.97e-05 17028  0.00291  0.00299
+ 11               0.00293 1.96e-05 17028  0.00290  0.00297
+ 12               0.00294 1.97e-05 17028  0.00290  0.00298
+ 13               0.00296 1.98e-05 17028  0.00292  0.00300
+ 14               0.00297 1.98e-05 17028  0.00293  0.00301
+ 15               0.00295 1.97e-05 17028  0.00291  0.00299
+ 16               0.00296 1.98e-05 17028  0.00292  0.00300
+ 17               0.00294 1.97e-05 17028  0.00290  0.00298
+ 18               0.00295 1.98e-05 17028  0.00291  0.00299
+ 19               0.00295 1.98e-05 17028  0.00291  0.00299
+ 20               0.00294 1.97e-05 17028  0.00290  0.00298
+ 21               0.00294 1.97e-05 17028  0.00290  0.00298
+ 22               0.00294 1.97e-05 17028  0.00290  0.00298
+ 23               0.00297 1.98e-05 17028  0.00293  0.00300
+ 24               0.00293 1.96e-05 17028  0.00289  0.00297
+ 25               0.00295 1.97e-05 17028  0.00291  0.00299
+ 26               0.00293 1.96e-05 17028  0.00289  0.00297
+ 27               0.00292 1.96e-05 17028  0.00289  0.00296
+ 28               0.00294 1.97e-05 17028  0.00290  0.00298
+ 29               0.00293 1.96e-05 17028  0.00289  0.00297
+ 30               0.00293 1.96e-05 17028  0.00290  0.00297
+ 31               0.00295 1.97e-05 17028  0.00291  0.00299
+ 32               0.00294 1.97e-05 17028  0.00290  0.00298
+ 33               0.00294 1.97e-05 17028  0.00290  0.00298
+ 34               0.00292 1.96e-05 17028  0.00289  0.00296
+ 35               0.00295 1.97e-05 17028  0.00291  0.00299
+ 36               0.00294 1.97e-05 17028  0.00290  0.00298
+ 37               0.00301 2.01e-05 17028  0.00297  0.00305
+ 38               0.00294 1.97e-05 17028  0.00290  0.00298
+ 39               0.00292 1.96e-05 17028  0.00288  0.00296
+ 40               0.00295 1.97e-05 17028  0.00291  0.00299
+ 41               0.00297 1.99e-05 17028  0.00293  0.00301
+ 42               0.00297 1.98e-05 17028  0.00293  0.00300
+ 43               0.00294 1.97e-05 17028  0.00291  0.00298
+ 44               0.00296 1.98e-05 17028  0.00292  0.00300
+ 45               0.00296 1.98e-05 17028  0.00293  0.00300
+ 46               0.00297 1.99e-05 17028  0.00293  0.00301
+ 47               0.00295 1.97e-05 17028  0.00291  0.00299
+ 48               0.00293 1.96e-05 17028  0.00290  0.00297
+ 49               0.00300 2.01e-05 17028  0.00296  0.00304
+
+Environment = Firefox:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0                0.00249 1.67e-05 17028  0.00246  0.00253
+ 1                0.00194 1.30e-05 17028  0.00191  0.00197
+ 2                0.00195 1.30e-05 17028  0.00192  0.00197
+ 3                0.00191 1.28e-05 17028  0.00189  0.00194
+ 4                0.00192 1.29e-05 17028  0.00190  0.00195
+ 5                0.00192 1.28e-05 17028  0.00189  0.00194
+ 6                0.00190 1.27e-05 17028  0.00188  0.00193
+ 7                0.00192 1.28e-05 17028  0.00190  0.00195
+ 8                0.00191 1.28e-05 17028  0.00189  0.00194
+ 9                0.00190 1.27e-05 17028  0.00188  0.00193
+ 10               0.00190 1.27e-05 17028  0.00187  0.00192
+ 11               0.00191 1.28e-05 17028  0.00188  0.00193
+ 12               0.00192 1.29e-05 17028  0.00190  0.00195
+ 13               0.00193 1.29e-05 17028  0.00190  0.00195
+ 14               0.00192 1.28e-05 17028  0.00189  0.00194
+ 15               0.00191 1.28e-05 17028  0.00189  0.00194
+ 16               0.00189 1.27e-05 17028  0.00187  0.00192
+ 17               0.00191 1.28e-05 17028  0.00188  0.00193
+ 18               0.00189 1.27e-05 17028  0.00187  0.00192
+ 19               0.00190 1.27e-05 17028  0.00188  0.00193
+ 20               0.00192 1.28e-05 17028  0.00189  0.00194
+ 21               0.00191 1.28e-05 17028  0.00189  0.00194
+ 22               0.00190 1.27e-05 17028  0.00188  0.00193
+ 23               0.00193 1.29e-05 17028  0.00190  0.00196
+ 24               0.00190 1.27e-05 17028  0.00188  0.00193
+ 25               0.00190 1.27e-05 17028  0.00187  0.00192
+ 26               0.00190 1.27e-05 17028  0.00187  0.00192
+ 27               0.00190 1.27e-05 17028  0.00188  0.00193
+ 28               0.00189 1.26e-05 17028  0.00186  0.00191
+ 29               0.00191 1.28e-05 17028  0.00189  0.00194
+ 30               0.00192 1.28e-05 17028  0.00189  0.00195
+ 31               0.00191 1.28e-05 17028  0.00189  0.00194
+ 32               0.00191 1.28e-05 17028  0.00188  0.00193
+ 33               0.00191 1.28e-05 17028  0.00188  0.00193
+ 34               0.00189 1.27e-05 17028  0.00187  0.00192
+ 35               0.00191 1.28e-05 17028  0.00189  0.00194
+ 36               0.00190 1.27e-05 17028  0.00188  0.00193
+ 37               0.00190 1.27e-05 17028  0.00187  0.00192
+ 38               0.00191 1.28e-05 17028  0.00188  0.00193
+ 39               0.00194 1.30e-05 17028  0.00191  0.00196
+ 40               0.00192 1.28e-05 17028  0.00189  0.00194
+ 41               0.00191 1.28e-05 17028  0.00189  0.00194
+ 42               0.00191 1.27e-05 17028  0.00188  0.00193
+ 43               0.00190 1.27e-05 17028  0.00187  0.00192
+ 44               0.00190 1.27e-05 17028  0.00187  0.00192
+ 45               0.00191 1.28e-05 17028  0.00188  0.00193
+ 46               0.00191 1.28e-05 17028  0.00189  0.00194
+ 47               0.00191 1.28e-05 17028  0.00189  0.00194
+ 48               0.00191 1.28e-05 17028  0.00189  0.00194
+ 49               0.00190 1.27e-05 17028  0.00188  0.00193
+
+Environment = Safari:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0                0.00326 2.18e-05 17028  0.00322  0.00331
+ 1                0.00206 1.38e-05 17028  0.00203  0.00208
+ 2                0.00193 1.29e-05 17028  0.00191  0.00196
+ 3                0.00193 1.29e-05 17028  0.00191  0.00196
+ 4                0.00190 1.27e-05 17028  0.00187  0.00192
+ 5                0.00190 1.27e-05 17028  0.00188  0.00193
+ 6                0.00187 1.25e-05 17028  0.00184  0.00189
+ 7                0.00184 1.23e-05 17028  0.00182  0.00187
+ 8                0.00188 1.26e-05 17028  0.00185  0.00190
+ 9                0.00189 1.27e-05 17028  0.00187  0.00192
+ 10               0.00188 1.26e-05 17028  0.00185  0.00190
+ 11               0.00185 1.24e-05 17028  0.00182  0.00187
+ 12               0.00186 1.25e-05 17028  0.00184  0.00189
+ 13               0.00184 1.23e-05 17028  0.00182  0.00187
+ 14               0.00184 1.23e-05 17028  0.00182  0.00186
+ 15               0.00184 1.23e-05 17028  0.00181  0.00186
+ 16               0.00182 1.22e-05 17028  0.00180  0.00185
+ 17               0.00183 1.23e-05 17028  0.00181  0.00186
+ 18               0.00185 1.24e-05 17028  0.00183  0.00188
+ 19               0.00186 1.24e-05 17028  0.00183  0.00188
+ 20               0.00182 1.22e-05 17028  0.00179  0.00184
+ 21               0.00185 1.24e-05 17028  0.00183  0.00187
+ 22               0.00185 1.24e-05 17028  0.00183  0.00187
+ 23               0.00184 1.23e-05 17028  0.00182  0.00187
+ 24               0.00184 1.23e-05 17028  0.00181  0.00186
+ 25               0.00183 1.23e-05 17028  0.00181  0.00186
+ 26               0.00185 1.24e-05 17028  0.00183  0.00188
+ 27               0.00184 1.23e-05 17028  0.00182  0.00187
+ 28               0.00184 1.23e-05 17028  0.00181  0.00186
+ 29               0.00184 1.23e-05 17028  0.00181  0.00186
+ 30               0.00186 1.25e-05 17028  0.00184  0.00189
+ 31               0.00184 1.23e-05 17028  0.00182  0.00187
+ 32               0.00184 1.23e-05 17028  0.00182  0.00187
+ 33               0.00181 1.21e-05 17028  0.00179  0.00184
+ 34               0.00184 1.23e-05 17028  0.00182  0.00187
+ 35               0.00184 1.23e-05 17028  0.00182  0.00187
+ 36               0.00185 1.24e-05 17028  0.00183  0.00187
+ 37               0.00182 1.22e-05 17028  0.00180  0.00185
+ 38               0.00182 1.21e-05 17028  0.00179  0.00184
+ 39               0.00185 1.24e-05 17028  0.00183  0.00188
+ 40               0.00183 1.23e-05 17028  0.00181  0.00186
+ 41               0.00182 1.22e-05 17028  0.00180  0.00185
+ 42               0.00183 1.22e-05 17028  0.00181  0.00185
+ 43               0.00183 1.23e-05 17028  0.00181  0.00186
+ 44               0.00183 1.23e-05 17028  0.00181  0.00186
+ 45               0.00185 1.24e-05 17028  0.00182  0.00187
+ 46               0.00181 1.21e-05 17028  0.00179  0.00184
+ 47               0.00183 1.22e-05 17028  0.00180  0.00185
+ 48               0.00184 1.23e-05 17028  0.00181  0.00186
+ 49               0.00184 1.23e-05 17028  0.00182  0.00187
+
+Results are averaged over the levels of: Run, Buffer.Size, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+
+$contr
+Environment = Native:
+ contrast                 ratio      SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.063 0.00678 21168    1   9.605 <0.0001
+ Iteration.Count1 effect  1.004 0.00640 21168    1   0.694  1.0000
+ Iteration.Count2 effect  1.006 0.00641 21168    1   0.894  1.0000
+ Iteration.Count3 effect  1.007 0.00642 21168    1   1.078  1.0000
+ Iteration.Count4 effect  0.999 0.00637 21168    1  -0.165  1.0000
+ Iteration.Count5 effect  1.000 0.00637 21168    1  -0.067  1.0000
+ Iteration.Count6 effect  1.003 0.00639 21168    1   0.420  1.0000
+ Iteration.Count7 effect  1.003 0.00639 21168    1   0.494  1.0000
+ Iteration.Count8 effect  0.997 0.00636 21168    1  -0.461  1.0000
+ Iteration.Count9 effect  0.999 0.00636 21168    1  -0.235  1.0000
+ Iteration.Count10 effect 1.001 0.00638 21168    1   0.204  1.0000
+ Iteration.Count11 effect 1.004 0.00640 21168    1   0.618  1.0000
+ Iteration.Count12 effect 1.000 0.00637 21168    1  -0.048  1.0000
+ Iteration.Count13 effect 0.997 0.00636 21168    1  -0.461  1.0000
+ Iteration.Count14 effect 0.998 0.00636 21168    1  -0.271  1.0000
+ Iteration.Count15 effect 0.997 0.00636 21168    1  -0.452  1.0000
+ Iteration.Count16 effect 0.998 0.00636 21168    1  -0.322  1.0000
+ Iteration.Count17 effect 0.997 0.00636 21168    1  -0.442  1.0000
+ Iteration.Count18 effect 0.999 0.00637 21168    1  -0.219  1.0000
+ Iteration.Count19 effect 0.997 0.00635 21168    1  -0.510  1.0000
+ Iteration.Count20 effect 0.999 0.00637 21168    1  -0.141  1.0000
+ Iteration.Count21 effect 0.997 0.00636 21168    1  -0.408  1.0000
+ Iteration.Count22 effect 0.998 0.00636 21168    1  -0.307  1.0000
+ Iteration.Count23 effect 0.997 0.00636 21168    1  -0.400  1.0000
+ Iteration.Count24 effect 0.997 0.00636 21168    1  -0.410  1.0000
+ Iteration.Count25 effect 0.999 0.00637 21168    1  -0.176  1.0000
+ Iteration.Count26 effect 0.996 0.00635 21168    1  -0.589  1.0000
+ Iteration.Count27 effect 0.998 0.00636 21168    1  -0.251  1.0000
+ Iteration.Count28 effect 0.998 0.00636 21168    1  -0.307  1.0000
+ Iteration.Count29 effect 0.997 0.00636 21168    1  -0.470  1.0000
+ Iteration.Count30 effect 1.003 0.00640 21168    1   0.517  1.0000
+ Iteration.Count31 effect 0.998 0.00636 21168    1  -0.269  1.0000
+ Iteration.Count32 effect 0.998 0.00636 21168    1  -0.382  1.0000
+ Iteration.Count33 effect 0.998 0.00636 21168    1  -0.295  1.0000
+ Iteration.Count34 effect 0.997 0.00635 21168    1  -0.531  1.0000
+ Iteration.Count35 effect 0.998 0.00636 21168    1  -0.341  1.0000
+ Iteration.Count36 effect 0.997 0.00635 21168    1  -0.476  1.0000
+ Iteration.Count37 effect 0.998 0.00636 21168    1  -0.262  1.0000
+ Iteration.Count38 effect 0.997 0.00635 21168    1  -0.508  1.0000
+ Iteration.Count39 effect 0.998 0.00636 21168    1  -0.257  1.0000
+ Iteration.Count40 effect 0.997 0.00635 21168    1  -0.510  1.0000
+ Iteration.Count41 effect 0.997 0.00636 21168    1  -0.429  1.0000
+ Iteration.Count42 effect 0.998 0.00636 21168    1  -0.265  1.0000
+ Iteration.Count43 effect 0.997 0.00636 21168    1  -0.407  1.0000
+ Iteration.Count44 effect 0.997 0.00636 21168    1  -0.429  1.0000
+ Iteration.Count45 effect 0.997 0.00636 21168    1  -0.458  1.0000
+ Iteration.Count46 effect 0.998 0.00636 21168    1  -0.389  1.0000
+ Iteration.Count47 effect 0.997 0.00635 21168    1  -0.482  1.0000
+ Iteration.Count48 effect 0.997 0.00635 21168    1  -0.493  1.0000
+ Iteration.Count49 effect 0.999 0.00636 21168    1  -0.229  1.0000
+
+Environment = Chrome:
+ contrast                 ratio      SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.297 0.00827 21168    1  40.783 <0.0001
+ Iteration.Count1 effect  1.012 0.00645 21168    1   1.864  1.0000
+ Iteration.Count2 effect  1.003 0.00639 21168    1   0.489  1.0000
+ Iteration.Count3 effect  1.002 0.00638 21168    1   0.256  1.0000
+ Iteration.Count4 effect  1.000 0.00637 21168    1  -0.065  1.0000
+ Iteration.Count5 effect  1.003 0.00639 21168    1   0.434  1.0000
+ Iteration.Count6 effect  1.003 0.00639 21168    1   0.415  1.0000
+ Iteration.Count7 effect  1.000 0.00637 21168    1  -0.069  1.0000
+ Iteration.Count8 effect  1.007 0.00642 21168    1   1.104  1.0000
+ Iteration.Count9 effect  0.996 0.00635 21168    1  -0.604  1.0000
+ Iteration.Count10 effect 0.993 0.00633 21168    1  -1.100  1.0000
+ Iteration.Count11 effect 0.988 0.00630 21168    1  -1.888  1.0000
+ Iteration.Count12 effect 0.991 0.00632 21168    1  -1.463  1.0000
+ Iteration.Count13 effect 0.996 0.00635 21168    1  -0.677  1.0000
+ Iteration.Count14 effect 0.999 0.00637 21168    1  -0.194  1.0000
+ Iteration.Count15 effect 0.992 0.00632 21168    1  -1.228  1.0000
+ Iteration.Count16 effect 0.997 0.00636 21168    1  -0.410  1.0000
+ Iteration.Count17 effect 0.991 0.00632 21168    1  -1.428  1.0000
+ Iteration.Count18 effect 0.994 0.00634 21168    1  -0.936  1.0000
+ Iteration.Count19 effect 0.995 0.00634 21168    1  -0.860  1.0000
+ Iteration.Count20 effect 0.990 0.00631 21168    1  -1.622  1.0000
+ Iteration.Count21 effect 0.991 0.00632 21168    1  -1.426  1.0000
+ Iteration.Count22 effect 0.989 0.00631 21168    1  -1.697  1.0000
+ Iteration.Count23 effect 0.999 0.00636 21168    1  -0.234  1.0000
+ Iteration.Count24 effect 0.988 0.00630 21168    1  -1.943  1.0000
+ Iteration.Count25 effect 0.993 0.00633 21168    1  -1.151  1.0000
+ Iteration.Count26 effect 0.987 0.00629 21168    1  -2.084  1.0000
+ Iteration.Count27 effect 0.985 0.00628 21168    1  -2.394  0.7835
+ Iteration.Count28 effect 0.990 0.00631 21168    1  -1.647  1.0000
+ Iteration.Count29 effect 0.986 0.00629 21168    1  -2.140  1.0000
+ Iteration.Count30 effect 0.988 0.00630 21168    1  -1.891  1.0000
+ Iteration.Count31 effect 0.993 0.00633 21168    1  -1.076  1.0000
+ Iteration.Count32 effect 0.989 0.00630 21168    1  -1.746  1.0000
+ Iteration.Count33 effect 0.989 0.00631 21168    1  -1.683  1.0000
+ Iteration.Count34 effect 0.985 0.00628 21168    1  -2.418  0.7488
+ Iteration.Count35 effect 0.993 0.00633 21168    1  -1.143  1.0000
+ Iteration.Count36 effect 0.989 0.00631 21168    1  -1.705  1.0000
+ Iteration.Count37 effect 1.013 0.00646 21168    1   2.074  1.0000
+ Iteration.Count38 effect 0.989 0.00631 21168    1  -1.659  1.0000
+ Iteration.Count39 effect 0.984 0.00627 21168    1  -2.556  0.5191
+ Iteration.Count40 effect 0.994 0.00633 21168    1  -0.990  1.0000
+ Iteration.Count41 effect 1.000 0.00638 21168    1   0.045  1.0000
+ Iteration.Count42 effect 0.999 0.00637 21168    1  -0.210  1.0000
+ Iteration.Count43 effect 0.991 0.00632 21168    1  -1.386  1.0000
+ Iteration.Count44 effect 0.998 0.00636 21168    1  -0.375  1.0000
+ Iteration.Count45 effect 0.998 0.00636 21168    1  -0.311  1.0000
+ Iteration.Count46 effect 1.001 0.00638 21168    1   0.167  1.0000
+ Iteration.Count47 effect 0.993 0.00633 21168    1  -1.099  1.0000
+ Iteration.Count48 effect 0.988 0.00630 21168    1  -1.881  1.0000
+ Iteration.Count49 effect 1.011 0.00645 21168    1   1.756  1.0000
+
+Environment = Firefox:
+ contrast                 ratio      SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.298 0.00828 21168    1  40.972 <0.0001
+ Iteration.Count1 effect  1.010 0.00644 21168    1   1.613  1.0000
+ Iteration.Count2 effect  1.013 0.00646 21168    1   2.024  1.0000
+ Iteration.Count3 effect  0.996 0.00635 21168    1  -0.592  1.0000
+ Iteration.Count4 effect  1.002 0.00639 21168    1   0.376  1.0000
+ Iteration.Count5 effect  1.000 0.00637 21168    1  -0.076  1.0000
+ Iteration.Count6 effect  0.990 0.00631 21168    1  -1.545  1.0000
+ Iteration.Count7 effect  1.000 0.00637 21168    1   0.001  1.0000
+ Iteration.Count8 effect  0.996 0.00635 21168    1  -0.566  1.0000
+ Iteration.Count9 effect  0.990 0.00631 21168    1  -1.568  1.0000
+ Iteration.Count10 effect 0.989 0.00630 21168    1  -1.734  1.0000
+ Iteration.Count11 effect 0.992 0.00633 21168    1  -1.203  1.0000
+ Iteration.Count12 effect 1.002 0.00639 21168    1   0.280  1.0000
+ Iteration.Count13 effect 1.003 0.00639 21168    1   0.417  1.0000
+ Iteration.Count14 effect 0.999 0.00637 21168    1  -0.115  1.0000
+ Iteration.Count15 effect 0.995 0.00634 21168    1  -0.747  1.0000
+ Iteration.Count16 effect 0.986 0.00629 21168    1  -2.200  1.0000
+ Iteration.Count17 effect 0.993 0.00633 21168    1  -1.127  1.0000
+ Iteration.Count18 effect 0.987 0.00629 21168    1  -2.092  1.0000
+ Iteration.Count19 effect 0.991 0.00632 21168    1  -1.361  1.0000
+ Iteration.Count20 effect 0.998 0.00636 21168    1  -0.278  1.0000
+ Iteration.Count21 effect 0.997 0.00635 21168    1  -0.518  1.0000
+ Iteration.Count22 effect 0.992 0.00632 21168    1  -1.278  1.0000
+ Iteration.Count23 effect 1.005 0.00641 21168    1   0.802  1.0000
+ Iteration.Count24 effect 0.991 0.00632 21168    1  -1.375  1.0000
+ Iteration.Count25 effect 0.989 0.00630 21168    1  -1.738  1.0000
+ Iteration.Count26 effect 0.987 0.00629 21168    1  -2.055  1.0000
+ Iteration.Count27 effect 0.990 0.00631 21168    1  -1.587  1.0000
+ Iteration.Count28 effect 0.983 0.00627 21168    1  -2.677  0.3641
+ Iteration.Count29 effect 0.997 0.00635 21168    1  -0.483  1.0000
+ Iteration.Count30 effect 1.000 0.00637 21168    1  -0.010  1.0000
+ Iteration.Count31 effect 0.997 0.00635 21168    1  -0.532  1.0000
+ Iteration.Count32 effect 0.993 0.00633 21168    1  -1.082  1.0000
+ Iteration.Count33 effect 0.994 0.00633 21168    1  -0.974  1.0000
+ Iteration.Count34 effect 0.986 0.00629 21168    1  -2.203  1.0000
+ Iteration.Count35 effect 0.995 0.00634 21168    1  -0.729  1.0000
+ Iteration.Count36 effect 0.990 0.00631 21168    1  -1.604  1.0000
+ Iteration.Count37 effect 0.988 0.00629 21168    1  -1.963  1.0000
+ Iteration.Count38 effect 0.994 0.00633 21168    1  -1.013  1.0000
+ Iteration.Count39 effect 1.009 0.00643 21168    1   1.349  1.0000
+ Iteration.Count40 effect 0.998 0.00636 21168    1  -0.372  1.0000
+ Iteration.Count41 effect 0.995 0.00634 21168    1  -0.828  1.0000
+ Iteration.Count42 effect 0.992 0.00632 21168    1  -1.221  1.0000
+ Iteration.Count43 effect 0.988 0.00630 21168    1  -1.926  1.0000
+ Iteration.Count44 effect 0.987 0.00629 21168    1  -2.024  1.0000
+ Iteration.Count45 effect 0.994 0.00634 21168    1  -0.877  1.0000
+ Iteration.Count46 effect 0.995 0.00634 21168    1  -0.757  1.0000
+ Iteration.Count47 effect 0.997 0.00635 21168    1  -0.489  1.0000
+ Iteration.Count48 effect 0.995 0.00635 21168    1  -0.713  1.0000
+ Iteration.Count49 effect 0.990 0.00631 21168    1  -1.602  1.0000
+
+Environment = Safari:
+ contrast                 ratio      SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.742 0.01110 21168    1  87.082 <0.0001
+ Iteration.Count1 effect  1.098 0.00700 21168    1  14.643 <0.0001
+ Iteration.Count2 effect  1.032 0.00658 21168    1   4.872 <0.0001
+ Iteration.Count3 effect  1.033 0.00658 21168    1   5.030 <0.0001
+ Iteration.Count4 effect  1.012 0.00645 21168    1   1.927  0.6277
+ Iteration.Count5 effect  1.015 0.00647 21168    1   2.296  0.3690
+ Iteration.Count6 effect  0.996 0.00635 21168    1  -0.675  1.0000
+ Iteration.Count7 effect  0.983 0.00627 21168    1  -2.710  0.1749
+ Iteration.Count8 effect  1.002 0.00639 21168    1   0.369  1.0000
+ Iteration.Count9 effect  1.011 0.00645 21168    1   1.736  0.7436
+ Iteration.Count10 effect 1.001 0.00638 21168    1   0.179  1.0000
+ Iteration.Count11 effect 0.987 0.00629 21168    1  -2.072  0.5743
+ Iteration.Count12 effect 0.994 0.00634 21168    1  -0.902  1.0000
+ Iteration.Count13 effect 0.984 0.00627 21168    1  -2.565  0.2273
+ Iteration.Count14 effect 0.982 0.00626 21168    1  -2.798  0.1388
+ Iteration.Count15 effect 0.980 0.00625 21168    1  -3.196  0.0446
+ Iteration.Count16 effect 0.973 0.00620 21168    1  -4.256  0.0008
+ Iteration.Count17 effect 0.979 0.00624 21168    1  -3.267  0.0359
+ Iteration.Count18 effect 0.990 0.00631 21168    1  -1.579  0.8011
+ Iteration.Count19 effect 0.991 0.00632 21168    1  -1.428  0.9196
+ Iteration.Count20 effect 0.970 0.00618 21168    1  -4.727 <0.0001
+ Iteration.Count21 effect 0.988 0.00630 21168    1  -1.941  0.6277
+ Iteration.Count22 effect 0.987 0.00629 21168    1  -2.051  0.5743
+ Iteration.Count23 effect 0.984 0.00627 21168    1  -2.471  0.2668
+ Iteration.Count24 effect 0.981 0.00625 21168    1  -2.983  0.0801
+ Iteration.Count25 effect 0.979 0.00624 21168    1  -3.352  0.0273
+ Iteration.Count26 effect 0.988 0.00630 21168    1  -1.877  0.6277
+ Iteration.Count27 effect 0.983 0.00627 21168    1  -2.631  0.1958
+ Iteration.Count28 effect 0.981 0.00625 21168    1  -3.069  0.0665
+ Iteration.Count29 effect 0.981 0.00625 21168    1  -3.070  0.0665
+ Iteration.Count30 effect 0.995 0.00634 21168    1  -0.752  1.0000
+ Iteration.Count31 effect 0.984 0.00627 21168    1  -2.497  0.2634
+ Iteration.Count32 effect 0.984 0.00627 21168    1  -2.475  0.2668
+ Iteration.Count33 effect 0.967 0.00616 21168    1  -5.283 <0.0001
+ Iteration.Count34 effect 0.984 0.00627 21168    1  -2.470  0.2668
+ Iteration.Count35 effect 0.983 0.00627 21168    1  -2.702  0.1749
+ Iteration.Count36 effect 0.987 0.00629 21168    1  -2.003  0.5881
+ Iteration.Count37 effect 0.972 0.00620 21168    1  -4.436  0.0004
+ Iteration.Count38 effect 0.969 0.00618 21168    1  -4.955 <0.0001
+ Iteration.Count39 effect 0.989 0.00631 21168    1  -1.682  0.7436
+ Iteration.Count40 effect 0.979 0.00624 21168    1  -3.371  0.0263
+ Iteration.Count41 effect 0.973 0.00620 21168    1  -4.369  0.0005
+ Iteration.Count42 effect 0.976 0.00622 21168    1  -3.745  0.0069
+ Iteration.Count43 effect 0.978 0.00623 21168    1  -3.481  0.0180
+ Iteration.Count44 effect 0.978 0.00623 21168    1  -3.494  0.0176
+ Iteration.Count45 effect 0.986 0.00628 21168    1  -2.271  0.3707
+ Iteration.Count46 effect 0.968 0.00617 21168    1  -5.035 <0.0001
+ Iteration.Count47 effect 0.976 0.00622 21168    1  -3.829  0.0050
+ Iteration.Count48 effect 0.981 0.00625 21168    1  -3.009  0.0761
+ Iteration.Count49 effect 0.983 0.00627 21168    1  -2.658  0.1890
+
+Results are averaged over the levels of: Run, Buffer.Size, Model.Unique 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 50 tests 
+Tests are performed on the log scale 
+
+
+2.c By environment × run × model
+
+NOTE: Results may be misleading due to involvement in interactions
+Environment = Native, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.000537 7.18e-06 17028 0.000523 0.000551
+ 1               0.000516 6.90e-06 17028 0.000503 0.000530
+ 2               0.000513 6.87e-06 17028 0.000500 0.000527
+ 3               0.000517 6.92e-06 17028 0.000504 0.000531
+ 4               0.000514 6.88e-06 17028 0.000501 0.000528
+ 5               0.000514 6.88e-06 17028 0.000501 0.000528
+ 6               0.000517 6.92e-06 17028 0.000503 0.000531
+ 7               0.000514 6.88e-06 17028 0.000501 0.000528
+ 8               0.000515 6.89e-06 17028 0.000501 0.000528
+ 9               0.000514 6.88e-06 17028 0.000501 0.000528
+ 10              0.000515 6.89e-06 17028 0.000502 0.000529
+ 11              0.000513 6.86e-06 17028 0.000500 0.000527
+ 12              0.000516 6.90e-06 17028 0.000503 0.000530
+ 13              0.000514 6.88e-06 17028 0.000501 0.000528
+ 14              0.000515 6.89e-06 17028 0.000501 0.000528
+ 15              0.000513 6.87e-06 17028 0.000500 0.000527
+ 16              0.000513 6.86e-06 17028 0.000499 0.000526
+ 17              0.000513 6.86e-06 17028 0.000499 0.000526
+ 18              0.000516 6.90e-06 17028 0.000503 0.000530
+ 19              0.000513 6.87e-06 17028 0.000500 0.000527
+ 20              0.000516 6.90e-06 17028 0.000502 0.000529
+ 21              0.000512 6.85e-06 17028 0.000499 0.000526
+ 22              0.000516 6.90e-06 17028 0.000502 0.000529
+ 23              0.000513 6.87e-06 17028 0.000500 0.000527
+ 24              0.000514 6.88e-06 17028 0.000501 0.000528
+ 25              0.000516 6.90e-06 17028 0.000502 0.000529
+ 26              0.000513 6.87e-06 17028 0.000500 0.000527
+ 27              0.000515 6.90e-06 17028 0.000502 0.000529
+ 28              0.000514 6.88e-06 17028 0.000501 0.000528
+ 29              0.000513 6.87e-06 17028 0.000500 0.000527
+ 30              0.000514 6.88e-06 17028 0.000501 0.000528
+ 31              0.000514 6.88e-06 17028 0.000501 0.000528
+ 32              0.000514 6.88e-06 17028 0.000501 0.000528
+ 33              0.000515 6.89e-06 17028 0.000502 0.000529
+ 34              0.000514 6.88e-06 17028 0.000501 0.000527
+ 35              0.000515 6.89e-06 17028 0.000501 0.000528
+ 36              0.000514 6.87e-06 17028 0.000500 0.000527
+ 37              0.000513 6.86e-06 17028 0.000500 0.000526
+ 38              0.000513 6.86e-06 17028 0.000499 0.000526
+ 39              0.000515 6.89e-06 17028 0.000501 0.000528
+ 40              0.000513 6.87e-06 17028 0.000500 0.000527
+ 41              0.000513 6.87e-06 17028 0.000500 0.000527
+ 42              0.000514 6.88e-06 17028 0.000501 0.000528
+ 43              0.000513 6.87e-06 17028 0.000500 0.000527
+ 44              0.000515 6.89e-06 17028 0.000501 0.000528
+ 45              0.000513 6.86e-06 17028 0.000499 0.000526
+ 46              0.000515 6.89e-06 17028 0.000501 0.000528
+ 47              0.000513 6.87e-06 17028 0.000500 0.000527
+ 48              0.000514 6.88e-06 17028 0.000501 0.000528
+ 49              0.000515 6.90e-06 17028 0.000502 0.000529
+
+Environment = Chrome, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.001275 1.71e-05 17028 0.001242 0.001308
+ 1               0.001037 1.39e-05 17028 0.001010 0.001065
+ 2               0.001013 1.36e-05 17028 0.000987 0.001040
+ 3               0.001019 1.36e-05 17028 0.000993 0.001046
+ 4               0.001021 1.37e-05 17028 0.000995 0.001048
+ 5               0.001024 1.37e-05 17028 0.000998 0.001052
+ 6               0.001022 1.37e-05 17028 0.000995 0.001049
+ 7               0.001021 1.37e-05 17028 0.000994 0.001048
+ 8               0.001028 1.38e-05 17028 0.001002 0.001056
+ 9               0.001030 1.38e-05 17028 0.001003 0.001057
+ 10              0.001022 1.37e-05 17028 0.000996 0.001049
+ 11              0.001017 1.36e-05 17028 0.000991 0.001044
+ 12              0.001019 1.36e-05 17028 0.000993 0.001046
+ 13              0.001030 1.38e-05 17028 0.001004 0.001058
+ 14              0.001020 1.37e-05 17028 0.000994 0.001048
+ 15              0.001033 1.38e-05 17028 0.001006 0.001061
+ 16              0.001052 1.41e-05 17028 0.001025 0.001080
+ 17              0.001021 1.37e-05 17028 0.000994 0.001048
+ 18              0.001019 1.36e-05 17028 0.000992 0.001046
+ 19              0.001015 1.36e-05 17028 0.000989 0.001042
+ 20              0.001022 1.37e-05 17028 0.000996 0.001049
+ 21              0.001015 1.36e-05 17028 0.000988 0.001042
+ 22              0.001019 1.36e-05 17028 0.000993 0.001046
+ 23              0.001037 1.39e-05 17028 0.001010 0.001064
+ 24              0.001018 1.36e-05 17028 0.000992 0.001045
+ 25              0.001012 1.35e-05 17028 0.000986 0.001039
+ 26              0.001021 1.37e-05 17028 0.000995 0.001048
+ 27              0.001014 1.36e-05 17028 0.000988 0.001041
+ 28              0.001020 1.37e-05 17028 0.000994 0.001047
+ 29              0.001011 1.35e-05 17028 0.000985 0.001038
+ 30              0.001017 1.36e-05 17028 0.000990 0.001044
+ 31              0.001015 1.36e-05 17028 0.000989 0.001042
+ 32              0.001017 1.36e-05 17028 0.000990 0.001044
+ 33              0.001017 1.36e-05 17028 0.000990 0.001044
+ 34              0.001017 1.36e-05 17028 0.000991 0.001044
+ 35              0.001022 1.37e-05 17028 0.000995 0.001049
+ 36              0.001025 1.37e-05 17028 0.000999 0.001052
+ 37              0.001021 1.37e-05 17028 0.000994 0.001048
+ 38              0.001014 1.36e-05 17028 0.000988 0.001041
+ 39              0.001015 1.36e-05 17028 0.000989 0.001042
+ 40              0.001020 1.36e-05 17028 0.000993 0.001047
+ 41              0.001019 1.36e-05 17028 0.000992 0.001046
+ 42              0.001021 1.37e-05 17028 0.000995 0.001048
+ 43              0.001015 1.36e-05 17028 0.000989 0.001042
+ 44              0.001013 1.36e-05 17028 0.000987 0.001040
+ 45              0.001019 1.36e-05 17028 0.000992 0.001046
+ 46              0.001019 1.36e-05 17028 0.000992 0.001046
+ 47              0.001018 1.36e-05 17028 0.000991 0.001045
+ 48              0.001019 1.36e-05 17028 0.000992 0.001046
+ 49              0.001017 1.36e-05 17028 0.000991 0.001044
+
+Environment = Firefox, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.000983 1.31e-05 17028 0.000957 0.001009
+ 1               0.000753 1.01e-05 17028 0.000733 0.000773
+ 2               0.000738 9.88e-06 17028 0.000719 0.000758
+ 3               0.000726 9.71e-06 17028 0.000707 0.000745
+ 4               0.000737 9.87e-06 17028 0.000718 0.000757
+ 5               0.000730 9.77e-06 17028 0.000711 0.000749
+ 6               0.000730 9.77e-06 17028 0.000711 0.000750
+ 7               0.000747 1.00e-05 17028 0.000728 0.000767
+ 8               0.000749 1.00e-05 17028 0.000730 0.000769
+ 9               0.000741 9.92e-06 17028 0.000722 0.000761
+ 10              0.000734 9.82e-06 17028 0.000715 0.000753
+ 11              0.000740 9.90e-06 17028 0.000721 0.000760
+ 12              0.000744 9.95e-06 17028 0.000724 0.000763
+ 13              0.000750 1.00e-05 17028 0.000730 0.000770
+ 14              0.000747 1.00e-05 17028 0.000728 0.000767
+ 15              0.000746 9.98e-06 17028 0.000727 0.000766
+ 16              0.000733 9.81e-06 17028 0.000714 0.000753
+ 17              0.000750 1.00e-05 17028 0.000731 0.000770
+ 18              0.000737 9.87e-06 17028 0.000718 0.000757
+ 19              0.000749 1.00e-05 17028 0.000730 0.000769
+ 20              0.000746 9.98e-06 17028 0.000727 0.000766
+ 21              0.000732 9.79e-06 17028 0.000713 0.000751
+ 22              0.000726 9.72e-06 17028 0.000707 0.000745
+ 23              0.000751 1.01e-05 17028 0.000732 0.000771
+ 24              0.000735 9.83e-06 17028 0.000716 0.000754
+ 25              0.000731 9.78e-06 17028 0.000712 0.000750
+ 26              0.000737 9.86e-06 17028 0.000718 0.000756
+ 27              0.000742 9.93e-06 17028 0.000723 0.000762
+ 28              0.000730 9.77e-06 17028 0.000711 0.000750
+ 29              0.000746 9.99e-06 17028 0.000727 0.000766
+ 30              0.000739 9.89e-06 17028 0.000720 0.000759
+ 31              0.000738 9.88e-06 17028 0.000719 0.000758
+ 32              0.000738 9.87e-06 17028 0.000719 0.000757
+ 33              0.000749 1.00e-05 17028 0.000729 0.000769
+ 34              0.000732 9.79e-06 17028 0.000713 0.000751
+ 35              0.000759 1.02e-05 17028 0.000739 0.000779
+ 36              0.000744 9.96e-06 17028 0.000725 0.000764
+ 37              0.000730 9.77e-06 17028 0.000711 0.000749
+ 38              0.000739 9.89e-06 17028 0.000720 0.000759
+ 39              0.000756 1.01e-05 17028 0.000736 0.000776
+ 40              0.000743 9.94e-06 17028 0.000723 0.000762
+ 41              0.000740 9.90e-06 17028 0.000720 0.000759
+ 42              0.000742 9.92e-06 17028 0.000722 0.000761
+ 43              0.000734 9.82e-06 17028 0.000715 0.000753
+ 44              0.000740 9.90e-06 17028 0.000721 0.000760
+ 45              0.000749 1.00e-05 17028 0.000729 0.000769
+ 46              0.000741 9.92e-06 17028 0.000722 0.000761
+ 47              0.000746 9.99e-06 17028 0.000727 0.000766
+ 48              0.000746 9.98e-06 17028 0.000726 0.000765
+ 49              0.000744 9.96e-06 17028 0.000725 0.000764
+
+Environment = Safari, Run = bypass, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.001391 1.86e-05 17028 0.001355 0.001428
+ 1               0.000820 1.10e-05 17028 0.000798 0.000841
+ 2               0.000733 9.80e-06 17028 0.000714 0.000752
+ 3               0.000739 9.89e-06 17028 0.000720 0.000759
+ 4               0.000712 9.53e-06 17028 0.000694 0.000731
+ 5               0.000714 9.56e-06 17028 0.000696 0.000733
+ 6               0.000705 9.44e-06 17028 0.000687 0.000724
+ 7               0.000705 9.44e-06 17028 0.000687 0.000724
+ 8               0.000732 9.80e-06 17028 0.000713 0.000751
+ 9               0.000713 9.54e-06 17028 0.000694 0.000732
+ 10              0.000696 9.31e-06 17028 0.000678 0.000714
+ 11              0.000706 9.45e-06 17028 0.000688 0.000725
+ 12              0.000700 9.36e-06 17028 0.000681 0.000718
+ 13              0.000694 9.28e-06 17028 0.000676 0.000712
+ 14              0.000690 9.23e-06 17028 0.000672 0.000708
+ 15              0.000701 9.38e-06 17028 0.000683 0.000719
+ 16              0.000701 9.39e-06 17028 0.000683 0.000720
+ 17              0.000678 9.08e-06 17028 0.000661 0.000697
+ 18              0.000694 9.29e-06 17028 0.000676 0.000713
+ 19              0.000724 9.69e-06 17028 0.000706 0.000744
+ 20              0.000696 9.31e-06 17028 0.000678 0.000714
+ 21              0.000693 9.28e-06 17028 0.000675 0.000712
+ 22              0.000701 9.39e-06 17028 0.000683 0.000720
+ 23              0.000685 9.16e-06 17028 0.000667 0.000703
+ 24              0.000706 9.45e-06 17028 0.000688 0.000725
+ 25              0.000708 9.47e-06 17028 0.000690 0.000727
+ 26              0.000703 9.40e-06 17028 0.000684 0.000721
+ 27              0.000687 9.20e-06 17028 0.000670 0.000706
+ 28              0.000694 9.29e-06 17028 0.000676 0.000713
+ 29              0.000698 9.35e-06 17028 0.000680 0.000717
+ 30              0.000709 9.48e-06 17028 0.000690 0.000727
+ 31              0.000695 9.30e-06 17028 0.000677 0.000713
+ 32              0.000700 9.36e-06 17028 0.000682 0.000718
+ 33              0.000682 9.13e-06 17028 0.000665 0.000701
+ 34              0.000699 9.36e-06 17028 0.000681 0.000718
+ 35              0.000698 9.34e-06 17028 0.000680 0.000716
+ 36              0.000696 9.31e-06 17028 0.000678 0.000714
+ 37              0.000700 9.36e-06 17028 0.000682 0.000718
+ 38              0.000687 9.20e-06 17028 0.000669 0.000705
+ 39              0.000702 9.39e-06 17028 0.000684 0.000720
+ 40              0.000684 9.16e-06 17028 0.000667 0.000702
+ 41              0.000691 9.25e-06 17028 0.000673 0.000709
+ 42              0.000700 9.37e-06 17028 0.000682 0.000719
+ 43              0.000697 9.32e-06 17028 0.000679 0.000715
+ 44              0.000695 9.30e-06 17028 0.000677 0.000713
+ 45              0.000694 9.29e-06 17028 0.000676 0.000713
+ 46              0.000701 9.38e-06 17028 0.000683 0.000719
+ 47              0.000707 9.46e-06 17028 0.000688 0.000725
+ 48              0.000692 9.27e-06 17028 0.000674 0.000711
+ 49              0.000701 9.38e-06 17028 0.000683 0.000720
+
+Environment = Native, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.003709 4.96e-05 17028 0.003613 0.003807
+ 1               0.003518 4.71e-05 17028 0.003427 0.003611
+ 2               0.003498 4.68e-05 17028 0.003407 0.003591
+ 3               0.003496 4.68e-05 17028 0.003405 0.003589
+ 4               0.003498 4.68e-05 17028 0.003408 0.003591
+ 5               0.003495 4.68e-05 17028 0.003405 0.003588
+ 6               0.003490 4.67e-05 17028 0.003399 0.003582
+ 7               0.003497 4.68e-05 17028 0.003406 0.003589
+ 8               0.003489 4.67e-05 17028 0.003399 0.003582
+ 9               0.003504 4.69e-05 17028 0.003413 0.003597
+ 10              0.003495 4.68e-05 17028 0.003405 0.003588
+ 11              0.003498 4.68e-05 17028 0.003407 0.003591
+ 12              0.003498 4.68e-05 17028 0.003407 0.003590
+ 13              0.003501 4.68e-05 17028 0.003410 0.003594
+ 14              0.003498 4.68e-05 17028 0.003407 0.003591
+ 15              0.003504 4.69e-05 17028 0.003413 0.003597
+ 16              0.003510 4.70e-05 17028 0.003419 0.003603
+ 17              0.003495 4.68e-05 17028 0.003405 0.003588
+ 18              0.003494 4.68e-05 17028 0.003403 0.003587
+ 19              0.003500 4.68e-05 17028 0.003409 0.003593
+ 20              0.003499 4.68e-05 17028 0.003408 0.003592
+ 21              0.003496 4.68e-05 17028 0.003406 0.003589
+ 22              0.003499 4.68e-05 17028 0.003408 0.003592
+ 23              0.003503 4.69e-05 17028 0.003412 0.003596
+ 24              0.003503 4.69e-05 17028 0.003413 0.003596
+ 25              0.003503 4.69e-05 17028 0.003412 0.003596
+ 26              0.003494 4.68e-05 17028 0.003403 0.003587
+ 27              0.003497 4.68e-05 17028 0.003406 0.003590
+ 28              0.003495 4.68e-05 17028 0.003404 0.003587
+ 29              0.003494 4.68e-05 17028 0.003403 0.003586
+ 30              0.003493 4.67e-05 17028 0.003402 0.003586
+ 31              0.003495 4.68e-05 17028 0.003405 0.003588
+ 32              0.003507 4.69e-05 17028 0.003416 0.003600
+ 33              0.003492 4.67e-05 17028 0.003402 0.003585
+ 34              0.003494 4.68e-05 17028 0.003403 0.003586
+ 35              0.003497 4.68e-05 17028 0.003407 0.003590
+ 36              0.003496 4.68e-05 17028 0.003406 0.003589
+ 37              0.003501 4.69e-05 17028 0.003410 0.003594
+ 38              0.003492 4.67e-05 17028 0.003402 0.003585
+ 39              0.003492 4.67e-05 17028 0.003402 0.003585
+ 40              0.003496 4.68e-05 17028 0.003405 0.003589
+ 41              0.003495 4.68e-05 17028 0.003405 0.003588
+ 42              0.003494 4.68e-05 17028 0.003403 0.003586
+ 43              0.003499 4.68e-05 17028 0.003408 0.003592
+ 44              0.003495 4.68e-05 17028 0.003405 0.003588
+ 45              0.003493 4.67e-05 17028 0.003403 0.003586
+ 46              0.003492 4.67e-05 17028 0.003402 0.003585
+ 47              0.003494 4.68e-05 17028 0.003404 0.003587
+ 48              0.003496 4.68e-05 17028 0.003405 0.003589
+ 49              0.003497 4.68e-05 17028 0.003406 0.003590
+
+Environment = Chrome, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.013050 1.75e-04 17028 0.012712 0.013397
+ 1               0.011904 1.59e-04 17028 0.011596 0.012221
+ 2               0.011789 1.58e-04 17028 0.011484 0.012102
+ 3               0.011818 1.58e-04 17028 0.011512 0.012132
+ 4               0.011777 1.58e-04 17028 0.011472 0.012090
+ 5               0.011854 1.59e-04 17028 0.011547 0.012169
+ 6               0.011960 1.60e-04 17028 0.011651 0.012278
+ 7               0.011905 1.59e-04 17028 0.011597 0.012222
+ 8               0.011913 1.59e-04 17028 0.011605 0.012230
+ 9               0.011751 1.57e-04 17028 0.011447 0.012063
+ 10              0.011777 1.58e-04 17028 0.011472 0.012090
+ 11              0.011750 1.57e-04 17028 0.011446 0.012062
+ 12              0.011806 1.58e-04 17028 0.011500 0.012120
+ 13              0.011823 1.58e-04 17028 0.011517 0.012138
+ 14              0.011778 1.58e-04 17028 0.011473 0.012091
+ 15              0.011752 1.57e-04 17028 0.011448 0.012064
+ 16              0.011792 1.58e-04 17028 0.011487 0.012106
+ 17              0.011744 1.57e-04 17028 0.011440 0.012056
+ 18              0.011736 1.57e-04 17028 0.011432 0.012048
+ 19              0.011751 1.57e-04 17028 0.011447 0.012063
+ 20              0.011736 1.57e-04 17028 0.011432 0.012048
+ 21              0.011771 1.58e-04 17028 0.011466 0.012083
+ 22              0.011752 1.57e-04 17028 0.011448 0.012064
+ 23              0.011724 1.57e-04 17028 0.011420 0.012035
+ 24              0.011742 1.57e-04 17028 0.011438 0.012054
+ 25              0.011738 1.57e-04 17028 0.011434 0.012050
+ 26              0.011751 1.57e-04 17028 0.011446 0.012063
+ 27              0.011736 1.57e-04 17028 0.011433 0.012048
+ 28              0.011744 1.57e-04 17028 0.011440 0.012056
+ 29              0.011830 1.58e-04 17028 0.011524 0.012145
+ 30              0.011827 1.58e-04 17028 0.011521 0.012141
+ 31              0.011797 1.58e-04 17028 0.011491 0.012110
+ 32              0.011815 1.58e-04 17028 0.011509 0.012129
+ 33              0.011916 1.59e-04 17028 0.011607 0.012232
+ 34              0.011789 1.58e-04 17028 0.011483 0.012102
+ 35              0.011801 1.58e-04 17028 0.011496 0.012115
+ 36              0.011796 1.58e-04 17028 0.011491 0.012109
+ 37              0.011806 1.58e-04 17028 0.011501 0.012120
+ 38              0.011788 1.58e-04 17028 0.011482 0.012101
+ 39              0.011792 1.58e-04 17028 0.011486 0.012105
+ 40              0.012035 1.61e-04 17028 0.011723 0.012355
+ 41              0.012277 1.64e-04 17028 0.011959 0.012603
+ 42              0.012189 1.63e-04 17028 0.011873 0.012513
+ 43              0.012031 1.61e-04 17028 0.011720 0.012351
+ 44              0.012399 1.66e-04 17028 0.012078 0.012729
+ 45              0.012341 1.65e-04 17028 0.012022 0.012669
+ 46              0.012270 1.64e-04 17028 0.011952 0.012596
+ 47              0.011916 1.59e-04 17028 0.011608 0.012233
+ 48              0.011819 1.58e-04 17028 0.011513 0.012133
+ 49              0.012166 1.63e-04 17028 0.011851 0.012490
+
+Environment = Firefox, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.007265 9.72e-05 17028 0.007077 0.007458
+ 1               0.006667 8.92e-05 17028 0.006494 0.006844
+ 2               0.006599 8.83e-05 17028 0.006428 0.006774
+ 3               0.006599 8.83e-05 17028 0.006428 0.006774
+ 4               0.006578 8.80e-05 17028 0.006407 0.006753
+ 5               0.006517 8.72e-05 17028 0.006349 0.006691
+ 6               0.006515 8.72e-05 17028 0.006346 0.006688
+ 7               0.006581 8.81e-05 17028 0.006410 0.006756
+ 8               0.006530 8.74e-05 17028 0.006361 0.006704
+ 9               0.006514 8.72e-05 17028 0.006345 0.006687
+ 10              0.006502 8.70e-05 17028 0.006334 0.006675
+ 11              0.006501 8.70e-05 17028 0.006332 0.006673
+ 12              0.006512 8.71e-05 17028 0.006343 0.006685
+ 13              0.006509 8.71e-05 17028 0.006340 0.006682
+ 14              0.006494 8.69e-05 17028 0.006325 0.006666
+ 15              0.006509 8.71e-05 17028 0.006341 0.006682
+ 16              0.006506 8.71e-05 17028 0.006338 0.006679
+ 17              0.006499 8.70e-05 17028 0.006330 0.006671
+ 18              0.006501 8.70e-05 17028 0.006333 0.006674
+ 19              0.006492 8.69e-05 17028 0.006324 0.006664
+ 20              0.006510 8.71e-05 17028 0.006341 0.006683
+ 21              0.006484 8.68e-05 17028 0.006316 0.006657
+ 22              0.006497 8.69e-05 17028 0.006328 0.006669
+ 23              0.006519 8.72e-05 17028 0.006351 0.006693
+ 24              0.006585 8.81e-05 17028 0.006415 0.006760
+ 25              0.006553 8.77e-05 17028 0.006384 0.006727
+ 26              0.006503 8.70e-05 17028 0.006334 0.006676
+ 27              0.006518 8.72e-05 17028 0.006349 0.006691
+ 28              0.006514 8.72e-05 17028 0.006345 0.006687
+ 29              0.006502 8.70e-05 17028 0.006333 0.006674
+ 30              0.006501 8.70e-05 17028 0.006332 0.006673
+ 31              0.006485 8.68e-05 17028 0.006317 0.006657
+ 32              0.006493 8.69e-05 17028 0.006324 0.006665
+ 33              0.006496 8.69e-05 17028 0.006328 0.006669
+ 34              0.006484 8.68e-05 17028 0.006317 0.006657
+ 35              0.006472 8.66e-05 17028 0.006304 0.006644
+ 36              0.006481 8.67e-05 17028 0.006313 0.006653
+ 37              0.006458 8.64e-05 17028 0.006291 0.006630
+ 38              0.006484 8.68e-05 17028 0.006316 0.006656
+ 39              0.006493 8.69e-05 17028 0.006325 0.006665
+ 40              0.006497 8.70e-05 17028 0.006329 0.006670
+ 41              0.006474 8.66e-05 17028 0.006307 0.006646
+ 42              0.006490 8.69e-05 17028 0.006322 0.006663
+ 43              0.006474 8.66e-05 17028 0.006307 0.006646
+ 44              0.006460 8.65e-05 17028 0.006293 0.006632
+ 45              0.006493 8.69e-05 17028 0.006325 0.006666
+ 46              0.006490 8.68e-05 17028 0.006322 0.006662
+ 47              0.006493 8.69e-05 17028 0.006325 0.006666
+ 48              0.006497 8.70e-05 17028 0.006329 0.006670
+ 49              0.006536 8.75e-05 17028 0.006367 0.006710
+
+Environment = Safari, Run = onnx, Model.Unique = guitar-lstm:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.007697 1.03e-04 17028 0.007497 0.007901
+ 1               0.006334 8.48e-05 17028 0.006170 0.006502
+ 2               0.006109 8.18e-05 17028 0.005951 0.006272
+ 3               0.006128 8.20e-05 17028 0.005969 0.006291
+ 4               0.006210 8.31e-05 17028 0.006050 0.006375
+ 5               0.006155 8.24e-05 17028 0.005995 0.006318
+ 6               0.006046 8.09e-05 17028 0.005889 0.006206
+ 7               0.005936 7.94e-05 17028 0.005783 0.006094
+ 8               0.006024 8.06e-05 17028 0.005868 0.006185
+ 9               0.006179 8.27e-05 17028 0.006019 0.006343
+ 10              0.006061 8.11e-05 17028 0.005904 0.006222
+ 11              0.005977 8.00e-05 17028 0.005822 0.006136
+ 12              0.005951 7.96e-05 17028 0.005797 0.006109
+ 13              0.005929 7.93e-05 17028 0.005775 0.006086
+ 14              0.005914 7.91e-05 17028 0.005761 0.006071
+ 15              0.005935 7.94e-05 17028 0.005781 0.006093
+ 16              0.005905 7.90e-05 17028 0.005752 0.006062
+ 17              0.005906 7.90e-05 17028 0.005753 0.006063
+ 18              0.005912 7.91e-05 17028 0.005759 0.006069
+ 19              0.005955 7.97e-05 17028 0.005800 0.006113
+ 20              0.005873 7.86e-05 17028 0.005721 0.006029
+ 21              0.005841 7.82e-05 17028 0.005690 0.005996
+ 22              0.005949 7.96e-05 17028 0.005795 0.006107
+ 23              0.005936 7.94e-05 17028 0.005782 0.006094
+ 24              0.005860 7.84e-05 17028 0.005708 0.006016
+ 25              0.005859 7.84e-05 17028 0.005708 0.006015
+ 26              0.005840 7.82e-05 17028 0.005689 0.005995
+ 27              0.005875 7.86e-05 17028 0.005723 0.006031
+ 28              0.005891 7.88e-05 17028 0.005739 0.006048
+ 29              0.005898 7.89e-05 17028 0.005745 0.006055
+ 30              0.005857 7.84e-05 17028 0.005705 0.006012
+ 31              0.005864 7.85e-05 17028 0.005712 0.006019
+ 32              0.005829 7.80e-05 17028 0.005678 0.005984
+ 33              0.005872 7.86e-05 17028 0.005720 0.006028
+ 34              0.005882 7.87e-05 17028 0.005730 0.006038
+ 35              0.005880 7.87e-05 17028 0.005727 0.006036
+ 36              0.005898 7.89e-05 17028 0.005745 0.006055
+ 37              0.005862 7.84e-05 17028 0.005710 0.006017
+ 38              0.005900 7.90e-05 17028 0.005747 0.006056
+ 39              0.005957 7.97e-05 17028 0.005802 0.006115
+ 40              0.005876 7.86e-05 17028 0.005724 0.006032
+ 41              0.005812 7.78e-05 17028 0.005662 0.005967
+ 42              0.005816 7.78e-05 17028 0.005666 0.005971
+ 43              0.005799 7.76e-05 17028 0.005648 0.005953
+ 44              0.005801 7.76e-05 17028 0.005651 0.005955
+ 45              0.005829 7.80e-05 17028 0.005679 0.005984
+ 46              0.005852 7.83e-05 17028 0.005700 0.006007
+ 47              0.005798 7.76e-05 17028 0.005648 0.005952
+ 48              0.005815 7.78e-05 17028 0.005664 0.005969
+ 49              0.005784 7.74e-05 17028 0.005634 0.005938
+
+Environment = Native, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.000139 1.87e-06 17028 0.000136 0.000143
+ 1               0.000124 1.66e-06 17028 0.000121 0.000127
+ 2               0.000126 1.69e-06 17028 0.000123 0.000130
+ 3               0.000126 1.69e-06 17028 0.000123 0.000129
+ 4               0.000123 1.65e-06 17028 0.000120 0.000126
+ 5               0.000123 1.65e-06 17028 0.000120 0.000127
+ 6               0.000124 1.67e-06 17028 0.000121 0.000128
+ 7               0.000125 1.67e-06 17028 0.000122 0.000128
+ 8               0.000122 1.64e-06 17028 0.000119 0.000125
+ 9               0.000123 1.64e-06 17028 0.000120 0.000126
+ 10              0.000124 1.66e-06 17028 0.000121 0.000127
+ 11              0.000126 1.68e-06 17028 0.000122 0.000129
+ 12              0.000123 1.64e-06 17028 0.000120 0.000126
+ 13              0.000122 1.63e-06 17028 0.000119 0.000125
+ 14              0.000122 1.64e-06 17028 0.000119 0.000126
+ 15              0.000122 1.63e-06 17028 0.000119 0.000125
+ 16              0.000122 1.64e-06 17028 0.000119 0.000126
+ 17              0.000123 1.64e-06 17028 0.000119 0.000126
+ 18              0.000123 1.64e-06 17028 0.000119 0.000126
+ 19              0.000122 1.63e-06 17028 0.000119 0.000125
+ 20              0.000123 1.64e-06 17028 0.000120 0.000126
+ 21              0.000123 1.64e-06 17028 0.000120 0.000126
+ 22              0.000122 1.63e-06 17028 0.000119 0.000125
+ 23              0.000122 1.64e-06 17028 0.000119 0.000126
+ 24              0.000122 1.63e-06 17028 0.000119 0.000125
+ 25              0.000122 1.64e-06 17028 0.000119 0.000126
+ 26              0.000122 1.63e-06 17028 0.000119 0.000125
+ 27              0.000122 1.64e-06 17028 0.000119 0.000126
+ 28              0.000123 1.64e-06 17028 0.000120 0.000126
+ 29              0.000122 1.64e-06 17028 0.000119 0.000126
+ 30              0.000125 1.68e-06 17028 0.000122 0.000129
+ 31              0.000123 1.64e-06 17028 0.000120 0.000126
+ 32              0.000122 1.63e-06 17028 0.000119 0.000125
+ 33              0.000123 1.64e-06 17028 0.000119 0.000126
+ 34              0.000122 1.63e-06 17028 0.000119 0.000125
+ 35              0.000122 1.64e-06 17028 0.000119 0.000126
+ 36              0.000122 1.64e-06 17028 0.000119 0.000125
+ 37              0.000123 1.65e-06 17028 0.000120 0.000126
+ 38              0.000122 1.64e-06 17028 0.000119 0.000126
+ 39              0.000123 1.64e-06 17028 0.000120 0.000126
+ 40              0.000122 1.64e-06 17028 0.000119 0.000126
+ 41              0.000122 1.64e-06 17028 0.000119 0.000126
+ 42              0.000123 1.64e-06 17028 0.000120 0.000126
+ 43              0.000122 1.64e-06 17028 0.000119 0.000126
+ 44              0.000122 1.64e-06 17028 0.000119 0.000125
+ 45              0.000123 1.64e-06 17028 0.000120 0.000126
+ 46              0.000122 1.64e-06 17028 0.000119 0.000126
+ 47              0.000122 1.64e-06 17028 0.000119 0.000126
+ 48              0.000122 1.63e-06 17028 0.000119 0.000125
+ 49              0.000123 1.64e-06 17028 0.000119 0.000126
+
+Environment = Chrome, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.000302 4.04e-06 17028 0.000294 0.000310
+ 1               0.000155 2.08e-06 17028 0.000151 0.000159
+ 2               0.000155 2.08e-06 17028 0.000151 0.000159
+ 3               0.000155 2.07e-06 17028 0.000151 0.000159
+ 4               0.000154 2.06e-06 17028 0.000150 0.000158
+ 5               0.000154 2.06e-06 17028 0.000150 0.000158
+ 6               0.000153 2.05e-06 17028 0.000149 0.000157
+ 7               0.000152 2.04e-06 17028 0.000148 0.000156
+ 8               0.000155 2.08e-06 17028 0.000151 0.000160
+ 9               0.000151 2.02e-06 17028 0.000147 0.000155
+ 10              0.000149 2.00e-06 17028 0.000145 0.000153
+ 11              0.000147 1.97e-06 17028 0.000143 0.000151
+ 12              0.000148 1.98e-06 17028 0.000144 0.000152
+ 13              0.000149 1.99e-06 17028 0.000145 0.000153
+ 14              0.000153 2.05e-06 17028 0.000149 0.000157
+ 15              0.000148 1.97e-06 17028 0.000144 0.000151
+ 16              0.000147 1.97e-06 17028 0.000143 0.000151
+ 17              0.000148 1.98e-06 17028 0.000144 0.000152
+ 18              0.000150 2.01e-06 17028 0.000146 0.000154
+ 19              0.000151 2.02e-06 17028 0.000147 0.000155
+ 20              0.000147 1.97e-06 17028 0.000143 0.000151
+ 21              0.000149 1.99e-06 17028 0.000145 0.000153
+ 22              0.000148 1.98e-06 17028 0.000144 0.000152
+ 23              0.000151 2.02e-06 17028 0.000147 0.000155
+ 24              0.000147 1.97e-06 17028 0.000143 0.000151
+ 25              0.000151 2.03e-06 17028 0.000148 0.000155
+ 26              0.000146 1.96e-06 17028 0.000143 0.000150
+ 27              0.000146 1.96e-06 17028 0.000143 0.000150
+ 28              0.000148 1.98e-06 17028 0.000144 0.000152
+ 29              0.000147 1.96e-06 17028 0.000143 0.000151
+ 30              0.000147 1.96e-06 17028 0.000143 0.000151
+ 31              0.000150 2.01e-06 17028 0.000147 0.000154
+ 32              0.000148 1.97e-06 17028 0.000144 0.000151
+ 33              0.000147 1.96e-06 17028 0.000143 0.000150
+ 34              0.000145 1.94e-06 17028 0.000142 0.000149
+ 35              0.000149 2.00e-06 17028 0.000145 0.000153
+ 36              0.000147 1.96e-06 17028 0.000143 0.000150
+ 37              0.000162 2.17e-06 17028 0.000158 0.000166
+ 38              0.000149 1.99e-06 17028 0.000145 0.000152
+ 39              0.000145 1.94e-06 17028 0.000141 0.000149
+ 40              0.000147 1.97e-06 17028 0.000144 0.000151
+ 41              0.000149 1.99e-06 17028 0.000145 0.000152
+ 42              0.000148 1.98e-06 17028 0.000144 0.000152
+ 43              0.000146 1.96e-06 17028 0.000143 0.000150
+ 44              0.000146 1.96e-06 17028 0.000142 0.000150
+ 45              0.000146 1.96e-06 17028 0.000142 0.000150
+ 46              0.000149 1.99e-06 17028 0.000145 0.000153
+ 47              0.000148 1.99e-06 17028 0.000145 0.000152
+ 48              0.000147 1.96e-06 17028 0.000143 0.000150
+ 49              0.000156 2.09e-06 17028 0.000152 0.000160
+
+Environment = Firefox, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.000252 3.37e-06 17028 0.000246 0.000259
+ 1               0.000134 1.79e-06 17028 0.000131 0.000138
+ 2               0.000139 1.85e-06 17028 0.000135 0.000142
+ 3               0.000132 1.76e-06 17028 0.000128 0.000135
+ 4               0.000134 1.80e-06 17028 0.000131 0.000138
+ 5               0.000135 1.80e-06 17028 0.000131 0.000138
+ 6               0.000131 1.75e-06 17028 0.000127 0.000134
+ 7               0.000132 1.76e-06 17028 0.000128 0.000135
+ 8               0.000129 1.73e-06 17028 0.000126 0.000133
+ 9               0.000129 1.72e-06 17028 0.000125 0.000132
+ 10              0.000130 1.74e-06 17028 0.000127 0.000134
+ 11              0.000131 1.75e-06 17028 0.000128 0.000134
+ 12              0.000135 1.81e-06 17028 0.000132 0.000139
+ 13              0.000134 1.80e-06 17028 0.000131 0.000138
+ 14              0.000133 1.78e-06 17028 0.000130 0.000137
+ 15              0.000132 1.76e-06 17028 0.000128 0.000135
+ 16              0.000129 1.73e-06 17028 0.000126 0.000132
+ 17              0.000130 1.74e-06 17028 0.000127 0.000133
+ 18              0.000129 1.73e-06 17028 0.000126 0.000132
+ 19              0.000130 1.74e-06 17028 0.000126 0.000133
+ 20              0.000133 1.78e-06 17028 0.000130 0.000137
+ 21              0.000135 1.81e-06 17028 0.000132 0.000139
+ 22              0.000134 1.79e-06 17028 0.000130 0.000137
+ 23              0.000136 1.81e-06 17028 0.000132 0.000139
+ 24              0.000130 1.74e-06 17028 0.000127 0.000133
+ 25              0.000130 1.74e-06 17028 0.000127 0.000134
+ 26              0.000129 1.73e-06 17028 0.000126 0.000132
+ 27              0.000129 1.73e-06 17028 0.000126 0.000133
+ 28              0.000128 1.71e-06 17028 0.000125 0.000132
+ 29              0.000133 1.78e-06 17028 0.000129 0.000136
+ 30              0.000136 1.82e-06 17028 0.000132 0.000139
+ 31              0.000134 1.80e-06 17028 0.000131 0.000138
+ 32              0.000132 1.77e-06 17028 0.000129 0.000136
+ 33              0.000131 1.75e-06 17028 0.000127 0.000134
+ 34              0.000130 1.74e-06 17028 0.000126 0.000133
+ 35              0.000129 1.73e-06 17028 0.000126 0.000133
+ 36              0.000129 1.73e-06 17028 0.000126 0.000133
+ 37              0.000131 1.75e-06 17028 0.000128 0.000134
+ 38              0.000132 1.77e-06 17028 0.000129 0.000136
+ 39              0.000137 1.84e-06 17028 0.000134 0.000141
+ 40              0.000134 1.79e-06 17028 0.000130 0.000137
+ 41              0.000133 1.78e-06 17028 0.000130 0.000137
+ 42              0.000131 1.75e-06 17028 0.000128 0.000135
+ 43              0.000130 1.74e-06 17028 0.000127 0.000134
+ 44              0.000129 1.73e-06 17028 0.000126 0.000133
+ 45              0.000131 1.75e-06 17028 0.000128 0.000135
+ 46              0.000133 1.78e-06 17028 0.000129 0.000136
+ 47              0.000133 1.78e-06 17028 0.000129 0.000136
+ 48              0.000132 1.77e-06 17028 0.000129 0.000136
+ 49              0.000129 1.72e-06 17028 0.000125 0.000132
+
+Environment = Safari, Run = bypass, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.000467 6.24e-06 17028 0.000455 0.000479
+ 1               0.000163 2.19e-06 17028 0.000159 0.000168
+ 2               0.000150 2.00e-06 17028 0.000146 0.000154
+ 3               0.000149 2.00e-06 17028 0.000145 0.000153
+ 4               0.000141 1.89e-06 17028 0.000138 0.000145
+ 5               0.000143 1.92e-06 17028 0.000140 0.000147
+ 6               0.000137 1.84e-06 17028 0.000134 0.000141
+ 7               0.000133 1.77e-06 17028 0.000129 0.000136
+ 8               0.000136 1.82e-06 17028 0.000133 0.000140
+ 9               0.000141 1.88e-06 17028 0.000137 0.000144
+ 10              0.000142 1.89e-06 17028 0.000138 0.000145
+ 11              0.000134 1.79e-06 17028 0.000130 0.000137
+ 12              0.000140 1.87e-06 17028 0.000136 0.000144
+ 13              0.000136 1.82e-06 17028 0.000132 0.000140
+ 14              0.000136 1.82e-06 17028 0.000133 0.000140
+ 15              0.000132 1.77e-06 17028 0.000129 0.000136
+ 16              0.000129 1.73e-06 17028 0.000126 0.000133
+ 17              0.000136 1.82e-06 17028 0.000132 0.000140
+ 18              0.000139 1.86e-06 17028 0.000136 0.000143
+ 19              0.000133 1.78e-06 17028 0.000130 0.000137
+ 20              0.000129 1.73e-06 17028 0.000126 0.000133
+ 21              0.000140 1.87e-06 17028 0.000136 0.000144
+ 22              0.000136 1.81e-06 17028 0.000132 0.000139
+ 23              0.000138 1.84e-06 17028 0.000134 0.000141
+ 24              0.000133 1.79e-06 17028 0.000130 0.000137
+ 25              0.000132 1.76e-06 17028 0.000128 0.000135
+ 26              0.000138 1.85e-06 17028 0.000135 0.000142
+ 27              0.000138 1.84e-06 17028 0.000134 0.000141
+ 28              0.000135 1.80e-06 17028 0.000131 0.000138
+ 29              0.000134 1.79e-06 17028 0.000130 0.000137
+ 30              0.000141 1.88e-06 17028 0.000137 0.000144
+ 31              0.000137 1.84e-06 17028 0.000134 0.000141
+ 32              0.000137 1.83e-06 17028 0.000133 0.000140
+ 33              0.000130 1.74e-06 17028 0.000126 0.000133
+ 34              0.000136 1.82e-06 17028 0.000132 0.000140
+ 35              0.000135 1.81e-06 17028 0.000132 0.000139
+ 36              0.000138 1.84e-06 17028 0.000134 0.000141
+ 37              0.000130 1.74e-06 17028 0.000126 0.000133
+ 38              0.000129 1.73e-06 17028 0.000126 0.000133
+ 39              0.000137 1.83e-06 17028 0.000133 0.000140
+ 40              0.000136 1.82e-06 17028 0.000132 0.000140
+ 41              0.000133 1.77e-06 17028 0.000129 0.000136
+ 42              0.000133 1.78e-06 17028 0.000129 0.000136
+ 43              0.000135 1.80e-06 17028 0.000131 0.000138
+ 44              0.000135 1.81e-06 17028 0.000132 0.000139
+ 45              0.000139 1.86e-06 17028 0.000135 0.000143
+ 46              0.000128 1.71e-06 17028 0.000125 0.000131
+ 47              0.000132 1.77e-06 17028 0.000129 0.000136
+ 48              0.000137 1.83e-06 17028 0.000133 0.000141
+ 49              0.000137 1.84e-06 17028 0.000134 0.000141
+
+Environment = Native, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.011609 1.55e-04 17028 0.011308 0.011918
+ 1               0.011420 1.53e-04 17028 0.011124 0.011724
+ 2               0.011380 1.52e-04 17028 0.011085 0.011682
+ 3               0.011382 1.52e-04 17028 0.011087 0.011685
+ 4               0.011360 1.52e-04 17028 0.011066 0.011662
+ 5               0.011351 1.52e-04 17028 0.011057 0.011653
+ 6               0.011355 1.52e-04 17028 0.011061 0.011657
+ 7               0.011363 1.52e-04 17028 0.011068 0.011665
+ 8               0.011359 1.52e-04 17028 0.011065 0.011661
+ 9               0.011351 1.52e-04 17028 0.011057 0.011653
+ 10              0.011360 1.52e-04 17028 0.011066 0.011662
+ 11              0.011359 1.52e-04 17028 0.011065 0.011661
+ 12              0.011361 1.52e-04 17028 0.011067 0.011663
+ 13              0.011352 1.52e-04 17028 0.011058 0.011654
+ 14              0.011361 1.52e-04 17028 0.011067 0.011663
+ 15              0.011362 1.52e-04 17028 0.011068 0.011664
+ 16              0.011350 1.52e-04 17028 0.011056 0.011652
+ 17              0.011354 1.52e-04 17028 0.011060 0.011655
+ 18              0.011355 1.52e-04 17028 0.011061 0.011657
+ 19              0.011356 1.52e-04 17028 0.011062 0.011658
+ 20              0.011350 1.52e-04 17028 0.011056 0.011652
+ 21              0.011351 1.52e-04 17028 0.011057 0.011652
+ 22              0.011355 1.52e-04 17028 0.011061 0.011657
+ 23              0.011353 1.52e-04 17028 0.011060 0.011655
+ 24              0.011357 1.52e-04 17028 0.011063 0.011658
+ 25              0.011357 1.52e-04 17028 0.011063 0.011659
+ 26              0.011363 1.52e-04 17028 0.011069 0.011665
+ 27              0.011369 1.52e-04 17028 0.011075 0.011671
+ 28              0.011353 1.52e-04 17028 0.011059 0.011655
+ 29              0.011358 1.52e-04 17028 0.011064 0.011660
+ 30              0.011350 1.52e-04 17028 0.011056 0.011652
+ 31              0.011359 1.52e-04 17028 0.011065 0.011661
+ 32              0.011351 1.52e-04 17028 0.011057 0.011653
+ 33              0.011355 1.52e-04 17028 0.011061 0.011657
+ 34              0.011356 1.52e-04 17028 0.011062 0.011657
+ 35              0.011358 1.52e-04 17028 0.011064 0.011660
+ 36              0.011358 1.52e-04 17028 0.011064 0.011660
+ 37              0.011351 1.52e-04 17028 0.011057 0.011652
+ 38              0.011358 1.52e-04 17028 0.011064 0.011659
+ 39              0.011352 1.52e-04 17028 0.011058 0.011654
+ 40              0.011345 1.52e-04 17028 0.011051 0.011646
+ 41              0.011353 1.52e-04 17028 0.011059 0.011654
+ 42              0.011361 1.52e-04 17028 0.011066 0.011662
+ 43              0.011367 1.52e-04 17028 0.011073 0.011669
+ 44              0.011344 1.52e-04 17028 0.011051 0.011646
+ 45              0.011351 1.52e-04 17028 0.011057 0.011653
+ 46              0.011356 1.52e-04 17028 0.011062 0.011658
+ 47              0.011350 1.52e-04 17028 0.011057 0.011652
+ 48              0.011372 1.52e-04 17028 0.011077 0.011674
+ 49              0.011357 1.52e-04 17028 0.011063 0.011658
+
+Environment = Chrome, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.043844 5.87e-04 17028 0.042709 0.045009
+ 1               0.042582 5.70e-04 17028 0.041480 0.043714
+ 2               0.042498 5.69e-04 17028 0.041397 0.043627
+ 3               0.042065 5.63e-04 17028 0.040976 0.043183
+ 4               0.041996 5.62e-04 17028 0.040909 0.043112
+ 5               0.042054 5.63e-04 17028 0.040966 0.043172
+ 6               0.042004 5.62e-04 17028 0.040917 0.043121
+ 7               0.041966 5.62e-04 17028 0.040879 0.043081
+ 8               0.042013 5.62e-04 17028 0.040925 0.043129
+ 9               0.042010 5.62e-04 17028 0.040922 0.043127
+ 10              0.042139 5.64e-04 17028 0.041048 0.043259
+ 11              0.042135 5.64e-04 17028 0.041044 0.043255
+ 12              0.042110 5.64e-04 17028 0.041019 0.043229
+ 13              0.042098 5.63e-04 17028 0.041008 0.043217
+ 14              0.042088 5.63e-04 17028 0.040999 0.043207
+ 15              0.042071 5.63e-04 17028 0.040981 0.043189
+ 16              0.042177 5.64e-04 17028 0.041085 0.043298
+ 17              0.042245 5.65e-04 17028 0.041152 0.043368
+ 18              0.042324 5.66e-04 17028 0.041229 0.043449
+ 19              0.042242 5.65e-04 17028 0.041149 0.043365
+ 20              0.042283 5.66e-04 17028 0.041188 0.043407
+ 21              0.042189 5.65e-04 17028 0.041097 0.043310
+ 22              0.042073 5.63e-04 17028 0.040984 0.043191
+ 23              0.042048 5.63e-04 17028 0.040959 0.043165
+ 24              0.042078 5.63e-04 17028 0.040988 0.043196
+ 25              0.041983 5.62e-04 17028 0.040896 0.043099
+ 26              0.041959 5.62e-04 17028 0.040873 0.043075
+ 27              0.041992 5.62e-04 17028 0.040905 0.043109
+ 28              0.042017 5.62e-04 17028 0.040930 0.043134
+ 29              0.041986 5.62e-04 17028 0.040899 0.043101
+ 30              0.042002 5.62e-04 17028 0.040914 0.043118
+ 31              0.041976 5.62e-04 17028 0.040889 0.043092
+ 32              0.041973 5.62e-04 17028 0.040886 0.043089
+ 33              0.041969 5.62e-04 17028 0.040883 0.043085
+ 34              0.041951 5.61e-04 17028 0.040864 0.043066
+ 35              0.041997 5.62e-04 17028 0.040910 0.043113
+ 36              0.042037 5.63e-04 17028 0.040949 0.043154
+ 37              0.041947 5.61e-04 17028 0.040861 0.043062
+ 38              0.041977 5.62e-04 17028 0.040890 0.043092
+ 39              0.041980 5.62e-04 17028 0.040893 0.043096
+ 40              0.041934 5.61e-04 17028 0.040848 0.043048
+ 41              0.041923 5.61e-04 17028 0.040838 0.043037
+ 42              0.041976 5.62e-04 17028 0.040889 0.043091
+ 43              0.041984 5.62e-04 17028 0.040897 0.043100
+ 44              0.041960 5.62e-04 17028 0.040873 0.043075
+ 45              0.041974 5.62e-04 17028 0.040887 0.043089
+ 46              0.041983 5.62e-04 17028 0.040896 0.043098
+ 47              0.042026 5.62e-04 17028 0.040938 0.043143
+ 48              0.042018 5.62e-04 17028 0.040930 0.043135
+ 49              0.042109 5.64e-04 17028 0.041019 0.043228
+
+Environment = Firefox, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.021465 2.87e-04 17028 0.020909 0.022035
+ 1               0.021053 2.82e-04 17028 0.020507 0.021612
+ 2               0.021197 2.84e-04 17028 0.020648 0.021760
+ 3               0.021208 2.84e-04 17028 0.020659 0.021772
+ 4               0.021050 2.82e-04 17028 0.020505 0.021610
+ 5               0.021150 2.83e-04 17028 0.020602 0.021712
+ 6               0.021043 2.82e-04 17028 0.020498 0.021602
+ 7               0.021007 2.81e-04 17028 0.020463 0.021566
+ 8               0.021194 2.84e-04 17028 0.020645 0.021757
+ 9               0.021031 2.81e-04 17028 0.020486 0.021590
+ 10              0.020963 2.81e-04 17028 0.020421 0.021521
+ 11              0.020924 2.80e-04 17028 0.020383 0.021481
+ 12              0.020941 2.80e-04 17028 0.020399 0.021498
+ 13              0.020947 2.80e-04 17028 0.020404 0.021503
+ 14              0.020946 2.80e-04 17028 0.020404 0.021503
+ 15              0.020832 2.79e-04 17028 0.020293 0.021386
+ 16              0.020882 2.79e-04 17028 0.020342 0.021437
+ 17              0.020839 2.79e-04 17028 0.020300 0.021393
+ 18              0.020837 2.79e-04 17028 0.020297 0.021391
+ 19              0.020819 2.79e-04 17028 0.020280 0.021373
+ 20              0.020880 2.79e-04 17028 0.020339 0.021434
+ 21              0.020902 2.80e-04 17028 0.020361 0.021457
+ 22              0.020882 2.79e-04 17028 0.020342 0.021437
+ 23              0.020903 2.80e-04 17028 0.020362 0.021458
+ 24              0.020888 2.80e-04 17028 0.020347 0.021443
+ 25              0.020862 2.79e-04 17028 0.020322 0.021417
+ 26              0.020881 2.79e-04 17028 0.020341 0.021436
+ 27              0.020860 2.79e-04 17028 0.020320 0.021414
+ 28              0.020833 2.79e-04 17028 0.020293 0.021386
+ 29              0.020865 2.79e-04 17028 0.020325 0.021420
+ 30              0.020855 2.79e-04 17028 0.020315 0.021409
+ 31              0.020842 2.79e-04 17028 0.020303 0.021396
+ 32              0.020851 2.79e-04 17028 0.020312 0.021406
+ 33              0.020848 2.79e-04 17028 0.020309 0.021403
+ 34              0.020887 2.80e-04 17028 0.020346 0.021442
+ 35              0.021002 2.81e-04 17028 0.020459 0.021560
+ 36              0.020924 2.80e-04 17028 0.020383 0.021481
+ 37              0.020941 2.80e-04 17028 0.020399 0.021497
+ 38              0.020915 2.80e-04 17028 0.020373 0.021471
+ 39              0.020900 2.80e-04 17028 0.020359 0.021455
+ 40              0.020901 2.80e-04 17028 0.020360 0.021457
+ 41              0.020902 2.80e-04 17028 0.020361 0.021457
+ 42              0.020886 2.80e-04 17028 0.020345 0.021441
+ 43              0.020904 2.80e-04 17028 0.020363 0.021460
+ 44              0.020876 2.79e-04 17028 0.020336 0.021431
+ 45              0.020865 2.79e-04 17028 0.020325 0.021420
+ 46              0.020893 2.80e-04 17028 0.020352 0.021448
+ 47              0.020849 2.79e-04 17028 0.020310 0.021403
+ 48              0.020832 2.79e-04 17028 0.020293 0.021386
+ 49              0.020862 2.79e-04 17028 0.020322 0.021417
+
+Environment = Safari, Run = onnx, Model.Unique = steerable-nafx:
+ Iteration.Count response       SE    df lower.CL upper.CL
+ 0               0.022708 3.04e-04 17028 0.022120 0.023312
+ 1               0.021095 2.82e-04 17028 0.020549 0.021656
+ 2               0.020811 2.79e-04 17028 0.020272 0.021364
+ 3               0.020718 2.77e-04 17028 0.020181 0.021268
+ 4               0.020732 2.77e-04 17028 0.020195 0.021283
+ 5               0.020702 2.77e-04 17028 0.020166 0.021252
+ 6               0.020689 2.77e-04 17028 0.020153 0.021239
+ 7               0.020716 2.77e-04 17028 0.020180 0.021267
+ 8               0.020714 2.77e-04 17028 0.020177 0.021264
+ 9               0.020808 2.78e-04 17028 0.020269 0.021361
+ 10              0.020723 2.77e-04 17028 0.020186 0.021273
+ 11              0.020702 2.77e-04 17028 0.020166 0.021252
+ 12              0.020662 2.77e-04 17028 0.020127 0.021211
+ 13              0.020654 2.76e-04 17028 0.020119 0.021203
+ 14              0.020655 2.76e-04 17028 0.020120 0.021204
+ 15              0.020650 2.76e-04 17028 0.020115 0.021199
+ 16              0.020661 2.76e-04 17028 0.020126 0.021210
+ 17              0.020802 2.78e-04 17028 0.020264 0.021355
+ 18              0.020721 2.77e-04 17028 0.020185 0.021272
+ 19              0.020700 2.77e-04 17028 0.020164 0.021250
+ 20              0.020682 2.77e-04 17028 0.020146 0.021231
+ 21              0.020697 2.77e-04 17028 0.020161 0.021247
+ 22              0.020680 2.77e-04 17028 0.020144 0.021229
+ 23              0.020670 2.77e-04 17028 0.020135 0.021220
+ 24              0.020679 2.77e-04 17028 0.020144 0.021229
+ 25              0.020678 2.77e-04 17028 0.020142 0.021227
+ 26              0.020674 2.77e-04 17028 0.020139 0.021224
+ 27              0.020712 2.77e-04 17028 0.020176 0.021263
+ 28              0.020684 2.77e-04 17028 0.020149 0.021234
+ 29              0.020669 2.77e-04 17028 0.020134 0.021218
+ 30              0.020698 2.77e-04 17028 0.020162 0.021248
+ 31              0.020682 2.77e-04 17028 0.020147 0.021232
+ 32              0.020737 2.78e-04 17028 0.020200 0.021288
+ 33              0.020691 2.77e-04 17028 0.020155 0.021241
+ 34              0.020691 2.77e-04 17028 0.020156 0.021241
+ 35              0.020687 2.77e-04 17028 0.020152 0.021237
+ 36              0.020707 2.77e-04 17028 0.020171 0.021258
+ 37              0.020692 2.77e-04 17028 0.020156 0.021242
+ 38              0.020684 2.77e-04 17028 0.020148 0.021233
+ 39              0.020685 2.77e-04 17028 0.020149 0.021234
+ 40              0.020682 2.77e-04 17028 0.020147 0.021232
+ 41              0.020689 2.77e-04 17028 0.020153 0.021239
+ 42              0.020734 2.77e-04 17028 0.020197 0.021285
+ 43              0.020692 2.77e-04 17028 0.020156 0.021242
+ 44              0.020677 2.77e-04 17028 0.020142 0.021227
+ 45              0.020667 2.77e-04 17028 0.020132 0.021216
+ 46              0.020658 2.76e-04 17028 0.020124 0.021207
+ 47              0.020658 2.76e-04 17028 0.020123 0.021207
+ 48              0.020705 2.77e-04 17028 0.020169 0.021255
+ 49              0.020671 2.77e-04 17028 0.020136 0.021221
+
+Results are averaged over the levels of: Buffer.Size 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+Environment = Native, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.043 0.0133 21168    1   3.280  0.0520
+ Iteration.Count1 effect  1.002 0.0128 21168    1   0.187  1.0000
+ Iteration.Count2 effect  0.998 0.0127 21168    1  -0.179  1.0000
+ Iteration.Count3 effect  1.004 0.0128 21168    1   0.346  1.0000
+ Iteration.Count4 effect  0.999 0.0127 21168    1  -0.102  1.0000
+ Iteration.Count5 effect  0.999 0.0127 21168    1  -0.059  1.0000
+ Iteration.Count6 effect  1.004 0.0128 21168    1   0.340  1.0000
+ Iteration.Count7 effect  0.999 0.0127 21168    1  -0.069  1.0000
+ Iteration.Count8 effect  1.000 0.0128 21168    1   0.012  1.0000
+ Iteration.Count9 effect  0.999 0.0127 21168    1  -0.109  1.0000
+ Iteration.Count10 effect 1.001 0.0128 21168    1   0.079  1.0000
+ Iteration.Count11 effect 0.997 0.0127 21168    1  -0.255  1.0000
+ Iteration.Count12 effect 1.003 0.0128 21168    1   0.203  1.0000
+ Iteration.Count13 effect 0.999 0.0127 21168    1  -0.113  1.0000
+ Iteration.Count14 effect 1.000 0.0127 21168    1   0.007  1.0000
+ Iteration.Count15 effect 0.997 0.0127 21168    1  -0.221  1.0000
+ Iteration.Count16 effect 0.996 0.0127 21168    1  -0.285  1.0000
+ Iteration.Count17 effect 0.996 0.0127 21168    1  -0.315  1.0000
+ Iteration.Count18 effect 1.002 0.0128 21168    1   0.195  1.0000
+ Iteration.Count19 effect 0.997 0.0127 21168    1  -0.230  1.0000
+ Iteration.Count20 effect 1.002 0.0128 21168    1   0.171  1.0000
+ Iteration.Count21 effect 0.995 0.0127 21168    1  -0.376  1.0000
+ Iteration.Count22 effect 1.002 0.0128 21168    1   0.165  1.0000
+ Iteration.Count23 effect 0.998 0.0127 21168    1  -0.187  1.0000
+ Iteration.Count24 effect 0.999 0.0127 21168    1  -0.062  1.0000
+ Iteration.Count25 effect 1.002 0.0128 21168    1   0.132  1.0000
+ Iteration.Count26 effect 0.997 0.0127 21168    1  -0.229  1.0000
+ Iteration.Count27 effect 1.001 0.0128 21168    1   0.112  1.0000
+ Iteration.Count28 effect 0.999 0.0127 21168    1  -0.093  1.0000
+ Iteration.Count29 effect 0.997 0.0127 21168    1  -0.218  1.0000
+ Iteration.Count30 effect 0.999 0.0127 21168    1  -0.061  1.0000
+ Iteration.Count31 effect 0.999 0.0127 21168    1  -0.097  1.0000
+ Iteration.Count32 effect 0.999 0.0127 21168    1  -0.057  1.0000
+ Iteration.Count33 effect 1.001 0.0128 21168    1   0.039  1.0000
+ Iteration.Count34 effect 0.998 0.0127 21168    1  -0.121  1.0000
+ Iteration.Count35 effect 1.000 0.0127 21168    1  -0.003  1.0000
+ Iteration.Count36 effect 0.998 0.0127 21168    1  -0.147  1.0000
+ Iteration.Count37 effect 0.996 0.0127 21168    1  -0.275  1.0000
+ Iteration.Count38 effect 0.996 0.0127 21168    1  -0.286  1.0000
+ Iteration.Count39 effect 1.000 0.0127 21168    1  -0.020  1.0000
+ Iteration.Count40 effect 0.997 0.0127 21168    1  -0.222  1.0000
+ Iteration.Count41 effect 0.998 0.0127 21168    1  -0.182  1.0000
+ Iteration.Count42 effect 0.999 0.0127 21168    1  -0.069  1.0000
+ Iteration.Count43 effect 0.997 0.0127 21168    1  -0.237  1.0000
+ Iteration.Count44 effect 1.000 0.0128 21168    1   0.025  1.0000
+ Iteration.Count45 effect 0.996 0.0127 21168    1  -0.307  1.0000
+ Iteration.Count46 effect 1.000 0.0128 21168    1   0.025  1.0000
+ Iteration.Count47 effect 0.998 0.0127 21168    1  -0.174  1.0000
+ Iteration.Count48 effect 0.999 0.0127 21168    1  -0.076  1.0000
+ Iteration.Count49 effect 1.002 0.0128 21168    1   0.118  1.0000
+
+Environment = Chrome, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.243 0.0158 21168    1  17.081 <0.0001
+ Iteration.Count1 effect  1.012 0.0129 21168    1   0.914  1.0000
+ Iteration.Count2 effect  0.988 0.0126 21168    1  -0.948  1.0000
+ Iteration.Count3 effect  0.994 0.0127 21168    1  -0.466  1.0000
+ Iteration.Count4 effect  0.996 0.0127 21168    1  -0.293  1.0000
+ Iteration.Count5 effect  0.999 0.0127 21168    1  -0.061  1.0000
+ Iteration.Count6 effect  0.997 0.0127 21168    1  -0.264  1.0000
+ Iteration.Count7 effect  0.996 0.0127 21168    1  -0.343  1.0000
+ Iteration.Count8 effect  1.003 0.0128 21168    1   0.231  1.0000
+ Iteration.Count9 effect  1.005 0.0128 21168    1   0.365  1.0000
+ Iteration.Count10 effect 0.997 0.0127 21168    1  -0.232  1.0000
+ Iteration.Count11 effect 0.992 0.0126 21168    1  -0.628  1.0000
+ Iteration.Count12 effect 0.994 0.0127 21168    1  -0.463  1.0000
+ Iteration.Count13 effect 1.005 0.0128 21168    1   0.395  1.0000
+ Iteration.Count14 effect 0.995 0.0127 21168    1  -0.359  1.0000
+ Iteration.Count15 effect 1.008 0.0128 21168    1   0.607  1.0000
+ Iteration.Count16 effect 1.026 0.0131 21168    1   2.034  1.0000
+ Iteration.Count17 effect 0.996 0.0127 21168    1  -0.325  1.0000
+ Iteration.Count18 effect 0.994 0.0127 21168    1  -0.486  1.0000
+ Iteration.Count19 effect 0.990 0.0126 21168    1  -0.750  1.0000
+ Iteration.Count20 effect 0.997 0.0127 21168    1  -0.244  1.0000
+ Iteration.Count21 effect 0.990 0.0126 21168    1  -0.802  1.0000
+ Iteration.Count22 effect 0.994 0.0127 21168    1  -0.476  1.0000
+ Iteration.Count23 effect 1.011 0.0129 21168    1   0.881  1.0000
+ Iteration.Count24 effect 0.993 0.0127 21168    1  -0.539  1.0000
+ Iteration.Count25 effect 0.987 0.0126 21168    1  -1.002  1.0000
+ Iteration.Count26 effect 0.996 0.0127 21168    1  -0.299  1.0000
+ Iteration.Count27 effect 0.989 0.0126 21168    1  -0.873  1.0000
+ Iteration.Count28 effect 0.995 0.0127 21168    1  -0.394  1.0000
+ Iteration.Count29 effect 0.986 0.0126 21168    1  -1.080  1.0000
+ Iteration.Count30 effect 0.992 0.0126 21168    1  -0.651  1.0000
+ Iteration.Count31 effect 0.990 0.0126 21168    1  -0.753  1.0000
+ Iteration.Count32 effect 0.992 0.0126 21168    1  -0.646  1.0000
+ Iteration.Count33 effect 0.992 0.0126 21168    1  -0.663  1.0000
+ Iteration.Count34 effect 0.992 0.0127 21168    1  -0.599  1.0000
+ Iteration.Count35 effect 0.997 0.0127 21168    1  -0.266  1.0000
+ Iteration.Count36 effect 1.000 0.0127 21168    1  -0.009  1.0000
+ Iteration.Count37 effect 0.996 0.0127 21168    1  -0.325  1.0000
+ Iteration.Count38 effect 0.990 0.0126 21168    1  -0.823  1.0000
+ Iteration.Count39 effect 0.990 0.0126 21168    1  -0.798  1.0000
+ Iteration.Count40 effect 0.995 0.0127 21168    1  -0.424  1.0000
+ Iteration.Count41 effect 0.994 0.0127 21168    1  -0.489  1.0000
+ Iteration.Count42 effect 0.996 0.0127 21168    1  -0.294  1.0000
+ Iteration.Count43 effect 0.990 0.0126 21168    1  -0.777  1.0000
+ Iteration.Count44 effect 0.988 0.0126 21168    1  -0.948  1.0000
+ Iteration.Count45 effect 0.994 0.0127 21168    1  -0.511  1.0000
+ Iteration.Count46 effect 0.994 0.0127 21168    1  -0.506  1.0000
+ Iteration.Count47 effect 0.993 0.0127 21168    1  -0.585  1.0000
+ Iteration.Count48 effect 0.994 0.0127 21168    1  -0.509  1.0000
+ Iteration.Count49 effect 0.992 0.0127 21168    1  -0.604  1.0000
+
+Environment = Firefox, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.319 0.0168 21168    1  21.702 <0.0001
+ Iteration.Count1 effect  1.010 0.0129 21168    1   0.794  1.0000
+ Iteration.Count2 effect  0.991 0.0126 21168    1  -0.709  1.0000
+ Iteration.Count3 effect  0.974 0.0124 21168    1  -2.061  1.0000
+ Iteration.Count4 effect  0.990 0.0126 21168    1  -0.819  1.0000
+ Iteration.Count5 effect  0.980 0.0125 21168    1  -1.598  1.0000
+ Iteration.Count6 effect  0.980 0.0125 21168    1  -1.573  1.0000
+ Iteration.Count7 effect  1.003 0.0128 21168    1   0.229  1.0000
+ Iteration.Count8 effect  1.006 0.0128 21168    1   0.431  1.0000
+ Iteration.Count9 effect  0.995 0.0127 21168    1  -0.382  1.0000
+ Iteration.Count10 effect 0.985 0.0126 21168    1  -1.212  1.0000
+ Iteration.Count11 effect 0.993 0.0127 21168    1  -0.520  1.0000
+ Iteration.Count12 effect 0.998 0.0127 21168    1  -0.160  1.0000
+ Iteration.Count13 effect 1.006 0.0128 21168    1   0.478  1.0000
+ Iteration.Count14 effect 1.003 0.0128 21168    1   0.250  1.0000
+ Iteration.Count15 effect 1.001 0.0128 21168    1   0.100  1.0000
+ Iteration.Count16 effect 0.984 0.0125 21168    1  -1.276  1.0000
+ Iteration.Count17 effect 1.007 0.0128 21168    1   0.541  1.0000
+ Iteration.Count18 effect 0.989 0.0126 21168    1  -0.831  1.0000
+ Iteration.Count19 effect 1.006 0.0128 21168    1   0.436  1.0000
+ Iteration.Count20 effect 1.001 0.0128 21168    1   0.102  1.0000
+ Iteration.Count21 effect 0.982 0.0125 21168    1  -1.431  1.0000
+ Iteration.Count22 effect 0.975 0.0124 21168    1  -2.010  1.0000
+ Iteration.Count23 effect 1.008 0.0129 21168    1   0.655  1.0000
+ Iteration.Count24 effect 0.986 0.0126 21168    1  -1.094  1.0000
+ Iteration.Count25 effect 0.981 0.0125 21168    1  -1.544  1.0000
+ Iteration.Count26 effect 0.989 0.0126 21168    1  -0.890  1.0000
+ Iteration.Count27 effect 0.996 0.0127 21168    1  -0.311  1.0000
+ Iteration.Count28 effect 0.980 0.0125 21168    1  -1.588  1.0000
+ Iteration.Count29 effect 1.002 0.0128 21168    1   0.119  1.0000
+ Iteration.Count30 effect 0.992 0.0126 21168    1  -0.636  1.0000
+ Iteration.Count31 effect 0.991 0.0126 21168    1  -0.741  1.0000
+ Iteration.Count32 effect 0.990 0.0126 21168    1  -0.765  1.0000
+ Iteration.Count33 effect 1.005 0.0128 21168    1   0.397  1.0000
+ Iteration.Count34 effect 0.982 0.0125 21168    1  -1.433  1.0000
+ Iteration.Count35 effect 1.018 0.0130 21168    1   1.436  1.0000
+ Iteration.Count36 effect 0.998 0.0127 21168    1  -0.123  1.0000
+ Iteration.Count37 effect 0.980 0.0125 21168    1  -1.600  1.0000
+ Iteration.Count38 effect 0.992 0.0126 21168    1  -0.640  1.0000
+ Iteration.Count39 effect 1.014 0.0129 21168    1   1.120  1.0000
+ Iteration.Count40 effect 0.997 0.0127 21168    1  -0.267  1.0000
+ Iteration.Count41 effect 0.993 0.0127 21168    1  -0.580  1.0000
+ Iteration.Count42 effect 0.995 0.0127 21168    1  -0.368  1.0000
+ Iteration.Count43 effect 0.985 0.0126 21168    1  -1.174  1.0000
+ Iteration.Count44 effect 0.993 0.0127 21168    1  -0.545  1.0000
+ Iteration.Count45 effect 1.005 0.0128 21168    1   0.380  1.0000
+ Iteration.Count46 effect 0.995 0.0127 21168    1  -0.387  1.0000
+ Iteration.Count47 effect 1.002 0.0128 21168    1   0.138  1.0000
+ Iteration.Count48 effect 1.001 0.0128 21168    1   0.060  1.0000
+ Iteration.Count49 effect 0.999 0.0127 21168    1  -0.101  1.0000
+
+Environment = Safari, Run = bypass, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.952 0.0249 21168    1  52.478 <0.0001
+ Iteration.Count1 effect  1.150 0.0147 21168    1  10.980 <0.0001
+ Iteration.Count2 effect  1.028 0.0131 21168    1   2.164  1.0000
+ Iteration.Count3 effect  1.037 0.0132 21168    1   2.857  0.1883
+ Iteration.Count4 effect  0.999 0.0127 21168    1  -0.064  1.0000
+ Iteration.Count5 effect  1.003 0.0128 21168    1   0.203  1.0000
+ Iteration.Count6 effect  0.989 0.0126 21168    1  -0.835  1.0000
+ Iteration.Count7 effect  0.990 0.0126 21168    1  -0.800  1.0000
+ Iteration.Count8 effect  1.027 0.0131 21168    1   2.100  1.0000
+ Iteration.Count9 effect  1.000 0.0127 21168    1   0.007  1.0000
+ Iteration.Count10 effect 0.977 0.0125 21168    1  -1.850  1.0000
+ Iteration.Count11 effect 0.991 0.0126 21168    1  -0.711  1.0000
+ Iteration.Count12 effect 0.982 0.0125 21168    1  -1.447  1.0000
+ Iteration.Count13 effect 0.973 0.0124 21168    1  -2.129  1.0000
+ Iteration.Count14 effect 0.968 0.0123 21168    1  -2.541  0.4529
+ Iteration.Count15 effect 0.983 0.0125 21168    1  -1.312  1.0000
+ Iteration.Count16 effect 0.984 0.0125 21168    1  -1.254  1.0000
+ Iteration.Count17 effect 0.952 0.0121 21168    1  -3.846  0.0058
+ Iteration.Count18 effect 0.974 0.0124 21168    1  -2.058  1.0000
+ Iteration.Count19 effect 1.016 0.0130 21168    1   1.278  1.0000
+ Iteration.Count20 effect 0.976 0.0124 21168    1  -1.902  1.0000
+ Iteration.Count21 effect 0.973 0.0124 21168    1  -2.162  1.0000
+ Iteration.Count22 effect 0.984 0.0125 21168    1  -1.251  1.0000
+ Iteration.Count23 effect 0.961 0.0122 21168    1  -3.154  0.0726
+ Iteration.Count24 effect 0.991 0.0126 21168    1  -0.723  1.0000
+ Iteration.Count25 effect 0.993 0.0127 21168    1  -0.512  1.0000
+ Iteration.Count26 effect 0.986 0.0126 21168    1  -1.109  1.0000
+ Iteration.Count27 effect 0.965 0.0123 21168    1  -2.827  0.1978
+ Iteration.Count28 effect 0.974 0.0124 21168    1  -2.037  1.0000
+ Iteration.Count29 effect 0.980 0.0125 21168    1  -1.569  1.0000
+ Iteration.Count30 effect 0.994 0.0127 21168    1  -0.435  1.0000
+ Iteration.Count31 effect 0.975 0.0124 21168    1  -1.994  1.0000
+ Iteration.Count32 effect 0.982 0.0125 21168    1  -1.439  1.0000
+ Iteration.Count33 effect 0.958 0.0122 21168    1  -3.387  0.0332
+ Iteration.Count34 effect 0.981 0.0125 21168    1  -1.479  1.0000
+ Iteration.Count35 effect 0.979 0.0125 21168    1  -1.632  1.0000
+ Iteration.Count36 effect 0.977 0.0124 21168    1  -1.858  1.0000
+ Iteration.Count37 effect 0.982 0.0125 21168    1  -1.438  1.0000
+ Iteration.Count38 effect 0.964 0.0123 21168    1  -2.846  0.1904
+ Iteration.Count39 effect 0.985 0.0126 21168    1  -1.203  1.0000
+ Iteration.Count40 effect 0.960 0.0122 21168    1  -3.183  0.0672
+ Iteration.Count41 effect 0.970 0.0124 21168    1  -2.409  0.6404
+ Iteration.Count42 effect 0.982 0.0125 21168    1  -1.390  1.0000
+ Iteration.Count43 effect 0.978 0.0125 21168    1  -1.768  1.0000
+ Iteration.Count44 effect 0.975 0.0124 21168    1  -1.997  1.0000
+ Iteration.Count45 effect 0.974 0.0124 21168    1  -2.031  1.0000
+ Iteration.Count46 effect 0.984 0.0125 21168    1  -1.305  1.0000
+ Iteration.Count47 effect 0.992 0.0126 21168    1  -0.653  1.0000
+ Iteration.Count48 effect 0.972 0.0124 21168    1  -2.251  0.9506
+ Iteration.Count49 effect 0.984 0.0125 21168    1  -1.276  1.0000
+
+Environment = Native, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.059 0.0135 21168    1   4.511  0.0003
+ Iteration.Count1 effect  1.005 0.0128 21168    1   0.370  1.0000
+ Iteration.Count2 effect  0.999 0.0127 21168    1  -0.081  1.0000
+ Iteration.Count3 effect  0.998 0.0127 21168    1  -0.121  1.0000
+ Iteration.Count4 effect  0.999 0.0127 21168    1  -0.066  1.0000
+ Iteration.Count5 effect  0.998 0.0127 21168    1  -0.132  1.0000
+ Iteration.Count6 effect  0.997 0.0127 21168    1  -0.263  1.0000
+ Iteration.Count7 effect  0.999 0.0127 21168    1  -0.110  1.0000
+ Iteration.Count8 effect  0.996 0.0127 21168    1  -0.277  1.0000
+ Iteration.Count9 effect  1.001 0.0128 21168    1   0.054  1.0000
+ Iteration.Count10 effect 0.998 0.0127 21168    1  -0.134  1.0000
+ Iteration.Count11 effect 0.999 0.0127 21168    1  -0.084  1.0000
+ Iteration.Count12 effect 0.999 0.0127 21168    1  -0.087  1.0000
+ Iteration.Count13 effect 1.000 0.0127 21168    1  -0.015  1.0000
+ Iteration.Count14 effect 0.999 0.0127 21168    1  -0.086  1.0000
+ Iteration.Count15 effect 1.001 0.0128 21168    1   0.059  1.0000
+ Iteration.Count16 effect 1.002 0.0128 21168    1   0.192  1.0000
+ Iteration.Count17 effect 0.998 0.0127 21168    1  -0.136  1.0000
+ Iteration.Count18 effect 0.998 0.0127 21168    1  -0.174  1.0000
+ Iteration.Count19 effect 0.999 0.0127 21168    1  -0.042  1.0000
+ Iteration.Count20 effect 0.999 0.0127 21168    1  -0.062  1.0000
+ Iteration.Count21 effect 0.999 0.0127 21168    1  -0.112  1.0000
+ Iteration.Count22 effect 0.999 0.0127 21168    1  -0.054  1.0000
+ Iteration.Count23 effect 1.001 0.0128 21168    1   0.040  1.0000
+ Iteration.Count24 effect 1.001 0.0128 21168    1   0.041  1.0000
+ Iteration.Count25 effect 1.000 0.0128 21168    1   0.029  1.0000
+ Iteration.Count26 effect 0.998 0.0127 21168    1  -0.171  1.0000
+ Iteration.Count27 effect 0.999 0.0127 21168    1  -0.108  1.0000
+ Iteration.Count28 effect 0.998 0.0127 21168    1  -0.152  1.0000
+ Iteration.Count29 effect 0.998 0.0127 21168    1  -0.177  1.0000
+ Iteration.Count30 effect 0.998 0.0127 21168    1  -0.191  1.0000
+ Iteration.Count31 effect 0.998 0.0127 21168    1  -0.135  1.0000
+ Iteration.Count32 effect 1.001 0.0128 21168    1   0.115  1.0000
+ Iteration.Count33 effect 0.997 0.0127 21168    1  -0.210  1.0000
+ Iteration.Count34 effect 0.998 0.0127 21168    1  -0.175  1.0000
+ Iteration.Count35 effect 0.999 0.0127 21168    1  -0.093  1.0000
+ Iteration.Count36 effect 0.999 0.0127 21168    1  -0.114  1.0000
+ Iteration.Count37 effect 1.000 0.0127 21168    1  -0.007  1.0000
+ Iteration.Count38 effect 0.997 0.0127 21168    1  -0.201  1.0000
+ Iteration.Count39 effect 0.997 0.0127 21168    1  -0.212  1.0000
+ Iteration.Count40 effect 0.998 0.0127 21168    1  -0.128  1.0000
+ Iteration.Count41 effect 0.998 0.0127 21168    1  -0.141  1.0000
+ Iteration.Count42 effect 0.998 0.0127 21168    1  -0.176  1.0000
+ Iteration.Count43 effect 0.999 0.0127 21168    1  -0.054  1.0000
+ Iteration.Count44 effect 0.998 0.0127 21168    1  -0.144  1.0000
+ Iteration.Count45 effect 0.998 0.0127 21168    1  -0.189  1.0000
+ Iteration.Count46 effect 0.997 0.0127 21168    1  -0.205  1.0000
+ Iteration.Count47 effect 0.998 0.0127 21168    1  -0.159  1.0000
+ Iteration.Count48 effect 0.998 0.0127 21168    1  -0.129  1.0000
+ Iteration.Count49 effect 0.999 0.0127 21168    1  -0.105  1.0000
+
+Environment = Chrome, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.098 0.0140 21168    1   7.315 <0.0001
+ Iteration.Count1 effect  1.001 0.0128 21168    1   0.106  1.0000
+ Iteration.Count2 effect  0.992 0.0126 21168    1  -0.658  1.0000
+ Iteration.Count3 effect  0.994 0.0127 21168    1  -0.463  1.0000
+ Iteration.Count4 effect  0.991 0.0126 21168    1  -0.735  1.0000
+ Iteration.Count5 effect  0.997 0.0127 21168    1  -0.227  1.0000
+ Iteration.Count6 effect  1.006 0.0128 21168    1   0.474  1.0000
+ Iteration.Count7 effect  1.001 0.0128 21168    1   0.114  1.0000
+ Iteration.Count8 effect  1.002 0.0128 21168    1   0.163  1.0000
+ Iteration.Count9 effect  0.988 0.0126 21168    1  -0.911  1.0000
+ Iteration.Count10 effect 0.991 0.0126 21168    1  -0.738  1.0000
+ Iteration.Count11 effect 0.988 0.0126 21168    1  -0.919  1.0000
+ Iteration.Count12 effect 0.993 0.0127 21168    1  -0.544  1.0000
+ Iteration.Count13 effect 0.995 0.0127 21168    1  -0.430  1.0000
+ Iteration.Count14 effect 0.991 0.0126 21168    1  -0.732  1.0000
+ Iteration.Count15 effect 0.989 0.0126 21168    1  -0.904  1.0000
+ Iteration.Count16 effect 0.992 0.0126 21168    1  -0.635  1.0000
+ Iteration.Count17 effect 0.988 0.0126 21168    1  -0.956  1.0000
+ Iteration.Count18 effect 0.987 0.0126 21168    1  -1.010  1.0000
+ Iteration.Count19 effect 0.988 0.0126 21168    1  -0.909  1.0000
+ Iteration.Count20 effect 0.987 0.0126 21168    1  -1.009  1.0000
+ Iteration.Count21 effect 0.990 0.0126 21168    1  -0.780  1.0000
+ Iteration.Count22 effect 0.989 0.0126 21168    1  -0.905  1.0000
+ Iteration.Count23 effect 0.986 0.0126 21168    1  -1.092  1.0000
+ Iteration.Count24 effect 0.988 0.0126 21168    1  -0.973  1.0000
+ Iteration.Count25 effect 0.987 0.0126 21168    1  -0.997  1.0000
+ Iteration.Count26 effect 0.988 0.0126 21168    1  -0.914  1.0000
+ Iteration.Count27 effect 0.987 0.0126 21168    1  -1.008  1.0000
+ Iteration.Count28 effect 0.988 0.0126 21168    1  -0.959  1.0000
+ Iteration.Count29 effect 0.995 0.0127 21168    1  -0.383  1.0000
+ Iteration.Count30 effect 0.995 0.0127 21168    1  -0.405  1.0000
+ Iteration.Count31 effect 0.992 0.0127 21168    1  -0.605  1.0000
+ Iteration.Count32 effect 0.994 0.0127 21168    1  -0.486  1.0000
+ Iteration.Count33 effect 1.002 0.0128 21168    1   0.182  1.0000
+ Iteration.Count34 effect 0.992 0.0126 21168    1  -0.659  1.0000
+ Iteration.Count35 effect 0.993 0.0127 21168    1  -0.577  1.0000
+ Iteration.Count36 effect 0.992 0.0126 21168    1  -0.611  1.0000
+ Iteration.Count37 effect 0.993 0.0127 21168    1  -0.542  1.0000
+ Iteration.Count38 effect 0.992 0.0126 21168    1  -0.667  1.0000
+ Iteration.Count39 effect 0.992 0.0126 21168    1  -0.641  1.0000
+ Iteration.Count40 effect 1.012 0.0129 21168    1   0.961  1.0000
+ Iteration.Count41 effect 1.033 0.0132 21168    1   2.522  0.5483
+ Iteration.Count42 effect 1.025 0.0131 21168    1   1.958  1.0000
+ Iteration.Count43 effect 1.012 0.0129 21168    1   0.939  1.0000
+ Iteration.Count44 effect 1.043 0.0133 21168    1   3.300  0.0475
+ Iteration.Count45 effect 1.038 0.0132 21168    1   2.935  0.1605
+ Iteration.Count46 effect 1.032 0.0132 21168    1   2.479  0.6058
+ Iteration.Count47 effect 1.002 0.0128 21168    1   0.184  1.0000
+ Iteration.Count48 effect 0.994 0.0127 21168    1  -0.457  1.0000
+ Iteration.Count49 effect 1.023 0.0130 21168    1   1.814  1.0000
+
+Environment = Firefox, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.113 0.0142 21168    1   8.424 <0.0001
+ Iteration.Count1 effect  1.022 0.0130 21168    1   1.681  1.0000
+ Iteration.Count2 effect  1.011 0.0129 21168    1   0.876  1.0000
+ Iteration.Count3 effect  1.011 0.0129 21168    1   0.876  1.0000
+ Iteration.Count4 effect  1.008 0.0129 21168    1   0.625  1.0000
+ Iteration.Count5 effect  0.999 0.0127 21168    1  -0.097  1.0000
+ Iteration.Count6 effect  0.998 0.0127 21168    1  -0.132  1.0000
+ Iteration.Count7 effect  1.008 0.0129 21168    1   0.660  1.0000
+ Iteration.Count8 effect  1.001 0.0128 21168    1   0.054  1.0000
+ Iteration.Count9 effect  0.998 0.0127 21168    1  -0.145  1.0000
+ Iteration.Count10 effect 0.996 0.0127 21168    1  -0.285  1.0000
+ Iteration.Count11 effect 0.996 0.0127 21168    1  -0.300  1.0000
+ Iteration.Count12 effect 0.998 0.0127 21168    1  -0.168  1.0000
+ Iteration.Count13 effect 0.997 0.0127 21168    1  -0.202  1.0000
+ Iteration.Count14 effect 0.995 0.0127 21168    1  -0.385  1.0000
+ Iteration.Count15 effect 0.997 0.0127 21168    1  -0.198  1.0000
+ Iteration.Count16 effect 0.997 0.0127 21168    1  -0.231  1.0000
+ Iteration.Count17 effect 0.996 0.0127 21168    1  -0.323  1.0000
+ Iteration.Count18 effect 0.996 0.0127 21168    1  -0.295  1.0000
+ Iteration.Count19 effect 0.995 0.0127 21168    1  -0.409  1.0000
+ Iteration.Count20 effect 0.998 0.0127 21168    1  -0.192  1.0000
+ Iteration.Count21 effect 0.994 0.0127 21168    1  -0.499  1.0000
+ Iteration.Count22 effect 0.996 0.0127 21168    1  -0.348  1.0000
+ Iteration.Count23 effect 0.999 0.0127 21168    1  -0.075  1.0000
+ Iteration.Count24 effect 1.009 0.0129 21168    1   0.714  1.0000
+ Iteration.Count25 effect 1.004 0.0128 21168    1   0.332  1.0000
+ Iteration.Count26 effect 0.996 0.0127 21168    1  -0.275  1.0000
+ Iteration.Count27 effect 0.999 0.0127 21168    1  -0.092  1.0000
+ Iteration.Count28 effect 0.998 0.0127 21168    1  -0.141  1.0000
+ Iteration.Count29 effect 0.996 0.0127 21168    1  -0.288  1.0000
+ Iteration.Count30 effect 0.996 0.0127 21168    1  -0.300  1.0000
+ Iteration.Count31 effect 0.994 0.0127 21168    1  -0.491  1.0000
+ Iteration.Count32 effect 0.995 0.0127 21168    1  -0.397  1.0000
+ Iteration.Count33 effect 0.995 0.0127 21168    1  -0.357  1.0000
+ Iteration.Count34 effect 0.994 0.0127 21168    1  -0.495  1.0000
+ Iteration.Count35 effect 0.992 0.0126 21168    1  -0.652  1.0000
+ Iteration.Count36 effect 0.993 0.0127 21168    1  -0.540  1.0000
+ Iteration.Count37 effect 0.990 0.0126 21168    1  -0.812  1.0000
+ Iteration.Count38 effect 0.994 0.0127 21168    1  -0.501  1.0000
+ Iteration.Count39 effect 0.995 0.0127 21168    1  -0.395  1.0000
+ Iteration.Count40 effect 0.996 0.0127 21168    1  -0.340  1.0000
+ Iteration.Count41 effect 0.992 0.0126 21168    1  -0.619  1.0000
+ Iteration.Count42 effect 0.995 0.0127 21168    1  -0.428  1.0000
+ Iteration.Count43 effect 0.992 0.0126 21168    1  -0.620  1.0000
+ Iteration.Count44 effect 0.990 0.0126 21168    1  -0.789  1.0000
+ Iteration.Count45 effect 0.995 0.0127 21168    1  -0.393  1.0000
+ Iteration.Count46 effect 0.994 0.0127 21168    1  -0.434  1.0000
+ Iteration.Count47 effect 0.995 0.0127 21168    1  -0.388  1.0000
+ Iteration.Count48 effect 0.996 0.0127 21168    1  -0.338  1.0000
+ Iteration.Count49 effect 1.002 0.0128 21168    1   0.127  1.0000
+
+Environment = Safari, Run = onnx, Model.Unique = guitar-lstm:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.292 0.0165 21168    1  20.112 <0.0001
+ Iteration.Count1 effect  1.064 0.0136 21168    1   4.830 <0.0001
+ Iteration.Count2 effect  1.026 0.0131 21168    1   1.995  1.0000
+ Iteration.Count3 effect  1.029 0.0131 21168    1   2.235  1.0000
+ Iteration.Count4 effect  1.043 0.0133 21168    1   3.282  0.0495
+ Iteration.Count5 effect  1.033 0.0132 21168    1   2.574  0.4627
+ Iteration.Count6 effect  1.015 0.0129 21168    1   1.175  1.0000
+ Iteration.Count7 effect  0.997 0.0127 21168    1  -0.257  1.0000
+ Iteration.Count8 effect  1.012 0.0129 21168    1   0.899  1.0000
+ Iteration.Count9 effect  1.037 0.0132 21168    1   2.884  0.1846
+ Iteration.Count10 effect 1.018 0.0130 21168    1   1.375  1.0000
+ Iteration.Count11 effect 1.004 0.0128 21168    1   0.279  1.0000
+ Iteration.Count12 effect 0.999 0.0127 21168    1  -0.061  1.0000
+ Iteration.Count13 effect 0.995 0.0127 21168    1  -0.360  1.0000
+ Iteration.Count14 effect 0.993 0.0127 21168    1  -0.551  1.0000
+ Iteration.Count15 effect 0.997 0.0127 21168    1  -0.274  1.0000
+ Iteration.Count16 effect 0.992 0.0126 21168    1  -0.670  1.0000
+ Iteration.Count17 effect 0.992 0.0126 21168    1  -0.662  1.0000
+ Iteration.Count18 effect 0.993 0.0127 21168    1  -0.583  1.0000
+ Iteration.Count19 effect 1.000 0.0127 21168    1  -0.017  1.0000
+ Iteration.Count20 effect 0.986 0.0126 21168    1  -1.103  1.0000
+ Iteration.Count21 effect 0.981 0.0125 21168    1  -1.526  1.0000
+ Iteration.Count22 effect 0.999 0.0127 21168    1  -0.087  1.0000
+ Iteration.Count23 effect 0.997 0.0127 21168    1  -0.264  1.0000
+ Iteration.Count24 effect 0.984 0.0125 21168    1  -1.273  1.0000
+ Iteration.Count25 effect 0.984 0.0125 21168    1  -1.280  1.0000
+ Iteration.Count26 effect 0.981 0.0125 21168    1  -1.543  1.0000
+ Iteration.Count27 effect 0.986 0.0126 21168    1  -1.076  1.0000
+ Iteration.Count28 effect 0.989 0.0126 21168    1  -0.853  1.0000
+ Iteration.Count29 effect 0.990 0.0126 21168    1  -0.768  1.0000
+ Iteration.Count30 effect 0.983 0.0125 21168    1  -1.315  1.0000
+ Iteration.Count31 effect 0.985 0.0126 21168    1  -1.225  1.0000
+ Iteration.Count32 effect 0.979 0.0125 21168    1  -1.694  1.0000
+ Iteration.Count33 effect 0.986 0.0126 21168    1  -1.113  1.0000
+ Iteration.Count34 effect 0.988 0.0126 21168    1  -0.976  1.0000
+ Iteration.Count35 effect 0.987 0.0126 21168    1  -1.011  1.0000
+ Iteration.Count36 effect 0.990 0.0126 21168    1  -0.767  1.0000
+ Iteration.Count37 effect 0.984 0.0125 21168    1  -1.251  1.0000
+ Iteration.Count38 effect 0.991 0.0126 21168    1  -0.743  1.0000
+ Iteration.Count39 effect 1.000 0.0127 21168    1   0.009  1.0000
+ Iteration.Count40 effect 0.987 0.0126 21168    1  -1.058  1.0000
+ Iteration.Count41 effect 0.976 0.0124 21168    1  -1.915  1.0000
+ Iteration.Count42 effect 0.977 0.0124 21168    1  -1.862  1.0000
+ Iteration.Count43 effect 0.974 0.0124 21168    1  -2.100  1.0000
+ Iteration.Count44 effect 0.974 0.0124 21168    1  -2.070  1.0000
+ Iteration.Count45 effect 0.979 0.0125 21168    1  -1.682  1.0000
+ Iteration.Count46 effect 0.983 0.0125 21168    1  -1.380  1.0000
+ Iteration.Count47 effect 0.974 0.0124 21168    1  -2.102  1.0000
+ Iteration.Count48 effect 0.976 0.0124 21168    1  -1.882  1.0000
+ Iteration.Count49 effect 0.971 0.0124 21168    1  -2.297  0.9732
+
+Environment = Native, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.132 0.0144 21168    1   9.740 <0.0001
+ Iteration.Count1 effect  1.006 0.0128 21168    1   0.441  1.0000
+ Iteration.Count2 effect  1.025 0.0131 21168    1   1.935  1.0000
+ Iteration.Count3 effect  1.023 0.0130 21168    1   1.802  1.0000
+ Iteration.Count4 effect  0.998 0.0127 21168    1  -0.138  1.0000
+ Iteration.Count5 effect  1.002 0.0128 21168    1   0.139  1.0000
+ Iteration.Count6 effect  1.010 0.0129 21168    1   0.818  1.0000
+ Iteration.Count7 effect  1.015 0.0129 21168    1   1.172  1.0000
+ Iteration.Count8 effect  0.992 0.0126 21168    1  -0.629  1.0000
+ Iteration.Count9 effect  0.996 0.0127 21168    1  -0.333  1.0000
+ Iteration.Count10 effect 1.006 0.0128 21168    1   0.488  1.0000
+ Iteration.Count11 effect 1.021 0.0130 21168    1   1.607  1.0000
+ Iteration.Count12 effect 0.998 0.0127 21168    1  -0.196  1.0000
+ Iteration.Count13 effect 0.991 0.0126 21168    1  -0.716  1.0000
+ Iteration.Count14 effect 0.994 0.0127 21168    1  -0.450  1.0000
+ Iteration.Count15 effect 0.991 0.0126 21168    1  -0.732  1.0000
+ Iteration.Count16 effect 0.994 0.0127 21168    1  -0.460  1.0000
+ Iteration.Count17 effect 0.995 0.0127 21168    1  -0.365  1.0000
+ Iteration.Count18 effect 0.995 0.0127 21168    1  -0.400  1.0000
+ Iteration.Count19 effect 0.991 0.0126 21168    1  -0.697  1.0000
+ Iteration.Count20 effect 0.996 0.0127 21168    1  -0.298  1.0000
+ Iteration.Count21 effect 0.997 0.0127 21168    1  -0.241  1.0000
+ Iteration.Count22 effect 0.992 0.0126 21168    1  -0.669  1.0000
+ Iteration.Count23 effect 0.993 0.0127 21168    1  -0.585  1.0000
+ Iteration.Count24 effect 0.990 0.0126 21168    1  -0.752  1.0000
+ Iteration.Count25 effect 0.994 0.0127 21168    1  -0.470  1.0000
+ Iteration.Count26 effect 0.990 0.0126 21168    1  -0.777  1.0000
+ Iteration.Count27 effect 0.993 0.0127 21168    1  -0.549  1.0000
+ Iteration.Count28 effect 0.996 0.0127 21168    1  -0.298  1.0000
+ Iteration.Count29 effect 0.994 0.0127 21168    1  -0.508  1.0000
+ Iteration.Count30 effect 1.018 0.0130 21168    1   1.379  1.0000
+ Iteration.Count31 effect 0.996 0.0127 21168    1  -0.280  1.0000
+ Iteration.Count32 effect 0.991 0.0126 21168    1  -0.739  1.0000
+ Iteration.Count33 effect 0.995 0.0127 21168    1  -0.362  1.0000
+ Iteration.Count34 effect 0.991 0.0126 21168    1  -0.714  1.0000
+ Iteration.Count35 effect 0.993 0.0127 21168    1  -0.548  1.0000
+ Iteration.Count36 effect 0.992 0.0126 21168    1  -0.654  1.0000
+ Iteration.Count37 effect 0.998 0.0127 21168    1  -0.156  1.0000
+ Iteration.Count38 effect 0.994 0.0127 21168    1  -0.489  1.0000
+ Iteration.Count39 effect 0.997 0.0127 21168    1  -0.202  1.0000
+ Iteration.Count40 effect 0.993 0.0127 21168    1  -0.541  1.0000
+ Iteration.Count41 effect 0.994 0.0127 21168    1  -0.461  1.0000
+ Iteration.Count42 effect 0.997 0.0127 21168    1  -0.266  1.0000
+ Iteration.Count43 effect 0.993 0.0127 21168    1  -0.548  1.0000
+ Iteration.Count44 effect 0.992 0.0126 21168    1  -0.608  1.0000
+ Iteration.Count45 effect 0.996 0.0127 21168    1  -0.334  1.0000
+ Iteration.Count46 effect 0.993 0.0127 21168    1  -0.549  1.0000
+ Iteration.Count47 effect 0.993 0.0127 21168    1  -0.542  1.0000
+ Iteration.Count48 effect 0.989 0.0126 21168    1  -0.840  1.0000
+ Iteration.Count49 effect 0.995 0.0127 21168    1  -0.425  1.0000
+
+Environment = Chrome, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.990 0.0254 21168    1  53.983 <0.0001
+ Iteration.Count1 effect  1.023 0.0130 21168    1   1.813  1.0000
+ Iteration.Count2 effect  1.024 0.0131 21168    1   1.844  1.0000
+ Iteration.Count3 effect  1.019 0.0130 21168    1   1.502  1.0000
+ Iteration.Count4 effect  1.014 0.0129 21168    1   1.089  1.0000
+ Iteration.Count5 effect  1.016 0.0130 21168    1   1.238  1.0000
+ Iteration.Count6 effect  1.010 0.0129 21168    1   0.796  1.0000
+ Iteration.Count7 effect  1.004 0.0128 21168    1   0.339  1.0000
+ Iteration.Count8 effect  1.025 0.0131 21168    1   1.974  1.0000
+ Iteration.Count9 effect  0.994 0.0127 21168    1  -0.498  1.0000
+ Iteration.Count10 effect 0.983 0.0125 21168    1  -1.305  1.0000
+ Iteration.Count11 effect 0.971 0.0124 21168    1  -2.298  0.7116
+ Iteration.Count12 effect 0.976 0.0124 21168    1  -1.941  1.0000
+ Iteration.Count13 effect 0.983 0.0125 21168    1  -1.317  1.0000
+ Iteration.Count14 effect 1.009 0.0129 21168    1   0.722  1.0000
+ Iteration.Count15 effect 0.974 0.0124 21168    1  -2.106  1.0000
+ Iteration.Count16 effect 0.970 0.0124 21168    1  -2.365  0.6486
+ Iteration.Count17 effect 0.977 0.0125 21168    1  -1.848  1.0000
+ Iteration.Count18 effect 0.990 0.0126 21168    1  -0.796  1.0000
+ Iteration.Count19 effect 0.996 0.0127 21168    1  -0.327  1.0000
+ Iteration.Count20 effect 0.971 0.0124 21168    1  -2.336  0.6827
+ Iteration.Count21 effect 0.982 0.0125 21168    1  -1.438  1.0000
+ Iteration.Count22 effect 0.975 0.0124 21168    1  -1.965  1.0000
+ Iteration.Count23 effect 0.998 0.0127 21168    1  -0.163  1.0000
+ Iteration.Count24 effect 0.971 0.0124 21168    1  -2.336  0.6827
+ Iteration.Count25 effect 0.999 0.0127 21168    1  -0.087  1.0000
+ Iteration.Count26 effect 0.966 0.0123 21168    1  -2.695  0.2962
+ Iteration.Count27 effect 0.966 0.0123 21168    1  -2.709  0.2900
+ Iteration.Count28 effect 0.977 0.0125 21168    1  -1.791  1.0000
+ Iteration.Count29 effect 0.967 0.0123 21168    1  -2.605  0.3493
+ Iteration.Count30 effect 0.968 0.0123 21168    1  -2.545  0.4049
+ Iteration.Count31 effect 0.993 0.0127 21168    1  -0.567  1.0000
+ Iteration.Count32 effect 0.973 0.0124 21168    1  -2.125  1.0000
+ Iteration.Count33 effect 0.967 0.0123 21168    1  -2.645  0.3268
+ Iteration.Count34 effect 0.959 0.0122 21168    1  -3.302  0.0451
+ Iteration.Count35 effect 0.984 0.0125 21168    1  -1.253  1.0000
+ Iteration.Count36 effect 0.966 0.0123 21168    1  -2.675  0.3067
+ Iteration.Count37 effect 1.070 0.0136 21168    1   5.298 <0.0001
+ Iteration.Count38 effect 0.980 0.0125 21168    1  -1.600  1.0000
+ Iteration.Count39 effect 0.957 0.0122 21168    1  -3.452  0.0267
+ Iteration.Count40 effect 0.972 0.0124 21168    1  -2.210  0.8405
+ Iteration.Count41 effect 0.980 0.0125 21168    1  -1.616  1.0000
+ Iteration.Count42 effect 0.977 0.0125 21168    1  -1.854  1.0000
+ Iteration.Count43 effect 0.966 0.0123 21168    1  -2.721  0.2865
+ Iteration.Count44 effect 0.964 0.0123 21168    1  -2.844  0.2054
+ Iteration.Count45 effect 0.965 0.0123 21168    1  -2.812  0.2215
+ Iteration.Count46 effect 0.982 0.0125 21168    1  -1.423  1.0000
+ Iteration.Count47 effect 0.979 0.0125 21168    1  -1.663  1.0000
+ Iteration.Count48 effect 0.967 0.0123 21168    1  -2.645  0.3268
+ Iteration.Count49 effect 1.030 0.0131 21168    1   2.282  0.7197
+
+Environment = Firefox, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.888 0.0241 21168    1  49.861 <0.0001
+ Iteration.Count1 effect  1.004 0.0128 21168    1   0.316  1.0000
+ Iteration.Count2 effect  1.038 0.0132 21168    1   2.911  0.1661
+ Iteration.Count3 effect  0.987 0.0126 21168    1  -1.013  1.0000
+ Iteration.Count4 effect  1.007 0.0128 21168    1   0.519  1.0000
+ Iteration.Count5 effect  1.010 0.0129 21168    1   0.746  1.0000
+ Iteration.Count6 effect  0.978 0.0125 21168    1  -1.783  1.0000
+ Iteration.Count7 effect  0.985 0.0126 21168    1  -1.154  1.0000
+ Iteration.Count8 effect  0.968 0.0123 21168    1  -2.577  0.4184
+ Iteration.Count9 effect  0.963 0.0123 21168    1  -2.962  0.1470
+ Iteration.Count10 effect 0.974 0.0124 21168    1  -2.074  1.0000
+ Iteration.Count11 effect 0.981 0.0125 21168    1  -1.542  1.0000
+ Iteration.Count12 effect 1.011 0.0129 21168    1   0.868  1.0000
+ Iteration.Count13 effect 1.007 0.0128 21168    1   0.519  1.0000
+ Iteration.Count14 effect 0.998 0.0127 21168    1  -0.134  1.0000
+ Iteration.Count15 effect 0.987 0.0126 21168    1  -1.006  1.0000
+ Iteration.Count16 effect 0.966 0.0123 21168    1  -2.691  0.3139
+ Iteration.Count17 effect 0.973 0.0124 21168    1  -2.108  1.0000
+ Iteration.Count18 effect 0.966 0.0123 21168    1  -2.686  0.3139
+ Iteration.Count19 effect 0.971 0.0124 21168    1  -2.310  0.7733
+ Iteration.Count20 effect 0.997 0.0127 21168    1  -0.255  1.0000
+ Iteration.Count21 effect 1.013 0.0129 21168    1   1.021  1.0000
+ Iteration.Count22 effect 1.000 0.0127 21168    1   0.003  1.0000
+ Iteration.Count23 effect 1.015 0.0129 21168    1   1.149  1.0000
+ Iteration.Count24 effect 0.972 0.0124 21168    1  -2.188  1.0000
+ Iteration.Count25 effect 0.975 0.0124 21168    1  -1.987  1.0000
+ Iteration.Count26 effect 0.966 0.0123 21168    1  -2.739  0.2778
+ Iteration.Count27 effect 0.969 0.0124 21168    1  -2.485  0.5120
+ Iteration.Count28 effect 0.960 0.0122 21168    1  -3.237  0.0593
+ Iteration.Count29 effect 0.993 0.0127 21168    1  -0.530  1.0000
+ Iteration.Count30 effect 1.016 0.0129 21168    1   1.223  1.0000
+ Iteration.Count31 effect 1.007 0.0128 21168    1   0.519  1.0000
+ Iteration.Count32 effect 0.991 0.0126 21168    1  -0.685  1.0000
+ Iteration.Count33 effect 0.979 0.0125 21168    1  -1.658  1.0000
+ Iteration.Count34 effect 0.971 0.0124 21168    1  -2.294  0.7838
+ Iteration.Count35 effect 0.969 0.0124 21168    1  -2.490  0.5120
+ Iteration.Count36 effect 0.969 0.0123 21168    1  -2.503  0.5050
+ Iteration.Count37 effect 0.981 0.0125 21168    1  -1.531  1.0000
+ Iteration.Count38 effect 0.990 0.0126 21168    1  -0.806  1.0000
+ Iteration.Count39 effect 1.027 0.0131 21168    1   2.111  1.0000
+ Iteration.Count40 effect 1.000 0.0127 21168    1  -0.005  1.0000
+ Iteration.Count41 effect 0.996 0.0127 21168    1  -0.329  1.0000
+ Iteration.Count42 effect 0.982 0.0125 21168    1  -1.457  1.0000
+ Iteration.Count43 effect 0.976 0.0124 21168    1  -1.939  1.0000
+ Iteration.Count44 effect 0.969 0.0124 21168    1  -2.490  0.5120
+ Iteration.Count45 effect 0.981 0.0125 21168    1  -1.475  1.0000
+ Iteration.Count46 effect 0.993 0.0127 21168    1  -0.530  1.0000
+ Iteration.Count47 effect 0.995 0.0127 21168    1  -0.403  1.0000
+ Iteration.Count48 effect 0.990 0.0126 21168    1  -0.758  1.0000
+ Iteration.Count49 effect 0.963 0.0123 21168    1  -2.952  0.1485
+
+Environment = Safari, Run = bypass, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  3.335 0.0425 21168    1  94.471 <0.0001
+ Iteration.Count1 effect  1.168 0.0149 21168    1  12.154 <0.0001
+ Iteration.Count2 effect  1.070 0.0136 21168    1   5.328 <0.0001
+ Iteration.Count3 effect  1.067 0.0136 21168    1   5.063 <0.0001
+ Iteration.Count4 effect  1.009 0.0129 21168    1   0.677  1.0000
+ Iteration.Count5 effect  1.025 0.0131 21168    1   1.968  0.9325
+ Iteration.Count6 effect  0.981 0.0125 21168    1  -1.486  1.0000
+ Iteration.Count7 effect  0.947 0.0121 21168    1  -4.263  0.0007
+ Iteration.Count8 effect  0.973 0.0124 21168    1  -2.150  0.6318
+ Iteration.Count9 effect  1.004 0.0128 21168    1   0.335  1.0000
+ Iteration.Count10 effect 1.012 0.0129 21168    1   0.910  1.0000
+ Iteration.Count11 effect 0.956 0.0122 21168    1  -3.558  0.0120
+ Iteration.Count12 effect 1.000 0.0128 21168    1   0.012  1.0000
+ Iteration.Count13 effect 0.971 0.0124 21168    1  -2.304  0.5302
+ Iteration.Count14 effect 0.973 0.0124 21168    1  -2.171  0.6294
+ Iteration.Count15 effect 0.945 0.0120 21168    1  -4.454  0.0003
+ Iteration.Count16 effect 0.923 0.0118 21168    1  -6.278 <0.0001
+ Iteration.Count17 effect 0.972 0.0124 21168    1  -2.250  0.5374
+ Iteration.Count18 effect 0.994 0.0127 21168    1  -0.436  1.0000
+ Iteration.Count19 effect 0.951 0.0121 21168    1  -3.955  0.0026
+ Iteration.Count20 effect 0.924 0.0118 21168    1  -6.218 <0.0001
+ Iteration.Count21 effect 1.000 0.0127 21168    1  -0.020  1.0000
+ Iteration.Count22 effect 0.968 0.0123 21168    1  -2.525  0.3009
+ Iteration.Count23 effect 0.984 0.0125 21168    1  -1.249  1.0000
+ Iteration.Count24 effect 0.954 0.0122 21168    1  -3.728  0.0064
+ Iteration.Count25 effect 0.942 0.0120 21168    1  -4.666  0.0001
+ Iteration.Count26 effect 0.989 0.0126 21168    1  -0.840  1.0000
+ Iteration.Count27 effect 0.984 0.0125 21168    1  -1.244  1.0000
+ Iteration.Count28 effect 0.962 0.0123 21168    1  -3.028  0.0741
+ Iteration.Count29 effect 0.956 0.0122 21168    1  -3.521  0.0134
+ Iteration.Count30 effect 1.005 0.0128 21168    1   0.415  1.0000
+ Iteration.Count31 effect 0.980 0.0125 21168    1  -1.545  1.0000
+ Iteration.Count32 effect 0.977 0.0125 21168    1  -1.795  1.0000
+ Iteration.Count33 effect 0.928 0.0118 21168    1  -5.869 <0.0001
+ Iteration.Count34 effect 0.971 0.0124 21168    1  -2.292  0.5302
+ Iteration.Count35 effect 0.968 0.0123 21168    1  -2.550  0.2909
+ Iteration.Count36 effect 0.984 0.0125 21168    1  -1.244  1.0000
+ Iteration.Count37 effect 0.926 0.0118 21168    1  -5.990 <0.0001
+ Iteration.Count38 effect 0.925 0.0118 21168    1  -6.096 <0.0001
+ Iteration.Count39 effect 0.975 0.0124 21168    1  -1.948  0.9325
+ Iteration.Count40 effect 0.971 0.0124 21168    1  -2.272  0.5313
+ Iteration.Count41 effect 0.948 0.0121 21168    1  -4.211  0.0009
+ Iteration.Count42 effect 0.948 0.0121 21168    1  -4.204  0.0009
+ Iteration.Count43 effect 0.964 0.0123 21168    1  -2.902  0.1077
+ Iteration.Count44 effect 0.966 0.0123 21168    1  -2.673  0.2106
+ Iteration.Count45 effect 0.993 0.0127 21168    1  -0.540  1.0000
+ Iteration.Count46 effect 0.914 0.0117 21168    1  -7.065 <0.0001
+ Iteration.Count47 effect 0.943 0.0120 21168    1  -4.581  0.0002
+ Iteration.Count48 effect 0.978 0.0125 21168    1  -1.741  1.0000
+ Iteration.Count49 effect 0.981 0.0125 21168    1  -1.472  1.0000
+
+Environment = Native, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.022 0.0130 21168    1   1.678  1.0000
+ Iteration.Count1 effect  1.005 0.0128 21168    1   0.391  1.0000
+ Iteration.Count2 effect  1.001 0.0128 21168    1   0.114  1.0000
+ Iteration.Count3 effect  1.002 0.0128 21168    1   0.129  1.0000
+ Iteration.Count4 effect  1.000 0.0127 21168    1  -0.023  1.0000
+ Iteration.Count5 effect  0.999 0.0127 21168    1  -0.083  1.0000
+ Iteration.Count6 effect  0.999 0.0127 21168    1  -0.055  1.0000
+ Iteration.Count7 effect  1.000 0.0127 21168    1  -0.005  1.0000
+ Iteration.Count8 effect  1.000 0.0127 21168    1  -0.028  1.0000
+ Iteration.Count9 effect  0.999 0.0127 21168    1  -0.083  1.0000
+ Iteration.Count10 effect 1.000 0.0127 21168    1  -0.025  1.0000
+ Iteration.Count11 effect 1.000 0.0127 21168    1  -0.031  1.0000
+ Iteration.Count12 effect 1.000 0.0127 21168    1  -0.015  1.0000
+ Iteration.Count13 effect 0.999 0.0127 21168    1  -0.078  1.0000
+ Iteration.Count14 effect 1.000 0.0127 21168    1  -0.014  1.0000
+ Iteration.Count15 effect 1.000 0.0127 21168    1  -0.009  1.0000
+ Iteration.Count16 effect 0.999 0.0127 21168    1  -0.091  1.0000
+ Iteration.Count17 effect 0.999 0.0127 21168    1  -0.067  1.0000
+ Iteration.Count18 effect 0.999 0.0127 21168    1  -0.059  1.0000
+ Iteration.Count19 effect 0.999 0.0127 21168    1  -0.051  1.0000
+ Iteration.Count20 effect 0.999 0.0127 21168    1  -0.093  1.0000
+ Iteration.Count21 effect 0.999 0.0127 21168    1  -0.087  1.0000
+ Iteration.Count22 effect 0.999 0.0127 21168    1  -0.055  1.0000
+ Iteration.Count23 effect 0.999 0.0127 21168    1  -0.068  1.0000
+ Iteration.Count24 effect 0.999 0.0127 21168    1  -0.046  1.0000
+ Iteration.Count25 effect 0.999 0.0127 21168    1  -0.042  1.0000
+ Iteration.Count26 effect 1.000 0.0127 21168    1  -0.001  1.0000
+ Iteration.Count27 effect 1.001 0.0128 21168    1   0.041  1.0000
+ Iteration.Count28 effect 0.999 0.0127 21168    1  -0.071  1.0000
+ Iteration.Count29 effect 1.000 0.0127 21168    1  -0.037  1.0000
+ Iteration.Count30 effect 0.999 0.0127 21168    1  -0.093  1.0000
+ Iteration.Count31 effect 1.000 0.0127 21168    1  -0.027  1.0000
+ Iteration.Count32 effect 0.999 0.0127 21168    1  -0.084  1.0000
+ Iteration.Count33 effect 0.999 0.0127 21168    1  -0.058  1.0000
+ Iteration.Count34 effect 0.999 0.0127 21168    1  -0.053  1.0000
+ Iteration.Count35 effect 1.000 0.0127 21168    1  -0.039  1.0000
+ Iteration.Count36 effect 1.000 0.0127 21168    1  -0.037  1.0000
+ Iteration.Count37 effect 0.999 0.0127 21168    1  -0.087  1.0000
+ Iteration.Count38 effect 0.999 0.0127 21168    1  -0.040  1.0000
+ Iteration.Count39 effect 0.999 0.0127 21168    1  -0.079  1.0000
+ Iteration.Count40 effect 0.998 0.0127 21168    1  -0.129  1.0000
+ Iteration.Count41 effect 0.999 0.0127 21168    1  -0.074  1.0000
+ Iteration.Count42 effect 1.000 0.0127 21168    1  -0.020  1.0000
+ Iteration.Count43 effect 1.000 0.0128 21168    1   0.026  1.0000
+ Iteration.Count44 effect 0.998 0.0127 21168    1  -0.131  1.0000
+ Iteration.Count45 effect 0.999 0.0127 21168    1  -0.085  1.0000
+ Iteration.Count46 effect 0.999 0.0127 21168    1  -0.049  1.0000
+ Iteration.Count47 effect 0.999 0.0127 21168    1  -0.090  1.0000
+ Iteration.Count48 effect 1.001 0.0128 21168    1   0.059  1.0000
+ Iteration.Count49 effect 0.999 0.0127 21168    1  -0.046  1.0000
+
+Environment = Chrome, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.041 0.0133 21168    1   3.187  0.0720
+ Iteration.Count1 effect  1.011 0.0129 21168    1   0.897  1.0000
+ Iteration.Count2 effect  1.009 0.0129 21168    1   0.740  1.0000
+ Iteration.Count3 effect  0.999 0.0127 21168    1  -0.062  1.0000
+ Iteration.Count4 effect  0.998 0.0127 21168    1  -0.191  1.0000
+ Iteration.Count5 effect  0.999 0.0127 21168    1  -0.082  1.0000
+ Iteration.Count6 effect  0.998 0.0127 21168    1  -0.175  1.0000
+ Iteration.Count7 effect  0.997 0.0127 21168    1  -0.247  1.0000
+ Iteration.Count8 effect  0.998 0.0127 21168    1  -0.160  1.0000
+ Iteration.Count9 effect  0.998 0.0127 21168    1  -0.165  1.0000
+ Iteration.Count10 effect 1.001 0.0128 21168    1   0.075  1.0000
+ Iteration.Count11 effect 1.001 0.0128 21168    1   0.069  1.0000
+ Iteration.Count12 effect 1.000 0.0128 21168    1   0.021  1.0000
+ Iteration.Count13 effect 1.000 0.0127 21168    1  -0.001  1.0000
+ Iteration.Count14 effect 1.000 0.0127 21168    1  -0.018  1.0000
+ Iteration.Count15 effect 0.999 0.0127 21168    1  -0.052  1.0000
+ Iteration.Count16 effect 1.002 0.0128 21168    1   0.146  1.0000
+ Iteration.Count17 effect 1.003 0.0128 21168    1   0.274  1.0000
+ Iteration.Count18 effect 1.005 0.0128 21168    1   0.420  1.0000
+ Iteration.Count19 effect 1.003 0.0128 21168    1   0.268  1.0000
+ Iteration.Count20 effect 1.004 0.0128 21168    1   0.343  1.0000
+ Iteration.Count21 effect 1.002 0.0128 21168    1   0.168  1.0000
+ Iteration.Count22 effect 0.999 0.0127 21168    1  -0.047  1.0000
+ Iteration.Count23 effect 0.999 0.0127 21168    1  -0.094  1.0000
+ Iteration.Count24 effect 1.000 0.0127 21168    1  -0.038  1.0000
+ Iteration.Count25 effect 0.997 0.0127 21168    1  -0.215  1.0000
+ Iteration.Count26 effect 0.997 0.0127 21168    1  -0.260  1.0000
+ Iteration.Count27 effect 0.997 0.0127 21168    1  -0.198  1.0000
+ Iteration.Count28 effect 0.998 0.0127 21168    1  -0.151  1.0000
+ Iteration.Count29 effect 0.997 0.0127 21168    1  -0.211  1.0000
+ Iteration.Count30 effect 0.998 0.0127 21168    1  -0.180  1.0000
+ Iteration.Count31 effect 0.997 0.0127 21168    1  -0.228  1.0000
+ Iteration.Count32 effect 0.997 0.0127 21168    1  -0.234  1.0000
+ Iteration.Count33 effect 0.997 0.0127 21168    1  -0.241  1.0000
+ Iteration.Count34 effect 0.996 0.0127 21168    1  -0.276  1.0000
+ Iteration.Count35 effect 0.998 0.0127 21168    1  -0.189  1.0000
+ Iteration.Count36 effect 0.999 0.0127 21168    1  -0.114  1.0000
+ Iteration.Count37 effect 0.996 0.0127 21168    1  -0.282  1.0000
+ Iteration.Count38 effect 0.997 0.0127 21168    1  -0.227  1.0000
+ Iteration.Count39 effect 0.997 0.0127 21168    1  -0.221  1.0000
+ Iteration.Count40 effect 0.996 0.0127 21168    1  -0.308  1.0000
+ Iteration.Count41 effect 0.996 0.0127 21168    1  -0.327  1.0000
+ Iteration.Count42 effect 0.997 0.0127 21168    1  -0.229  1.0000
+ Iteration.Count43 effect 0.997 0.0127 21168    1  -0.213  1.0000
+ Iteration.Count44 effect 0.997 0.0127 21168    1  -0.259  1.0000
+ Iteration.Count45 effect 0.997 0.0127 21168    1  -0.233  1.0000
+ Iteration.Count46 effect 0.997 0.0127 21168    1  -0.216  1.0000
+ Iteration.Count47 effect 0.998 0.0127 21168    1  -0.135  1.0000
+ Iteration.Count48 effect 0.998 0.0127 21168    1  -0.150  1.0000
+ Iteration.Count49 effect 1.000 0.0128 21168    1   0.020  1.0000
+
+Environment = Firefox, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.025 0.0131 21168    1   1.957  1.0000
+ Iteration.Count1 effect  1.006 0.0128 21168    1   0.435  1.0000
+ Iteration.Count2 effect  1.012 0.0129 21168    1   0.972  1.0000
+ Iteration.Count3 effect  1.013 0.0129 21168    1   1.013  1.0000
+ Iteration.Count4 effect  1.005 0.0128 21168    1   0.427  1.0000
+ Iteration.Count5 effect  1.010 0.0129 21168    1   0.797  1.0000
+ Iteration.Count6 effect  1.005 0.0128 21168    1   0.400  1.0000
+ Iteration.Count7 effect  1.003 0.0128 21168    1   0.266  1.0000
+ Iteration.Count8 effect  1.012 0.0129 21168    1   0.959  1.0000
+ Iteration.Count9 effect  1.005 0.0128 21168    1   0.353  1.0000
+ Iteration.Count10 effect 1.001 0.0128 21168    1   0.103  1.0000
+ Iteration.Count11 effect 0.999 0.0127 21168    1  -0.043  1.0000
+ Iteration.Count12 effect 1.000 0.0128 21168    1   0.020  1.0000
+ Iteration.Count13 effect 1.000 0.0128 21168    1   0.039  1.0000
+ Iteration.Count14 effect 1.000 0.0128 21168    1   0.038  1.0000
+ Iteration.Count15 effect 0.995 0.0127 21168    1  -0.390  1.0000
+ Iteration.Count16 effect 0.997 0.0127 21168    1  -0.202  1.0000
+ Iteration.Count17 effect 0.995 0.0127 21168    1  -0.363  1.0000
+ Iteration.Count18 effect 0.995 0.0127 21168    1  -0.372  1.0000
+ Iteration.Count19 effect 0.994 0.0127 21168    1  -0.439  1.0000
+ Iteration.Count20 effect 0.997 0.0127 21168    1  -0.212  1.0000
+ Iteration.Count21 effect 0.998 0.0127 21168    1  -0.129  1.0000
+ Iteration.Count22 effect 0.997 0.0127 21168    1  -0.201  1.0000
+ Iteration.Count23 effect 0.998 0.0127 21168    1  -0.124  1.0000
+ Iteration.Count24 effect 0.998 0.0127 21168    1  -0.181  1.0000
+ Iteration.Count25 effect 0.996 0.0127 21168    1  -0.278  1.0000
+ Iteration.Count26 effect 0.997 0.0127 21168    1  -0.205  1.0000
+ Iteration.Count27 effect 0.996 0.0127 21168    1  -0.286  1.0000
+ Iteration.Count28 effect 0.995 0.0127 21168    1  -0.388  1.0000
+ Iteration.Count29 effect 0.997 0.0127 21168    1  -0.266  1.0000
+ Iteration.Count30 effect 0.996 0.0127 21168    1  -0.306  1.0000
+ Iteration.Count31 effect 0.996 0.0127 21168    1  -0.352  1.0000
+ Iteration.Count32 effect 0.996 0.0127 21168    1  -0.318  1.0000
+ Iteration.Count33 effect 0.996 0.0127 21168    1  -0.329  1.0000
+ Iteration.Count34 effect 0.998 0.0127 21168    1  -0.184  1.0000
+ Iteration.Count35 effect 1.003 0.0128 21168    1   0.248  1.0000
+ Iteration.Count36 effect 0.999 0.0127 21168    1  -0.043  1.0000
+ Iteration.Count37 effect 1.000 0.0128 21168    1   0.018  1.0000
+ Iteration.Count38 effect 0.999 0.0127 21168    1  -0.079  1.0000
+ Iteration.Count39 effect 0.998 0.0127 21168    1  -0.136  1.0000
+ Iteration.Count40 effect 0.998 0.0127 21168    1  -0.131  1.0000
+ Iteration.Count41 effect 0.998 0.0127 21168    1  -0.129  1.0000
+ Iteration.Count42 effect 0.998 0.0127 21168    1  -0.188  1.0000
+ Iteration.Count43 effect 0.998 0.0127 21168    1  -0.121  1.0000
+ Iteration.Count44 effect 0.997 0.0127 21168    1  -0.225  1.0000
+ Iteration.Count45 effect 0.997 0.0127 21168    1  -0.266  1.0000
+ Iteration.Count46 effect 0.998 0.0127 21168    1  -0.162  1.0000
+ Iteration.Count47 effect 0.996 0.0127 21168    1  -0.326  1.0000
+ Iteration.Count48 effect 0.995 0.0127 21168    1  -0.390  1.0000
+ Iteration.Count49 effect 0.996 0.0127 21168    1  -0.278  1.0000
+
+Environment = Safari, Run = onnx, Model.Unique = steerable-nafx:
+ contrast                 ratio     SE    df null t.ratio p.value
+ Iteration.Count0 effect  1.095 0.0140 21168    1   7.102 <0.0001
+ Iteration.Count1 effect  1.017 0.0130 21168    1   1.321  1.0000
+ Iteration.Count2 effect  1.003 0.0128 21168    1   0.256  1.0000
+ Iteration.Count3 effect  0.999 0.0127 21168    1  -0.096  1.0000
+ Iteration.Count4 effect  0.999 0.0127 21168    1  -0.040  1.0000
+ Iteration.Count5 effect  0.998 0.0127 21168    1  -0.154  1.0000
+ Iteration.Count6 effect  0.997 0.0127 21168    1  -0.204  1.0000
+ Iteration.Count7 effect  0.999 0.0127 21168    1  -0.101  1.0000
+ Iteration.Count8 effect  0.999 0.0127 21168    1  -0.110  1.0000
+ Iteration.Count9 effect  1.003 0.0128 21168    1   0.245  1.0000
+ Iteration.Count10 effect 0.999 0.0127 21168    1  -0.076  1.0000
+ Iteration.Count11 effect 0.998 0.0127 21168    1  -0.154  1.0000
+ Iteration.Count12 effect 0.996 0.0127 21168    1  -0.307  1.0000
+ Iteration.Count13 effect 0.996 0.0127 21168    1  -0.336  1.0000
+ Iteration.Count14 effect 0.996 0.0127 21168    1  -0.334  1.0000
+ Iteration.Count15 effect 0.996 0.0127 21168    1  -0.353  1.0000
+ Iteration.Count16 effect 0.996 0.0127 21168    1  -0.310  1.0000
+ Iteration.Count17 effect 1.003 0.0128 21168    1   0.225  1.0000
+ Iteration.Count18 effect 0.999 0.0127 21168    1  -0.081  1.0000
+ Iteration.Count19 effect 0.998 0.0127 21168    1  -0.162  1.0000
+ Iteration.Count20 effect 0.997 0.0127 21168    1  -0.231  1.0000
+ Iteration.Count21 effect 0.998 0.0127 21168    1  -0.173  1.0000
+ Iteration.Count22 effect 0.997 0.0127 21168    1  -0.239  1.0000
+ Iteration.Count23 effect 0.997 0.0127 21168    1  -0.275  1.0000
+ Iteration.Count24 effect 0.997 0.0127 21168    1  -0.242  1.0000
+ Iteration.Count25 effect 0.997 0.0127 21168    1  -0.247  1.0000
+ Iteration.Count26 effect 0.997 0.0127 21168    1  -0.260  1.0000
+ Iteration.Count27 effect 0.999 0.0127 21168    1  -0.115  1.0000
+ Iteration.Count28 effect 0.997 0.0127 21168    1  -0.221  1.0000
+ Iteration.Count29 effect 0.996 0.0127 21168    1  -0.281  1.0000
+ Iteration.Count30 effect 0.998 0.0127 21168    1  -0.171  1.0000
+ Iteration.Count31 effect 0.997 0.0127 21168    1  -0.229  1.0000
+ Iteration.Count32 effect 1.000 0.0127 21168    1  -0.022  1.0000
+ Iteration.Count33 effect 0.998 0.0127 21168    1  -0.196  1.0000
+ Iteration.Count34 effect 0.998 0.0127 21168    1  -0.194  1.0000
+ Iteration.Count35 effect 0.997 0.0127 21168    1  -0.211  1.0000
+ Iteration.Count36 effect 0.998 0.0127 21168    1  -0.135  1.0000
+ Iteration.Count37 effect 0.998 0.0127 21168    1  -0.193  1.0000
+ Iteration.Count38 effect 0.997 0.0127 21168    1  -0.224  1.0000
+ Iteration.Count39 effect 0.997 0.0127 21168    1  -0.220  1.0000
+ Iteration.Count40 effect 0.997 0.0127 21168    1  -0.229  1.0000
+ Iteration.Count41 effect 0.997 0.0127 21168    1  -0.203  1.0000
+ Iteration.Count42 effect 1.000 0.0127 21168    1  -0.034  1.0000
+ Iteration.Count43 effect 0.998 0.0127 21168    1  -0.193  1.0000
+ Iteration.Count44 effect 0.997 0.0127 21168    1  -0.248  1.0000
+ Iteration.Count45 effect 0.996 0.0127 21168    1  -0.288  1.0000
+ Iteration.Count46 effect 0.996 0.0127 21168    1  -0.320  1.0000
+ Iteration.Count47 effect 0.996 0.0127 21168    1  -0.322  1.0000
+ Iteration.Count48 effect 0.998 0.0127 21168    1  -0.144  1.0000
+ Iteration.Count49 effect 0.997 0.0127 21168    1  -0.271  1.0000
+
+Results are averaged over the levels of: Buffer.Size 
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: holm method for 50 tests 
+Tests are performed on the log scale 
+emm_rq2_iterations.csv written to ./results/50-1
+
+#####################################################################
+# Clean up the environment
+#####################################################################
+
+Remaining attached packages:
+Remaining objects in the environment:
+Removing all objects from the environment...
+Remaining objects in the environment:
+Warning messages:
+1: In q("no", save = "no") : NAs introduced by coercion
+2: In q("no", save = "no") : invalid 'status', 0 assumed
