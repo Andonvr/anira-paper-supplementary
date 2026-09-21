@@ -207,8 +207,9 @@ def format_timer_resolution_table(log_dir: str) -> str:
     body = "\n".join(rows)
     return (
         "\\begin{table}[t]\n"
-        "\\caption{\\texttt{steady\\_clock} timer resolution per platform,\n"
-        "         measured on the benchmark machine.}\n"
+        "\\caption{\\texttt{steady\\_clock} timer resolution per platform, as reported\n"
+        "         by a single probe at benchmark start; an upper bound on the\n"
+        "         effective resolution.}\n"
         "\\label{tab:timer-resolution}\n"
         "\\centering\n"
         "\\begin{tabular}{lr}\n"
