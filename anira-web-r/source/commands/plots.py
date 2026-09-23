@@ -54,6 +54,16 @@ RTT_TICK_LENGTH = 7
 RTT_LABEL_GAP_PT = 4
 
 
+class _PlainLogFormatter(ticker.LogFormatter):
+    """Log-axis labels as plain numbers (0.1, 1, 10, 12.8) instead of
+    scientific notation. Keeps LogFormatter's rule of labelling only the
+    decades when the axis spans more than one, which matters for panels whose
+    range is narrow enough for the locator to fall back to linear ticks."""
+
+    def _num_to_string(self, x, vmin, vmax):
+        return f"{x:g}"
+
+
 def _draw_rtt(ax):
     """Mark the RTT as a labelled minor tick on the y-axis.
 
@@ -362,12 +372,16 @@ def plot_rq3_overhead(results_dir, out_dir):
                         linewidth=0.5,
                     )
 
+                # Top right: RpS falls with buffer size, so the 8192 bars
+                # leave that corner free in every panel, whereas the 128
+                # bars reach the top-left corner.
                 letter = chr(97 + row_idx * n_plot_cols + global_col)
                 ax.text(
-                    0.03,
+                    0.97,
                     0.97,
                     f"{letter})",
                     transform=ax.transAxes,
+                    ha="right",
                     va="top",
                     fontsize=10,
                 )
@@ -387,9 +401,7 @@ def plot_rq3_overhead(results_dir, out_dir):
                 ax.yaxis.set_major_locator(
                     ticker.LogLocator(base=10, subs=[1, 2, 3, 5])
                 )
-                ax.yaxis.set_major_formatter(
-                    ticker.LogFormatterSciNotation(labelOnlyBase=False)
-                )
+                ax.yaxis.set_major_formatter(_PlainLogFormatter(labelOnlyBase=False))
                 # Replaces the log locator's unlabelled minor ticks; the tick
                 # only renders in panels whose range reaches the threshold.
                 _draw_rtt(ax)
